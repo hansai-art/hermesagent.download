@@ -1,0 +1,53 @@
+# WEEKLY-REPORT:每週健康報告(article-health + 外部連結存活)→ 開 issue
+name: Weekly Health Report
+
+on:
+  schedule:
+    - cron: '0 3 * * 1' # 每週一 03:00 UTC(接在 freshness 之後)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Article health
+        run: node scripts/tools/article-health.mjs | tee /tmp/health.log || true
+
+      - name: External links
+        run: node scripts/tools/check-links.mjs | tee /tmp/links.log || true
+
+      - name: Open report issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "## 🩺 文章健康"
+            echo
+            echo '```'
+            tail -40 /tmp/health.log
+            echo '```'
+            echo
+            echo "## 🔗 外部連結"
+            echo
+            echo '```'
+            tail -40 /tmp/links.log
+            echo '```'
+            echo
+            echo "---"
+            echo "*此報告由 WEEKLY-REPORT pipeline 自動產生。死鏈與 ERROR 歡迎認領修復。*"
+          } > /tmp/report.md
+          gh issue create \
+            --title "🩺 週健康報告 $(date -u +%Y-%m-%d)" \
+            --body-file /tmp/report.md \
+            --label health-report

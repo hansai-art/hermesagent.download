@@ -1,0 +1,34 @@
+# STATS:每日更新文章統計(data/stats.json + README 統計區塊)
+name: Stats
+
+on:
+  schedule:
+    - cron: '30 0 * * *' # 每日 00:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Generate stats
+        run: node scripts/tools/generate-stats.mjs
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain data/ README.md)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/ README.md
+            git commit -m "chore(pipeline): 每日統計更新"
+            git push
+          fi

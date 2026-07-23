@@ -6,6 +6,12 @@
 任何人都可以透過編輯這個 repo 來共同維護 [hermesagent.download](https://hermesagent.download)。
 架構取法 [taiwan-md](https://github.com/frank890417/taiwan-md) 🙏。
 
+<!-- STATS:START -->
+
+**353** 篇文章.published 351.draft 1.outdated 0.archived 1(2026-07-23 更新)
+
+<!-- STATS:END -->
+
 ## 架構總覽
 
 ```

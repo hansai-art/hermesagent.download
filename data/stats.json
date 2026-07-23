@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-23T07:35:55.429Z",
+  "total": 353,
+  "byStatus": {
+    "published": 351,
+    "draft": 1,
+    "archived": 1
+  },
+  "byCategory": {
+    "issues": 308,
+    "guides": 24,
+    "install": 6,
+    "troubleshoot": 6,
+    "skills": 3,
+    "about": 1,
+    "community": 1,
+    "concepts": 1,
+    "config": 1,
+    "integrations": 1,
+    "migrate": 1
+  }
+}

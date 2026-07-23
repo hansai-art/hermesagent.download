@@ -1,0 +1,57 @@
+# FRESHNESS:每週掃 last_verified 過期文章,自動翻 status(published↔outdated)
+name: Freshness
+
+on:
+  schedule:
+    - cron: '0 1 * * 1' # 每週一 01:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Flip stale statuses
+        id: flip
+        run: |
+          node scripts/tools/freshness.mjs --apply | tee /tmp/freshness.log
+          echo "flipped=$(grep -oP 'FLIPPED_COUNT=\K\d+' /tmp/freshness.log)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit changes
+        if: steps.flip.outputs.flipped != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add knowledge/
+          git commit -m "chore(pipeline): freshness 掃描 — ${{ steps.flip.outputs.flipped }} 篇 status 翻轉"
+          git push
+
+      - name: Open issue for newly outdated articles
+        if: steps.flip.outputs.flipped != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "FRESHNESS pipeline 本週翻轉了 ${{ steps.flip.outputs.flipped }} 篇文章的 status:"
+            echo
+            echo '```'
+            grep -E '📉|📈' /tmp/freshness.log || true
+            echo '```'
+            echo
+            echo "標成 outdated 的文章會在網站顯示「可能過期」橫幅。"
+            echo "認領重新驗證:實測後更新 \`last_verified\`,下次掃描會自動翻回 published。"
+          } > /tmp/issue-body.md
+          gh issue create \
+            --title "🕰️ 本週過期掃描:${{ steps.flip.outputs.flipped }} 篇文章 status 變更" \
+            --body-file /tmp/issue-body.md \
+            --label freshness

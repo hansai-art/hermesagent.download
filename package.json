@@ -17,6 +17,9 @@
     "article-health": "node scripts/tools/article-health.mjs",
     "article-health:strict": "node scripts/tools/article-health.mjs --profile=release-pr",
     "check-links": "node scripts/tools/check-links.mjs",
+    "stats": "node scripts/tools/generate-stats.mjs",
+    "freshness": "node scripts/tools/freshness.mjs",
+    "upstream-watch": "node scripts/tools/upstream-watch.mjs --dry-run",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "prepare": "husky"
