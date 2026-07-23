@@ -7,6 +7,10 @@ dist/
 # ⚠️ 內容一律改 knowledge/,不要直接改 src/content/
 src/content/
 
+# public/api/ 是 data/ 的公開副本 + 搜尋索引,build 時自動產生
+# (data/ 本身要進版控 — 那是 pipeline 的狀態)
+public/api/
+
 # 環境與編輯器
 .env
 .env.*
