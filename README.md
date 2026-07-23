@@ -1,14 +1,34 @@
 # HermesAgent.download
 
+> **你花三小時才解開的錯誤,下一個人只要三分鐘。**
+>
 > Hermes Agent 中文社群知識庫 — 共筆、開源、自動進化。
 > 非官方站,與 Nous Research 無關;所有下載連結一律導向官方來源。
 
-任何人都可以透過編輯這個 repo 來共同維護 [hermesagent.download](https://hermesagent.download)。
+安裝一個 AI agent 卡住的時候,中文世界能查到的資料常常是零星的、過期的、
+或是根本沒有人寫過。這個站想解決的就是這件事:把散落在 issue、Discord、
+個人筆記裡的解法收攏成一個所有人都能編輯、而且**會自己偵測過期**的知識庫。
+
+[🌐 網站](https://hermesagent.download) ·
+[✋ 我想貢獻](https://hermesagent.download/contribute/) ·
+[📊 儀表板](https://hermesagent.download/dashboard/) ·
+[📡 開放資料 API](https://hermesagent.download/api/index.json)
+
 架構取法 [taiwan-md](https://github.com/frank890417/taiwan-md) 🙏。
 
-<!-- STATS:START -->
+<!-- STATS:START — 由 scripts/tools/generate-stats.mjs 自動產生(SSOT: knowledge/ + data/*.json)。請勿手動編輯。 -->
 
-**353** 篇文章.published 351.draft 1.outdated 0.archived 1(2026-07-23 更新)
+| 指標 | 數字 |
+|---|---|
+| 📄 文章總數 | 353 |
+| ✅ 已發布 | 352 |
+| 🔗 有官方來源 | 100% |
+| 🔍 近期實測驗證 | 39 |
+| 👥 貢獻者 | 1 |
+| ⭐ GitHub Stars | 0 |
+| 🔨 近 30 天更新 | 12 |
+
+<sub>每日自動更新.最後更新 2026-07-23.原始資料:[/api/stats.json](https://hermesagent.download/api/stats.json)</sub>
 
 <!-- STATS:END -->
 

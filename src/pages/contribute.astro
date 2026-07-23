@@ -1,0 +1,316 @@
+---
+import Base from '../layouts/Base.astro';
+import taskboard from '../../data/taskboard.json';
+import dashboard from '../../data/dashboard.json';
+
+const REPO = 'hansai-art/hermesagent.download';
+const PROMPT_RAW = `https://raw.githubusercontent.com/${REPO}/main/CONTRIBUTE_PROMPT.md`;
+const aiPrompt = `讀取 ${PROMPT_RAW} 的完整內容,然後按照裡面的指示引導我為 hermesagent.download 寫一篇 Hermes Agent 中文文件。`;
+
+const iceBreakers = [
+  '你上週被哪個錯誤訊息卡住超過 30 分鐘?',
+  '你有哪個自己摸索出來的 workaround,一直沒寫下來?',
+  '官方文件裡有哪一段,你看完還是不知道該打什麼指令?',
+  '你剛開始用 Hermes Agent 時,最希望有人先告訴你什麼?',
+  '你把 Hermes 接到哪個平台或工具上?過程踩了什麼坑?',
+  '你用哪個模型供應商?一個月花多少錢?',
+];
+
+const paths = [
+  {
+    tag: '🟢 最省力',
+    title: '回報一個錯誤',
+    time: '2 分鐘',
+    desc: '看到指令跑不動、內容過期、連結壞掉——開一個 issue 就好,不用自己修。',
+    gets: ['不需要會 Markdown', '不需要 fork', '中文填表單即可', '修好後你會被列為回報者'],
+    cta: { label: '開 issue 回報 →', href: `https://github.com/${REPO}/issues/new?template=01-content-error.yml` },
+  },
+  {
+    tag: '🟡 有點門檻',
+    title: '直接改一頁',
+    time: '10 分鐘',
+    desc: '每篇文章底部都有「編輯這一頁」。點下去就是 GitHub 編輯器,改完自動幫你開 PR。',
+    gets: ['不用把整個專案 clone 下來', '改錯了也沒關係,PR 會有人審', '自動化會幫你檢查格式', '合併後你出現在貢獻者牆'],
+    cta: { label: '從待驗證清單挑一篇 →', href: '#taskboard' },
+  },
+  {
+    tag: '🤖 讓 AI 代勞',
+    title: '捐出你的 AI 額度',
+    time: '15 分鐘',
+    desc: '你的 Claude / ChatGPT / Gemini 訂閱額度用不完?貼一句話給它,它會讀完我們的編輯規範,產出可以直接送出的文章。',
+    gets: ['你只需要有一個 AI 訂閱', 'AI 自動讀取編輯規範與缺口清單', '產出直接是可 PR 的 Markdown', '不需要你自己寫任何一個字'],
+    cta: { label: '複製 prompt ↓', href: '#ai-prompt' },
+  },
+  {
+    tag: '🔴 開發者',
+    title: 'Fork & PR',
+    time: '看你寫多少',
+    desc: '所有內容都是 knowledge/ 下的純 Markdown。編輯規範、品質掃描、自動化 pipeline 全部公開。',
+    gets: ['完整的編輯規範文件', 'PR 自動跑品質掃描,不會讓你猜標準', '可累積成公開的開源履歷', '寫得多可以取得 repo 權限'],
+    cta: { label: '看貢獻指南 →', href: `https://github.com/${REPO}/blob/main/CONTRIBUTING.md` },
+  },
+];
+---
+
+<Base
+  title="我想貢獻 — HermesAgent.download"
+  description="你踩過的坑,下一個人不用再踩。四種參與方式,從兩分鐘的錯誤回報到完整撰稿——包括「捐出你的 AI 額度」,連一個字都不用自己寫。"
+>
+  <!-- Hero -->
+  <section class="py-10">
+    <h1 class="text-4xl font-bold mb-4">我想貢獻 ✋</h1>
+    <p class="text-lg mb-3" style="color: var(--text)">
+      你花三小時才解開的錯誤,下一個人只要三分鐘。
+    </p>
+    <p class="mb-6" style="color: var(--text-dim)">
+      這個站的內容大多由 AI 起草、由人補完。你不需要從零寫一篇文章——
+      修正一句過期的指令、補上一個踩過的坑,就已經是完整的貢獻。
+    </p>
+
+    <!-- 誠實的現況 -->
+    <div
+      class="rounded-lg border p-5 text-sm"
+      style="border-color: var(--accent-dim); background: var(--bg-raised)"
+    >
+      <div class="font-semibold mb-2" style="color: var(--accent)">先說實話:這個站才剛出生</div>
+      <p class="mb-2" style="color: var(--text-dim)">
+        {dashboard.content.total} 篇文章、{dashboard.activity?.total ?? 1} 位貢獻者、還沒有累積流量數據。
+        {dashboard.content.gaps.length} 個分類的文章少到不足三篇。我們不假裝這裡已經很熱鬧。
+      </p>
+      <p style="color: var(--text)">
+        但這正是現在加入的意義——<strong style="color: var(--accent)">早期貢獻者決定這個站長成什麼樣子</strong>。
+        你寫的第一篇會直接定義那個分類的標準,而不是淹沒在三百篇之中。
+      </p>
+    </div>
+  </section>
+
+  <!-- 四條路徑 -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-2">選一條適合你的路</h2>
+    <p class="text-sm mb-6" style="color: var(--text-dim)">按門檻由低到高排列。四條都算貢獻,沒有高下之分。</p>
+    <div class="grid md:grid-cols-2 gap-4">
+      {
+        paths.map((p) => (
+          <div
+            class="rounded-lg border p-5 flex flex-col"
+            style="border-color: var(--border); background: var(--bg-raised)"
+          >
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs">{p.tag}</span>
+              <span class="text-xs" style="color: var(--text-dim)">
+                ⏱ {p.time}
+              </span>
+            </div>
+            <h3 class="font-bold text-lg mb-1" style="color: var(--text)">{p.title}</h3>
+            <p class="text-sm mb-3" style="color: var(--text-dim)">{p.desc}</p>
+            <ul class="text-xs space-y-1 mb-4 flex-1" style="color: var(--text-dim)">
+              {p.gets.map((g) => (
+                <li>✅ {g}</li>
+              ))}
+            </ul>
+            <a href={p.cta.href} class="text-sm font-medium" style="color: var(--accent)">
+              {p.cta.label}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- AI 額度捐贈 -->
+  <section id="ai-prompt" class="mb-16 scroll-mt-20">
+    <h2 class="text-2xl font-bold mb-2">🪙 捐出你的 AI 額度</h2>
+    <p class="mb-4" style="color: var(--text-dim)">
+      每個月的 AI 訂閱額度用不完?用 15 分鐘,幫這裡多一篇文件。
+      把下面這句話貼給 ChatGPT / Claude / Gemini,它會自己讀完我們的編輯規範、
+      挑一個缺口、產出符合格式的文章——你只需要把結果送出。
+    </p>
+    <div class="rounded-lg border overflow-hidden" style="border-color: var(--border)">
+      <div
+        class="flex items-center justify-between px-4 py-2 text-xs border-b"
+        style="border-color: var(--border); background: var(--bg-raised); color: var(--text-dim)"
+      >
+        <span>貼給你的 AI</span>
+        <button id="copy-prompt" class="rounded px-2 py-1" style="color: var(--accent)">📋 複製</button>
+      </div>
+      <pre
+        class="p-4 text-sm overflow-x-auto whitespace-pre-wrap"
+        style="background: var(--bg); color: var(--text)"><code id="prompt-text">{aiPrompt}</code></pre>
+    </div>
+    <p class="text-xs mt-3" style="color: var(--text-dim)">
+      AI 會讀取
+      <a href={PROMPT_RAW} target="_blank" rel="noopener noreferrer" style="color: var(--accent)">CONTRIBUTE_PROMPT.md</a>
+      ——裡面寫明了寫作規範、格式要求、以及禁止編造指令與版本號。產出後請自己過目一遍再送出。
+    </p>
+  </section>
+
+  <!-- 任務看板 -->
+  <section id="taskboard" class="mb-16 scroll-mt-20">
+    <h2 class="text-2xl font-bold mb-2">📋 現在最需要的</h2>
+    <p class="text-sm mb-6" style="color: var(--text-dim)">
+      這份清單由系統每日自動計算,不是人工維護的願望清單。挑一個順眼的下手就行。
+    </p>
+
+    {
+      taskboard.gaps.length > 0 && (
+        <div class="mb-8">
+          <h3 class="font-bold mb-1" style="color: var(--text)">
+            🚧 這些分類還很空
+          </h3>
+          <p class="text-xs mb-3" style="color: var(--text-dim)">
+            寫一篇就能明顯改變這個分類的樣貌——這是最容易產生價值的切入點。
+          </p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {taskboard.gaps.map((t) => (
+              <a
+                href={t.url}
+                class="rounded-lg border p-3 text-sm transition-colors hover:border-[var(--accent-dim)]"
+                style="border-color: var(--border); background: var(--bg-raised)"
+              >
+                <div style="color: var(--text)">
+                  {t.emoji} {t.title}
+                </div>
+                <div class="text-xs mt-1" style="color: var(--text-dim)">
+                  {t.hint}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      taskboard.verify.length > 0 && (
+        <div class="mb-8">
+          <h3 class="font-bold mb-1" style="color: var(--text)">
+            🔍 這些教學需要有人實測一輪
+          </h3>
+          <p class="text-xs mb-3" style="color: var(--text-dim)">
+            依「最後實測日」排序,最舊的排前面。照著跑一遍,確認指令還能動,
+            更新日期就是完整的貢獻——不用寫任何新內容。
+          </p>
+          <div class="rounded-lg border divide-y" style="border-color: var(--border); background: var(--bg-raised)">
+            {taskboard.verify.slice(0, 8).map((t) => (
+              <div class="flex items-center gap-3 px-4 py-2.5 text-sm" style="border-color: var(--border)">
+                <a href={t.url} class="flex-1 truncate" style="color: var(--text)">
+                  {t.emoji} {t.title}
+                </a>
+                <span class="text-xs shrink-0 tabular-nums" style="color: var(--text-dim)">
+                  {t.hint}
+                </span>
+                <a
+                  href={t.editUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs shrink-0"
+                  style="color: var(--accent)"
+                >
+                  認領 →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+  </section>
+
+  <!-- 破冰提問 -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-2">不知道寫什麼?</h2>
+    <p class="text-sm mb-4" style="color: var(--text-dim)">
+      這幾個問題你隨便答一個,都能變成一篇有人需要的文章。
+    </p>
+    <div class="grid sm:grid-cols-2 gap-3">
+      {
+        iceBreakers.map((q) => (
+          <div
+            class="rounded-lg border px-4 py-3 text-sm"
+            style="border-color: var(--border); background: var(--bg-raised); color: var(--text)"
+          >
+            {q}
+          </div>
+        ))
+      }
+    </div>
+    <p class="text-sm mt-4" style="color: var(--text-dim)">
+      答案不用寫成完整文章。
+      <a
+        href={`https://github.com/${REPO}/issues/new?template=02-article-proposal.yml`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color: var(--accent)">開一個 issue 講給我們聽 →</a
+      >
+      我們會幫你整理成文章,並在文章掛上你的名字。
+    </p>
+  </section>
+
+  <!-- 你會得到什麼 -->
+  <section class="mb-16">
+    <h2 class="text-2xl font-bold mb-4">你會得到什麼</h2>
+    <div class="grid md:grid-cols-2 gap-4 text-sm">
+      {
+        [
+          {
+            t: '👤 署名',
+            d: '所有貢獻者都會出現在儀表板的貢獻者牆與 GitHub 貢獻者名單上。回報錯誤、提供資訊也算——不只寫程式的人才算數。',
+          },
+          {
+            t: '🔍 被搜尋、被 AI 引用',
+            d: '這裡的內容是公開靜態網頁,對搜尋引擎與 AI 爬蟲友善(站上有 llms.txt)。你寫的解法會被找到——包括被 AI 助手引用。',
+          },
+          {
+            t: '📜 可展示的開源履歷',
+            d: 'GitHub 上的 commit 與 PR 是公開紀錄。持續貢獻可以取得 repo 的審稿與寫入權限,這是履歷上具體的東西。',
+          },
+          {
+            t: '🧭 你的判斷會變成規範',
+            d: '審稿時的意見會回寫進編輯規範文件。你踩過的坑不只變成一篇文章,還會變成後來所有人遵循的標準。',
+          },
+        ].map((x) => (
+          <div class="rounded-lg border p-4" style="border-color: var(--border); background: var(--bg-raised)">
+            <div class="font-semibold mb-1" style="color: var(--text)">
+              {x.t}
+            </div>
+            <div style="color: var(--text-dim)">{x.d}</div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- 收尾 -->
+  <section class="rounded-lg border p-6 text-center" style="border-color: var(--border); background: var(--bg-raised)">
+    <p class="text-lg mb-2" style="color: var(--text)">這個站還很年輕。你來的時間剛好。</p>
+    <p class="text-sm mb-5" style="color: var(--text-dim)">
+      所有東西都在 GitHub 上,包括這個站怎麼運作、品質怎麼把關、數據長什麼樣。
+    </p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a
+        href={`https://github.com/${REPO}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="rounded-md px-5 py-2 font-medium"
+        style="background: var(--accent); color: var(--bg)">前往 GitHub</a
+      >
+      <a href="/dashboard/" class="rounded-md px-5 py-2 border" style="border-color: var(--border); color: var(--text)"
+        >看這個站的數據</a
+      >
+    </div>
+  </section>
+
+  <script>
+    const btn = document.getElementById('copy-prompt');
+    btn?.addEventListener('click', async () => {
+      const text = document.getElementById('prompt-text')?.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = '✅ 已複製';
+        setTimeout(() => (btn.textContent = '📋 複製'), 2000);
+      } catch {
+        btn.textContent = '⚠️ 請手動複製';
+      }
+    });
+  </script>
+</Base>

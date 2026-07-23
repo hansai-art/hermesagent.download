@@ -18,6 +18,13 @@ const { Content } = await render(entry);
 const category = getCategory(entry.id.split('/')[0]);
 const d = entry.data;
 
+// knowledge/ 才是原始檔;src/content/ 是投影層,所以編輯連結要指向 knowledge/
+const REPO = 'hansai-art/hermesagent.download';
+const knowledgePath = `knowledge/${entry.id}.md`;
+const editUrl = `https://github.com/${REPO}/edit/main/${knowledgePath}`;
+const historyUrl = `https://github.com/${REPO}/commits/main/${knowledgePath}`;
+const issueUrl = `https://github.com/${REPO}/issues/new?template=01-content-error.yml&title=${encodeURIComponent(`[內容] ${d.title}`)}`;
+
 const fmtDate = (date: Date) =>
   date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
@@ -85,9 +92,23 @@ const fmtDate = (date: Date) =>
       )
     }
 
-    <div class="mt-10 text-sm" style="color: var(--text-dim)">
-      發現錯誤或內容過期?
-      <a href="/about/" style="color: var(--accent)">到 GitHub 編輯這一頁</a>
-    </div>
+    <footer class="mt-12 pt-5 border-t" style="border-color: var(--border)">
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+        <a href={editUrl} target="_blank" rel="noopener noreferrer" style="color: var(--accent)">
+          ✏️ 編輯這一頁
+        </a>
+        <a href={issueUrl} target="_blank" rel="noopener noreferrer" style="color: var(--text-dim)">
+          🐛 回報錯誤
+        </a>
+        <a href={historyUrl} target="_blank" rel="noopener noreferrer" style="color: var(--text-dim)">
+          🕘 修訂紀錄
+        </a>
+        <a href="/contribute/" style="color: var(--text-dim)">✋ 我想貢獻</a>
+      </div>
+      <p class="text-xs mt-3" style="color: var(--text-dim)">
+        看到指令跑不動、內容過期或連結壞掉?點「編輯這一頁」直接改,或回報給我們——
+        兩者都算貢獻,你的名字會出現在<a href="/dashboard/" style="color: var(--accent)">貢獻者牆</a>上。
+      </p>
+    </footer>
   </article>
 </Base>

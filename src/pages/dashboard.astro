@@ -1,0 +1,182 @@
+---
+import Base from '../layouts/Base.astro';
+import dashboard from '../../data/dashboard.json';
+
+const { content, credibility, activity, upstream, generatedAt } = dashboard;
+
+const fmt = (iso: string | null) =>
+  iso ? new Date(iso).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' }) : '—';
+
+const gapCats = content.byCategory.filter((c) => c.needsHelp);
+const filledCats = content.byCategory.filter((c) => !c.needsHelp).sort((a, b) => b.count - a.count);
+const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
+---
+
+<Base
+  title="儀表板 — HermesAgent.download"
+  description="這個站的生命徵象:內容量、來源覆蓋率、驗證新鮮度、社群活躍度,以及最需要人手的地方。全部公開。"
+>
+  <h1 class="text-3xl font-bold mb-2">📊 儀表板</h1>
+  <p class="mb-2" style="color: var(--text-dim)">
+    這個站的生命徵象全部公開——包含哪裡還不夠好。
+  </p>
+  <p class="text-xs mb-10" style="color: var(--text-dim)">
+    資料由 pipeline 每日自動更新.最後更新 {fmt(generatedAt)}
+  </p>
+
+  <!-- 主要數字 -->
+  <section class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+    {
+      [
+        { n: content.total, label: '篇文章', sub: `${content.byStatus.published ?? 0} 篇已發布` },
+        {
+          n: `${credibility.withSourcesPct}%`,
+          label: '有官方來源',
+          sub: `${credibility.footnotes} 個引用腳註`,
+        },
+        {
+          n: credibility.verifiedFresh,
+          label: '篇近期驗證過',
+          sub: `${credibility.freshnessThresholdDays} 天內實測`,
+        },
+        {
+          n: activity?.recentCommits30d ?? 0,
+          label: '次更新 / 30天',
+          sub: `${activity?.total ?? 0} 位貢獻者`,
+        },
+      ].map((s) => (
+        <div class="rounded-lg border p-4" style="border-color: var(--border); background: var(--bg-raised)">
+          <div class="text-3xl font-bold" style="color: var(--accent)">{s.n}</div>
+          <div class="text-sm mt-1" style="color: var(--text)">{s.label}</div>
+          <div class="text-xs mt-0.5" style="color: var(--text-dim)">{s.sub}</div>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- 最需要幫忙的地方 — 放在顯眼位置,這是誠實也是邀請 -->
+  {
+    gapCats.length > 0 && (
+      <section class="mb-12">
+        <h2 class="text-xl font-bold mb-2">🚧 最需要人手的地方</h2>
+        <p class="text-sm mb-4" style="color: var(--text-dim)">
+          以下分類的文章還很少。如果你剛好懂這些,這裡是最容易產生價值的切入點——
+          寫一篇就能明顯改變這個分類的樣貌。
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {gapCats.map((c) => (
+            <a
+              href={`/${c.slug}/`}
+              class="rounded-lg border p-4 transition-colors hover:border-[var(--accent-dim)]"
+              style="border-color: var(--accent-dim); background: var(--bg-raised)"
+            >
+              <div class="text-xl">{c.emoji}</div>
+              <div class="font-semibold text-sm mt-1" style="color: var(--text)">{c.name}</div>
+              <div class="text-xs mt-0.5" style="color: var(--accent)">
+                目前 {c.count} 篇.待補
+              </div>
+            </a>
+          ))}
+        </div>
+        <a href="/about/貢獻指南/" class="inline-block mt-4 text-sm" style="color: var(--accent)">
+          怎麼開始寫 →
+        </a>
+      </section>
+    )
+  }
+
+  <!-- 內容分布 -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-4">內容分布</h2>
+    <div class="space-y-2">
+      {
+        [...filledCats, ...gapCats].map((c) => (
+          <a href={`/${c.slug}/`} class="flex items-center gap-3 text-sm group">
+            <span class="w-32 shrink-0 truncate" style="color: var(--text-dim)">
+              {c.emoji} {c.name}
+            </span>
+            <span class="flex-1 h-2 rounded-full overflow-hidden" style="background: var(--bg-raised)">
+              <span
+                class="block h-full rounded-full"
+                style={`width: ${Math.max((c.count / maxCount) * 100, 1.5)}%; background: ${c.needsHelp ? 'var(--accent-dim)' : 'var(--accent)'}`}
+              />
+            </span>
+            <span class="w-10 text-right tabular-nums" style="color: var(--text)">{c.count}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- 可信度 -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-2">內容可信度</h2>
+    <p class="text-sm mb-4" style="color: var(--text-dim)">
+      技術文件最大的風險是「過期而不自知」。這個站用三道機制對抗:每篇標註適用版本與最後實測日、
+      每個技術宣稱要對得到官方來源、逾 {credibility.freshnessThresholdDays} 天未驗證自動標示過期。
+    </p>
+    <div class="grid md:grid-cols-3 gap-3">
+      {
+        [
+          { n: credibility.withSources, label: '篇有官方來源', tone: 'good' },
+          { n: credibility.verifiedStale, label: '篇待重新驗證', tone: credibility.verifiedStale > 0 ? 'warn' : 'good' },
+          { n: credibility.neverVerified, label: '篇教學尚未實測', tone: credibility.neverVerified > 0 ? 'warn' : 'good' },
+        ].map((s) => (
+          <div class="rounded-lg border p-4" style="border-color: var(--border); background: var(--bg-raised)">
+            <div class="text-2xl font-bold" style={`color: ${s.tone === 'warn' ? 'var(--accent)' : 'var(--text)'}`}>
+              {s.n}
+            </div>
+            <div class="text-sm mt-0.5" style="color: var(--text-dim)">{s.label}</div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- 上游同步 -->
+  {
+    upstream && (
+      <section class="mb-12">
+        <h2 class="text-xl font-bold mb-2">上游同步</h2>
+        <div class="rounded-lg border p-4 text-sm" style="border-color: var(--border); background: var(--bg-raised)">
+          <div style="color: var(--text)">
+            最後追蹤到的 Hermes Agent 版本:
+            <span style="color: var(--accent)">{upstream.lastReleaseTag ?? '—'}</span>
+          </div>
+          <div class="text-xs mt-1" style="color: var(--text-dim)">
+            系統每日檢查上游 release;出現新版時會自動開 issue 列出可能需要重新驗證的文章。
+            最後檢查:{fmt(upstream.checkedAt)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- 貢獻者 -->
+  {
+    activity && activity.top?.length > 0 && (
+      <section>
+        <h2 class="text-xl font-bold mb-4">貢獻者</h2>
+        <div class="flex flex-wrap gap-3">
+          {activity.top.map((c) => (
+            <a
+              href={c.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 rounded-lg border px-3 py-2 transition-colors hover:border-[var(--accent-dim)]"
+              style="border-color: var(--border); background: var(--bg-raised)"
+            >
+              <img src={c.avatar} alt="" width="24" height="24" class="rounded-full" loading="lazy" />
+              <span class="text-sm" style="color: var(--text)">{c.login}</span>
+              <span class="text-xs tabular-nums" style="color: var(--text-dim)">{c.contributions}</span>
+            </a>
+          ))}
+        </div>
+        <p class="text-sm mt-4" style="color: var(--text-dim)">
+          每一位在這裡留下貢獻的人都會出現在這面牆上。
+          <a href="/about/貢獻指南/" style="color: var(--accent)">加入他們 →</a>
+        </p>
+      </section>
+    )
+  }
+</Base>

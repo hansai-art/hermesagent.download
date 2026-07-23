@@ -20,9 +20,8 @@ jobs:
           cache: npm
       - run: npm ci
 
-      - name: Generate stats
-        run: node scripts/tools/generate-stats.mjs
-
+      # 順序有相依:contributors → dashboard(讀 contributors)→ taskboard
+      # → stats(讀前兩者,並注入 README),不可調換
       - name: Generate contributors
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,6 +29,12 @@ jobs:
 
       - name: Generate dashboard
         run: node scripts/core/generate-dashboard.mjs
+
+      - name: Generate task board
+        run: node scripts/core/generate-taskboard.mjs
+
+      - name: Generate stats（注入 README）
+        run: node scripts/tools/generate-stats.mjs
 
       - name: Commit if changed
         run: |
