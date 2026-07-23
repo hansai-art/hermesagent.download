@@ -1,0 +1,3 @@
+{
+  "knowledge/**/*.md": "node scripts/tools/article-health.mjs"
+}

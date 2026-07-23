@@ -1,0 +1,46 @@
+name: ✍️ 新文章提議/認領
+description: 提議一篇還沒有的文章,或認領你想寫的主題
+title: '[提議] '
+labels: ['article-proposal']
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: 主題
+      placeholder: 例:在 Synology NAS 上用 Docker 跑 Hermes Agent
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 分類
+      options:
+        - install 安裝部署
+        - config 模型與 API 設定
+        - skills 技能目錄
+        - integrations 生態整合
+        - guides 使用教學
+        - troubleshoot 疑難排解
+        - migrate 遷移指南
+        - issues 精選 Issue
+        - releases 版本情報
+        - concepts 核心概念
+        - community 社群
+    validations:
+      required: true
+  - type: textarea
+    id: outline
+    attributes:
+      label: 大綱或想法
+      description: 為什麼需要這篇?讀者做完能得到什麼?
+    validations:
+      required: true
+  - type: dropdown
+    id: claim
+    attributes:
+      label: 你要自己寫嗎?
+      options:
+        - 我來寫(認領)
+        - 只是提議,開放認領
+    validations:
+      required: true

@@ -1,0 +1,30 @@
+name: 🐛 內容錯誤/過期回報
+description: 某篇文章寫錯了、指令跑不動、或內容已經過期
+title: '[內容] '
+labels: ['content-error']
+body:
+  - type: input
+    id: page
+    attributes:
+      label: 哪一頁?
+      description: 貼上網址或 knowledge/ 檔案路徑
+      placeholder: https://hermesagent.download/install/wsl2/
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 哪裡有問題?
+      description: 錯在哪、實際看到什麼(貼錯誤訊息最好)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 你的 Hermes Agent 版本與環境
+      placeholder: 例:v1.5.2 / Windows 11 WSL2
+  - type: textarea
+    id: fix
+    attributes:
+      label: 你知道正確答案嗎?(選填)
+      description: 有的話直接寫,附上官方來源連結更好——我們會幫你變成 PR 並掛名貢獻

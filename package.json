@@ -15,9 +15,11 @@
     "preview": "astro preview",
     "astro": "astro",
     "article-health": "node scripts/tools/article-health.mjs",
-    "article-health:all": "node scripts/tools/article-health.mjs --all",
+    "article-health:strict": "node scripts/tools/article-health.mjs --profile=release-pr",
+    "check-links": "node scripts/tools/check-links.mjs",
     "format:check": "prettier --check .",
-    "format:write": "prettier --write ."
+    "format:write": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
@@ -29,6 +31,8 @@
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.1.1",
     "prettier": "^3.5.0",
     "prettier-plugin-astro": "^0.14.1"
   }

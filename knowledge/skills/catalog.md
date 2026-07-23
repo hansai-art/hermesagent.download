@@ -190,7 +190,7 @@ status: "published"
 
 ### email
 
--   [agentmail](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/email/agentmail/SKILL.md) Give the agent its own dedicated email inbox via AgentMail. Send, receive, and manage email autonomously using agent-owned email addresses (e.g. [\[email protected\]](/cdn-cgi/l/email-protection)).
+-   [agentmail](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/email/agentmail/SKILL.md) Give the agent its own dedicated email inbox via AgentMail. Send, receive, and manage email autonomously using agent-owned email addresses (e.g. [\your-agent@agentmail.to).
 
 ### finance
 
