@@ -2,7 +2,29 @@
 import Base from '../layouts/Base.astro';
 import dashboard from '../../data/dashboard.json';
 
-const { content, credibility, activity, upstream, generatedAt } = dashboard;
+const { content, credibility, activity, upstream, generatedAt, editorial } = dashboard;
+
+// 編輯規範達成率 — 刻意公開,包括很難看的那幾個
+const editorialMetrics = [
+  {
+    label: '引用密度',
+    n: `${editorial.citationCoverage}%`,
+    detail: `${editorial.citationCovered}/${editorial.substantial} 篇實質文章有 [^n] 腳註`,
+    rule: '規範要求每 400 字至少 1 個',
+  },
+  {
+    label: '可跟做',
+    n: `${editorial.followableCoverage}%`,
+    detail: `${editorial.followableCovered}/${editorial.teachingWithCode} 篇教學寫了預期輸出`,
+    rule: '讀者要能判斷自己做對了沒',
+  },
+  {
+    label: '人工審閱',
+    n: `${editorial.humanReviewedPct}%`,
+    detail: `${editorial.humanReviewed}/${content.total} 篇有真人讀過並認可`,
+    rule: '其餘是自動搬遷或 AI 起草的內容',
+  },
+];
 
 const fmt = (iso: string | null) =>
   iso ? new Date(iso).toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' }) : '—';
@@ -131,6 +153,44 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
         ))
       }
     </div>
+  </section>
+
+  <!-- 編輯規範達成率 — 誠實區 -->
+  <section class="mb-12">
+    <h2 class="text-xl font-bold mb-2">編輯規範達成率</h2>
+    <p class="text-sm mb-4" style="color: var(--text-dim)">
+      我們在 <a href="https://github.com/hansai-art/hermesagent.download/tree/main/docs/editorial" style="color: var(--accent)">docs/editorial/</a>
+      訂了一套寫作規範,但目前多數內容是從舊站自動搬遷來的,還沒達到那個標準。
+      這幾個數字很難看,公開它們是因為——
+      <strong style="color: var(--text)">不公開的話,我們自己也會忘記地基還沒打完</strong>。
+    </p>
+    <div class="grid md:grid-cols-3 gap-3">
+      {
+        editorialMetrics.map((m) => (
+          <div class="rounded-lg border p-4" style="border-color: var(--border); background: var(--bg-raised)">
+            <div class="flex items-baseline gap-2">
+              <span class="text-2xl font-bold" style="color: var(--accent)">
+                {m.n}
+              </span>
+              <span class="text-sm" style="color: var(--text)">
+                {m.label}
+              </span>
+            </div>
+            <div class="text-xs mt-1" style="color: var(--text-dim)">
+              {m.detail}
+            </div>
+            <div class="text-xs mt-1.5 pt-1.5 border-t" style="border-color: var(--border); color: var(--text-dim)">
+              {m.rule}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <p class="text-sm mt-4" style="color: var(--text-dim)">
+      這就是現在最需要人手的地方:把一篇文章補上腳註、補上預期輸出、實測一輪,
+      這三個數字就會往上跳。
+      <a href="/contribute/" style="color: var(--accent)">來認領一篇 →</a>
+    </p>
   </section>
 
   <!-- 上游同步 -->

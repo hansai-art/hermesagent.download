@@ -181,6 +181,68 @@ const checks = [
     }
     return [];
   },
+
+  // ── 以下是「編輯規範」檢查。
+  // 之前的版本只檢查 frontmatter 有沒有填欄位,不檢查內容有沒有做到規範,
+  // 導致掃描器回報 0 error 但實際內容大面積不符 docs/editorial/ 的要求。
+  // 這幾項只對「實質文章」(400 字以上)生效,卡片式摘要不適用。──
+
+  // 引用密度(CITATION-SYSTEM:每 400 字至少 1 個腳註)
+  function citationDensity({ data, content, ctx }) {
+    if (!ctx.isSubstantial) return [];
+    if ((data.status ?? 'published') !== 'published') return [];
+    const expected = Math.floor(ctx.charCount / 400);
+    if (expected < 1) return [];
+    const actual = (content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
+    if (actual === 0) {
+      return [{ level: 'WARN', msg: `${ctx.charCount} 字卻沒有任何 [^n] 腳註(規範:每 400 字至少 1 個)` }];
+    }
+    if (actual < expected) {
+      return [{ level: 'WARN', msg: `腳註密度不足:${actual} 個,${ctx.charCount} 字應有 ${expected} 個` }];
+    }
+    return [];
+  },
+
+  // 可跟做(EDITORIAL:每個關鍵步驟要寫預期輸出或成功判準)
+  function followable({ file, content, ctx }) {
+    const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
+    if (!VERIFIED_CATEGORIES.includes(category)) return [];
+    const fences = (content.match(/^\s*```/gm) ?? []).length / 2;
+    if (fences === 0) return [];
+    const hasCheckpoint = /預期輸出|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會/.test(content);
+    if (!hasCheckpoint) {
+      return [
+        {
+          level: 'WARN',
+          msg: `有 ${fences} 個指令區塊但沒寫預期輸出——讀者無法判斷自己做對了沒`,
+        },
+      ];
+    }
+    return [];
+  },
+
+  // 版本標註(技術文件的核心:沒標版本等於沒說適用範圍)
+  function versionLabelled({ file, data, ctx }) {
+    if (!ctx.isSubstantial) return [];
+    const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
+    if (!VERIFIED_CATEGORIES.includes(category)) return [];
+    if ((data.hermes_version ?? '*') === '*') {
+      return [{ level: 'WARN', msg: 'hermes_version 未標明適用範圍(寫 * 等於沒標)' }];
+    }
+    return [];
+  },
+
+  // list-dump(EDITORIAL:列表只用於步驟、比較、檢查清單)
+  function listDump({ content, ctx }) {
+    if (!ctx.isSubstantial) return [];
+    const lines = content.split('\n').filter((l) => l.trim());
+    const listLines = lines.filter((l) => /^\s*([-*]|\d+[.)])\s/.test(l)).length;
+    const ratio = listLines / Math.max(lines.length, 1);
+    if (ratio > 0.6) {
+      return [{ level: 'WARN', msg: `疑似 list-dump:${Math.round(ratio * 100)}% 的行是清單,缺少敘事` }];
+    }
+    return [];
+  },
 ];
 
 // ── 主流程 ──
@@ -201,6 +263,18 @@ let errors = 0;
 let warns = 0;
 let scanned = 0;
 
+// 編輯規範達成率統計(掃完後給一份總覽,避免只看到零散警告)
+const editorial = {
+  substantial: 0,
+  withFootnotes: 0,
+  teachingWithCode: 0,
+  teachingWithCheckpoint: 0,
+  versioned: 0,
+  needsVersion: 0,
+  humanReviewed: 0,
+  published: 0,
+};
+
 for (const file of targets) {
   let parsed;
   try {
@@ -212,8 +286,34 @@ for (const file of targets) {
     continue;
   }
   scanned++;
+
+  // 每篇的檢查脈絡:字數決定要不要套用「實質文章」等級的規範
+  const charCount = parsed.content.replace(/```[\s\S]*?```/g, '').replace(/\s/g, '').length;
+  const fileCtx = { ...ctx, charCount, isSubstantial: charCount >= 400 };
+
+  // 統計
+  const cat = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
+  const status = parsed.data.status ?? 'published';
+  if (status === 'published') {
+    editorial.published++;
+    if (parsed.data.human_reviewed) editorial.humanReviewed++;
+    if (fileCtx.isSubstantial) {
+      editorial.substantial++;
+      if ((parsed.content.match(/^\[\^[^\]]+\]:/gm) ?? []).length > 0) editorial.withFootnotes++;
+      if (VERIFIED_CATEGORIES.includes(cat)) {
+        editorial.needsVersion++;
+        if ((parsed.data.hermes_version ?? '*') !== '*') editorial.versioned++;
+      }
+    }
+    if (VERIFIED_CATEGORIES.includes(cat) && (parsed.content.match(/^\s*```/gm) ?? []).length >= 2) {
+      editorial.teachingWithCode++;
+      if (/預期輸出|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會/.test(parsed.content))
+        editorial.teachingWithCheckpoint++;
+    }
+  }
+
   const issues = checks.flatMap((check) =>
-    check({ file, data: parsed.data, content: parsed.content, ctx }),
+    check({ file, data: parsed.data, content: parsed.content, ctx: fileCtx }),
   );
   if (issues.length === 0) continue;
 
@@ -225,7 +325,27 @@ for (const file of targets) {
   }
 }
 
+const pct = (n, d) => (d === 0 ? '—' : `${Math.round((n / d) * 100)}%`);
+
 console.log('');
 console.log(`📊 scanned ${scanned} files — ${errors} error(s), ${warns} warning(s) [profile=${profile}]`);
+
+if (fileArgs.length === 0) {
+  console.log('');
+  console.log('📐 編輯規範達成率(對照 docs/editorial/)');
+  console.log(
+    `   引用密度   ${editorial.withFootnotes}/${editorial.substantial} 篇實質文章有腳註 (${pct(editorial.withFootnotes, editorial.substantial)})`,
+  );
+  console.log(
+    `   可跟做     ${editorial.teachingWithCheckpoint}/${editorial.teachingWithCode} 篇教學有寫預期輸出 (${pct(editorial.teachingWithCheckpoint, editorial.teachingWithCode)})`,
+  );
+  console.log(
+    `   版本標註   ${editorial.versioned}/${editorial.needsVersion} 篇標明適用版本 (${pct(editorial.versioned, editorial.needsVersion)})`,
+  );
+  console.log(
+    `   人工審閱   ${editorial.humanReviewed}/${editorial.published} 篇有人讀過並認可 (${pct(editorial.humanReviewed, editorial.published)})`,
+  );
+}
+
 const failed = errors > 0 || (profile === 'release-pr' && warns > 0);
 process.exit(failed ? 1 : 0);

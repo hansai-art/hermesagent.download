@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T11:13:55.691Z",
+  "generatedAt": "2026-07-23T11:32:30.505Z",
   "content": {
     "total": 352,
     "byStatus": {
@@ -110,6 +110,16 @@
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
+  },
+  "editorial": {
+    "substantial": 40,
+    "citationCoverage": 3,
+    "citationCovered": 1,
+    "followableCoverage": 0,
+    "followableCovered": 0,
+    "teachingWithCode": 11,
+    "humanReviewed": 0,
+    "humanReviewedPct": 0
   },
   "activity": {
     "total": 1,

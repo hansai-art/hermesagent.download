@@ -15,6 +15,10 @@ const articleSchema = z.object({
   author: z.string().optional().default('HermesAgent.download Contributors'),
   hermes_version: z.string().optional().default('*'),
   last_verified: z.coerce.date().optional(),
+  // 有沒有真人讀過並認可內容(不是「有沒有跑過指令」——那是 last_verified)。
+  // 自動搬遷、AI 起草的文章預設是 false;唯有人工審閱後才能設 true。
+  // 這個欄位存在的意義是誠實:讓讀者分得出哪些內容有人背書。
+  human_reviewed: z.boolean().optional().default(false),
   upstream_refs: z.array(z.string().url()).optional().default([]),
   sources: z.array(z.string()).optional().default([]),
   status: z

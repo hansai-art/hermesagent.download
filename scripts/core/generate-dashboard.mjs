@@ -39,13 +39,33 @@ let footnotes = 0;
 let verifiedFresh = 0;
 let verifiedStale = 0;
 let neverVerified = 0;
+// 編輯規範達成率:這幾個數字才是真正的內容品質,frontmatter 填得完整不代表內容合格
+let substantial = 0;
+let withFootnotes = 0;
+let teachingWithCode = 0;
+let teachingWithCheckpoint = 0;
+let humanReviewed = 0;
 
 for (const a of live) {
   const refs = (a.data.upstream_refs?.length ?? 0) + (a.data.sources?.length ?? 0);
   if (refs > 0) withRefs++;
-  footnotes += (a.content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
+  const fn = (a.content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
+  footnotes += fn;
+
+  if (a.data.human_reviewed) humanReviewed++;
+
+  const charCount = a.content.replace(/```[\s\S]*?```/g, '').replace(/\s/g, '').length;
+  if (charCount >= 400) {
+    substantial++;
+    if (fn > 0) withFootnotes++;
+  }
 
   if (VERIFIED_CATEGORIES.includes(a.category)) {
+    if ((a.content.match(/^\s*```/gm) ?? []).length >= 2) {
+      teachingWithCode++;
+      if (/預期輸出|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會/.test(a.content))
+        teachingWithCheckpoint++;
+    }
     if (!a.data.last_verified) neverVerified++;
     else if (daysSince(a.data.last_verified) > FRESH_DAYS) verifiedStale++;
     else verifiedFresh++;
@@ -99,6 +119,18 @@ const dashboard = {
     verifiedStale,
     neverVerified,
     freshnessThresholdDays: FRESH_DAYS,
+  },
+  // 編輯規範達成率 — 公開這幾個數字是為了誠實:
+  // frontmatter 完整不等於內容合格,這裡量的是後者
+  editorial: {
+    substantial,
+    citationCoverage: substantial ? Math.round((withFootnotes / substantial) * 100) : 0,
+    citationCovered: withFootnotes,
+    followableCoverage: teachingWithCode ? Math.round((teachingWithCheckpoint / teachingWithCode) * 100) : 0,
+    followableCovered: teachingWithCheckpoint,
+    teachingWithCode,
+    humanReviewed,
+    humanReviewedPct: live.length ? Math.round((humanReviewed / live.length) * 100) : 0,
   },
   activity: contributors,
   upstream,
