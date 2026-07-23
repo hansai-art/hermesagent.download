@@ -57,7 +57,20 @@ for (const a of live) {
   const charCount = a.content.replace(/```[\s\S]*?```/g, '').replace(/\s/g, '').length;
   if (charCount >= 400) {
     substantial++;
-    if (fn > 0) withFootnotes++;
+    // 與 article-health 的 citationDensity 同一套判準,否則儀表板與掃描器會各說各話:
+    // concepts 只認腳註;其餘腳註 + upstream_refs + 內文官方連結都算
+    if (a.category === 'concepts') {
+      if (fn >= Math.floor(charCount / 300)) withFootnotes++;
+    } else {
+      const inlineOfficial = new Set(
+        (
+          a.content.match(
+            /https?:\/\/(?:hermes-agent\.nousresearch\.com|github\.com\/NousResearch|huggingface\.co\/NousResearch|modelcontextprotocol\.io)[^\s)"'\]]*/g,
+          ) ?? []
+        ).map((u) => u.split('#')[0]),
+      ).size;
+      if (fn + refs + inlineOfficial >= Math.floor(charCount / 400)) withFootnotes++;
+    }
   }
 
   if (VERIFIED_CATEGORIES.includes(a.category)) {
