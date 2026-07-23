@@ -1,5 +1,6 @@
 ---
 import { CATEGORIES } from '../config/categories.mjs';
+import Search from './Search.astro';
 
 // 導覽只放高頻分類,完整清單在首頁與 footer
 const NAV_SLUGS = ['install', 'config', 'skills', 'troubleshoot', 'releases'];
@@ -24,6 +25,7 @@ const nav = CATEGORIES.filter((c) => NAV_SLUGS.includes(c.slug));
       }
     </nav>
     <div class="flex-1"></div>
+    <Search />
     <a
       href="https://github.com/hansai-art/hermesagent.download"
       class="text-sm"

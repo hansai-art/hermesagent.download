@@ -56,7 +56,7 @@ Windows 安裝 Hermes Agent 的三條路：官方桌面版安裝器、原生 Pow
 
 #### 1\. 自動化終端機腳本安裝 (推薦)
 
-官方提供了全自動的安裝腳本，支援 macOS, Linux, 以及 WSL2 甚至 Windows 原生環境。只需在終端機貼上一行腳本即可完成環境建置與相依套件安裝，是最推薦的無腦安裝法。請參考 \[官方下載頁\](https://hermes-agent.nousresearch.com/)。
+官方提供了全自動的安裝腳本，支援 macOS, Linux, 以及 WSL2 甚至 Windows 原生環境。只需在終端機貼上一行腳本即可完成環境建置與相依套件安裝，是最推薦的無腦安裝法。請參考 [官方下載頁](https://hermes-agent.nousresearch.com/)。
 
 2
 
@@ -68,7 +68,7 @@ Windows 安裝 Hermes Agent 的三條路：官方桌面版安裝器、原生 Pow
 
 #### 3\. Docker 與雲端伺服器 (VPS / GPU Cluster)
 
-Hermes Agent 設計極為輕量，可架設於便宜的 $5 VPS 或是企業級的 GPU 叢集。官方提供完整的 Docker 支援 (\`docker-compose.yml\`)，適合想把 Agent 24 小時掛在雲端的重度玩家。
+Hermes Agent 設計極為輕量，可架設於便宜的 $5 VPS 或是企業級的 GPU 叢集。官方提供完整的 Docker 支援 (`docker-compose.yml`)，適合想把 Agent 24 小時掛在雲端的重度玩家。
 
 4
 

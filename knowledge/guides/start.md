@@ -34,7 +34,7 @@ hermes model 指令完整教學：OpenRouter / OpenAI / Anthropic / Gemini / Oll
 
 #### 1\. 用官方指令啟動
 
-先照官方文件完成安裝，重新載入 shell 後在終端機輸入 \`hermes\` 進入對話介面；第一次啟動用 \`hermes model\` 選模型供應商並填 API key。
+先照官方文件完成安裝，重新載入 shell 後在終端機輸入 `hermes` 進入對話介面；第一次啟動用 `hermes model` 選模型供應商並填 API key。
 
 2
 

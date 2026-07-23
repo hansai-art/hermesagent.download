@@ -44,19 +44,19 @@ Windows 安裝 Hermes Agent 的三條路：官方桌面版安裝器、原生 Pow
 
 ### macOS 官方最新版
 
-官方兩種方式：下載 Desktop 安裝器，或在終端機執行 \`curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash\`
+官方兩種方式：下載 Desktop 安裝器，或在終端機執行 `curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`
 
 →](https://hermes-agent.nousresearch.com/)[
 
 ### Windows 官方最新版
 
-官方三條路：Desktop 安裝器（最簡單）、PowerShell 執行 \`iex (irm https://hermes-agent.nousresearch.com/install.ps1)\`、或在 WSL2 用 Linux 指令安裝。
+官方三條路：Desktop 安裝器（最簡單）、PowerShell 執行 `iex (irm https://hermes-agent.nousresearch.com/install.ps1)`、或在 WSL2 用 Linux 指令安裝。
 
 →](https://hermes-agent.nousresearch.com/)[
 
 ### Linux 官方最新版
 
-終端機執行官方一行指令：\`curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash\`
+終端機執行官方一行指令：`curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`
 
 →](https://hermes-agent.nousresearch.com/)
 

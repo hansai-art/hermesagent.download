@@ -1,0 +1,186 @@
+---
+// 站內搜尋:header 觸發鈕 + 全螢幕覆蓋層。
+// 索引(public/api/search-index.json)只在第一次開啟搜尋時才下載,不拖慢首屏。
+import { CATEGORIES } from '../config/categories.mjs';
+
+const catMap = Object.fromEntries(CATEGORIES.map((c) => [c.slug, `${c.emoji} ${c.name}`]));
+---
+
+<button
+  id="search-open"
+  class="flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm transition-colors hover:border-[var(--accent-dim)]"
+  style="border-color: var(--border); color: var(--text-dim)"
+  aria-label="搜尋"
+>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path>
+  </svg>
+  <span class="hidden sm:inline">搜尋</span>
+  <kbd
+    class="hidden md:inline rounded px-1 text-[10px]"
+    style="border: 1px solid var(--border); color: var(--text-dim)">/</kbd
+  >
+</button>
+
+<div
+  id="search-overlay"
+  class="fixed inset-0 z-50 hidden items-start justify-center px-4 pt-[10vh]"
+  style="background: color-mix(in srgb, #000 70%, transparent); backdrop-filter: blur(4px)"
+>
+  <div
+    class="w-full max-w-2xl rounded-xl border shadow-2xl overflow-hidden"
+    style="border-color: var(--border); background: var(--bg-raised)"
+  >
+    <div class="flex items-center gap-3 border-b px-4" style="border-color: var(--border)">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        style="color: var(--text-dim); flex-shrink: 0"
+      >
+        <circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path>
+      </svg>
+      <input
+        id="search-input"
+        type="search"
+        placeholder="搜尋安裝、設定、錯誤訊息、issue 編號…"
+        autocomplete="off"
+        class="w-full bg-transparent py-4 text-base outline-none"
+        style="color: var(--text)"
+      />
+      <button id="search-close" class="text-sm px-2" style="color: var(--text-dim)" aria-label="關閉">esc</button>
+    </div>
+    <div id="search-results" class="max-h-[60vh] overflow-y-auto"></div>
+    <div
+      id="search-hint"
+      class="px-4 py-3 text-xs border-t"
+      style="border-color: var(--border); color: var(--text-dim)"
+    >
+      共 <span id="search-count">—</span> 篇文章可搜尋.試試「wsl2」「api key」「context length」「telegram」
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ catMap }}>
+  const openBtn = document.getElementById('search-open');
+  const overlay = document.getElementById('search-overlay');
+  const input = document.getElementById('search-input');
+  const results = document.getElementById('search-results');
+  const closeBtn = document.getElementById('search-close');
+  const countEl = document.getElementById('search-count');
+
+  let mini = null;
+  let loading = false;
+  let activeIndex = -1;
+
+  async function ensureIndex() {
+    if (mini || loading) return;
+    loading = true;
+    results.innerHTML =
+      '<div class="px-4 py-6 text-sm" style="color: var(--text-dim)">載入索引中…</div>';
+    try {
+      const [{ default: MiniSearch }, { SEARCH_OPTIONS }] = await Promise.all([
+        import('minisearch'),
+        import('../lib/search-tokenizer.mjs'),
+      ]);
+      const raw = await fetch('/api/search-index.json').then((r) => r.text());
+      mini = MiniSearch.loadJSON(raw, SEARCH_OPTIONS);
+      countEl.textContent = mini.documentCount;
+      results.innerHTML = '';
+      if (input.value.trim()) render(input.value);
+    } catch (e) {
+      results.innerHTML = `<div class="px-4 py-6 text-sm" style="color: var(--text-dim)">索引載入失敗:${e.message}</div>`;
+    } finally {
+      loading = false;
+    }
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  }
+
+  function render(q) {
+    if (!mini) return;
+    const query = q.trim();
+    if (!query) {
+      results.innerHTML = '';
+      activeIndex = -1;
+      return;
+    }
+    const hits = mini.search(query).slice(0, 12);
+    activeIndex = hits.length ? 0 : -1;
+    if (!hits.length) {
+      results.innerHTML = `<div class="px-4 py-8 text-center text-sm" style="color: var(--text-dim)">找不到「${esc(query)}」<br><span class="text-xs">試試更短的關鍵字,或到 GitHub 提議新增這篇文章</span></div>`;
+      return;
+    }
+    results.innerHTML = hits
+      .map(
+        (h, i) => `
+      <a href="${h.url}" data-idx="${i}" class="search-hit block px-4 py-3 border-b" style="border-color: var(--border)">
+        <div class="flex items-center gap-2 text-[11px] mb-1" style="color: var(--text-dim)">
+          <span>${esc(catMap[h.category] ?? h.category)}</span>
+          ${h.status === 'outdated' ? '<span style="color: var(--accent)">可能過期</span>' : ''}
+        </div>
+        <div class="font-medium text-sm" style="color: var(--text)">${esc(h.title)}</div>
+        <div class="text-xs line-clamp-1 mt-0.5" style="color: var(--text-dim)">${esc(h.description)}</div>
+      </a>`,
+      )
+      .join('');
+    paint();
+  }
+
+  function paint() {
+    [...results.querySelectorAll('.search-hit')].forEach((el, i) => {
+      el.style.background = i === activeIndex ? 'color-mix(in srgb, var(--accent) 12%, transparent)' : 'transparent';
+    });
+  }
+
+  function open() {
+    overlay.classList.remove('hidden');
+    overlay.classList.add('flex');
+    input.focus();
+    ensureIndex();
+  }
+  function close() {
+    overlay.classList.add('hidden');
+    overlay.classList.remove('flex');
+    input.blur();
+  }
+
+  openBtn?.addEventListener('click', open);
+  closeBtn?.addEventListener('click', close);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
+  input?.addEventListener('input', (e) => render(e.target.value));
+
+  input?.addEventListener('keydown', (e) => {
+    const hits = results.querySelectorAll('.search-hit');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, hits.length - 1);
+      paint();
+      hits[activeIndex]?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      paint();
+      hits[activeIndex]?.scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      e.preventDefault();
+      hits[activeIndex]?.click();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName ?? '');
+    if (!typing && (e.key === '/' || ((e.metaKey || e.ctrlKey) && e.key === 'k'))) {
+      e.preventDefault();
+      open();
+    }
+  });
+</script>

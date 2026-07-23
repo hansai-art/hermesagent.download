@@ -10,7 +10,8 @@
     "postinstall": "node scripts/core/sync.mjs",
     "sync": "node scripts/core/sync.mjs",
     "dev": "npm run sync && astro dev",
-    "prebuild": "npm run sync",
+    "prebuild": "npm run sync && npm run build:search",
+    "build:search": "node scripts/core/build-search-index.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -30,6 +31,7 @@
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^5.7.0",
     "gray-matter": "^4.0.3",
+    "minisearch": "^7.2.0",
     "rehype-external-links": "^3.0.0",
     "tailwindcss": "^4.0.0"
   },
