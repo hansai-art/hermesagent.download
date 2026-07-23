@@ -1,93 +1,92 @@
 ---
-title: "常見問題排解"
-description: "Hermes Agent 安裝與執行常見錯誤的排解指南"
+title: "排錯的正確順序"
+description: "亂槍打鳥最浪費時間。四層排查法:先確認執行檔、再確認設定、再確認模型、最後才是功能——照順序查,不會白費工。"
 date: 2026-07-23
 subcategory: "overview"
-hermes_version: "*"
-last_verified: 2026-07-23
+hermes_version: ">=2026.5"
+last_verified: 2026-07-04
+human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs"
+  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
 tags:
   - "overview"
+  - "troubleshoot"
 status: "published"
 ---
 
-Hermes Agent · 中文入口
+出錯時最浪費時間的做法,是看到錯誤訊息就直接搜尋那句話,然後照著網路上找到的解法亂試。
 
-# 非官方中文下載、安裝與新手學習入口
+因為 agent 是一條鏈:**執行檔 → 設定檔 → 模型連線 → 功能**。任何一環斷掉,症狀都可能表現在後面。你以為是模型的問題,其實是設定沒讀到;你以為是設定錯了,其實是根本裝在另一個環境。
 
-整理官方下載、安裝教學、Skill / MCP 推薦、高手使用摘要與 GitHub Issue 精選問答,幫中文使用者從安裝到進階工作流一次上手。
+所以照順序查。四層,每層都有一個明確的指令可以驗證。
 
-Unofficial community guide Not affiliated with Nous Research
+## 第一層:執行檔存在嗎
 
-[前往官方下載](/install/download/) [從新手路線開始](/install/advanced/) [找 Skill / MCP](/skills/recommended-skills/)
+```bash
+hermes doctor
+```
 
-## 逐題排解教學（本站整理）
+這是官方診斷指令[^1]。**如果連這個指令都找不到**,問題在最外層——不是設定、不是模型,是你的 shell 找不到執行檔。
 
-[
+→ [command not found 怎麼解](/troubleshoot/command-not-found/)(九成是 shell 沒重載 PATH,不是安裝失敗)
 
-### hermes: command not found 怎麼解？
+**環境搞混也很常見**:在 WSL2 裝的東西,PowerShell 找不到;在系統 Python 裝的,uv 環境裡找不到。先確認你現在這個 shell 就是你安裝時用的那個。
 
-hermes: command not found 幾乎都是 shell 還沒重新載入 PATH：執行 source ~/.bashrc 或 source ~/.zshrc，或直接開新終端機；安裝器會把 ~/.local/bin 加進 PATH。
+## 第二層:設定讀到了嗎
 
-→](/troubleshoot/command-not-found/)[
+```bash
+hermes config show
+```
 
-### API key not set / API key 無效怎麼解？
+**完成判準**:輸出裡看得到供應商與模型,而且**是你以為的那個**;key 欄位有值。
 
-看到 API key not set 就跑 hermes model 重新設定供應商，或直接 hermes config set OPENROUTER_API_KEY your_key；key 無效多半是填了不對應供應商的 key。
+兩者任一不對,問題就在這一層。
 
-→](/troubleshoot/api-key-not-set/)[
+這一層最常見的陷阱是 `~/.hermes/.env` 裡有舊的、衝突的設定,蓋掉了你剛設的[^1]。
 
-### Hermes requires Python 3.11 or newer 怎麼解？
+→ [API key not set / 無效怎麼解](/troubleshoot/api-key-not-set/)
 
-Hermes 需要 Python 3.11 以上：先 python3 --version 確認版本，太舊就用系統套件管理器升級；走官方安裝器的話 Python 3.11 會自動處理，通常不會遇到。
+## 第三層:模型連得上嗎
 
-→](/troubleshoot/python-version-too-old/)[
+```bash
+hermes
+```
 
-### context length exceeded 怎麼解？
+隨便問一句話。這一步會把「設定正確」和「真的能用」分開——設定填對了,但 key 過期、額度用完、模型名稱不存在,都會在這裡才爆出來。
 
-context length exceeded 的官方解法：先用 /compress 壓縮目前 session，用 /usage 看用量；長期解法是在 config.yaml 的 model.context_length 明確設定模型實際上限。
+**看錯誤訊息的具體內容**:提到 key 就回第二層;提到 context 或 token 就是第四層;提到模型名稱不存在,回去確認 `HERMES_MODEL` 拼字。
 
-→](/troubleshoot/context-length-exceeded/)[
+→ [模型供應商與 API key 設定](/config/model-provider/)
 
-### Telegram 接 Hermes Agent 常見坑與解法
+## 第四層:功能層
 
-Telegram 整合最常見兩個坑：Telegram 有 100 個斜線指令上限（用 skills.platform_disabled 停用不需要的 skill），以及 WSL 下 gateway 斷線（改用 hermes gateway run 前景模式或 tmux）。
+前三層都通了,問題就在具體功能上。這時候症狀通常很明確:
 
-→](/troubleshoot/telegram/)
+| 症狀 | 看這篇 |
+|---|---|
+| `context length exceeded` | [怎麼解](/troubleshoot/context-length-exceeded/) |
+| `Python 3.11 or newer` | [怎麼解](/troubleshoot/python-version-too-old/) |
+| Telegram 指令選單少東西、gateway 斷線 | [怎麼解](/troubleshoot/telegram/) |
+| 從 OpenClaw 搬過來後行為怪怪的 | [遷移指南](/migrate/migrate-from-openclaw/) |
 
-## 排錯的正確順序
+## 都不是?那去看 issue
 
-1
+如果上面四層都排除了,很可能你遇到的是已知問題。我們整理了 300 多篇官方 GitHub issue 的中文摘要,依元件分類:
 
-#### 1\. 先跑官方診斷
+- [Agent 核心](/issues/) · [Gateway 訊息閘道](/issues/) · [CLI](/issues/) · [設定檔](/issues/) · [桌面版](/issues/) · [驗證與 API key](/issues/)
 
-`hermes doctor` 會做全面診斷，多數環境問題會直接指出原因。
+每篇都附原始 issue 連結,可以直接去看討論串或追蹤修復進度。
 
-2
+## 回報問題
 
-#### 2\. 對照本站逐題排解
+確認不是已知問題,而且你覺得這裡的文件應該要寫但沒寫——
+[開一個 issue 告訴我們](https://github.com/hansai-art/hermesagent.download/issues/new?template=01-content-error.yml)。
+你花時間解出來的東西,下一個人就不用再花一次。
 
-上面的排解教學覆蓋最常見錯誤：command not found、API key、Python 版本、context 上限、Telegram。
+## 下一步
 
-3
+- 從頭開始 → [新手路線](/guides/start/)
+- 想看實際案例 → [官方 issue 中文精選](/issues/)
 
-#### 3\. 查官方 Issue 精選
-
-還是解不掉，就到本站的官方 Issue 精選問答依分類找同樣症狀，每筆都附官方連結與目前狀態。
-
-## 更多疑難雜症
-
-[
-
-### 查看官方 Issues Q&A
-
-我們整理了最多人詢問的 GitHub 官方 Issue 摘要。
-
-→](/issues/)[
-
-### 社群解法與筆記
-
-看看社群整理的踩坑記錄與心得。
-
-→](/guides/)
+[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)

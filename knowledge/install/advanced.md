@@ -1,77 +1,74 @@
 ---
-title: "進階安裝教學"
-description: "Hermes Agent 安裝教學，包含自動化腳本、桌面版 App、Docker 與 Serverless 部署"
+title: "進階部署:Docker、無伺服器、遠端"
+description: "讓 agent 不綁在你的筆電上。官方支援六種執行環境——這篇說明各自的取捨,以及目前中文文件的缺口在哪。"
 date: 2026-07-23
 subcategory: "advanced"
-hermes_version: "*"
-last_verified: 2026-07-23
+hermes_version: ">=2026.5"
+last_verified: 2026-07-04
+human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/"
+  - "https://hermes-agent.nousresearch.com/docs"
+  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
 tags:
   - "advanced"
+  - "deploy"
 status: "published"
 ---
 
-Hermes Agent · 中文入口
+一旦你開始把 Hermes 接上 Telegram 或排程任務,就會撞到一個現實:**你的筆電會關機**。
 
-# 非官方中文下載、安裝與新手學習入口
+agent 只在你開著電腦時能用,那它就只是一個比較聰明的終端機工具,不是一個能替你待命的東西。官方支援六種執行環境,就是為了解決這件事[^1]。
 
-整理官方下載、安裝教學、Skill / MCP 推薦、高手使用摘要與 GitHub Issue 精選問答,幫中文使用者從安裝到進階工作流一次上手。
+## 六種執行環境
 
-Unofficial community guide Not affiliated with Nous Research
+| 環境 | 什麼時候用 | 主要取捨 |
+|---|---|---|
+| **本機終端機** | 開發、試用 | 關機就停 |
+| **Docker** | 要環境隔離、要可重現 | 存取本機檔案較麻煩 |
+| **SSH 遠端** | 已經有一台常開的機器 | 要自己管機器 |
+| **Daytona** | 開發環境即服務 | 依賴外部平台 |
+| **Singularity** | HPC / 研究叢集環境 | 場景較特殊 |
+| **Modal(無伺服器)** | 24 小時待命但不想養機器 | 閒置會休眠,冷啟動有延遲 |
 
-[前往官方下載](/install/download/) [從新手路線開始](/install/advanced/) [找 Skill / MCP](/skills/recommended-skills/)
+Modal 這個選項的特別之處在於**閒置時自動休眠**[^1]——你不用為了等待狀態付整天的錢。
 
-## 進階安裝教學（本站整理）
+## 選擇的三個判準
 
-[
+**一、它需要存取你本機的檔案嗎?**
 
-### Hermes Agent WSL2 完整安裝教學（Windows 使用者進階路線）
+需要的話,遠端與無伺服器方案都會很麻煩——檔案不在那台機器上。這種情況比較適合本機或 Docker。
 
-在 Windows 的 WSL2 安裝 Hermes Agent：WSL2 準備、官方安裝指令、gateway 常駐、連 Windows Chrome 的官方建議。
+**二、你能接受冷啟動延遲嗎?**
 
-→](/install/wsl2/)[
+無伺服器方案休眠後被喚醒需要時間。如果你希望在 Telegram 丟一句話就立刻有反應,這個延遲會很有感。
 
-### Hermes Agent macOS 下載與安裝教學
+**三、你想管機器嗎?**
 
-在 macOS 下載安裝 Hermes Agent 的兩種官方方式：桌面版安裝器與一行終端機指令，含驗證步驟與常見錯誤。
+VPS 便宜且完全可控,但你要負責更新、安全、監控。無伺服器貴一點但不用管。
 
-→](/install/macos/)[
+## VPS 長駐(目前唯一有完整中文步驟的路線)
 
-### Hermes Agent Windows 下載與安裝教學（Desktop / PowerShell / WSL2）
+如果你選 VPS,[Linux 安裝教學](/install/linux/)裡有官方建議的做法:用專屬的 service user 執行,而不是 root 或你自己的帳號;伺服器上不需要瀏覽器功能的話可以跳過相關相依套件。
 
-Windows 安裝 Hermes Agent 的三條路：官方桌面版安裝器、原生 PowerShell 指令、WSL2。含各自適用情境與常見錯誤。
+接 Telegram 這類訊息平台時,gateway 需要持續執行。**WSL 環境要特別注意 systemd 不可靠**,詳見 [WSL2 教學](/install/wsl2/)。
 
-→](/install/windows/)[
+## 這一塊是目前最大的缺口
 
-### Hermes Agent Linux 下載與安裝教學
+坦白說:**Docker、Modal、Daytona 的實際部署步驟,這個站目前是空白的。**
 
-在 Linux 用官方一行指令安裝 Hermes Agent：前置套件、安裝位置、service user 部署與驗證步驟。
+官方文件列出了這些選項,但中文圈沒有人寫過完整流程——踩什麼坑、設定檔怎麼寫、資料怎麼持久化、成本大概多少。這些是只有真的部署過的人才知道的東西。
 
-→](/install/linux/)
+如果你跑過其中任何一種:
 
-## 全平台進階安裝指南
+- [開一個 issue 講給我們聽](https://github.com/hansai-art/hermesagent.download/issues/new?template=02-article-proposal.yml)——不用寫成文章,講重點就好,我們幫你整理並掛你的名字
+- 或者[直接寫一篇](https://github.com/hansai-art/hermesagent.download/blob/main/CONTRIBUTING.md)
 
-1
+這是目前這個站最需要人手的地方之一。
 
-#### 1\. 自動化終端機腳本安裝 (推薦)
+## 下一步
 
-官方提供了全自動的安裝腳本，支援 macOS, Linux, 以及 WSL2 甚至 Windows 原生環境。只需在終端機貼上一行腳本即可完成環境建置與相依套件安裝，是最推薦的無腦安裝法。請參考 [官方下載頁](https://hermes-agent.nousresearch.com/)。
+- 先選安裝方式 → [該選哪一種安裝方式](/install/download/)
+- VPS 部署 → [Linux 安裝教學](/install/linux/)
+- WSL2 常駐 → [WSL2 完整教學](/install/wsl2/)
 
-2
-
-#### 2\. 官方 Desktop App 桌面版
-
-如果不習慣使用終端機指令，Nous Research 也有提供「專屬桌面應用程式 (Desktop App)」的包裝，讓你可以透過點擊與圖形介面輕鬆啟動、管理 Hermes Agent 的背景服務。
-
-3
-
-#### 3\. Docker 與雲端伺服器 (VPS / GPU Cluster)
-
-Hermes Agent 設計極為輕量，可架設於便宜的 $5 VPS 或是企業級的 GPU 叢集。官方提供完整的 Docker 支援 (`docker-compose.yml`)，適合想把 Agent 24 小時掛在雲端的重度玩家。
-
-4
-
-#### 4\. 無伺服器環境部署 (Modal / Daytona)
-
-為了節省運算成本，社群與官方也支援將 Hermes 部署至 Serverless 基礎設施 (例如 Modal 或 Daytona)。Agent 可以在閒置時自動休眠，有任務時瞬間喚醒，實現運算資源的最佳化。
+[^1]: Nous Research, Docs — https://hermes-agent.nousresearch.com/docs(2026-07-23 存取)

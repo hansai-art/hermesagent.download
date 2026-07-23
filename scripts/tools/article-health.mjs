@@ -26,8 +26,11 @@ function* walkMd(dir) {
   }
 }
 
+// Astro 的靜態頁面(不是 knowledge/ 產生的),內部連結檢查也要認得
+const STATIC_ROUTES = ['/', '/contribute/', '/dashboard/', '/404/'];
+
 function buildRouteSet() {
-  const routes = new Set(['/']);
+  const routes = new Set(STATIC_ROUTES);
   if (!existsSync(KNOWLEDGE)) return routes;
   for (const file of walkMd(KNOWLEDGE)) {
     const rel = relative(KNOWLEDGE, file).replaceAll('\\', '/');
@@ -58,7 +61,63 @@ const BANNED_TERMS = [
   { re: /[优统专业务动经处开发过们记页头条频软网络设错误问题启运环变电脑议价适龄检测试历]/g, fix: null, label: '疑似簡體字' },
 ];
 
+// 引用密度檢查(依 CITATION-SYSTEM.md)。抽成獨立函式,讓最後的達成率統計
+// 能重用同一套判準——否則統計與檢查會各說各話。
+//   concepts/ 概念文 — 每 300 字至少 1 個 [^n] 腳註(概念容易憑印象亂寫,要求較嚴)
+//   其餘 —— 每 400 字至少 1 個「引用」:腳註、upstream_refs、內文官方連結都算
+function citationDensity({ file, data, content, ctx }) {
+  if (!ctx.isSubstantial) return [];
+  if ((data.status ?? 'published') !== 'published') return [];
+  const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
+  const footnotes = (content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
+
+  if (category === 'concepts') {
+    const expected = Math.floor(ctx.charCount / 300);
+    if (expected < 1) return [];
+    if (footnotes < expected) {
+      return [
+        {
+          level: 'WARN',
+          msg: `概念文引用密度不足:${footnotes} 個腳註,${ctx.charCount} 字應有 ${expected} 個`,
+        },
+      ];
+    }
+    return [];
+  }
+
+  const expected = Math.floor(ctx.charCount / 400);
+  if (expected < 1) return [];
+  const refs = (data.upstream_refs?.length ?? 0) + (data.sources?.length ?? 0);
+  // 內文直接連向官方來源的連結也算引用。目錄型文章(如 173 個 skill 的全目錄)
+  // 每一條都內嵌官方 SKILL.md 連結,那本來就可追溯——
+  // 硬要求另外寫 96 個腳註是形式主義,不是嚴謹。
+  const inlineOfficial = new Set(
+    (
+      content.match(
+        /https?:\/\/(?:hermes-agent\.nousresearch\.com|github\.com\/NousResearch|huggingface\.co\/NousResearch|modelcontextprotocol\.io)[^\s)"'\]]*/g,
+      ) ?? []
+    ).map((u) => u.split('#')[0]),
+  ).size;
+  const citations = footnotes + refs + inlineOfficial;
+  if (citations === 0) {
+    return [
+      { level: 'WARN', msg: `${ctx.charCount} 字卻沒有任何引用(腳註、upstream_refs 或內文官方連結)` },
+    ];
+  }
+  if (citations < expected) {
+    return [
+      {
+        level: 'WARN',
+        msg: `引用密度不足:${footnotes} 腳註 + ${refs} 來源 + ${inlineOfficial} 官方連結 = ${citations},${ctx.charCount} 字應有 ${expected} 個`,
+      },
+    ];
+  }
+  return [];
+}
+
 const checks = [
+  citationDensity,
+
   function requiredFrontmatter({ data }) {
     return REQUIRED_FIELDS.filter((f) => !data[f]).map((f) => ({
       level: 'ERROR',
@@ -187,55 +246,13 @@ const checks = [
   // 導致掃描器回報 0 error 但實際內容大面積不符 docs/editorial/ 的要求。
   // 這幾項只對「實質文章」(400 字以上)生效,卡片式摘要不適用。──
 
-  // 引用密度(依 CITATION-SYSTEM.md):
-  //   concepts/ 概念文 — 每 300 字至少 1 個 [^n] 腳註(概念容易憑印象亂寫,要求較嚴)
-  //   其餘 —— 每 400 字至少 1 個「引用」,腳註與 upstream_refs 都算
-  //           (安裝教學的指令多半出自同一頁官方文件,硬塞 20 個相同腳註是雜訊不是嚴謹)
-  function citationDensity({ file, data, content, ctx }) {
-    if (!ctx.isSubstantial) return [];
-    if ((data.status ?? 'published') !== 'published') return [];
-    const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
-    const footnotes = (content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
-
-    if (category === 'concepts') {
-      const expected = Math.floor(ctx.charCount / 300);
-      if (expected < 1) return [];
-      if (footnotes < expected) {
-        return [
-          {
-            level: 'WARN',
-            msg: `概念文引用密度不足:${footnotes} 個腳註,${ctx.charCount} 字應有 ${expected} 個`,
-          },
-        ];
-      }
-      return [];
-    }
-
-    const expected = Math.floor(ctx.charCount / 400);
-    if (expected < 1) return [];
-    const refs = (data.upstream_refs?.length ?? 0) + (data.sources?.length ?? 0);
-    const citations = footnotes + refs;
-    if (citations === 0) {
-      return [{ level: 'WARN', msg: `${ctx.charCount} 字卻沒有任何引用(腳註或 upstream_refs)` }];
-    }
-    if (citations < expected) {
-      return [
-        {
-          level: 'WARN',
-          msg: `引用密度不足:${footnotes} 腳註 + ${refs} 來源 = ${citations},${ctx.charCount} 字應有 ${expected} 個`,
-        },
-      ];
-    }
-    return [];
-  },
-
   // 可跟做(EDITORIAL:每個關鍵步驟要寫預期輸出或成功判準)
   function followable({ file, content, ctx }) {
     const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
     if (!VERIFIED_CATEGORIES.includes(category)) return [];
     const fences = (content.match(/^\s*```/gm) ?? []).length / 2;
     if (fences === 0) return [];
-    const hasCheckpoint = /預期輸出|成功判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(content);
+    const hasCheckpoint = /預期輸出|成功判準|完成判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(content);
     if (!hasCheckpoint) {
       return [
         {
@@ -292,7 +309,7 @@ let scanned = 0;
 // 編輯規範達成率統計(掃完後給一份總覽,避免只看到零散警告)
 const editorial = {
   substantial: 0,
-  withFootnotes: 0,
+  citationOk: 0,
   teachingWithCode: 0,
   teachingWithCheckpoint: 0,
   versioned: 0,
@@ -325,7 +342,10 @@ for (const file of targets) {
     if (parsed.data.human_reviewed) editorial.humanReviewed++;
     if (fileCtx.isSubstantial) {
       editorial.substantial++;
-      if ((parsed.content.match(/^\[\^[^\]]+\]:/gm) ?? []).length > 0) editorial.withFootnotes++;
+      // 「符合引用規範」而非「有沒有腳註」——概念文要腳註,其餘 upstream_refs
+      // 與內文官方連結也算(與 citationDensity 檢查同一套判準)
+      if (citationDensity({ file, data: parsed.data, content: parsed.content, ctx: fileCtx }).length === 0)
+        editorial.citationOk++;
       if (VERIFIED_CATEGORIES.includes(cat)) {
         editorial.needsVersion++;
         if ((parsed.data.hermes_version ?? '*') !== '*') editorial.versioned++;
@@ -333,7 +353,7 @@ for (const file of targets) {
     }
     if (VERIFIED_CATEGORIES.includes(cat) && (parsed.content.match(/^\s*```/gm) ?? []).length >= 2) {
       editorial.teachingWithCode++;
-      if (/預期輸出|成功判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(parsed.content))
+      if (/預期輸出|成功判準|完成判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(parsed.content))
         editorial.teachingWithCheckpoint++;
     }
   }
@@ -360,7 +380,7 @@ if (fileArgs.length === 0) {
   console.log('');
   console.log('📐 編輯規範達成率(對照 docs/editorial/)');
   console.log(
-    `   引用密度   ${editorial.withFootnotes}/${editorial.substantial} 篇實質文章有腳註 (${pct(editorial.withFootnotes, editorial.substantial)})`,
+    `   引用密度   ${editorial.citationOk}/${editorial.substantial} 篇實質文章符合引用規範 (${pct(editorial.citationOk, editorial.substantial)})`,
   );
   console.log(
     `   可跟做     ${editorial.teachingWithCheckpoint}/${editorial.teachingWithCode} 篇教學有寫預期輸出 (${pct(editorial.teachingWithCheckpoint, editorial.teachingWithCode)})`,

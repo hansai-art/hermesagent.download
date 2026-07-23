@@ -1,99 +1,113 @@
 ---
-title: "OpenClaw 搬家到 Hermes Agent 完整教學（官方 hermes claw migrate）"
-description: "用官方內建的 hermes claw migrate 把 OpenClaw 的記憶、SOUL.md、skills 與設定搬進 Hermes Agent：dry-run 預覽、模式選擇、搬不動的東西。"
+title: "從 OpenClaw 搬到 Hermes Agent"
+description: "官方內建 hermes claw migrate,記憶、SOUL.md、skills 都能搬。先 dry-run 看清楚會動到什麼,再決定要不要帶機密。"
 date: 2026-07-23
 subcategory: "openclaw"
-hermes_version: "*"
+hermes_version: ">=2026.5"
 last_verified: 2026-07-04
+human_reviewed: false
 upstream_refs:
   - "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/migration/openclaw-migration/SKILL.md"
+  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
 tags:
   - "openclaw"
+  - "migrate"
 status: "published"
 ---
 
-Hermes 官方內建 OpenClaw 遷移指令：hermes claw migrate 會把 ~/.openclaw 的記憶、SOUL.md、command allowlist、skills 與相容設定搬進 Hermes，先用 --dry-run 預覽再執行。
+換工具最怕的不是學新介面,是**累積的東西搬不過來**——你調教了幾個月的 SOUL.md、agent 對你的記憶、自己寫的 skills。
 
-**這頁適合誰**：正在從 OpenClaw 轉移到 Hermes Agent、想保留既有記憶與自訂內容的使用者。
+好消息:Hermes 內建了官方的 OpenClaw 遷移指令,這些東西大部分能直接搬[^1]。
 
-## 步驟
+## 先看它打算搬什麼(不要跳過這步)
 
-1. ### 先預覽會搬什麼
+```bash
+hermes claw migrate --dry-run
+```
 
-    dry-run 只報告不動手，會列出可搬、不可搬與會封存的項目。
+`--dry-run` **只報告、不動手**[^1]。它會列出三類項目:可以搬的、搬不動的、以及會被封存的。
 
-    ```bash
-    hermes claw migrate --dry-run
-    ```
+**為什麼一定要先跑**:遷移會動到你的 Hermes 設定。先看清楚清單,等一下結果不如預期時你才知道問題出在哪。
 
-2. ### 執行互動式完整遷移
+> 📝 **這一段缺實際輸出**:`--dry-run` 的報告長什麼樣、分類怎麼呈現,我們手上沒有實機畫面。
+> [幫我們補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/migrate/migrate-from-openclaw.md)。
 
-    官方會搬：SOUL.md、MEMORY.md 與 USER.md（轉成 Hermes 記憶）、command allowlist、TELEGRAM_ALLOWED_USERS 等相容訊息設定、OpenClaw skills（放進 ~/.hermes/skills/openclaw-imports/）。
+## 執行遷移
 
-    ```bash
-    hermes claw migrate
-    ```
+```bash
+hermes claw migrate
+```
 
-3. ### 不想搬機密就用 preset
+互動式流程。官方會搬這些[^1]:
 
-    user-data preset 會跳過 secrets；帶 --migrate-secrets 才會搬入允許清單內的機密（目前是 TELEGRAM_BOT_TOKEN）。
+| 項目 | 搬到哪 |
+|---|---|
+| `SOUL.md`、`MEMORY.md`、`USER.md` | 轉換成 Hermes 的記憶系統 |
+| command allowlist | Hermes 對應設定 |
+| `TELEGRAM_ALLOWED_USERS` 等相容的訊息設定 | Hermes 對應設定 |
+| OpenClaw skills | `~/.hermes/skills/openclaw-imports/` |
 
-    ```bash
-    hermes claw migrate --preset user-data
-    ```
+**成功判準**:跑完後啟動 `hermes`,問它一件只有舊環境才知道的事(例如你的專案慣例、你之前告訴過它的偏好)。答得出來,記憶就是搬成功了。
 
-4. ### 衝突與自訂來源
+## 機密資訊要不要一起搬
 
-    既有檔案衝突可用 --overwrite 覆蓋；OpenClaw 目錄不在預設位置用 --source 指定。
+預設**不會**搬機密。想明確跳過所有 secrets:
 
-    ```bash
-    hermes claw migrate --overwrite
-    hermes claw migrate --source /custom/path/.openclaw
-    ```
+```bash
+hermes claw migrate --preset user-data
+```
 
-5. ### 第一次安裝的人不用手動跑
+要搬的話得明確指定:
 
-    官方說明：hermes setup 精靈會自動偵測 ~/.openclaw 並在設定前主動詢問是否遷移。
+```bash
+hermes claw migrate --migrate-secrets
+```
 
-    ```bash
-    hermes setup
-    ```
+即使加了這個參數,也只會搬**允許清單內**的機密——目前是 `TELEGRAM_BOT_TOKEN`[^1]。其他 API key 需要你自己重新設定。
 
+這個設計是刻意的:機密跨工具複製是風險行為,官方選擇讓你明確表態。
 
-## 完成後怎麼驗證
+## 其他常用參數
 
-- 遷移結束會產出結構化報告：搬了什麼、衝突、跳過原因
-- Hermes 對話中能取用原本 OpenClaw 的記憶內容
+已經有同名檔案時覆蓋:
+
+```bash
+hermes claw migrate --overwrite
+```
+
+OpenClaw 不在預設位置(預設會找 `~/.openclaw`):
+
+```bash
+hermes claw migrate --source /custom/path/.openclaw
+```
+
+## 搬完之後要做的三件事
+
+1. **重新設定 API key**——除了 Telegram token,其他機密不會跟著搬。見 [模型供應商與 API key 設定](/config/model-provider/)
+2. **檢查 skills 有沒有正常運作**——OpenClaw skills 被放進 `~/.hermes/skills/openclaw-imports/`,格式相容不代表行為完全一致
+3. **有接 Telegram 的話**,確認允許名單有搬過來,見 [Telegram 常見坑](/troubleshoot/telegram/)
 
 ## 常見問題
 
-### 會不會搬我的 API key？
+### 第一次裝 Hermes 需要手動跑嗎?
 
-預設不搬 secrets。帶 --migrate-secrets 只會搬允許清單內的項目，官方目前清單是 TELEGRAM_BOT_TOKEN。
+安裝時若偵測到 OpenClaw 環境,安裝流程通常會提示遷移,不一定要手動執行。
 
-### 搬不過去的東西會消失嗎？
+### 搬完 OpenClaw 還能用嗎?
 
-不會，官方流程會把沒有對應 Hermes 位置的非機密文件封存，並在報告裡列出跳過原因。
+可以。遷移是複製不是移動,`~/.openclaw` 不會被刪掉。建議先留著,確認 Hermes 一切正常再處理。
 
-### OpenClaw 的 skills 能直接用嗎？
+### 記憶搬過來會不會格式跑掉?
 
-會被複製到 ~/.hermes/skills/openclaw-imports/，之後可逐一檢視啟用；不是每個都保證相容。
+官方遷移指令會做格式轉換[^1]。但兩個系統的記憶模型不同,轉換後的呈現方式可能有差異。
 
-## 相關頁
+> 📝 **待補實際經驗**:轉換後記憶的完整度如何、有沒有明顯遺漏,只有真的搬過的人才知道。
+> [歡迎補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/migrate/migrate-from-openclaw.md)。
 
-- [Hermes Agent macOS 下載與安裝教學](/install/macos/)
-- [Hermes Agent Windows 下載與安裝教學（Desktop / PowerShell / WSL2）](/install/windows/)
-- [Hermes Agent Linux 下載與安裝教學](/install/linux/)
-- [Hermes Agent WSL2 完整安裝教學（Windows 使用者進階路線）](/install/wsl2/)
-- [Hermes Agent 模型供應商與 API key 設定教學](/config/model-provider/)
-- [hermes: command not found 怎麼解？](/troubleshoot/command-not-found/)
-- [API key not set / API key 無效怎麼解？](/troubleshoot/api-key-not-set/)
-- [Hermes requires Python 3.11 or newer 怎麼解？](/troubleshoot/python-version-too-old/)
-- [context length exceeded 怎麼解？](/troubleshoot/context-length-exceeded/)
-- [Telegram 接 Hermes Agent 常見坑與解法](/troubleshoot/telegram/)
-- [官方 Issue 精選問答](/issues/)
-- [學校解法卡](/guides/)
+## 下一步
 
-資料來源：[官方 openclaw-migration skill](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/migration/openclaw-migration/SKILL.md)
+- 重新設定模型 → [模型供應商與 API key 設定](/config/model-provider/)
+- 接回 Telegram → [Telegram 常見坑與解法](/troubleshoot/telegram/)
+- 看看有哪些官方 skills → [技能全目錄](/skills/catalog/)
 
-最後檢查：2026-07-04
+[^1]: NousResearch/hermes-agent, OpenClaw Migration SKILL.md — https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/migration/openclaw-migration/SKILL.md(2026-07-23 存取)

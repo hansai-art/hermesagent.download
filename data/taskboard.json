@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T11:54:53.232Z",
+  "generatedAt": "2026-07-23T12:08:04.196Z",
   "counts": {
     "gaps": 7,
     "verify": 12,
@@ -77,6 +77,36 @@
     },
     {
       "type": "verify",
+      "category": "guides",
+      "emoji": "📖",
+      "title": "新手路線:從零到跑起來",
+      "hint": "最後實測 19 天前",
+      "days": 19,
+      "url": "/guides/start/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/start.md"
+    },
+    {
+      "type": "verify",
+      "category": "install",
+      "emoji": "🖥️",
+      "title": "進階部署:Docker、無伺服器、遠端",
+      "hint": "最後實測 19 天前",
+      "days": 19,
+      "url": "/install/advanced/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/advanced.md"
+    },
+    {
+      "type": "verify",
+      "category": "install",
+      "emoji": "🖥️",
+      "title": "該選哪一種安裝方式",
+      "hint": "最後實測 19 天前",
+      "days": 19,
+      "url": "/install/download/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/download.md"
+    },
+    {
+      "type": "verify",
       "category": "install",
       "emoji": "🖥️",
       "title": "在 Linux 上安裝 Hermes Agent",
@@ -117,9 +147,19 @@
     },
     {
       "type": "verify",
+      "category": "integrations",
+      "emoji": "🔌",
+      "title": "值得優先接的 MCP Server",
+      "hint": "最後實測 19 天前",
+      "days": 19,
+      "url": "/integrations/recommended-mcp/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/integrations/recommended-mcp.md"
+    },
+    {
+      "type": "verify",
       "category": "migrate",
       "emoji": "🔄",
-      "title": "OpenClaw 搬家到 Hermes Agent 完整教學（官方 hermes claw migrate）",
+      "title": "從 OpenClaw 搬到 Hermes Agent",
       "hint": "最後實測 19 天前",
       "days": 19,
       "url": "/migrate/migrate-from-openclaw/",
@@ -144,46 +184,6 @@
       "days": 19,
       "url": "/troubleshoot/command-not-found/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/command-not-found.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "context length exceeded 怎麼解",
-      "hint": "最後實測 19 天前",
-      "days": 19,
-      "url": "/troubleshoot/context-length-exceeded/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/context-length-exceeded.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "Hermes requires Python 3.11 or newer 怎麼解",
-      "hint": "最後實測 19 天前",
-      "days": 19,
-      "url": "/troubleshoot/python-version-too-old/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/python-version-too-old.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "Telegram 接 Hermes Agent 常見坑與解法",
-      "hint": "最後實測 19 天前",
-      "days": 19,
-      "url": "/troubleshoot/telegram/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/telegram.md"
-    },
-    {
-      "type": "verify",
-      "category": "guides",
-      "emoji": "📖",
-      "title": "使用方式（school-01）",
-      "hint": "最後實測 8 天前",
-      "days": 8,
-      "url": "/guides/school-01/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-01.md"
     }
   ],
   "cite": [],
