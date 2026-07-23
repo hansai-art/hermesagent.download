@@ -42,7 +42,7 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
         {
           n: activity?.recentCommits30d ?? 0,
           label: '次更新 / 30天',
-          sub: `${activity?.total ?? 0} 位貢獻者`,
+          sub: `最後更新 ${fmt(activity?.lastCommitAt ?? null)}`,
         },
       ].map((s) => (
         <div class="rounded-lg border p-4" style="border-color: var(--border); background: var(--bg-raised)">
@@ -156,7 +156,10 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
   {
     activity && activity.top?.length > 0 && (
       <section>
-        <h2 class="text-xl font-bold mb-4">貢獻者</h2>
+        <h2 class="text-xl font-bold mb-1">創始貢獻者</h2>
+        <p class="text-sm mb-4" style="color: var(--text-dim)">
+          這個站剛開始,現在加入的人會留在這份最早的名單上。
+        </p>
         <div class="flex flex-wrap gap-3">
           {activity.top.map((c) => (
             <a

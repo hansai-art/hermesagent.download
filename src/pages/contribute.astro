@@ -5,6 +5,10 @@ import dashboard from '../../data/dashboard.json';
 
 const REPO = 'hansai-art/hermesagent.download';
 const PROMPT_RAW = `https://raw.githubusercontent.com/${REPO}/main/CONTRIBUTE_PROMPT.md`;
+
+// 拿得出手的兩個數字:issue 中文精選是這個站的獨有價值
+const issueCount = dashboard.content.byCategory.find((c) => c.slug === 'issues')?.count ?? 0;
+const skillCount = 173; // 官方 skills 全目錄篇幅,見 /skills/catalog/
 const aiPrompt = `讀取 ${PROMPT_RAW} 的完整內容,然後按照裡面的指示引導我為 hermesagent.download 寫一篇 Hermes Agent 中文文件。`;
 
 const iceBreakers = [
@@ -67,19 +71,23 @@ const paths = [
       修正一句過期的指令、補上一個踩過的坑,就已經是完整的貢獻。
     </p>
 
-    <!-- 誠實的現況 -->
+    <!-- 現有基礎 + 待補空間 -->
     <div
       class="rounded-lg border p-5 text-sm"
       style="border-color: var(--accent-dim); background: var(--bg-raised)"
     >
-      <div class="font-semibold mb-2" style="color: var(--accent)">先說實話:這個站才剛出生</div>
-      <p class="mb-2" style="color: var(--text-dim)">
-        {dashboard.content.total} 篇文章、{dashboard.activity?.total ?? 1} 位貢獻者、還沒有累積流量數據。
-        {dashboard.content.gaps.length} 個分類的文章少到不足三篇。我們不假裝這裡已經很熱鬧。
+      <div class="font-semibold mb-2" style="color: var(--accent)">這裡已經有什麼</div>
+      <p class="mb-3" style="color: var(--text-dim)">
+        {dashboard.content.total} 篇中文文件,其中 {issueCount} 篇是官方 GitHub issue
+        的中文精選——這是目前中文圈唯一有系統整理的一份。加上 {skillCount} 個官方 skills
+        全目錄、安裝與排錯逐題教學,{dashboard.credibility.withSourcesPct}%
+        的文章都對得到官方來源。
       </p>
       <p style="color: var(--text)">
-        但這正是現在加入的意義——<strong style="color: var(--accent)">早期貢獻者決定這個站長成什麼樣子</strong>。
-        你寫的第一篇會直接定義那個分類的標準,而不是淹沒在三百篇之中。
+        還缺的是<strong style="color: var(--accent)">實戰經驗</strong>——
+        {dashboard.content.gaps.length} 個分類還在等第一批文章。這些是文件寫不出來、
+        只有真的用過的人才知道的東西:你的工作流、你踩的坑、你算過的成本。
+        現在寫的會直接定義那個分類的標準。
       </p>
     </div>
   </section>

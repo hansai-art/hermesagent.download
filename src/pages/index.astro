@@ -18,11 +18,13 @@ for (const a of articles) {
   countByCategory.set(cat, (countByCategory.get(cat) ?? 0) + 1);
 }
 
+// 挑拿得出手的四個:issue 中文精選是這個站的獨有價值,放在文章總數旁邊
+const issueCount = dashboard.content.byCategory.find((c) => c.slug === 'issues')?.count ?? 0;
 const vitals = [
-  { n: dashboard.content.total, label: '篇文章' },
+  { n: dashboard.content.total, label: '篇中文文件' },
+  { n: issueCount, label: '篇官方 issue 精選' },
   { n: `${dashboard.credibility.withSourcesPct}%`, label: '有官方來源' },
   { n: dashboard.credibility.verifiedFresh, label: '篇近期實測' },
-  { n: dashboard.activity?.total ?? 1, label: '位貢獻者' },
 ];
 
 const routes = [
@@ -161,8 +163,9 @@ const routes = [
   <section class="rounded-lg border p-6" style="border-color: var(--accent-dim); background: var(--bg-raised)">
     <h2 class="text-xl font-bold mb-2">這個站還很年輕。你來的時間剛好。</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
-      目前 {dashboard.content.gaps.length} 個分類的文章少到不足三篇。現在寫的第一篇會直接定義那個分類的標準,
-      而不是淹沒在三百篇之中。不會寫也沒關係——回報一個錯誤只要兩分鐘,
+      官方文件和 issue 我們已經整理好了,還缺的是實戰經驗——你的工作流、你踩的坑、
+      你算過的成本,這些是文件寫不出來的。{dashboard.content.gaps.length} 個分類還在等第一批文章,
+      現在寫的會直接定義那個分類的標準。不會寫也沒關係:回報一個錯誤只要兩分鐘,
       或者把用不完的 AI 額度借給我們十五分鐘。
     </p>
     <div class="flex flex-wrap gap-3">
