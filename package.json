@@ -19,6 +19,8 @@
     "article-health:strict": "node scripts/tools/article-health.mjs --profile=release-pr",
     "check-links": "node scripts/tools/check-links.mjs",
     "stats": "node scripts/tools/generate-stats.mjs",
+    "contributors": "node scripts/core/generate-contributors.mjs",
+    "dashboard": "node scripts/core/generate-dashboard.mjs",
     "freshness": "node scripts/tools/freshness.mjs",
     "upstream-watch": "node scripts/tools/upstream-watch.mjs --dry-run",
     "format:check": "prettier --check .",

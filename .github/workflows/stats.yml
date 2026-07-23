@@ -23,6 +23,14 @@ jobs:
       - name: Generate stats
         run: node scripts/tools/generate-stats.mjs
 
+      - name: Generate contributors
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/core/generate-contributors.mjs
+
+      - name: Generate dashboard
+        run: node scripts/core/generate-dashboard.mjs
+
       - name: Commit if changed
         run: |
           if [[ -n "$(git status --porcelain data/ README.md)" ]]; then
