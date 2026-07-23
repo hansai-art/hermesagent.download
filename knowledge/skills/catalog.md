@@ -4,7 +4,7 @@ description: "官方 repo 的完整 skill 清單：72 個內建（bundled）與 
 date: 2026-07-23
 subcategory: "catalog"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/apple-notes/SKILL.md"
   - "https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/apple-reminders/SKILL.md"

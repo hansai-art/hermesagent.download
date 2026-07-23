@@ -4,7 +4,7 @@ description: "用官方內建的 hermes claw migrate 把 OpenClaw 的記憶、SO
 date: 2026-07-23
 subcategory: "openclaw"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/migration/openclaw-migration/SKILL.md"
 tags:

@@ -4,7 +4,7 @@ description: "Hermes Agent 出現 API key not set 或 key 無效的官方解法�
 date: 2026-07-23
 subcategory: "auth"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/docs/reference/faq"
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"

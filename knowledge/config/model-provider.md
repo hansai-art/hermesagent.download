@@ -4,7 +4,7 @@ description: "hermes model 指令完整教學：OpenRouter / OpenAI / Anthropic 
 date: 2026-07-23
 subcategory: "provider"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
   - "https://hermes-agent.nousresearch.com/docs/reference/faq"

@@ -4,7 +4,7 @@ description: "Hermes Agent 出現 context length exceeded 的官方解法：/com
 date: 2026-07-23
 subcategory: "runtime"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/docs/reference/faq"
 tags:

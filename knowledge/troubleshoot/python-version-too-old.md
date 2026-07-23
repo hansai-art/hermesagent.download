@@ -4,7 +4,7 @@ description: "Hermes Agent 報 Python 版本太舊的解法：檢查版本、升
 date: 2026-07-23
 subcategory: "install"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/install.sh"
   - "https://hermes-agent.nousresearch.com/docs/reference/faq"

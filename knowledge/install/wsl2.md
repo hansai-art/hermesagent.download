@@ -4,7 +4,7 @@ description: "在 Windows 的 WSL2 安裝 Hermes Agent：WSL2 準備、官方安
 date: 2026-07-23
 subcategory: "windows"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/install.sh"
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"

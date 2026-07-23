@@ -4,7 +4,7 @@ description: "在 macOS 下載安裝 Hermes Agent 的兩種官方方式：桌面
 date: 2026-07-23
 subcategory: "macos"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-04
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/install.sh"
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
