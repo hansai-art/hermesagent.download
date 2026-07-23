@@ -1,0 +1,27 @@
+---
+import { CATEGORIES } from '../config/categories.mjs';
+---
+
+<footer class="border-t mt-16" style="border-color: var(--border)">
+  <div class="max-w-5xl mx-auto px-5 py-10 text-sm" style="color: var(--text-dim)">
+    <div class="flex flex-wrap gap-x-4 gap-y-2 mb-6">
+      {
+        CATEGORIES.map((c) => (
+          <a href={`/${c.slug}/`} style="color: var(--text-dim)">
+            {c.emoji} {c.name}
+          </a>
+        ))
+      }
+    </div>
+    <p class="mb-2">
+      本站為非官方社群知識庫,與 Nous Research 無關;所有下載連結一律導向官方來源。
+    </p>
+    <p>
+      內容以
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant" style="color: var(--accent)">CC BY-SA 4.0</a>
+      授權.程式碼 MIT.架構取法
+      <a href="https://github.com/frank890417/taiwan-md" style="color: var(--accent)">taiwan-md</a>
+      🙏
+    </p>
+  </div>
+</footer>

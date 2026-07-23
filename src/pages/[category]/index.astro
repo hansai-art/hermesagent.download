@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { CATEGORIES } from '../../config/categories.mjs';
+
+export async function getStaticPaths() {
+  return CATEGORIES.map((c) => ({
+    params: { category: c.slug },
+    props: { category: c },
+  }));
+}
+
+const { category } = Astro.props;
+
+const articles = (await getCollection('zh-TW'))
+  .filter((a) => a.id.split('/')[0] === category.slug)
+  .filter((a) => a.data.status !== 'draft' && a.data.status !== 'archived')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Base
+  title={`${category.name} — HermesAgent.download`}
+  description={category.description}
+>
+  <h1 class="text-3xl font-bold mb-2">{category.emoji} {category.name}</h1>
+  <p class="mb-8" style="color: var(--text-dim)">{category.description}</p>
+
+  {
+    articles.length === 0 ? (
+      <div
+        class="rounded-lg border p-8 text-center"
+        style="border-color: var(--border); color: var(--text-dim)"
+      >
+        這個分類還沒有文章——
+        <a href="/about/" style="color: var(--accent)">
+          來寫第一篇
+        </a>
+        !
+      </div>
+    ) : (
+      <div class="grid md:grid-cols-2 gap-3">
+        {articles.map((a) => (
+          <ArticleCard
+            id={a.id}
+            title={a.data.title}
+            description={a.data.description}
+            status={a.data.status}
+            hermesVersion={a.data.hermes_version}
+          />
+        ))}
+      </div>
+    )
+  }
+</Base>

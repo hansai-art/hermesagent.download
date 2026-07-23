@@ -1,0 +1,29 @@
+# PR 免疫系統:每個 PR 自動跑文章健康掃描 + 建置驗證
+# Phase 2 會擴充:連結存活檢查、terminology 檢查、版本欄位比對
+name: Quality Check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Article health scan(免疫系統)
+        run: node scripts/tools/article-health.mjs --all
+
+      - name: Build(sync + astro build)
+        run: npm run build

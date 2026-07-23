@@ -1,0 +1,35 @@
+---
+import { getCategory } from '../config/categories.mjs';
+
+interface Props {
+  id: string; // "category/slug"
+  title: string;
+  description: string;
+  status?: string;
+  hermesVersion?: string;
+}
+
+const { id, title, description, status = 'published', hermesVersion } = Astro.props;
+const [categorySlug] = id.split('/');
+const category = getCategory(categorySlug);
+---
+
+<a
+  href={`/${id}/`}
+  class="block rounded-lg border p-5 transition-colors hover:border-[var(--accent-dim)]"
+  style="border-color: var(--border); background: var(--bg-raised)"
+>
+  <div class="flex items-center gap-2 text-xs mb-2" style="color: var(--text-dim)">
+    {category && <span>{category.emoji} {category.name}</span>}
+    {
+      status === 'outdated' && (
+        <span class="rounded px-1.5 py-0.5 border" style="border-color: var(--accent-dim); color: var(--accent)">
+          可能過期
+        </span>
+      )
+    }
+    {hermesVersion && hermesVersion !== '*' && <span>v{hermesVersion}</span>}
+  </div>
+  <h3 class="font-semibold mb-1" style="color: var(--text)">{title}</h3>
+  <p class="text-sm line-clamp-2" style="color: var(--text-dim)">{description}</p>
+</a>

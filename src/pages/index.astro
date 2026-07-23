@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { CATEGORIES } from '../config/categories.mjs';
+
+const articles = (await getCollection('zh-TW')).filter(
+  (a) => a.data.status !== 'draft' && a.data.status !== 'archived',
+);
+const latest = [...articles]
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 6);
+
+const countByCategory = new Map<string, number>();
+for (const a of articles) {
+  const cat = a.id.split('/')[0];
+  countByCategory.set(cat, (countByCategory.get(cat) ?? 0) + 1);
+}
+---
+
+<Base title="HermesAgent.download — Hermes Agent 中文社群知識庫">
+  <section class="py-12 text-center">
+    <h1 class="text-4xl font-bold mb-4">
+      Hermes Agent <span style="color: var(--accent)">中文</span>社群知識庫
+    </h1>
+    <p class="max-w-2xl mx-auto" style="color: var(--text-dim)">
+      共筆、開源、自動進化。所有內容都在 GitHub 上,任何人都可以參與編輯——
+      由社群共同維護的 Hermes Agent 中文指南。
+    </p>
+    <div class="mt-6 flex justify-center gap-3">
+      <a
+        href="/install/"
+        class="rounded-md px-5 py-2 font-medium"
+        style="background: var(--accent); color: var(--bg)">開始安裝</a
+      >
+      <a
+        href="/about/"
+        class="rounded-md px-5 py-2 border"
+        style="border-color: var(--border); color: var(--text)">參與共筆</a
+      >
+    </div>
+  </section>
+
+  <section class="mt-8">
+    <h2 class="text-xl font-bold mb-4">分類</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      {
+        CATEGORIES.map((c) => (
+          <a
+            href={`/${c.slug}/`}
+            class="rounded-lg border p-4 transition-colors hover:border-[var(--accent-dim)]"
+            style="border-color: var(--border); background: var(--bg-raised)"
+          >
+            <div class="text-2xl mb-1">{c.emoji}</div>
+            <div class="font-semibold" style="color: var(--text)">
+              {c.name}
+              <span class="text-xs font-normal ml-1" style="color: var(--text-dim)">
+                {countByCategory.get(c.slug) ?? 0}
+              </span>
+            </div>
+            <div class="text-xs mt-1 line-clamp-2" style="color: var(--text-dim)">
+              {c.description}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  {
+    latest.length > 0 && (
+      <section class="mt-12">
+        <h2 class="text-xl font-bold mb-4">最新文章</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          {latest.map((a) => (
+            <ArticleCard
+              id={a.id}
+              title={a.data.title}
+              description={a.data.description}
+              status={a.data.status}
+              hermesVersion={a.data.hermes_version}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</Base>

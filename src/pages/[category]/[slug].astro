@@ -1,0 +1,93 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getCategory } from '../../config/categories.mjs';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('zh-TW');
+  return entries
+    .filter((e) => e.data.status !== 'draft')
+    .map((e) => {
+      const [category, ...rest] = e.id.split('/');
+      return { params: { category, slug: rest.join('/') }, props: { entry: e } };
+    });
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const category = getCategory(entry.id.split('/')[0]);
+const d = entry.data;
+
+const fmtDate = (date: Date) =>
+  date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title={`${d.title} — HermesAgent.download`} description={d.description}>
+  <article class="max-w-3xl mx-auto">
+    <nav class="text-sm mb-6" style="color: var(--text-dim)">
+      <a href="/" style="color: var(--text-dim)">首頁</a>
+      <span class="mx-1">/</span>
+      {
+        category && (
+          <a href={`/${category.slug}/`} style="color: var(--text-dim)">
+            {category.emoji} {category.name}
+          </a>
+        )
+      }
+    </nav>
+
+    {
+      d.status === 'outdated' && (
+        <div
+          class="rounded-lg border px-4 py-3 mb-6 text-sm"
+          style="border-color: var(--accent-dim); color: var(--accent); background: var(--bg-raised)"
+        >
+          ⚠️ 這篇文章可能已過期(對應 Hermes Agent {d.hermes_version})。歡迎到 GitHub
+          協助更新。
+        </div>
+      )
+    }
+
+    <h1 class="text-3xl font-bold mb-3">{d.title}</h1>
+    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm mb-8" style="color: var(--text-dim)">
+      <span>📅 {fmtDate(d.date)}</span>
+      {d.hermes_version !== '*' && <span>適用版本 {d.hermes_version}</span>}
+      {d.last_verified && <span>✅ 最後驗證 {fmtDate(d.last_verified)}</span>}
+      <span>✍️ {d.author}</span>
+    </div>
+
+    <div class="prose-dark">
+      <Content />
+    </div>
+
+    {
+      d.upstream_refs.length > 0 && (
+        <section class="mt-10 pt-4 border-t text-sm" style="border-color: var(--border)">
+          <h2 class="font-semibold mb-2" style="color: var(--text-dim)">
+            官方來源
+          </h2>
+          <ul class="space-y-1">
+            {d.upstream_refs.map((url: string) => (
+              <li>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: var(--accent)"
+                  class="break-all"
+                >
+                  {url}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="mt-10 text-sm" style="color: var(--text-dim)">
+      發現錯誤或內容過期?
+      <a href="/about/" style="color: var(--accent)">到 GitHub 編輯這一頁</a>
+    </div>
+  </article>
+</Base>

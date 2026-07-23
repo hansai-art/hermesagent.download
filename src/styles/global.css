@@ -1,0 +1,129 @@
+@import 'tailwindcss';
+
+/* ── 設計 tokens(黑色設計語言,完整規範見 docs/design/DESIGN.md)──
+   Phase 1 內容搬遷時,依現行 hermesagent.download 的實際色票微調這裡即可全站生效。 */
+:root {
+  --bg: #0a0a0c; /* 近黑背景 */
+  --bg-raised: #121216; /* 卡片/浮起層 */
+  --border: #26262c; /* 細邊框 */
+  --text: #e8e8ea; /* 主文字 */
+  --text-dim: #9a9aa3; /* 次要文字 */
+  --accent: #d8a752; /* Hermes 金 */
+  --accent-dim: #8a6c38;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    'Noto Sans TC',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  scrollbar-color: var(--border) var(--bg);
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--text);
+}
+
+/* ── 文章排版(Markdown 渲染區)── */
+.prose-dark {
+  line-height: 1.85;
+}
+.prose-dark h1,
+.prose-dark h2,
+.prose-dark h3 {
+  color: var(--text);
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+}
+.prose-dark h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4em;
+}
+.prose-dark h3 {
+  font-size: 1.2rem;
+}
+.prose-dark p,
+.prose-dark li {
+  color: var(--text);
+  margin-bottom: 1em;
+}
+.prose-dark a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-dark a:hover {
+  color: var(--text);
+}
+.prose-dark code {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.9em;
+}
+.prose-dark pre {
+  background: var(--bg-raised) !important;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1em 1.25em;
+  overflow-x: auto;
+  margin-bottom: 1.25em;
+}
+.prose-dark pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+.prose-dark ul,
+.prose-dark ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+.prose-dark ul {
+  list-style: disc;
+}
+.prose-dark ol {
+  list-style: decimal;
+}
+.prose-dark blockquote {
+  border-left: 3px solid var(--accent-dim);
+  padding-left: 1em;
+  color: var(--text-dim);
+  margin: 1.25em 0;
+}
+.prose-dark table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25em;
+  font-size: 0.95em;
+}
+.prose-dark th,
+.prose-dark td {
+  border: 1px solid var(--border);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+.prose-dark th {
+  background: var(--bg-raised);
+}
+.prose-dark hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2em 0;
+}
+/* 腳註區(CITATION-SYSTEM 的 [^n] 渲染結果) */
+.prose-dark .footnotes {
+  font-size: 0.875em;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  margin-top: 3em;
+  padding-top: 1em;
+}
