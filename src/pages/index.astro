@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { CATEGORIES } from '../config/categories.mjs';
+import dashboard from '../../data/dashboard.json';
 
 const articles = (await getCollection('zh-TW')).filter(
   (a) => a.data.status !== 'draft' && a.data.status !== 'archived',
@@ -16,33 +17,103 @@ for (const a of articles) {
   const cat = a.id.split('/')[0];
   countByCategory.set(cat, (countByCategory.get(cat) ?? 0) + 1);
 }
+
+const vitals = [
+  { n: dashboard.content.total, label: '篇文章' },
+  { n: `${dashboard.credibility.withSourcesPct}%`, label: '有官方來源' },
+  { n: dashboard.credibility.verifiedFresh, label: '篇近期實測' },
+  { n: dashboard.activity?.total ?? 1, label: '位貢獻者' },
+];
+
+const routes = [
+  {
+    icon: '🚪',
+    title: '我第一次接觸 Hermes Agent',
+    desc: '五分鐘搞懂它是什麼、跟其他 AI 助手差在哪',
+    href: '/concepts/什麼是-hermes-agent/',
+  },
+  {
+    icon: '💻',
+    title: '我想直接裝起來用',
+    desc: 'macOS / Windows / Linux / WSL2 逐步安裝,指令取自官方文件',
+    href: '/install/',
+  },
+  {
+    icon: '🚑',
+    title: '我卡在某個錯誤',
+    desc: 'command not found、API key、context 上限、Telegram 踩坑逐題解',
+    href: '/troubleshoot/overview/',
+  },
+  {
+    icon: '✋',
+    title: '我想幫忙補內容',
+    desc: '從兩分鐘的錯誤回報,到捐出用不完的 AI 額度',
+    href: '/contribute/',
+  },
+];
 ---
 
 <Base title="HermesAgent.download — Hermes Agent 中文社群知識庫">
+  <!-- Hero -->
   <section class="py-12 text-center">
-    <h1 class="text-4xl font-bold mb-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
       Hermes Agent <span style="color: var(--accent)">中文</span>社群知識庫
     </h1>
-    <p class="max-w-2xl mx-auto" style="color: var(--text-dim)">
-      共筆、開源、自動進化。所有內容都在 GitHub 上,任何人都可以參與編輯——
-      由社群共同維護的 Hermes Agent 中文指南。
+    <p class="max-w-2xl mx-auto text-lg mb-3" style="color: var(--text)">
+      你花三小時才解開的錯誤,下一個人只要三分鐘。
     </p>
-    <div class="mt-6 flex justify-center gap-3">
-      <a
-        href="/install/"
-        class="rounded-md px-5 py-2 font-medium"
-        style="background: var(--accent); color: var(--bg)">開始安裝</a
-      >
-      <a
-        href="/about/"
-        class="rounded-md px-5 py-2 border"
-        style="border-color: var(--border); color: var(--text)">參與共筆</a
-      >
+    <p class="max-w-2xl mx-auto mb-8 text-sm" style="color: var(--text-dim)">
+      安裝、設定、踩坑、官方 issue 中文精選——由社群共同維護,
+      內容全部公開在 GitHub,任何人都能編輯。
+    </p>
+
+    <!-- 生命徵象 -->
+    <a
+      href="/dashboard/"
+      class="inline-flex flex-wrap justify-center gap-x-6 gap-y-2 rounded-lg border px-6 py-3 mb-8"
+      style="border-color: var(--border); background: var(--bg-raised)"
+    >
+      {
+        vitals.map((v) => (
+          <span class="text-sm">
+            <span class="font-bold tabular-nums" style="color: var(--accent)">
+              {v.n}
+            </span>
+            <span class="ml-1" style="color: var(--text-dim)">
+              {v.label}
+            </span>
+          </span>
+        ))
+      }
+    </a>
+  </section>
+
+  <!-- 意圖分流 -->
+  <section class="mb-14">
+    <div class="grid sm:grid-cols-2 gap-3">
+      {
+        routes.map((r) => (
+          <a
+            href={r.href}
+            class="rounded-lg border p-5 transition-colors hover:border-[var(--accent-dim)]"
+            style="border-color: var(--border); background: var(--bg-raised)"
+          >
+            <div class="text-2xl mb-2">{r.icon}</div>
+            <div class="font-semibold mb-1" style="color: var(--text)">
+              {r.title}
+            </div>
+            <div class="text-sm" style="color: var(--text-dim)">
+              {r.desc}
+            </div>
+          </a>
+        ))
+      }
     </div>
   </section>
 
-  <section class="mt-8">
-    <h2 class="text-xl font-bold mb-4">分類</h2>
+  <!-- 分類 -->
+  <section class="mb-14">
+    <h2 class="text-xl font-bold mb-4">全部分類</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
       {
         CATEGORIES.map((c) => (
@@ -69,7 +140,7 @@ for (const a of articles) {
 
   {
     latest.length > 0 && (
-      <section class="mt-12">
+      <section class="mb-14">
         <h2 class="text-xl font-bold mb-4">最新文章</h2>
         <div class="grid md:grid-cols-2 gap-3">
           {latest.map((a) => (
@@ -85,4 +156,22 @@ for (const a of articles) {
       </section>
     )
   }
+
+  <!-- 共筆號召 -->
+  <section class="rounded-lg border p-6" style="border-color: var(--accent-dim); background: var(--bg-raised)">
+    <h2 class="text-xl font-bold mb-2">這個站還很年輕。你來的時間剛好。</h2>
+    <p class="text-sm mb-4" style="color: var(--text-dim)">
+      目前 {dashboard.content.gaps.length} 個分類的文章少到不足三篇。現在寫的第一篇會直接定義那個分類的標準,
+      而不是淹沒在三百篇之中。不會寫也沒關係——回報一個錯誤只要兩分鐘,
+      或者把用不完的 AI 額度借給我們十五分鐘。
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="/contribute/" class="rounded-md px-5 py-2 font-medium" style="background: var(--accent); color: var(--bg)">
+        我想貢獻
+      </a>
+      <a href="/dashboard/" class="rounded-md px-5 py-2 border" style="border-color: var(--border); color: var(--text)">
+        看這個站的數據
+      </a>
+    </div>
+  </section>
 </Base>
