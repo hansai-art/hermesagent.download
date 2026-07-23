@@ -12,6 +12,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# 連續 merge 時只部署最後一版,取消被取代的舊部署(省額度防連發)
+concurrency:
+  group: deploy-cloudflare
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
