@@ -1,97 +1,135 @@
 ---
-title: "Hermes Agent Windows 下載與安裝教學（Desktop / PowerShell / WSL2）"
-description: "Windows 安裝 Hermes Agent 的三條路：官方桌面版安裝器、原生 PowerShell 指令、WSL2。含各自適用情境與常見錯誤。"
+title: "在 Windows 上安裝 Hermes Agent"
+description: "三條路:桌面版、原生 PowerShell、WSL2。這篇幫你選,並附每一步的成功判準——選錯路重來很痛。"
 date: 2026-07-23
 subcategory: "windows"
-hermes_version: "*"
+hermes_version: ">=2026.5"
 last_verified: 2026-07-04
+human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/install.ps1"
-  - "https://hermes-agent.nousresearch.com/install.sh"
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
   - "https://hermes-agent.nousresearch.com/docs/reference/faq"
 tags:
   - "windows"
+  - "install"
 status: "published"
 ---
 
-Windows 使用者有三條官方路徑：最簡單是下載 Desktop 安裝器；命令列派用官方 PowerShell 一行指令；想要完整 Linux 工具鏈則裝在 WSL2 裡。
+Windows 上裝 Hermes Agent 有三條路,而**選錯了之後要重來很麻煩**——尤其是你已經設定好模型、累積了一些記憶之後才發現路線不對。所以先花一分鐘選對。
 
-**這頁適合誰**：Windows 10 / 11 使用者。不確定選哪條路的話：新手選 Desktop，工程師選 WSL2。
+## 先選路線
 
-## 步驟
+| 你的情況 | 建議路線 |
+|---|---|
+| 只想用,不太碰終端機 | **桌面版**——點兩下安裝,相依套件全自動 |
+| 想在 PowerShell 裡用,不想裝 Linux | **原生 PowerShell** |
+| 會寫腳本、要接自動化、需要完整 Linux 工具鏈 | **WSL2** |
 
-1. ### 方式一：官方桌面版（推薦新手）
+不確定的話:**現在選桌面版**,之後真的需要再裝 WSL2 版,兩者可以並存。
 
-    到官方網站下載 Hermes Desktop 安裝器並執行，相依套件全部自動處理。
+## 路線一:桌面版
 
-2. ### 方式二：原生 PowerShell
+到 [官方下載頁](https://hermes-agent.nousresearch.com/) 下載 Windows 安裝檔,點兩下安裝[^1]。
 
-    打開 PowerShell，執行官方原生安裝指令。
+安裝程式會自動處理所有相依套件(uv、Python 3.11、Node.js v22、ripgrep、ffmpeg)[^1],你不需要先裝任何東西。
 
-    ```text
-    iex (irm https://hermes-agent.nousresearch.com/install.ps1)
-    ```
+**怎麼確認成功**:應用程式能開啟並進入對話畫面。接著跳到下面的「設定模型供應商」。
 
-3. ### 方式三：WSL2（完整 Linux 環境）
+## 路線二:原生 PowerShell
 
-    在 WSL2 的 Linux shell 裡使用與 Linux 相同的官方指令。需要完整終端機工具與腳本支援的進階用法建議走這條，詳見 WSL2 完整教學。
+開啟 **PowerShell**(不是 CMD),執行官方安裝指令:
 
-    ```bash
-    curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
-    ```
+```powershell
+iex (irm https://hermes-agent.nousresearch.com/install.ps1)
+```
 
-4. ### 重新載入 shell 並啟動
+這行的意思是:`irm` 下載官方安裝腳本,`iex` 執行它[^1]。
 
-    安裝完成後重載 shell 或開新視窗，輸入 hermes 開始。
+> **不放心直接執行?** 可以先下載下來看過:
+>
+> ```powershell
+> irm https://hermes-agent.nousresearch.com/install.ps1 -OutFile install.ps1
+> notepad install.ps1
+> .\install.ps1
+> ```
 
-    ```bash
-    hermes
-    ```
+**如果 PowerShell 擋下腳本執行**(顯示執行原則錯誤),那是 Windows 的安全設定。你可以只對這個工作階段放行:
 
-5. ### 設定模型供應商
+```powershell
+Set-ExecutionPolicy -Scope Process -Bypass
+```
 
-    第一次啟動選擇 LLM 供應商並填 API key。
+這只影響當前視窗,關掉就恢復,不會永久降低系統安全性。
 
-    ```bash
-    hermes model
-    ```
+### 裝完要重開 PowerShell
 
+安裝程式改了 PATH,但**當前視窗還不知道**。關掉 PowerShell 再開一個新的,然後:
 
-## 完成後怎麼驗證
+```powershell
+hermes doctor
+```
 
-- hermes 指令能進入對話介面
-- hermes doctor 全部通過
+`hermes doctor` 是官方診斷指令[^1]。有項目報錯就照提示處理。
+
+> 📝 **這一段缺實際輸出**:Windows 上 `hermes doctor` 的實際畫面我們手上沒有。
+> 如果你剛跑過,[幫我們補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/windows.md)。
+
+## 路線三:WSL2
+
+在 WSL2 的 Linux shell 裡,用跟 Linux 完全一樣的指令:
+
+```bash
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+```
+
+**注意**:這行要在 **WSL2 的 shell 裡**跑,不是 PowerShell。兩者是不同的環境,搞混是這條路線最常見的錯誤。
+
+WSL2 的完整流程(含 WSL2 本身怎麼裝、檔案系統該放哪、常見權限問題)見 [WSL2 完整安裝教學](/install/wsl2/)。
+
+## 設定模型供應商
+
+三條路線裝完都一樣:要先告訴它用哪個模型才能開始。
+
+```bash
+hermes model
+```
+
+互動式選單,選供應商並填 API key[^1]。或用官方 Portal 一步到位:
+
+```bash
+hermes setup --portal
+```
+
+詳見 [模型供應商與 API key 設定](/config/model-provider/)。
+
+## 開始使用
+
+```bash
+hermes
+```
 
 ## 常見問題
 
-### WSL2 跑 gateway 常斷線？
+### PowerShell 打 hermes 說找不到指令?
 
-官方 FAQ 指出 systemd 在 WSL 裡不可靠，建議改用前景模式 hermes gateway run，或用 tmux 保持常駐：tmux new -s hermes 'hermes gateway run'。
+沒重開視窗。關掉 PowerShell 重開一個。詳解見 [command not found 怎麼解](/troubleshoot/command-not-found/)。
 
-### WSL2 裡的 Hermes 要控制 Windows 的 Chrome？
+### 我在 WSL2 裝的,PowerShell 找不到?
 
-官方建議走 MCP bridge：在 WSL2 跑 Hermes，把 chrome-devtools-mcp 設成 MCP server，比 /browser connect 可靠。
+正常。WSL2 和 Windows 是兩個獨立環境,在 WSL2 裝的指令只存在於 WSL2 裡。要在 PowerShell 用就得另外裝原生版。
 
-### 該選原生 PowerShell 還是 WSL2？
+### 三條路線可以同時裝嗎?
 
-只是要用 agent 對話與基本自動化，原生 PowerShell 或 Desktop 就夠；要跑大量 Linux 工具鏈與腳本的進階工作流，官方社群普遍建議 WSL2。
+可以,彼此獨立。但設定與記憶不共用——桌面版的對話紀錄不會出現在 WSL2 版裡。
 
-## 相關頁
+### 該用 CMD 還是 PowerShell?
 
-- [Hermes Agent macOS 下載與安裝教學](/install/macos/)
-- [Hermes Agent Linux 下載與安裝教學](/install/linux/)
-- [Hermes Agent WSL2 完整安裝教學（Windows 使用者進階路線）](/install/wsl2/)
-- [Hermes Agent 模型供應商與 API key 設定教學](/config/model-provider/)
-- [OpenClaw 搬家到 Hermes Agent 完整教學（官方 hermes claw migrate）](/migrate/migrate-from-openclaw/)
-- [hermes: command not found 怎麼解？](/troubleshoot/command-not-found/)
-- [API key not set / API key 無效怎麼解？](/troubleshoot/api-key-not-set/)
-- [Hermes requires Python 3.11 or newer 怎麼解？](/troubleshoot/python-version-too-old/)
-- [context length exceeded 怎麼解？](/troubleshoot/context-length-exceeded/)
-- [Telegram 接 Hermes Agent 常見坑與解法](/troubleshoot/telegram/)
-- [官方 Issue 精選問答](/issues/)
-- [學校解法卡](/guides/)
+PowerShell。官方安裝指令 `iex (irm ...)` 是 PowerShell 語法,在 CMD 裡不能執行[^1]。
 
-資料來源：[官方安裝文件](https://hermes-agent.nousresearch.com/docs/getting-started/installation)．[官方 FAQ](https://hermes-agent.nousresearch.com/docs/reference/faq)
+## 下一步
 
-最後檢查：2026-07-04
+- 走 WSL2 路線 → [WSL2 完整安裝教學](/install/wsl2/)
+- 設定模型 → [模型供應商與 API key 設定](/config/model-provider/)
+- 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
+
+[^1]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation(2026-07-23 存取)

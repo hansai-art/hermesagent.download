@@ -187,18 +187,44 @@ const checks = [
   // 導致掃描器回報 0 error 但實際內容大面積不符 docs/editorial/ 的要求。
   // 這幾項只對「實質文章」(400 字以上)生效,卡片式摘要不適用。──
 
-  // 引用密度(CITATION-SYSTEM:每 400 字至少 1 個腳註)
-  function citationDensity({ data, content, ctx }) {
+  // 引用密度(依 CITATION-SYSTEM.md):
+  //   concepts/ 概念文 — 每 300 字至少 1 個 [^n] 腳註(概念容易憑印象亂寫,要求較嚴)
+  //   其餘 —— 每 400 字至少 1 個「引用」,腳註與 upstream_refs 都算
+  //           (安裝教學的指令多半出自同一頁官方文件,硬塞 20 個相同腳註是雜訊不是嚴謹)
+  function citationDensity({ file, data, content, ctx }) {
     if (!ctx.isSubstantial) return [];
     if ((data.status ?? 'published') !== 'published') return [];
+    const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
+    const footnotes = (content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
+
+    if (category === 'concepts') {
+      const expected = Math.floor(ctx.charCount / 300);
+      if (expected < 1) return [];
+      if (footnotes < expected) {
+        return [
+          {
+            level: 'WARN',
+            msg: `概念文引用密度不足:${footnotes} 個腳註,${ctx.charCount} 字應有 ${expected} 個`,
+          },
+        ];
+      }
+      return [];
+    }
+
     const expected = Math.floor(ctx.charCount / 400);
     if (expected < 1) return [];
-    const actual = (content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
-    if (actual === 0) {
-      return [{ level: 'WARN', msg: `${ctx.charCount} 字卻沒有任何 [^n] 腳註(規範:每 400 字至少 1 個)` }];
+    const refs = (data.upstream_refs?.length ?? 0) + (data.sources?.length ?? 0);
+    const citations = footnotes + refs;
+    if (citations === 0) {
+      return [{ level: 'WARN', msg: `${ctx.charCount} 字卻沒有任何引用(腳註或 upstream_refs)` }];
     }
-    if (actual < expected) {
-      return [{ level: 'WARN', msg: `腳註密度不足:${actual} 個,${ctx.charCount} 字應有 ${expected} 個` }];
+    if (citations < expected) {
+      return [
+        {
+          level: 'WARN',
+          msg: `引用密度不足:${footnotes} 腳註 + ${refs} 來源 = ${citations},${ctx.charCount} 字應有 ${expected} 個`,
+        },
+      ];
     }
     return [];
   },
@@ -209,7 +235,7 @@ const checks = [
     if (!VERIFIED_CATEGORIES.includes(category)) return [];
     const fences = (content.match(/^\s*```/gm) ?? []).length / 2;
     if (fences === 0) return [];
-    const hasCheckpoint = /預期輸出|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會/.test(content);
+    const hasCheckpoint = /預期輸出|成功判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(content);
     if (!hasCheckpoint) {
       return [
         {
@@ -307,7 +333,7 @@ for (const file of targets) {
     }
     if (VERIFIED_CATEGORIES.includes(cat) && (parsed.content.match(/^\s*```/gm) ?? []).length >= 2) {
       editorial.teachingWithCode++;
-      if (/預期輸出|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會/.test(parsed.content))
+      if (/預期輸出|成功判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(parsed.content))
         editorial.teachingWithCheckpoint++;
     }
   }

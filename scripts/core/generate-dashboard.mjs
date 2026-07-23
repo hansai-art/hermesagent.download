@@ -63,7 +63,7 @@ for (const a of live) {
   if (VERIFIED_CATEGORIES.includes(a.category)) {
     if ((a.content.match(/^\s*```/gm) ?? []).length >= 2) {
       teachingWithCode++;
-      if (/預期輸出|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會/.test(a.content))
+      if (/預期輸出|成功判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(a.content))
         teachingWithCheckpoint++;
     }
     if (!a.data.last_verified) neverVerified++;

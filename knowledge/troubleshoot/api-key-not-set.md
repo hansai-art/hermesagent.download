@@ -1,82 +1,117 @@
 ---
-title: "API key not set / API key 無效怎麼解？"
-description: "Hermes Agent 出現 API key not set 或 key 無效的官方解法：hermes model 重設、config show 檢查、key 與供應商對應。"
+title: "API key not set / API key 無效怎麼解"
+description: "最常見的原因不是 key 打錯,是 key 跟供應商配錯了。三步驟排查,含 ~/.hermes/.env 的衝突設定。"
 date: 2026-07-23
 subcategory: "auth"
-hermes_version: "*"
+hermes_version: ">=2026.5"
 last_verified: 2026-07-04
+human_reviewed: false
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/docs/reference/faq"
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
 tags:
   - "auth"
+  - "troubleshoot"
 status: "published"
 ---
 
-看到 API key not set 就跑 hermes model 重新設定供應商，或直接 hermes config set OPENROUTER_API_KEY your_key；key 無效多半是填了不對應供應商的 key。
+你確定 key 是對的——剛從供應商後台複製貼上的,一個字都沒錯。但 Hermes 就是說:
 
-**這頁適合誰**：設定模型階段卡住、或換供應商後開始報錯的人。
+```
+API key not set
+```
 
-## 步驟
+或者更氣人的:key 明明填了,卻回你驗證失敗。
 
-1. ### 重新設定供應商
+**最常見的原因不是 key 打錯,是 key 跟供應商配錯了**。OpenAI 的 key 不能用在 OpenRouter 上,反之亦然[^1]——兩邊的 key 長得很像,很容易貼錯格子。
 
-    ```bash
-    hermes model
-    ```
+## 第一步:看目前到底設了什麼
 
-2. ### 或直接寫入 key
+```bash
+hermes config show
+```
 
-    ```bash
-    hermes config set OPENROUTER_API_KEY your_key
-    ```
+這會列出當前設定[^1]。看兩件事:
 
-3. ### 檢查目前設定
+1. **供應商是不是你以為的那個**——如果你以為在用 OpenRouter,但這裡顯示 OpenAI,那 key 當然對不上
+2. **key 有沒有真的存進去**
 
-    ```bash
-    hermes config show
-    ```
+> 📝 **這一段缺實際輸出**:`hermes config show` 的實際欄位長什麼樣、key 是否會被遮罩,
+> 我們手上沒有實機畫面。
+> [幫我們補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/api-key-not-set.md)。
 
-4. ### 更新後設定不見了？
+## 第二步:重新設定一次
 
-    官方文件提供 config 檢查與遷移指令。
+最保險的做法是走互動式選單,它會確保供應商與 key 成對設定:
 
-    ```bash
-    hermes config check
-    hermes config migrate
-    ```
+```bash
+hermes model
+```
 
+選單會引導你選供應商、填 key[^1]。這比手動設定不容易出錯。
 
-## 完成後怎麼驗證
+如果你確定供應商是哪個,也可以直接寫:
 
-- hermes config show 顯示正確供應商
-- 對話正常回覆
+```bash
+hermes config set OPENROUTER_API_KEY sk-or-v1-xxxx
+```
+
+**注意 key 的前綴**——它通常會告訴你這是哪一家的 key:
+
+| 前綴 | 供應商 |
+|---|---|
+| `sk-or-v1-` | OpenRouter |
+| `sk-` | OpenAI |
+| `sk-ant-` | Anthropic |
+
+前綴跟你設定的供應商對不上,就是配錯了。
+
+## 第三步:檢查 .env 有沒有衝突設定
+
+這是最容易漏掉的一步。Hermes 會讀 `~/.hermes/.env`,如果那裡面有舊的、衝突的 key,可能會蓋掉你剛設的[^1]:
+
+```bash
+cat ~/.hermes/.env
+```
+
+**看到什麼**:一行行 `KEY=value` 格式的環境變數。如果裡面有你已經不用的舊 key(例如換供應商前留下的),把那幾行刪掉或註解掉。
+
+## 驗證有沒有解決
+
+```bash
+hermes
+```
+
+進去隨便問一句話。能正常回覆就是好了。
 
 ## 常見問題
 
-### key 明明是對的還是失敗？
+### 更新之後設定就不見了?
 
-官方 FAQ 特別提醒：key 必須對應供應商，OpenAI 的 key 不能用在 OpenRouter，反之亦然。
+先跑 `hermes config show` 確認現況,再用 `hermes model` 重新設定[^1]。
 
-### 模型顯示不可用？
+### 我不想自己管 key,有更簡單的方式嗎?
 
-用 hermes model 列出可用模型，或明確指定：hermes config set HERMES_MODEL anthropic/claude-opus-4.7。
+有。官方 Portal 一步到位,不用自己去各家申請 key:
 
-## 相關頁
+```bash
+hermes setup --portal
+```
 
-- [Hermes Agent macOS 下載與安裝教學](/install/macos/)
-- [Hermes Agent Windows 下載與安裝教學（Desktop / PowerShell / WSL2）](/install/windows/)
-- [Hermes Agent Linux 下載與安裝教學](/install/linux/)
-- [Hermes Agent WSL2 完整安裝教學（Windows 使用者進階路線）](/install/wsl2/)
-- [Hermes Agent 模型供應商與 API key 設定教學](/config/model-provider/)
-- [OpenClaw 搬家到 Hermes Agent 完整教學（官方 hermes claw migrate）](/migrate/migrate-from-openclaw/)
-- [hermes: command not found 怎麼解？](/troubleshoot/command-not-found/)
-- [Hermes requires Python 3.11 or newer 怎麼解？](/troubleshoot/python-version-too-old/)
-- [context length exceeded 怎麼解？](/troubleshoot/context-length-exceeded/)
-- [Telegram 接 Hermes Agent 常見坑與解法](/troubleshoot/telegram/)
-- [官方 Issue 精選問答](/issues/)
-- [學校解法卡](/guides/)
+### 想改用別的模型?
 
-資料來源：[官方 FAQ](https://hermes-agent.nousresearch.com/docs/reference/faq)．[官方安裝文件](https://hermes-agent.nousresearch.com/docs/getting-started/installation)
+```bash
+hermes config set HERMES_MODEL anthropic/claude-opus-4.7
+```
 
-最後檢查：2026-07-04
+或在對話中直接切換:`/model <名稱>`,跨供應商用 `/model provider:model`[^1]。
+
+### 完全不想付錢?
+
+用本地模型。`hermes model` 選 Custom endpoint,填入 Ollama 的位址。本地模型完全免費[^1]。設定細節見 [模型供應商與 API key 設定](/config/model-provider/)。
+
+## 下一步
+
+- 供應商怎麼選、怎麼省錢 → [模型供應商與 API key 設定](/config/model-provider/)
+- 遇到別的錯 → [疑難排解總覽](/troubleshoot/overview/)
+
+[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)

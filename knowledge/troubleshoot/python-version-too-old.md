@@ -1,77 +1,116 @@
 ---
-title: "Hermes requires Python 3.11 or newer 怎麼解？"
-description: "Hermes Agent 報 Python 版本太舊的解法：檢查版本、升級方式、以及為什麼官方安裝器通常不會遇到這個問題。"
+title: "Hermes requires Python 3.11 or newer 怎麼解"
+description: "會遇到這個錯,通常代表你沒走官方安裝器。三種解法,含「為什麼別人不會遇到」。"
 date: 2026-07-23
 subcategory: "install"
-hermes_version: "*"
+hermes_version: ">=2026.5"
 last_verified: 2026-07-04
+human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/install.sh"
   - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
 tags:
   - "install"
+  - "troubleshoot"
 status: "published"
 ---
 
-Hermes 需要 Python 3.11 以上：先 python3 --version 確認版本，太舊就用系統套件管理器升級；走官方安裝器的話 Python 3.11 會自動處理，通常不會遇到。
+```
+Hermes requires Python 3.11 or newer
+```
 
-**這頁適合誰**：自管 Python 環境、或在舊系統上安裝的人。
+看到這行,先問自己一個問題:**你是不是自己用 pip 裝的,或者在一台舊系統上手動裝的?**
 
-## 步驟
+因為官方一行安裝腳本會自動裝好 Python 3.11[^1]——會撞到這個錯,通常代表安裝過程沒走那條路,或者你的環境裡有多個 Python 版本在打架。
 
-1. ### 檢查版本
+## 先確認現在是幾版
 
-    ```text
-    python3 --version
-    ```
+```bash
+python3 --version
+```
 
-2. ### 升級 Python
+**預期輸出**:`Python 3.12.3` 這樣的字串。如果顯示 3.10 或更舊,那就是問題所在。
 
-    用你的套件管理器升級到 3.11+（例如 Ubuntu 的 apt、macOS 的 brew）。
+## 解法一:重跑官方安裝腳本(最省事)
 
-3. ### 缺 uv 套件管理器？
+官方安裝腳本本來就會處理 Python 版本[^1]。與其自己跟系統 Python 搏鬥,不如讓它處理:
 
-    官方 FAQ 給的安裝指令。
+```bash
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+```
 
-    ```bash
-    curl -LsSf https://astral.sh/uv/install.sh | sh
-    ```
+Windows 使用者用 PowerShell:
 
-4. ### 重跑官方安裝器
+```powershell
+iex (irm https://hermes-agent.nousresearch.com/install.ps1)
+```
 
-    官方安裝器本來就會自動處理 Python 3.11，重跑一次通常可以解掉環境問題。
+## 解法二:升級系統 Python
 
-    ```bash
-    curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
-    ```
+如果你有理由要自己管環境:
 
+**Ubuntu / Debian**
 
-## 完成後怎麼驗證
+```bash
+sudo apt update && sudo apt install -y python3.12
+```
 
-- python3 --version 顯示 3.11 以上
-- hermes doctor 通過
+**macOS(Homebrew)**
+
+```bash
+brew install python@3.12
+```
+
+**驗證**:
+
+```bash
+python3 --version
+```
+
+**預期輸出**:`Python 3.12.x`。
+
+> ⚠️ **注意**:在某些系統上,裝了新版 Python 不代表 `python3` 就會指向它——系統可能仍指向舊版。
+> 如果裝完版本沒變,你需要調整 PATH 或使用 `update-alternatives`(Debian 系)。
+>
+> 📝 **待補**:各系統切換預設 Python 版本的具體做法,我們還沒整理完整。
+> [歡迎補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/python-version-too-old.md)。
+
+## 解法三:缺 uv 套件管理器
+
+Hermes 使用 uv 管理 Python 環境。如果錯誤訊息跟 uv 有關:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+這是 uv 官方的安裝指令(astral.sh 是 uv 的官方網域)。
+
+## 確認解決了
+
+```bash
+hermes doctor
+```
+
+官方診斷指令,會檢查包含 Python 版本在內的所有環境相依[^2]。
 
 ## 常見問題
 
-### 為什麼有人裝就不會遇到？
+### 為什麼有人裝就不會遇到?
 
-官方一行安裝器會自動安裝 Python 3.11，只有自管環境（如自己 pip 裝）才常撞到版本問題。
+因為官方一行安裝腳本會自動裝 Python 3.11 並隔離環境[^1]。自己 pip 裝、或在多 Python 版本的環境裡手動安裝,才容易撞到版本問題。
 
-## 相關頁
+### 我不想動到系統 Python,會影響其他專案嗎?
 
-- [Hermes Agent macOS 下載與安裝教學](/install/macos/)
-- [Hermes Agent Windows 下載與安裝教學（Desktop / PowerShell / WSL2）](/install/windows/)
-- [Hermes Agent Linux 下載與安裝教學](/install/linux/)
-- [Hermes Agent WSL2 完整安裝教學（Windows 使用者進階路線）](/install/wsl2/)
-- [Hermes Agent 模型供應商與 API key 設定教學](/config/model-provider/)
-- [OpenClaw 搬家到 Hermes Agent 完整教學（官方 hermes claw migrate）](/migrate/migrate-from-openclaw/)
-- [hermes: command not found 怎麼解？](/troubleshoot/command-not-found/)
-- [API key not set / API key 無效怎麼解？](/troubleshoot/api-key-not-set/)
-- [context length exceeded 怎麼解？](/troubleshoot/context-length-exceeded/)
-- [Telegram 接 Hermes Agent 常見坑與解法](/troubleshoot/telegram/)
-- [官方 Issue 精選問答](/issues/)
-- [學校解法卡](/guides/)
+走官方安裝腳本就不會——它用 uv 建立獨立環境,不會替換你的系統 Python。
 
-資料來源：[官方 FAQ](https://hermes-agent.nousresearch.com/docs/reference/faq)
+### 升級 Python 會不會弄壞系統?
 
-最後檢查：2026-07-04
+在 Ubuntu / Debian 上,**安裝**新版本(`apt install python3.12`)是安全的,系統會保留舊版。危險的是把系統預設的 `python3` 指向新版——某些系統工具依賴特定版本。所以優先選解法一。
+
+## 下一步
+
+- 裝好了要設模型 → [模型供應商與 API key 設定](/config/model-provider/)
+- 遇到別的錯 → [疑難排解總覽](/troubleshoot/overview/)
+
+[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
+[^2]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation

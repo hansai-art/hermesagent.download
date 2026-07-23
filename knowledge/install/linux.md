@@ -1,101 +1,135 @@
 ---
-title: "Hermes Agent Linux 下載與安裝教學"
-description: "在 Linux 用官方一行指令安裝 Hermes Agent：前置套件、安裝位置、service user 部署與驗證步驟。"
+title: "在 Linux 上安裝 Hermes Agent"
+description: "一行指令就能裝完,但前置套件缺了會失敗得莫名其妙。含桌機與 VPS 長駐兩種情境,以及 service user 部署。"
 date: 2026-07-23
 subcategory: "linux"
-hermes_version: "*"
+hermes_version: ">=2026.5"
 last_verified: 2026-07-04
+human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/install.sh"
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
+  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
 tags:
   - "linux"
+  - "install"
 status: "published"
 ---
 
-Linux 安裝 Hermes Agent 只要一行官方指令：curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash，前置只需要 git、curl 與 xz-utils。
+Linux 上裝 Hermes Agent 只需要一行指令。但如果你少了前置套件,它會失敗得很莫名其妙——中途噴一段解壓縮錯誤然後停住,訊息不會告訴你缺的是 `xz-utils`。
 
-**這頁適合誰**：Linux 桌機或伺服器使用者，包含要在 VPS 上長駐 agent 的人。
+所以先花三十秒把前置裝好。
 
-## 步驟
+## 前置套件(Debian / Ubuntu)
 
-1. ### 安裝前置套件
+```bash
+sudo apt update && sudo apt install -y curl xz-utils
+```
 
-    Debian / Ubuntu 先確認 curl 與 xz-utils 存在；要用桌面版另需 build-essential。
+`curl` 用來下載安裝腳本,`xz-utils` 用來解壓縮它下載的東西[^1]。
 
-    ```bash
-    sudo apt install curl xz-utils
-    git --version
-    ```
+如果你要用桌面版,再加一個:
 
-2. ### 執行官方安裝指令
+```bash
+sudo apt install -y build-essential
+```
 
-    安裝器自動處理 Python 3.11、Node.js v22、ripgrep、ffmpeg。
+### 確認 Git 存在
 
-    ```bash
-    curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
-    ```
+安裝腳本會自己裝其他相依套件,但 Git 需要你先有[^1]:
 
-3. ### 重新載入 shell 並啟動
+```bash
+git --version
+```
 
-    重載 shell 設定後啟動。
+**預期輸出**:類似 `git version 2.43.0` 的版本字串。顯示 `command not found` 就 `sudo apt install -y git`。
 
-    ```bash
-    source ~/.bashrc
-    hermes
-    ```
+## 執行官方安裝指令
 
-4. ### 設定模型供應商
+```bash
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+```
 
-    選擇 LLM 供應商並填 API key。
+安裝腳本會自動處理 uv、Python 3.11、Node.js v22、ripgrep、ffmpeg[^1]。
 
-    ```bash
-    hermes model
-    ```
+> **不放心直接執行 `curl | bash`?** 這是官方提供的方式、官方網域,但你也可以先看過:
+>
+> ```bash
+> curl -fsSL https://hermes-agent.nousresearch.com/install.sh -o install.sh
+> less install.sh
+> bash install.sh
+> ```
 
-5. ### （伺服器）service user 部署
+## 重新載入 shell
 
-    官方文件：先用管理者身分裝 Playwright 相依，再以 service user 執行安裝器；不需要瀏覽器可加 --skip-browser。
+安裝腳本把 `~/.local/bin` 加進 PATH,但當前這個 shell 還不知道:
 
-    ```bash
-    sudo npx playwright install-deps chromium
-    ```
+```bash
+source ~/.bashrc
+```
 
+用 zsh 就換成 `~/.zshrc`。或者直接開新的終端機工作階段。
 
-## 完成後怎麼驗證
+**成功判準**:
 
-- hermes 能進入對話介面
-- hermes doctor 全部通過
+```bash
+hermes doctor
+```
+
+官方的環境診斷指令,會逐項檢查[^1]。有紅色項目就照它的提示修。
+
+> 📝 **這一段缺實際輸出**:`hermes doctor` 在 Linux 上跑起來長什麼樣,我們手上沒有實機畫面。
+> [幫我們補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/linux.md)。
+
+## VPS 長駐:用 service user 部署
+
+如果你要讓 agent 在伺服器上長期跑,不建議用 root 或你自己的帳號。官方文件的做法是:先以管理者身分安裝 Playwright 的系統相依套件,再切換到專用的 service user 執行安裝腳本[^1]。
+
+伺服器上通常不需要瀏覽器功能,可以加參數跳過:
+
+```bash
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --skip-browser
+```
+
+> 📝 **待驗證**:`--skip-browser` 的確切參數傳遞方式(是否需要 `-s --`)我們尚未實測。
+> 跑過的人請[修正這一段](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/linux.md)。
+
+## 設定模型供應商
+
+```bash
+hermes model
+```
+
+互動式選單,選供應商並填 API key[^1]。詳見 [模型供應商與 API key 設定](/config/model-provider/)。
+
+## 開始使用
+
+```bash
+hermes
+```
 
 ## 常見問題
 
-### 裝在哪裡？
+### 安裝跑到一半停住,說解壓縮失敗?
 
-預設 per-user 安裝在 ~/.hermes/hermes-agent/；root 模式會裝到 /usr/local/lib/hermes-agent/。
+多半是缺 `xz-utils`。`sudo apt install -y xz-utils` 之後重跑安裝指令。
 
-### Python 版本太舊？
+### 打 hermes 說 command not found?
 
-Hermes 需要 Python 3.11 以上，但官方安裝器會自動處理；若自管環境報錯，用 python3 --version 檢查後以套件管理器升級。
+shell 沒重新載入。見 [command not found 怎麼解](/troubleshoot/command-not-found/)。
 
-### Android 手機能裝嗎？
+### 其他發行版(Fedora / Arch)呢?
 
-可以，官方支援 Termux，用與 Linux 相同的一行指令。
+官方文件的前置套件說明是以 Debian / Ubuntu 為例。其他發行版換成對應的套件管理器指令即可(如 `dnf install curl xz` / `pacman -S curl xz`)。
 
-## 相關頁
+> 📝 **待驗證**:非 Debian 系發行版的實際安裝經驗歡迎補充。
 
-- [Hermes Agent macOS 下載與安裝教學](/install/macos/)
-- [Hermes Agent Windows 下載與安裝教學（Desktop / PowerShell / WSL2）](/install/windows/)
-- [Hermes Agent WSL2 完整安裝教學（Windows 使用者進階路線）](/install/wsl2/)
-- [Hermes Agent 模型供應商與 API key 設定教學](/config/model-provider/)
-- [OpenClaw 搬家到 Hermes Agent 完整教學（官方 hermes claw migrate）](/migrate/migrate-from-openclaw/)
-- [hermes: command not found 怎麼解？](/troubleshoot/command-not-found/)
-- [API key not set / API key 無效怎麼解？](/troubleshoot/api-key-not-set/)
-- [Hermes requires Python 3.11 or newer 怎麼解？](/troubleshoot/python-version-too-old/)
-- [context length exceeded 怎麼解？](/troubleshoot/context-length-exceeded/)
-- [Telegram 接 Hermes Agent 常見坑與解法](/troubleshoot/telegram/)
-- [官方 Issue 精選問答](/issues/)
-- [學校解法卡](/guides/)
+### 裝在哪?
 
-資料來源：[官方安裝文件](https://hermes-agent.nousresearch.com/docs/getting-started/installation)
+預設 `~/.hermes/hermes-agent/`,設定檔在 `~/.hermes/`。
 
-最後檢查：2026-07-04
+## 下一步
+
+- 設定模型 → [模型供應商與 API key 設定](/config/model-provider/)
+- 遇到 Python 版本問題 → [Python 版本太舊怎麼解](/troubleshoot/python-version-too-old/)
+
+[^1]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation(2026-07-23 存取)
