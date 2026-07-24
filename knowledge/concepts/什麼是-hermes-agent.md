@@ -35,7 +35,7 @@ Hermes 支援六種執行環境:本機終端機、Docker、SSH 遠端、Daytona�
 
 ### 三、記憶跨越 session
 
-Hermes 的記憶系統會持續累積,並支援跨 session 的全文檢索與摘要。這代表三個月前你告訴它的偏好、給過的憑證位置、專案的特殊慣例,它下次還記得。
+Hermes 的記憶系統會持續累積:一小塊常駐的核心記憶(你的偏好、專案慣例),加上一個對過去所有對話的全文檢索——而且搜出來是**逐字原文,不是 AI 摘要**[^6]。這代表三個月前你告訴它的偏好、給過的憑證位置、專案的特殊慣例,它下次還撈得回來。細節見 [記憶系統](/concepts/記憶系統/)。
 
 ## 你會用到的幾個名詞
 
@@ -56,11 +56,13 @@ Hermes Agent 本體是 **MIT 授權的開源專案,免費**[^5]。你付的是�
 
 - 想直接裝起來用 → [安裝部署](/install/)
 - 裝好了不知道選哪個模型 → [模型供應商與 API key 設定](/config/model-provider/)
+- 深入記憶怎麼運作 → [記憶系統](/concepts/記憶系統/)
+- 深入技能怎麼長出來 → [技能系統](/concepts/技能系統/)
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
-- 想看它能做什麼 → [技能目錄](/skills/catalog/)
 
 [^1]: Nous Research, Hermes Agent 官方文件 — https://hermes-agent.nousresearch.com/docs(2026-07-23 存取)
 [^2]: 同上,Skills 章節:「Procedural memory the agent creates and reuses」
 [^3]: 同上,部署選項章節(本機 / Docker / SSH / Daytona / Singularity / Modal)
 [^4]: 同上,Gateways 章節:「20+ platforms from one gateway」
 [^5]: NousResearch/hermes-agent, MIT License — https://github.com/NousResearch/hermes-agent
+[^6]: Nous Research, Memory:session_search 回傳資料庫原文,不做 LLM 摘要 — https://hermes-agent.nousresearch.com/docs/user-guide/features/memory

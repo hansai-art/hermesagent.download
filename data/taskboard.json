@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-24T08:59:53.597Z",
+  "generatedAt": "2026-07-24T09:22:54.758Z",
   "counts": {
-    "gaps": 7,
+    "gaps": 6,
     "verify": 12,
     "cite": 0,
     "drafts": 0
@@ -30,14 +30,6 @@
       "title": "遷移指南:目前只有 1 篇",
       "hint": "從 OpenClaw 等其他工具搬到 Hermes Agent",
       "url": "/migrate/"
-    },
-    {
-      "type": "gap",
-      "category": "concepts",
-      "emoji": "🧠",
-      "title": "核心概念:目前只有 1 篇",
-      "hint": "記憶系統、學習迴圈、架構原理",
-      "url": "/concepts/"
     },
     {
       "type": "gap",

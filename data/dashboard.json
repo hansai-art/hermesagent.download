@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-24T08:59:53.237Z",
+  "generatedAt": "2026-07-24T09:22:54.405Z",
   "content": {
-    "total": 354,
+    "total": 356,
     "byStatus": {
-      "published": 354,
+      "published": 356,
       "archived": 1
     },
     "byCategory": [
@@ -74,8 +74,8 @@
         "slug": "concepts",
         "emoji": "🧠",
         "name": "核心概念",
-        "count": 1,
-        "needsHelp": true
+        "count": 3,
+        "needsHelp": false
       },
       {
         "slug": "community",
@@ -97,24 +97,23 @@
       "integrations",
       "migrate",
       "releases",
-      "concepts",
       "community",
       "about"
     ]
   },
   "credibility": {
-    "withSources": 354,
+    "withSources": 356,
     "withSourcesPct": 100,
-    "footnotes": 30,
+    "footnotes": 61,
     "verifiedFresh": 39,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 42,
+    "substantial": 44,
     "citationCoverage": 93,
-    "citationCovered": 39,
+    "citationCovered": 41,
     "followableCoverage": 100,
     "followableCovered": 13,
     "teachingWithCode": 13,
