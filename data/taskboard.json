@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T07:21:30.166Z",
+  "generatedAt": "2026-07-24T07:23:01.392Z",
   "counts": {
     "gaps": 7,
     "verify": 12,
@@ -33,14 +33,6 @@
     },
     {
       "type": "gap",
-      "category": "releases",
-      "emoji": "📰",
-      "title": "版本情報:目前只有 1 篇",
-      "hint": "每次上游 release 的中文解讀",
-      "url": "/releases/"
-    },
-    {
-      "type": "gap",
       "category": "concepts",
       "emoji": "🧠",
       "title": "核心概念:目前只有 1 篇",
@@ -62,6 +54,14 @@
       "title": "關於:目前只有 1 篇",
       "hint": "免責聲明、貢獻指南、網站緣起",
       "url": "/about/"
+    },
+    {
+      "type": "gap",
+      "category": "releases",
+      "emoji": "📰",
+      "title": "版本情報:目前只有 2 篇",
+      "hint": "每次上游 release 的中文解讀",
+      "url": "/releases/"
     }
   ],
   "verify": [
