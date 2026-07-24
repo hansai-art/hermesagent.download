@@ -12,8 +12,8 @@ export const ANALYTICS = {
   // Cloudflare Web Analytics — Hans 帳號 Web Analytics 的 hermesagent.download beacon
   cloudflareToken: 'b164b9e54282405fb2be5c8082ad5cf0',
 
-  // Google Analytics 4 — 到 analytics.google.com 建立資源後取得(格式 G-XXXXXXXXXX)
-  ga4MeasurementId: '',
+  // Google Analytics 4 — hermesagent.download 資源的評估 ID
+  ga4MeasurementId: 'G-DV2KV3BMZ6',
 
   // Google Search Console — 用「HTML 標記」驗證法時貼上 content 值
   // (search.google.com/search-console → 新增資源 → HTML 標記 → 複製 content=" " 裡的字串)
