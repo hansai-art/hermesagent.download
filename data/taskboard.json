@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T12:10:04.313Z",
+  "generatedAt": "2026-07-24T03:34:49.930Z",
   "counts": {
     "gaps": 7,
     "verify": 12,
@@ -70,8 +70,8 @@
       "category": "config",
       "emoji": "⚙️",
       "title": "模型供應商與 API key 設定",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/config/model-provider/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/model-provider.md"
     },
@@ -80,8 +80,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "新手路線:從零到跑起來",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/guides/start/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/start.md"
     },
@@ -90,8 +90,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "進階部署:Docker、無伺服器、遠端",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/install/advanced/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/advanced.md"
     },
@@ -100,8 +100,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "該選哪一種安裝方式",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/install/download/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/download.md"
     },
@@ -110,8 +110,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "在 Linux 上安裝 Hermes Agent",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/install/linux/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/linux.md"
     },
@@ -120,8 +120,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "在 macOS 上安裝 Hermes Agent",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/install/macos/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/macos.md"
     },
@@ -130,8 +130,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "在 Windows 上安裝 Hermes Agent",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/install/windows/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/windows.md"
     },
@@ -140,8 +140,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "在 WSL2 上安裝 Hermes Agent",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/install/wsl2/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/wsl2.md"
     },
@@ -150,8 +150,8 @@
       "category": "integrations",
       "emoji": "🔌",
       "title": "值得優先接的 MCP Server",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/integrations/recommended-mcp/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/integrations/recommended-mcp.md"
     },
@@ -160,8 +160,8 @@
       "category": "migrate",
       "emoji": "🔄",
       "title": "從 OpenClaw 搬到 Hermes Agent",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/migrate/migrate-from-openclaw/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/migrate/migrate-from-openclaw.md"
     },
@@ -170,8 +170,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "API key not set / API key 無效怎麼解",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/troubleshoot/api-key-not-set/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/api-key-not-set.md"
     },
@@ -180,8 +180,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "hermes: command not found 怎麼解",
-      "hint": "最後實測 19 天前",
-      "days": 19,
+      "hint": "最後實測 20 天前",
+      "days": 20,
       "url": "/troubleshoot/command-not-found/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/command-not-found.md"
     }

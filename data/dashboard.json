@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T12:10:03.993Z",
+  "generatedAt": "2026-07-24T03:34:49.585Z",
   "content": {
     "total": 352,
     "byStatus": {
@@ -139,6 +139,6 @@
   "upstream": {
     "lastReleaseTag": "v2026.7.20",
     "checkedAt": "2026-07-23T00:00:00Z",
-    "daysSinceCheck": 0
+    "daysSinceCheck": 1
   }
 }
