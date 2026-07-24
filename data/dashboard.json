@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-24T03:50:59.892Z",
+  "generatedAt": "2026-07-24T07:20:19.312Z",
   "content": {
-    "total": 352,
+    "total": 353,
     "byStatus": {
-      "published": 352,
+      "published": 353,
       "archived": 1
     },
     "byCategory": [
@@ -67,7 +67,7 @@
         "slug": "releases",
         "emoji": "📰",
         "name": "版本情報",
-        "count": 0,
+        "count": 1,
         "needsHelp": true
       },
       {
@@ -103,18 +103,18 @@
     ]
   },
   "credibility": {
-    "withSources": 352,
+    "withSources": 353,
     "withSourcesPct": 100,
-    "footnotes": 25,
+    "footnotes": 28,
     "verifiedFresh": 39,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 40,
+    "substantial": 41,
     "citationCoverage": 93,
-    "citationCovered": 37,
+    "citationCovered": 38,
     "followableCoverage": 100,
     "followableCovered": 13,
     "teachingWithCode": 13,
@@ -125,14 +125,14 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 23,
-    "lastCommitAt": "2026-07-24T03:35:14Z",
+    "recentCommits30d": 12,
+    "lastCommitAt": "2026-07-23T10:52:55Z",
     "top": [
       {
         "login": "hansai-art",
         "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
         "url": "https://github.com/hansai-art",
-        "contributions": 22
+        "contributions": 11
       }
     ]
   },

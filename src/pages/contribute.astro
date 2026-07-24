@@ -150,6 +150,21 @@ const paths = [
       <a href={PROMPT_RAW} target="_blank" rel="noopener noreferrer" style="color: var(--accent)">CONTRIBUTE_PROMPT.md</a>
       ——裡面寫明了寫作規範、格式要求、以及禁止編造指令與版本號。產出後請自己過目一遍再送出。
     </p>
+
+    <div class="rounded-lg border p-4 mt-4 text-sm" style="border-color: var(--border); background: var(--bg-raised)">
+      <div class="font-semibold mb-1" style="color: var(--text)">📰 一個現成的切入點:翻新版情報</div>
+      <p style="color: var(--text-dim)">
+        每次 Hermes Agent 發布新版,系統會自動開一個
+        <a
+          href={`https://github.com/${REPO}/issues?q=is%3Aissue+label%3Aupstream-release`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: var(--accent)">帶著 release notes 與現成 prompt 的 issue</a
+        >。你把那段 prompt 貼給 AI,它就會產出一篇中文版本情報——連 release notes 都幫你附好了,
+        比從零挑題目更省事。範例:
+        <a href="/releases/v2026-7-20/" style="color: var(--accent)">v0.19.0 Quicksilver</a>。
+      </p>
+    </div>
   </section>
 
   <!-- 任務看板 -->

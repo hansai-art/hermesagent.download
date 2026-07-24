@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T03:51:00.040Z",
+  "generatedAt": "2026-07-24T07:20:15.327Z",
   "counts": {
     "gaps": 7,
     "verify": 12,
@@ -7,14 +7,6 @@
     "drafts": 0
   },
   "gaps": [
-    {
-      "type": "gap",
-      "category": "releases",
-      "emoji": "📰",
-      "title": "版本情報:目前只有 0 篇",
-      "hint": "每次上游 release 的中文解讀",
-      "url": "/releases/"
-    },
     {
       "type": "gap",
       "category": "config",
@@ -38,6 +30,14 @@
       "title": "遷移指南:目前只有 1 篇",
       "hint": "從 OpenClaw 等其他工具搬到 Hermes Agent",
       "url": "/migrate/"
+    },
+    {
+      "type": "gap",
+      "category": "releases",
+      "emoji": "📰",
+      "title": "版本情報:目前只有 1 篇",
+      "hint": "每次上游 release 的中文解讀",
+      "url": "/releases/"
     },
     {
       "type": "gap",
