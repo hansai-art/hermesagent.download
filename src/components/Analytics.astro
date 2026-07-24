@@ -1,0 +1,43 @@
+---
+// 分析與 SEO 追蹤標籤。三個工具各自獨立:設定裡有值才渲染,沒值就完全不出現。
+// 放在 <head>,由 Base.astro 引入。設定見 src/config/analytics.mjs。
+import { ANALYTICS } from '../config/analytics.mjs';
+
+const { cloudflareToken, ga4MeasurementId, googleSiteVerification } = ANALYTICS;
+---
+
+{/* Google Search Console 網站驗證(HTML 標記法) */}
+{googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
+
+{/* Google Analytics 4 */}
+{
+  ga4MeasurementId && (
+    <>
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}
+      />
+      <script is:inline define:vars={{ ga4MeasurementId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', ga4MeasurementId);
+      </script>
+    </>
+  )
+}
+
+{/* Cloudflare Web Analytics — 隱私優先、無 cookie、不需同意橫幅 */}
+{
+  cloudflareToken && (
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={`{"token": "${cloudflareToken}"}`}
+    />
+  )
+}
