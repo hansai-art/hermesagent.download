@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-24T09:22:54.405Z",
+  "generatedAt": "2026-07-25T03:19:14.007Z",
   "content": {
-    "total": 356,
+    "total": 358,
     "byStatus": {
-      "published": 356,
+      "published": 358,
       "archived": 1
     },
     "byCategory": [
@@ -32,8 +32,8 @@
         "slug": "integrations",
         "emoji": "🔌",
         "name": "生態整合",
-        "count": 1,
-        "needsHelp": true
+        "count": 3,
+        "needsHelp": false
       },
       {
         "slug": "guides",
@@ -94,7 +94,6 @@
     ],
     "gaps": [
       "config",
-      "integrations",
       "migrate",
       "releases",
       "community",
@@ -102,21 +101,21 @@
     ]
   },
   "credibility": {
-    "withSources": 356,
+    "withSources": 358,
     "withSourcesPct": 100,
-    "footnotes": 61,
-    "verifiedFresh": 39,
+    "footnotes": 67,
+    "verifiedFresh": 41,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 44,
+    "substantial": 46,
     "citationCoverage": 93,
-    "citationCovered": 41,
+    "citationCovered": 43,
     "followableCoverage": 100,
-    "followableCovered": 13,
-    "teachingWithCode": 13,
+    "followableCovered": 15,
+    "teachingWithCode": 15,
     "humanReviewed": 0,
     "humanReviewedPct": 0
   },
@@ -138,6 +137,6 @@
   "upstream": {
     "lastReleaseTag": "v2026.7.20",
     "checkedAt": "2026-07-23T00:00:00Z",
-    "daysSinceCheck": 1
+    "daysSinceCheck": 2
   }
 }
