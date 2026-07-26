@@ -14,6 +14,24 @@ const {
   description = 'Hermes Agent 中文社群知識庫 — 共筆、開源、自動進化',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// Organization schema:讓搜尋引擎把本站認成一個實體,而不是散落的頁面。
+// sameAs 宣告的是「同一個經營者」,與「與 Nous Research 無隸屬關係」不衝突:
+// 前者講誰在維護這個站,後者講這個站不代表上游專案。
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://hermesagent.download/#org',
+  name: 'HermesAgent.download',
+  url: 'https://hermesagent.download/',
+  description:
+    'Hermes Agent(Nous Research 開源 AI agent)的非官方中文社群知識庫,與 Nous Research 無隸屬關係。',
+  sameAs: [
+    'https://github.com/hansai-art/hermesagent.download',
+    'https://www.techhanlin.tw',
+    'https://aiterms.tw',
+  ],
+};
 ---
 
 <!doctype html>
@@ -30,6 +48,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonical} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} is:inline />
     <Analytics />
   </head>
   <body class="min-h-screen flex flex-col" style="background: var(--bg)">
