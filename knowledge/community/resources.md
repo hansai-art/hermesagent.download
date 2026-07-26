@@ -4,7 +4,7 @@ description: "Hermes Agent 相關的外部資源、Awesome 列表與模型下載
 date: 2026-07-23
 subcategory: "links"
 hermes_version: "*"
-last_verified: 2026-07-23
+last_verified: 2026-07-26
 upstream_refs:
   - "https://github.com/NousResearch/hermes-agent"
 tags:
@@ -24,28 +24,22 @@ Unofficial community guide Not affiliated with Nous Research
 
 ## 更多資源與工具
 
-[
-
-### Awesome Hermes Agent
+### [Awesome Hermes Agent](https://github.com/NousResearch/hermes-agent)
 
 GitHub 上的 awesome 列表，收錄了各種社群開發的擴充與工具。
 
-→](https://github.com/NousResearch/hermes-agent)[
-
-### MCP Protocol 官方網站
+### [MCP Protocol 官方網站](https://modelcontextprotocol.io)
 
 深入了解 Model Context Protocol 的底層運作原理與規範。
 
-→](https://modelcontextprotocol.io)[
-
-### 社群開發者論壇
+### [社群開發者論壇](https://discord.gg/nousresearch)
 
 參與開發者社群，討論架構設計與心得。
 
-→](https://discord.gg/nousresearch)[
-
-### 官方模型下載 (Hugging Face)
+### [官方模型下載 (Hugging Face)](https://huggingface.com/NousResearch)
 
 直接下載 Hermes 系列的開源權重檔案。
 
-→](https://huggingface.com/NousResearch)
+### [Agent Harness Engineering（編排工程）](https://www.techhanlin.tw/agent-harness-engineering/)
+
+中文長文，講提示詞之外的那一層要怎麼設計：上下文管理、工具編排與失敗處理。看完比較容易理解 Hermes Agent 的技能與記憶系統在解什麼問題。
