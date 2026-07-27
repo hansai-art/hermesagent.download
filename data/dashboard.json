@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-27T04:12:02.031Z",
+  "generatedAt": "2026-07-27T04:48:12.353Z",
   "content": {
-    "total": 360,
+    "total": 361,
     "byStatus": {
-      "published": 360,
+      "published": 361,
       "archived": 1
     },
     "byCategory": [
@@ -46,7 +46,7 @@
         "slug": "troubleshoot",
         "emoji": "🚑",
         "name": "疑難排解",
-        "count": 6,
+        "count": 7,
         "needsHelp": false
       },
       {
@@ -101,21 +101,21 @@
     ]
   },
   "credibility": {
-    "withSources": 360,
+    "withSources": 361,
     "withSourcesPct": 100,
-    "footnotes": 76,
-    "verifiedFresh": 43,
+    "footnotes": 78,
+    "verifiedFresh": 44,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 48,
+    "substantial": 49,
     "citationCoverage": 94,
-    "citationCovered": 45,
+    "citationCovered": 46,
     "followableCoverage": 100,
-    "followableCovered": 17,
-    "teachingWithCode": 17,
+    "followableCovered": 18,
+    "teachingWithCode": 18,
     "humanReviewed": 0,
     "humanReviewedPct": 0
   },
