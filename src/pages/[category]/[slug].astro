@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { getCategory } from '../../config/categories.mjs';
+import { buildFaqSchema } from '../../config/faq-schema.mjs';
 
 export async function getStaticPaths() {
   const entries = await getCollection('zh-TW');
@@ -62,7 +63,10 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: category ? 3 : 2, name: d.title, item: pageUrl },
   ],
 };
-const pageSchema = [articleSchema, breadcrumbSchema];
+// FAQPage:若文章有「常見問題」區塊,抽成 Q&A structured data,
+// 讓 AI 回答引擎能直接讀出問答對(AEO 核心)。
+const faqSchema = buildFaqSchema(entry.body);
+const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
 ---
 
 <Base

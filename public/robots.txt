@@ -1,4 +1,46 @@
+# hermesagent.download — 明確歡迎搜尋引擎與 AI 回答引擎索引/引用本站。
+# 本站內容以 CC BY-SA 4.0 授權,歡迎 AI 引用(請附出處)。
+
 User-agent: *
+Allow: /
+
+# --- AI 回答引擎爬蟲(明確歡迎,避免被誤擋)---
+# OpenAI:ChatGPT search 與訓練
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Google(AI Overviews / Gemini 訓練由 Google-Extended 控制)
+User-agent: Google-Extended
+Allow: /
+
+# 其他常見 AI 爬蟲
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: Bytespider
 Allow: /
 
 Sitemap: https://hermesagent.download/sitemap-index.xml
