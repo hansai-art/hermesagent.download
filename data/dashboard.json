@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-26T04:03:49.858Z",
+  "generatedAt": "2026-07-27T03:25:41.013Z",
   "content": {
-    "total": 358,
+    "total": 360,
     "byStatus": {
-      "published": 358,
+      "published": 360,
       "archived": 1
     },
     "byCategory": [
@@ -18,7 +18,7 @@
         "slug": "config",
         "emoji": "⚙️",
         "name": "模型與 API 設定",
-        "count": 1,
+        "count": 2,
         "needsHelp": true
       },
       {
@@ -53,7 +53,7 @@
         "slug": "migrate",
         "emoji": "🔄",
         "name": "遷移指南",
-        "count": 1,
+        "count": 2,
         "needsHelp": true
       },
       {
@@ -101,21 +101,21 @@
     ]
   },
   "credibility": {
-    "withSources": 358,
+    "withSources": 360,
     "withSourcesPct": 100,
-    "footnotes": 67,
-    "verifiedFresh": 41,
+    "footnotes": 76,
+    "verifiedFresh": 43,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 46,
-    "citationCoverage": 93,
-    "citationCovered": 43,
+    "substantial": 48,
+    "citationCoverage": 94,
+    "citationCovered": 45,
     "followableCoverage": 100,
-    "followableCovered": 15,
-    "teachingWithCode": 15,
+    "followableCovered": 17,
+    "teachingWithCode": 17,
     "humanReviewed": 0,
     "humanReviewedPct": 0
   },
@@ -137,6 +137,6 @@
   "upstream": {
     "lastReleaseTag": "v2026.7.20",
     "checkedAt": "2026-07-23T00:00:00Z",
-    "daysSinceCheck": 3
+    "daysSinceCheck": 4
   }
 }
