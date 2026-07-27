@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-26T04:03:50.313Z",
-  "total": 359,
-  "published": 358,
+  "generatedAt": "2026-07-27T04:12:02.313Z",
+  "total": 361,
+  "published": 360,
   "byStatus": {
-    "published": 358,
+    "published": 360,
     "archived": 1
   },
   "byCategory": {
@@ -14,18 +14,18 @@
     "concepts": 3,
     "integrations": 3,
     "skills": 3,
+    "config": 2,
+    "migrate": 2,
     "releases": 2,
     "about": 1,
-    "community": 1,
-    "config": 1,
-    "migrate": 1
+    "community": 1
   },
-  "articlesLast7Days": 28,
-  "articlesLast30Days": 358,
+  "articlesLast7Days": 30,
+  "articlesLast30Days": 360,
   "contributors": 1,
   "stars": 0,
   "forks": 0,
-  "commitsLast30Days": 32,
+  "commitsLast30Days": 37,
   "sourceCoveragePct": 100,
-  "verifiedFresh": 41
+  "verifiedFresh": 43
 }
