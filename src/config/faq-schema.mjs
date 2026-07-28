@@ -66,15 +66,19 @@ export function extractFaq(body) {
     }
     buf = [];
   };
+  let inDetails = false;
   for (const line of section) {
-    const h3 = line.match(/^###\s+(.*\S)\s*$/);
+    if (/^\s*<details[\s>]/i.test(line)) inDetails = true;
     const summary = line.match(/^\s*<summary>(.*?)<\/summary>\s*$/i);
+    // 折疊區裡的 ### 是答案的小標,不是另一個問題 —— 問題由 <summary> 決定。
+    const h3 = inDetails ? null : line.match(/^###\s+(.*\S)\s*$/);
     if (h3 || summary) {
       flush();
       curQ = toPlainText(h3 ? h3[1] : summary[1]);
     } else if (curQ) {
       buf.push(line);
     }
+    if (/^\s*<\/details>/i.test(line)) inDetails = false;
   }
   flush();
 
