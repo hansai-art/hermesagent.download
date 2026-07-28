@@ -1,6 +1,6 @@
 ---
 title: "我的電腦跑得動 Hermes Agent 嗎？最低配置一覽"
-description: "最低配置清單，一分鐘看完。雲端 API 模式 8 GB 記憶體就夠，本機模型模式要 24 GB。含 Intel Mac 不支援的提醒，以及三個指令的自我檢查法。細節收在折疊區，不看也不影響安裝。"
+description: "最低配置清單，一分鐘看完。雲端 API 模式 8 GB 記憶體就夠，本機模型模式 16 GB 起跳。含 Intel Mac 不支援、模型 context 必須 64K 以上兩個會擋人的硬性條件，以及三個指令的自我檢查法。"
 date: 2026-07-28
 subcategory: "requirements"
 hermes_version: ">=2026.5"
@@ -11,6 +11,8 @@ upstream_refs:
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
   - "https://hermes-agent.nousresearch.com/docs/guides/local-ollama-setup"
   - "https://hermes-agent.nousresearch.com/docs/user-guide/windows-native"
+  - "https://hermes-agent.nousresearch.com/docs/guides/local-llm-on-mac"
+  - "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart"
 tags:
   - "install"
   - "requirements"
@@ -36,9 +38,10 @@ status: "published"
 ## 二、本機模型模式的最低配置
 
 - **處理器 (CPU)**：4 核心以上，建議 8 核心[^3]。
-- **記憶體 (RAM)**：最低 8 GB，但**實際門檻是 24 GB**，原因見下方折疊區[^3]。
+- **記憶體 (RAM)**：**16 GB 起跳**。8 GB 只能跑最小的模型，32 GB 以上才跑得動大模型[^3][^7]。
 - **儲存空間**：預留 30 GB 以上，用來放 AI 模型檔[^3]。
-- **顯示卡 (GPU)**：非必要。有 NVIDIA 顯卡、顯示記憶體 8 GB 以上會快很多；沒有也能跑，但每次回答要等 30 到 120 秒[^3]。
+- **顯示卡 (GPU)**：非必要。NVIDIA 顯示記憶體 8 GB 以上、或 Apple M 系列，都會快很多；沒有也能跑，但每次回答要等 30 到 120 秒[^3]。
+- **模型的 context 必須有 64K 以上**：這是 Hermes 的硬性要求，不夠的模型會在啟動時被直接擋下來[^8]。這條會反過來吃記憶體，context 開越長吃越多。
 
 ## 三、作業系統
 
@@ -101,7 +104,7 @@ df -h ~
 ## 三個會讓你白忙的誤判
 
 1. **「我的 Mac 規格很好，應該可以裝」** — 只要是 Intel 機型就不行，跟規格無關。
-2. **「8 GB 就能在自己電腦跑 AI」** — 能跑，但那個等級的模型不會動手做事，只能聊天。實際門檻 24 GB。
+2. **「8 GB 就能在自己電腦跑 AI」** — 能跑，但要手動把 context 壓到 64K 下限，而且很多小模型不會動手做事，只能聊天。想順跑建議 16 GB 起。
 3. **「要先裝好 Python」** — 不用，自己裝反而容易踩到 3.14 裝不起來的坑。
 
 **配置符合就可以往下走**：[macOS](/install/macos/)、[Windows](/install/windows/)、[Linux](/install/linux/)、[WSL2](/install/wsl2/)。
@@ -122,9 +125,15 @@ df -h ~
 </details>
 
 <details>
-<summary><strong>本機模型要選哪一個，為什麼門檻是 24 GB</strong></summary>
+<summary><strong>本機模型要選哪一個，兩條路的記憶體差很多</strong></summary>
 
-Hermes 透過 [Ollama](https://ollama.com) 這個免費工具在你的電腦裡跑 AI。官方列出的模型對照表[^3]：
+本機跑 AI 有兩條路，記憶體門檻差一倍以上。**先看你要哪一條，再決定要不要加記憶體。**
+
+**共同的硬性條件**：模型的 context 至少 64K。低於這個數字的模型會在啟動時被 Hermes 直接拒絕[^8]。本機模型的執行工具經常預設低於 64K，要自己去設定[^3]。
+
+### 路線一：用 Ollama（Windows、Linux、Mac 都可以）
+
+裝起來最簡單。官方列出的模型對照表[^3]：
 
 | 模型名稱 | 要多少硬碟 | 要多少記憶體 | 會不會動手做事 | 適合 |
 |---|---|---|---|---|
@@ -133,11 +142,32 @@ Hermes 透過 [Ollama](https://ollama.com) 這個免費工具在你的電腦裡�
 | `gemma2:9b` | 約 5 GB | 8 GB 以上 | 不會 | 快速問答 |
 | `llama3.2:3b` | 約 2 GB | 4 GB 以上 | 不會 | 輕量問答 |
 
-最後那一欄是關鍵。Hermes 的價值在於它會實際動手：改檔案、跑指令、開網頁查資料。這需要模型具備「工具呼叫（tool calling）」的能力。**不具備這個能力的模型，裝起來會動，但只能跟你聊天，不能幫你做任何事**[^3]。
+「會不會動手做事」這一欄是關鍵。Hermes 的價值在於它會實際改檔案、跑指令、開網頁查資料，這需要模型具備「工具呼叫（tool calling）」的能力。**不具備的模型裝起來會動，但只能跟你聊天**[^3]。
 
-所以「8 GB 就能跑本機 AI」成立但誤導：能跑，跑起來的是一個不會做事的版本。要它真的幫你做事，就得用 `gemma4:31b` 那一級，也就是 24 GB。完整模型清單見 [Ollama 模型庫](https://ollama.com/library)。
+這張表上只有 `gemma4:31b` 會動手做事，所以**走這條路的實際門檻是 24 GB**。完整模型清單見 [Ollama 模型庫](https://ollama.com/library)。
 
-**沒有顯示卡的速度**（官方數據，「token」約等於一個中文字）[^3]：
+### 路線二：Mac 用 llama.cpp 或 MLX
+
+**這條路的記憶體門檻低很多。** 官方另有一份 Mac 專屬指南，建議的起步模型是 Qwen3.5-9B[^7]：
+
+| 版本 | 硬碟 | 128K context 需要的記憶體 |
+|---|---|---|
+| Qwen3.5-9B-Q4_K_M（llama.cpp） | 5.3 GB | 約 10 GB（要開量化 KV cache） |
+| Qwen3.5-9B-mlx-lm-mxfp4（MLX） | 約 5 GB | 約 12 GB |
+
+官方的記憶體換算法則：**模型本身 + KV cache**。9B 的 Q4 模型約 5 GB，128K context 的 KV cache 用 Q4 量化再加 4 到 5 GB；如果不開量化，同樣的 context 會膨脹到 16 GB[^7]。
+
+- **8 GB Mac**：要開量化 KV cache，並把 context 壓到 Hermes 的 64K 下限
+- **16 GB Mac**：可以舒服地跑 9B、128K context
+- **32 GB 以上**：才跑得動 27B、35B
+
+而且**這條路的工具呼叫不受模型大小限制**。llama.cpp 加上 `--jinja` 之後，Llama 3.x、Qwen 2.5、Hermes 2/3、Mistral、DeepSeek 都原生支援工具呼叫，其他模型走通用處理器也能用，只是效率差一點[^9]。
+
+**所以「本機模型要 24 GB」只對 Ollama + Gemma 那條路成立。** Mac 使用者走 llama.cpp 或 MLX，16 GB 就相當堪用。
+
+### 沒有顯示卡的速度
+
+官方數據，「token」約等於一個中文字[^3]：
 
 | 情況 | 速度 |
 |---|---|
@@ -265,3 +295,6 @@ hermes doctor
 [^4]: Nous Research, Windows (Native) Guide，Feature matrix 段：https://hermes-agent.nousresearch.com/docs/user-guide/windows-native（2026-07-28 存取）
 [^5]: hermes-agent `pyproject.toml`，`requires-python = ">=3.11,<3.14"` 與其上方註解：https://github.com/NousResearch/hermes-agent/blob/main/pyproject.toml（2026-07-28 存取）
 [^6]: Nous Research, Termux，Known limitations on phones 段：https://hermes-agent.nousresearch.com/docs/getting-started/termux（2026-07-28 存取）
+[^7]: Nous Research, Local LLM on Mac（llama.cpp / MLX，含 Qwen3.5-9B 記憶體換算）：https://hermes-agent.nousresearch.com/docs/guides/local-llm-on-mac（2026-07-28 存取）
+[^8]: Nous Research, Quickstart，「Minimum context: 64K tokens」caution 段：https://hermes-agent.nousresearch.com/docs/getting-started/quickstart（2026-07-28 存取）
+[^9]: Nous Research, AI Providers，llama.cpp `--jinja` 與原生工具呼叫模型清單：https://hermes-agent.nousresearch.com/docs/integrations/providers（2026-07-28 存取）
