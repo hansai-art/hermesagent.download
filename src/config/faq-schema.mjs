@@ -3,12 +3,17 @@
 //
 // 只掃描「## 常見問題」(或常見問答 / FAQ / Q&A)這一個 H2 區塊底下的 H3,
 // 避免把「## 照這個順序解」底下的步驟(### 1. …)誤當成問答。
+//
+// 問題也可以寫成 <details><summary>問題？</summary> —— 折疊區塊對讀者是
+// 「想看再展開」，對機器則跟 H3 等價，兩種寫法都要能抽出來。
 
 const FAQ_HEADING = /^##\s+(常見問題|常見問答|常見疑問|FAQ|Q\s*&\s*A)\s*$/im;
 
 // 把一段 Markdown 清成給機器讀的純文字答案。
 function toPlainText(md) {
   return md
+    .replace(/<\/?(?:details|summary)[^>]*>/gi, ' ') // 去折疊標籤本身
+    .replace(/<[^>]+>/g, '') // 去其餘 HTML 標籤(<strong> 等)
     .replace(/\[\^[^\]]+\]/g, '') // 去腳註標記 [^1]
     .replace(/```[\s\S]*?```/g, ' ') // 去 code fence
     .replace(/`([^`]+)`/g, '$1') // 去行內 code 反引號
@@ -63,9 +68,10 @@ export function extractFaq(body) {
   };
   for (const line of section) {
     const h3 = line.match(/^###\s+(.*\S)\s*$/);
-    if (h3) {
+    const summary = line.match(/^\s*<summary>(.*?)<\/summary>\s*$/i);
+    if (h3 || summary) {
       flush();
-      curQ = toPlainText(h3[1]);
+      curQ = toPlainText(h3 ? h3[1] : summary[1]);
     } else if (curQ) {
       buf.push(line);
     }

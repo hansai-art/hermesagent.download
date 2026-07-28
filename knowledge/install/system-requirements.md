@@ -40,7 +40,7 @@ status: "published"
 - **處理器 (CPU)**：4 核心以上，建議 8 核心[^3]。
 - **記憶體 (RAM)**：**16 GB 起跳**。8 GB 只能跑最小的模型，32 GB 以上才跑得動大模型[^3][^7]。
 - **儲存空間**：預留 30 GB 以上，用來放 AI 模型檔[^3]。
-- **顯示卡 (GPU)**：非必要。NVIDIA 顯示記憶體 8 GB 以上、或 Apple M 系列，都會快很多；沒有也能跑，但每次回答要等 30 到 120 秒[^3]。
+- **顯示卡 (GPU)**：官方寫「不需要」，純靠處理器也跑得動，只是每次回答要等 30 到 120 秒[^3]。想要順，PC 要 NVIDIA 顯卡（顯示記憶體 8 GB 以上）；Mac 沒有這個選項，M 系列晶片的繪圖單元本來就在幫你算[^7]。
 - **模型的 context 必須有 64K 以上**：這是 Hermes 的硬性要求，不夠的模型會在啟動時被直接擋下來[^8]。這條會反過來吃記憶體，context 開越長吃越多。
 
 ## 三、作業系統
@@ -111,10 +111,10 @@ df -h ~
 
 ---
 
-## 細節（不看也不影響安裝）
+## 常見問題
 
 <details>
-<summary><strong>為什麼 Intel Mac 不能裝</strong></summary>
+<summary><strong>為什麼 Intel Mac 不能裝？</strong></summary>
 
 蘋果在 2020 年底換掉了 Mac 裡面的處理器。換之前用 Intel 的，換之後用蘋果自己設計的晶片，型號從 M1 開始往上排。Hermes Agent 只支援換過之後的機型[^1]。
 
@@ -125,7 +125,7 @@ df -h ~
 </details>
 
 <details>
-<summary><strong>本機模型要選哪一個，兩條路的記憶體差很多</strong></summary>
+<summary><strong>在自己電腦跑 AI，要選哪一個模型？記憶體要多少？</strong></summary>
 
 本機跑 AI 有兩條路，記憶體門檻差一倍以上。**先看你要哪一條，再決定要不要加記憶體。**
 
@@ -186,7 +186,7 @@ HERMES_API_TIMEOUT=1800   # 30 分鐘
 </details>
 
 <details>
-<summary><strong>官方的支援分級是什麼意思</strong></summary>
+<summary><strong>官方說的支援分級是什麼意思？</strong></summary>
 
 官方在[平台支援頁](https://hermes-agent.nousresearch.com/docs/getting-started/platform-support)把系統分成三級，決定的是「出問題時官方修不修」[^1]。
 
@@ -199,7 +199,7 @@ Android 手機另有明確限制[^6]：不能用 Docker、語音轉文字跑不�
 </details>
 
 <details>
-<summary><strong>Windows 直接裝與用 WSL2 的功能差異</strong></summary>
+<summary><strong>Windows 直接裝跟用 WSL2 有什麼差別？</strong></summary>
 
 官方在 [Windows 原生指南](https://hermes-agent.nousresearch.com/docs/user-guide/windows-native)的說法是：除了儀表板裡那個內嵌的終端機分頁之外，其他全部都能在 Windows 上直接跑[^4]。
 
@@ -219,7 +219,7 @@ Android 手機另有明確限制[^6]：不能用 Docker、語音轉文字跑不�
 </details>
 
 <details>
-<summary><strong>安裝程式會自動裝什麼，以及 Python 3.14 為什麼會失敗</strong></summary>
+<summary><strong>安裝程式會自動裝什麼？為什麼 Python 3.14 會失敗？</strong></summary>
 
 官方安裝程式會自動裝好這些[^2]：
 
@@ -252,7 +252,7 @@ hermes doctor
 </details>
 
 <details>
-<summary><strong>這頁的數字哪些是官方的、哪些是我們自己測的</strong></summary>
+<summary><strong>這頁的數字哪些是官方的、哪些是你們自己測的？</strong></summary>
 
 **官方文件並沒有完整寫過「要什麼硬體」這件事。**
 
