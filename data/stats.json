@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-27T04:12:02.313Z",
-  "total": 361,
-  "published": 360,
+  "generatedAt": "2026-07-28T03:43:47.234Z",
+  "total": 362,
+  "published": 361,
   "byStatus": {
-    "published": 360,
+    "published": 361,
     "archived": 1
   },
   "byCategory": {
     "issues": 308,
     "guides": 24,
+    "troubleshoot": 7,
     "install": 6,
-    "troubleshoot": 6,
     "concepts": 3,
     "integrations": 3,
     "skills": 3,
@@ -21,11 +21,11 @@
     "community": 1
   },
   "articlesLast7Days": 30,
-  "articlesLast30Days": 360,
+  "articlesLast30Days": 361,
   "contributors": 1,
   "stars": 0,
   "forks": 0,
-  "commitsLast30Days": 37,
+  "commitsLast30Days": 41,
   "sourceCoveragePct": 100,
-  "verifiedFresh": 43
+  "verifiedFresh": 44
 }
