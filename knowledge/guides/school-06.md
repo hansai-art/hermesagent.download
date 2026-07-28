@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：再次得到 ad-hoc verification passed
 - 應提煉成的規則：驗證要對準這次改了哪些檔、哪些行為，而不是籠統說「我有檢查」
 
-- 分層:母題 2 · 工具
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 工具
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

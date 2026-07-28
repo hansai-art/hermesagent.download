@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：Skill 內每個規則都能回指到真實案例
 - 應提煉成的規則：Skill 應來自真實故障，而非純理論設計
 
-- 分層:母題 2 · 工具
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 工具
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

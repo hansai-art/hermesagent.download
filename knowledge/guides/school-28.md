@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：文件可直接長成 `SKILL.md`
 - 應提煉成的規則：想公開分享給其他 AI 的內容，應以可執行格式組織
 
-- 分層:母題 2 · 工具
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 工具
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

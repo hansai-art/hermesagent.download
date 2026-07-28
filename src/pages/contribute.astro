@@ -6,18 +6,18 @@ import dashboard from '../../data/dashboard.json';
 const REPO = 'hansai-art/hermesagent.download';
 const PROMPT_RAW = `https://raw.githubusercontent.com/${REPO}/main/CONTRIBUTE_PROMPT.md`;
 
-// 拿得出手的兩個數字:issue 中文精選是這個站的獨有價值
+// 拿得出手的兩個數字：issue 中文精選是這個站的獨有價值
 const issueCount = dashboard.content.byCategory.find((c) => c.slug === 'issues')?.count ?? 0;
 const skillCount = 173; // 官方 skills 全目錄篇幅，見 /skills/catalog/
 const aiPrompt = `讀取 ${PROMPT_RAW} 的完整內容，然後按照裡面的指示引導我為 hermesagent.download 寫一篇 Hermes Agent 中文文件。`;
 
 const iceBreakers = [
-  '你上週被哪個錯誤訊息卡住超過 30 分鐘?',
-  '你有哪個自己摸索出來的 workaround，一直沒寫下來?',
-  '官方文件裡有哪一段，你看完還是不知道該打什麼指令?',
-  '你剛開始用 Hermes Agent 時，最希望有人先告訴你什麼?',
-  '你把 Hermes 接到哪個平台或工具上?過程踩了什麼坑?',
-  '你用哪個模型供應商?一個月花多少錢?',
+  '你上週被哪個錯誤訊息卡住超過 30 分鐘？',
+  '你有哪個自己摸索出來的 workaround，一直沒寫下來？',
+  '官方文件裡有哪一段，你看完還是不知道該打什麼指令？',
+  '你剛開始用 Hermes Agent 時，最希望有人先告訴你什麼？',
+  '你把 Hermes 接到哪個平台或工具上？過程踩了什麼坑？',
+  '你用哪個模型供應商？一個月花多少錢？',
 ];
 
 const paths = [
@@ -41,7 +41,7 @@ const paths = [
     tag: '🤖 讓 AI 代勞',
     title: '捐出你的 AI 額度',
     time: '15 分鐘',
-    desc: '你的 Claude / ChatGPT / Gemini 訂閱額度用不完?貼一句話給它，它會讀完我們的編輯規範，產出可以直接送出的文章。',
+    desc: '你的 Claude / ChatGPT / Gemini 訂閱額度用不完？貼一句話給它，它會讀完我們的編輯規範，產出可以直接送出的文章。',
     gets: ['你只需要有一個 AI 訂閱', 'AI 自動讀取編輯規範與缺口清單', '產出直接是可 PR 的 Markdown', '不需要你自己寫任何一個字'],
     cta: { label: '複製 prompt ↓', href: '#ai-prompt' },
   },
@@ -86,7 +86,7 @@ const paths = [
       <p style="color: var(--text)">
         還缺的是<strong style="color: var(--accent)">實戰經驗</strong>——
         {dashboard.content.gaps.length} 個分類還在等第一批文章。這些是文件寫不出來、
-        只有真的用過的人才知道的東西:你的工作流、你踩的坑、你算過的成本。
+        只有真的用過的人才知道的東西：你的工作流、你踩的坑、你算過的成本。
         現在寫的會直接定義那個分類的標準。
       </p>
     </div>
@@ -129,7 +129,7 @@ const paths = [
   <section id="ai-prompt" class="mb-16 scroll-mt-20">
     <h2 class="text-2xl font-bold mb-2">🪙 捐出你的 AI 額度</h2>
     <p class="mb-4" style="color: var(--text-dim)">
-      每個月的 AI 訂閱額度用不完?用 15 分鐘，幫這裡多一篇文件。
+      每個月的 AI 訂閱額度用不完？用 15 分鐘，幫這裡多一篇文件。
       把下面這句話貼給 ChatGPT / Claude / Gemini，它會自己讀完我們的編輯規範、
       挑一個缺口、產出符合格式的文章——你只需要把結果送出。
     </p>
@@ -152,7 +152,7 @@ const paths = [
     </p>
 
     <div class="rounded-lg border p-4 mt-4 text-sm" style="border-color: var(--border); background: var(--bg-raised)">
-      <div class="font-semibold mb-1" style="color: var(--text)">📰 一個現成的切入點:翻新版情報</div>
+      <div class="font-semibold mb-1" style="color: var(--text)">📰 一個現成的切入點：翻新版情報</div>
       <p style="color: var(--text-dim)">
         每次 Hermes Agent 發布新版，系統會自動開一個
         <a
@@ -161,7 +161,7 @@ const paths = [
           rel="noopener noreferrer"
           style="color: var(--accent)">帶著 release notes 與現成 prompt 的 issue</a
         >。你把那段 prompt 貼給 AI，它就會產出一篇中文版本情報——連 release notes 都幫你附好了，
-        比從零挑題目更省事。範例:
+        比從零挑題目更省事。範例：
         <a href="/releases/v2026-7-20/" style="color: var(--accent)">v0.19.0 Quicksilver</a>。
       </p>
     </div>
@@ -241,7 +241,7 @@ const paths = [
 
   <!-- 破冰提問 -->
   <section class="mb-16">
-    <h2 class="text-2xl font-bold mb-2">不知道寫什麼?</h2>
+    <h2 class="text-2xl font-bold mb-2">不知道寫什麼？</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
       這幾個問題你隨便答一個，都能變成一篇有人需要的文章。
     </p>

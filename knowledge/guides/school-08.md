@@ -19,7 +19,7 @@ status: "published"
 
 ## 診斷
 
-問題出在效能膨脹這一層:長 session、壓縮、renderer 與掛太多 MCP 都會累積負擔。
+問題出在效能膨脹這一層：長 session、壓縮、renderer 與掛太多 MCP 都會累積負擔。
 
 ## 解法
 
@@ -29,6 +29,6 @@ status: "published"
 
 只掛當前任務需要的 MCP，定期檢視效能，長任務分段重置。
 
-- 分層:母題 8 · 效能
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 8 · 效能
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：輸出內容有清楚列出可做與不可做
 - 應提煉成的規則：遇到能力邊界時，限制必須前置揭露
 
-- 分層:母題 2 · 工具
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 工具
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

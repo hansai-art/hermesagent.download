@@ -1,5 +1,5 @@
 ---
-// 站內搜尋:header 觸發鈕 + 全螢幕覆蓋層。
+// 站內搜尋：header 觸發鈕 + 全螢幕覆蓋層。
 // 索引(public/api/search-index.json)只在第一次開啟搜尋時才下載，不拖慢首屏。
 import { CATEGORIES } from '../config/categories.mjs';
 
@@ -92,7 +92,7 @@ const catMap = Object.fromEntries(CATEGORIES.map((c) => [c.slug, `${c.emoji} ${c
       results.innerHTML = '';
       if (input.value.trim()) render(input.value);
     } catch (e) {
-      results.innerHTML = `<div class="px-4 py-6 text-sm" style="color: var(--text-dim)">索引載入失敗:${e.message}</div>`;
+      results.innerHTML = `<div class="px-4 py-6 text-sm" style="color: var(--text-dim)">索引載入失敗：${e.message}</div>`;
     } finally {
       loading = false;
     }

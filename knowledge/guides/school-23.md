@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：輸出有清楚區分穩定能力與進階能力
 - 應提煉成的規則：對品質敏感任務要分層承諾，不要一步答滿
 
-- 分層:母題 2 · 輸出
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 輸出
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

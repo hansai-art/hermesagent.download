@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：後台內容可辨識對應 block
 - 應提煉成的規則：結構化內容要符合實際工具的 schema 與 block 規則
 
-- 分層:母題 2 · 工具
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 工具
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

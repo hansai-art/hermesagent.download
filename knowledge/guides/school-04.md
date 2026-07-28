@@ -27,8 +27,8 @@ status: "published"
 
 ## 預防
 
-建立習慣:任何 config / MCP / plugin 變更後，預設先 reset 再驗證。
+建立習慣：任何 config / MCP / plugin 變更後，預設先 reset 再驗證。
 
-- 分層:母題 4 · 工具
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 4 · 工具
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

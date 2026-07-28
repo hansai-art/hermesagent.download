@@ -16,15 +16,15 @@ status: "published"
 
 Telegram 是最多人拿來接 Hermes Agent 的平台——手機上隨時能丟一句話給它，它在遠端做完再回報。
 
-但有兩件事會讓你懷疑自己是不是設錯了:**指令選單裡莫名少了幾個 skill**，以及 **gateway 跑一跑就自己斷線**。這兩件事都不是你的錯，而且都有明確解法。
+但有兩件事會讓你懷疑自己是不是設錯了：**指令選單裡莫名少了幾個 skill**，以及 **gateway 跑一跑就自己斷線**。這兩件事都不是你的錯，而且都有明確解法。
 
-## 坑一:Telegram 只給 100 個斜線指令
+## 坑一：Telegram 只給 100 個斜線指令
 
 Telegram 平台對 bot 的斜線指令數量有 **100 個上限**。Hermes 的 skills 會註冊成斜線指令，skills 一多就會超過——超過的部分不會報錯，**就是安靜地不出現**[^1]。
 
-所以你會看到:某些 skill 在終端機裡好好的，在 Telegram 卻找不到。
+所以你會看到：某些 skill 在終端機裡好好的，在 Telegram 卻找不到。
 
-**解法**:在 `~/.hermes/config.yaml` 停用這個平台用不到的 skills[^1]:
+**解法**：在 `~/.hermes/config.yaml` 停用這個平台用不到的 skills[^1]:
 
 ```yaml
 skills:
@@ -34,23 +34,23 @@ skills:
 
 改完**要重啟 gateway** 才會生效。
 
-**成功判準**:重啟後在 Telegram 輸入 `/`，原本消失的指令回到選單裡。
+**成功判準**：重啟後在 Telegram 輸入 `/`，原本消失的指令回到選單裡。
 
-**該停用哪些**:挑那些在手機上根本不會用的——需要看大量輸出、需要編輯檔案、需要互動式操作的 skill，留在終端機用就好。
+**該停用哪些**：挑那些在手機上根本不會用的——需要看大量輸出、需要編輯檔案、需要互動式操作的 skill，留在終端機用就好。
 
-## 坑二:gateway 一直斷線(WSL 使用者)
+## 坑二：gateway 一直斷線(WSL 使用者)
 
 如果你在 WSL 裡跑 gateway，而它總是跑一陣子就沒反應，原因很可能是 **systemd 在 WSL 環境不可靠**[^1]。
 
-這個坑特別討厭的地方在於:你照著一般 Linux 教學設好 systemd service,`systemctl status` 看起來也正常，但實際上重開 WSL 之後它就沒了。
+這個坑特別討厭的地方在於：你照著一般 Linux 教學設好 systemd service,`systemctl status` 看起來也正常，但實際上重開 WSL 之後它就沒了。
 
-**解法**:不要依賴 systemd，改用前景模式或 tmux 常駐:
+**解法**：不要依賴 systemd，改用前景模式或 tmux 常駐：
 
 ```bash
 tmux new -s hermes 'hermes gateway run'
 ```
 
-**成功判準**:關掉終端機視窗再開一個，`tmux ls` 看得到 `hermes` session 還在。
+**成功判準**：關掉終端機視窗再開一個，`tmux ls` 看得到 `hermes` session 還在。
 
 要回到那個 session:
 
@@ -58,7 +58,7 @@ tmux new -s hermes 'hermes gateway run'
 tmux attach -t hermes
 ```
 
-(離開但不關閉:`Ctrl+B` 然後 `D`)
+(離開但不關閉：`Ctrl+B` 然後 `D`)
 
 ⚠️ Windows 完全關閉 WSL 或重開機時，tmux session 還是會消失。開機自動啟動需要另外設定 Windows 工作排程器。詳見 [WSL2 安裝教學](/install/wsl2/)。
 
@@ -74,15 +74,15 @@ tmux attach -t hermes
 
 ## 常見問題
 
-### 從 OpenClaw 搬過來，允許名單要重設嗎?
+### 從 OpenClaw 搬過來，允許名單要重設嗎？
 
 官方遷移指令會搬 `TELEGRAM_ALLOWED_USERS` 這類相容設定，加 `--migrate-secrets` 時也會搬 `TELEGRAM_BOT_TOKEN`。搬完還是建議自己確認一次。見 [OpenClaw 遷移指南](/migrate/migrate-from-openclaw/)。
 
-### 指令選單改了但沒生效?
+### 指令選單改了但沒生效？
 
-兩個可能:gateway 沒重啟，或是 Telegram 客戶端快取了舊選單。先重啟 gateway，再把 Telegram 對話關掉重開。
+兩個可能：gateway 沒重啟，或是 Telegram 客戶端快取了舊選單。先重啟 gateway，再把 Telegram 對話關掉重開。
 
-### 不在 WSL 也會斷線?
+### 不在 WSL 也會斷線？
 
 那就不是這個原因了。先看 gateway 的執行紀錄，可能是網路或 token 問題。
 

@@ -27,7 +27,7 @@ sudo apt update && sudo apt install -y curl xz-utils
 
 `curl` 用來下載安裝腳本，`xz-utils` 用來解壓縮它下載的東西[^1]。
 
-如果你要用桌面版，再加一個:
+如果你要用桌面版，再加一個：
 
 ```bash
 sudo apt install -y build-essential
@@ -41,7 +41,7 @@ sudo apt install -y build-essential
 git --version
 ```
 
-**預期輸出**:類似 `git version 2.43.0` 的版本字串。顯示 `command not found` 就 `sudo apt install -y git`。
+**預期輸出**：類似 `git version 2.43.0` 的版本字串。顯示 `command not found` 就 `sudo apt install -y git`。
 
 ## 執行官方安裝指令
 
@@ -51,7 +51,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 安裝腳本會自動處理 uv、Python 3.11、Node.js v22、ripgrep、ffmpeg[^1]。
 
-> **不放心直接執行 `curl | bash`?** 這是官方提供的方式、官方網域，但你也可以先看過:
+> **不放心直接執行 `curl | bash`?** 這是官方提供的方式、官方網域，但你也可以先看過：
 >
 > ```bash
 > curl -fsSL https://hermes-agent.nousresearch.com/install.sh -o install.sh
@@ -61,7 +61,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 ## 重新載入 shell
 
-安裝腳本把 `~/.local/bin` 加進 PATH，但當前這個 shell 還不知道:
+安裝腳本把 `~/.local/bin` 加進 PATH，但當前這個 shell 還不知道：
 
 ```bash
 source ~/.bashrc
@@ -80,11 +80,11 @@ hermes doctor
 > 📝 **這一段缺實際輸出**:`hermes doctor` 在 Linux 上跑起來長什麼樣，我們手上沒有實機畫面。
 > [幫我們補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/linux.md)。
 
-## VPS 長駐:用 service user 部署
+## VPS 長駐：用 service user 部署
 
-如果你要讓 agent 在伺服器上長期跑，不建議用 root 或你自己的帳號。官方文件的做法是:先以管理者身分安裝 Playwright 的系統相依套件，再切換到專用的 service user 執行安裝腳本[^1]。
+如果你要讓 agent 在伺服器上長期跑，不建議用 root 或你自己的帳號。官方文件的做法是：先以管理者身分安裝 Playwright 的系統相依套件，再切換到專用的 service user 執行安裝腳本[^1]。
 
-伺服器上通常不需要瀏覽器功能，可以加參數跳過:
+伺服器上通常不需要瀏覽器功能，可以加參數跳過：
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --skip-browser
@@ -109,7 +109,7 @@ hermes
 
 ## 常見問題
 
-### 安裝跑到一半停住，說解壓縮失敗?
+### 安裝跑到一半停住，說解壓縮失敗？
 
 多半是缺 `xz-utils`。`sudo apt install -y xz-utils` 之後重跑安裝指令。
 
@@ -117,13 +117,13 @@ hermes
 
 shell 沒重新載入。見 [command not found 怎麼解](/troubleshoot/command-not-found/)。
 
-### 其他發行版(Fedora / Arch)呢?
+### 其他發行版(Fedora / Arch)呢？
 
 官方文件的前置套件說明是以 Debian / Ubuntu 為例。其他發行版換成對應的套件管理器指令即可(如 `dnf install curl xz` / `pacman -S curl xz`)。
 
-> 📝 **待驗證**:非 Debian 系發行版的實際安裝經驗歡迎補充。
+> 📝 **待驗證**：非 Debian 系發行版的實際安裝經驗歡迎補充。
 
-### 裝在哪?
+### 裝在哪？
 
 預設 `~/.hermes/hermes-agent/`，設定檔在 `~/.hermes/`。
 

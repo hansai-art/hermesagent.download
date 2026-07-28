@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：使用者能直接執行提供的命令
 - 應提煉成的規則：當使用者明確要 SOP / 指令時，先給最短可執行答案
 
-- 分層:母題 2 · 輸出
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 輸出
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

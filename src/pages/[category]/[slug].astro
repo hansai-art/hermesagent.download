@@ -19,7 +19,7 @@ const { Content } = await render(entry);
 const category = getCategory(entry.id.split('/')[0]);
 const d = entry.data;
 
-// knowledge/ 才是原始檔;src/content/ 是投影層，所以編輯連結要指向 knowledge/
+// knowledge/ 才是原始檔；src/content/ 是投影層，所以編輯連結要指向 knowledge/
 const REPO = 'hansai-art/hermesagent.download';
 const knowledgePath = `knowledge/${entry.id}.md`;
 const editUrl = `https://github.com/${REPO}/edit/main/${knowledgePath}`;
@@ -29,7 +29,7 @@ const issueUrl = `https://github.com/${REPO}/issues/new?template=01-content-erro
 const fmtDate = (date: Date) =>
   date.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
 
-// Per-page structured data:讓每篇文章能被搜尋引擎當成一個「技術文章」實體、
+// Per-page structured data：讓每篇文章能被搜尋引擎當成一個「技術文章」實體、
 // 進 rich result，也讓 AI 有結構化來源可引用(對「被 AI 引用」這個目標最關鍵)。
 const SITE = 'https://hermesagent.download';
 const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -63,7 +63,7 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: category ? 3 : 2, name: d.title, item: pageUrl },
   ],
 };
-// FAQPage:若文章有「常見問題」區塊，抽成 Q&A structured data,
+// FAQPage：若文章有「常見問題」區塊，抽成 Q&A structured data,
 // 讓 AI 回答引擎能直接讀出問答對(AEO 核心)。
 const faqSchema = buildFaqSchema(entry.body);
 const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
@@ -151,7 +151,7 @@ const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
         <a href="/contribute/" style="color: var(--text-dim)">✋ 我想貢獻</a>
       </div>
       <p class="text-xs mt-3" style="color: var(--text-dim)">
-        看到指令跑不動、內容過期或連結壞掉?點「編輯這一頁」直接改，或回報給我們——
+        看到指令跑不動、內容過期或連結壞掉？點「編輯這一頁」直接改，或回報給我們——
         兩者都算貢獻，你的名字會出現在<a href="/dashboard/" style="color: var(--accent)">貢獻者牆</a>上。
       </p>
     </footer>

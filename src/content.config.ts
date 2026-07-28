@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 // 文章 frontmatter schema — knowledge/ 內所有 .md 都要通過這份驗證。
-// 三個技術站專屬欄位是「自動進化」機制的施力點:
+// 三個技術站專屬欄位是「自動進化」機制的施力點：
 //   hermes_version — 適用版本範圍(上游改版時 UPSTREAM-WATCH pipeline 據此標過期)
 //   last_verified  — 最後人工驗證日期(FRESHNESS pipeline 據此掃過期文章)
 //   upstream_refs  — 對應的官方文件/issue(技術宣稱要能對到來源)
@@ -16,8 +16,8 @@ const articleSchema = z.object({
   hermes_version: z.string().optional().default('*'),
   last_verified: z.coerce.date().optional(),
   // 有沒有真人讀過並認可內容(不是「有沒有跑過指令」——那是 last_verified)。
-  // 自動搬遷、AI 起草的文章預設是 false;唯有人工審閱後才能設 true。
-  // 這個欄位存在的意義是誠實:讓讀者分得出哪些內容有人背書。
+  // 自動搬遷、AI 起草的文章預設是 false；唯有人工審閱後才能設 true。
+  // 這個欄位存在的意義是誠實：讓讀者分得出哪些內容有人背書。
   human_reviewed: z.boolean().optional().default(false),
   upstream_refs: z.array(z.string().url()).optional().default([]),
   sources: z.array(z.string()).optional().default([]),

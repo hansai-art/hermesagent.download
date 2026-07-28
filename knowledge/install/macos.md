@@ -1,6 +1,6 @@
 ---
 title: "在 macOS 上安裝 Hermes Agent"
-description: "兩條路:桌面版安裝檔點兩下，或一行指令裝命令列版。每一步都有成功判準，卡住時知道該檢查什麼。"
+description: "兩條路：桌面版安裝檔點兩下，或一行指令裝命令列版。每一步都有成功判準，卡住時知道該檢查什麼。"
 date: 2026-07-23
 subcategory: "macos"
 hermes_version: ">=2026.5"
@@ -17,19 +17,19 @@ status: "published"
 
 你在官網看到 Hermes Agent，想裝來試試，結果發現有桌面版、有指令版，還有一串看不懂的相依套件。這篇告訴你該選哪一條，以及每一步怎麼確認自己做對了。
 
-**先講結論**:只是想用，下載桌面版。想接進終端機工作流、之後要跑自動化，用指令版。兩者可以並存。
+**先講結論**：只是想用，下載桌面版。想接進終端機工作流、之後要跑自動化，用指令版。兩者可以並存。
 
-## 路線一:桌面版
+## 路線一：桌面版
 
 到 [官方下載頁](https://hermes-agent.nousresearch.com/) 下載 macOS 安裝檔，點兩下安裝[^1]。
 
 安裝程式會自己處理所有相依套件(uv、Python 3.11、Node.js v22、ripgrep、ffmpeg)，你不需要先裝任何東西[^1]。
 
-**怎麼確認成功**:應用程式能開啟，並進入可以開始對話的畫面。
+**怎麼確認成功**：應用程式能開啟，並進入可以開始對話的畫面。
 
 接著跳到下面的「設定模型供應商」——沒設定模型的話還不能用。
 
-## 路線二:指令版(一行安裝)
+## 路線二：指令版(一行安裝)
 
 ### 先確認 Git 存在
 
@@ -39,7 +39,7 @@ status: "published"
 git --version
 ```
 
-**預期輸出**:類似 `git version 2.39.5 (Apple Git-154)` 的版本字串。
+**預期輸出**：類似 `git version 2.39.5 (Apple Git-154)` 的版本字串。
 
 如果顯示 `command not found`,macOS 會跳視窗要你安裝 Xcode Command Line Tools，照著裝即可，或自己跑 `xcode-select --install`。
 
@@ -51,7 +51,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 這行會下載並執行官方安裝腳本[^1]。它會裝好 uv、Python 3.11、Node.js v22、ripgrep、ffmpeg，並把 `hermes` 指令放進 `~/.local/bin`。預設安裝位置是 `~/.hermes/hermes-agent/`。
 
-> **不放心直接執行 `curl | bash`?** 這是官方提供的安裝方式、官方網域，但你也可以先看過再跑:
+> **不放心直接執行 `curl | bash`?** 這是官方提供的安裝方式、官方網域，但你也可以先看過再跑：
 >
 > ```bash
 > curl -fsSL https://hermes-agent.nousresearch.com/install.sh -o install.sh
@@ -67,7 +67,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 source ~/.zshrc
 ```
 
-macOS 從 Catalina 起預設是 zsh;如果你用 bash 就改成 `source ~/.bashrc`。或者最簡單:**開一個新的終端機視窗**，新視窗會自動載入更新後的 PATH[^2]。
+macOS 從 Catalina 起預設是 zsh；如果你用 bash 就改成 `source ~/.bashrc`。或者最簡單：**開一個新的終端機視窗**，新視窗會自動載入更新後的 PATH[^2]。
 
 ### 確認裝好了
 
@@ -84,13 +84,13 @@ hermes doctor
 
 ## 設定模型供應商
 
-裝好還不能用，要先告訴它用哪個模型:
+裝好還不能用，要先告訴它用哪個模型：
 
 ```bash
 hermes model
 ```
 
-會進入互動式選單，選供應商並填 API key[^1]。或者用官方 Portal 一步到位:
+會進入互動式選單，選供應商並填 API key[^1]。或者用官方 Portal 一步到位：
 
 ```bash
 hermes setup --portal
@@ -112,15 +112,15 @@ hermes
 
 九成是 shell 沒重新載入，不是安裝失敗。跑 `source ~/.zshrc` 或開新視窗。詳解見 [command not found 怎麼解](/troubleshoot/command-not-found/)。
 
-### 需要自己先裝 Python 嗎?
+### 需要自己先裝 Python 嗎？
 
 不用。官方安裝程式會處理 Python 3.11、Node.js v22、ripgrep、ffmpeg[^1]。
 
-### 桌面版和指令版可以同時裝嗎?
+### 桌面版和指令版可以同時裝嗎？
 
 可以，兩者是獨立安裝。
 
-### 裝在哪個目錄?
+### 裝在哪個目錄？
 
 預設在 `~/.hermes/hermes-agent/`，設定檔在 `~/.hermes/`。
 
@@ -131,4 +131,4 @@ hermes
 - 想先搞懂它是什麼 → [什麼是 Hermes Agent](/concepts/什麼是-hermes-agent/)
 
 [^1]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation(2026-07-23 存取)
-[^2]: 同上，FAQ:安裝程式會把 `~/.local/bin` 加進 PATH，新開的 shell 會自動載入 — https://hermes-agent.nousresearch.com/docs/reference/faq
+[^2]: 同上，FAQ：安裝程式會把 `~/.local/bin` 加進 PATH，新開的 shell 會自動載入 — https://hermes-agent.nousresearch.com/docs/reference/faq

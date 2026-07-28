@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：回查後台內容與對應 meta 已更新
 - 應提煉成的規則：SEO 任務要區分「一般原則」與「實際評分器規則」
 
-- 分層:母題 2 · 輸出
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 輸出
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

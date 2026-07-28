@@ -1,5 +1,5 @@
 // 分類 SSOT — knowledge/ 目錄結構、sync 腳本、網站導覽都以這份清單為準。
-// 新增分類:這裡加一筆 + 建立 knowledge/{slug}/ 目錄，兩邊一起動。
+// 新增分類：這裡加一筆 + 建立 knowledge/{slug}/ 目錄，兩邊一起動。
 
 export const CATEGORIES = [
   {
@@ -18,7 +18,7 @@ export const CATEGORIES = [
     slug: 'skills',
     emoji: '🧩',
     name: '技能目錄',
-    description: '每個 skill 一篇:用途、安裝方式、實際範例',
+    description: '每個 skill 一篇：用途、安裝方式、實際範例',
   },
   {
     slug: 'integrations',

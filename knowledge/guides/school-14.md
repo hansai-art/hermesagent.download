@@ -22,6 +22,6 @@ status: "published"
 - 驗證方式：新 session 內工具實際可見且可用
 - 應提煉成的規則：涉及 Hermes config / toolset / plugin 變更時，要先說明生效時機
 
-- 分層:母題 2 · 工具
-- 資訊來源信任度:可信
-- 原始教材:[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)
+- 分層：母題 2 · 工具
+- 資訊來源信任度：可信
+- 原始教材：[hermes-agent-school](https://github.com/hansai-art/hermes-agent-school/blob/main/cases/30-error-cards.md)

@@ -36,7 +36,7 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
 
 <Base
   title="儀表板 — HermesAgent.download"
-  description="這個站的生命徵象:內容量、來源覆蓋率、驗證新鮮度、社群活躍度，以及最需要人手的地方。全部公開。"
+  description="這個站的生命徵象：內容量、來源覆蓋率、驗證新鮮度、社群活躍度，以及最需要人手的地方。全部公開。"
 >
   <h1 class="text-3xl font-bold mb-2">📊 儀表板</h1>
   <p class="mb-2" style="color: var(--text-dim)">
@@ -134,7 +134,7 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
   <section class="mb-12">
     <h2 class="text-xl font-bold mb-2">內容可信度</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
-      技術文件最大的風險是「過期而不自知」。這個站用三道機制對抗:每篇標註適用版本與最後實測日、
+      技術文件最大的風險是「過期而不自知」。這個站用三道機制對抗：每篇標註適用版本與最後實測日、
       每個技術宣稱要對得到官方來源、逾 {credibility.freshnessThresholdDays} 天未驗證自動標示過期。
     </p>
     <div class="grid md:grid-cols-3 gap-3">
@@ -187,7 +187,7 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
       }
     </div>
     <p class="text-sm mt-4" style="color: var(--text-dim)">
-      這就是現在最需要人手的地方:把一篇文章補上腳註、補上預期輸出、實測一輪，
+      這就是現在最需要人手的地方：把一篇文章補上腳註、補上預期輸出、實測一輪，
       這三個數字就會往上跳。
       <a href="/contribute/" style="color: var(--accent)">來認領一篇 →</a>
     </p>
@@ -200,12 +200,12 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
         <h2 class="text-xl font-bold mb-2">上游同步</h2>
         <div class="rounded-lg border p-4 text-sm" style="border-color: var(--border); background: var(--bg-raised)">
           <div style="color: var(--text)">
-            最後追蹤到的 Hermes Agent 版本:
+            最後追蹤到的 Hermes Agent 版本：
             <span style="color: var(--accent)">{upstream.lastReleaseTag ?? '—'}</span>
           </div>
           <div class="text-xs mt-1" style="color: var(--text-dim)">
-            系統每日檢查上游 release;出現新版時會自動開 issue 列出可能需要重新驗證的文章。
-            最後檢查:{fmt(upstream.checkedAt)}
+            系統每日檢查上游 release；出現新版時會自動開 issue 列出可能需要重新驗證的文章。
+            最後檢查：{fmt(upstream.checkedAt)}
           </div>
         </div>
       </section>
