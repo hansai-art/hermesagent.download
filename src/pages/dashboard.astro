@@ -4,7 +4,7 @@ import dashboard from '../../data/dashboard.json';
 
 const { content, credibility, activity, upstream, generatedAt, editorial } = dashboard;
 
-// 編輯規範達成率 — 刻意公開,包括很難看的那幾個
+// 編輯規範達成率 — 刻意公開，包括很難看的那幾個
 const editorialMetrics = [
   {
     label: '引用密度',
@@ -36,7 +36,7 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
 
 <Base
   title="儀表板 — HermesAgent.download"
-  description="這個站的生命徵象:內容量、來源覆蓋率、驗證新鮮度、社群活躍度,以及最需要人手的地方。全部公開。"
+  description="這個站的生命徵象:內容量、來源覆蓋率、驗證新鮮度、社群活躍度，以及最需要人手的地方。全部公開。"
 >
   <h1 class="text-3xl font-bold mb-2">📊 儀表板</h1>
   <p class="mb-2" style="color: var(--text-dim)">
@@ -76,13 +76,13 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
     }
   </section>
 
-  <!-- 最需要幫忙的地方 — 放在顯眼位置,這是誠實也是邀請 -->
+  <!-- 最需要幫忙的地方 — 放在顯眼位置，這是誠實也是邀請 -->
   {
     gapCats.length > 0 && (
       <section class="mb-12">
         <h2 class="text-xl font-bold mb-2">🚧 最需要人手的地方</h2>
         <p class="text-sm mb-4" style="color: var(--text-dim)">
-          以下分類的文章還很少。如果你剛好懂這些,這裡是最容易產生價值的切入點——
+          以下分類的文章還很少。如果你剛好懂這些，這裡是最容易產生價值的切入點——
           寫一篇就能明顯改變這個分類的樣貌。
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -160,9 +160,9 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
     <h2 class="text-xl font-bold mb-2">編輯規範達成率</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
       我們在 <a href="https://github.com/hansai-art/hermesagent.download/tree/main/docs/editorial" style="color: var(--accent)">docs/editorial/</a>
-      訂了一套寫作規範,但目前多數內容是從舊站自動搬遷來的,還沒達到那個標準。
-      這幾個數字很難看,公開它們是因為——
-      <strong style="color: var(--text)">不公開的話,我們自己也會忘記地基還沒打完</strong>。
+      訂了一套寫作規範，但目前多數內容是從舊站自動搬遷來的，還沒達到那個標準。
+      這幾個數字很難看，公開它們是因為——
+      <strong style="color: var(--text)">不公開的話，我們自己也會忘記地基還沒打完</strong>。
     </p>
     <div class="grid md:grid-cols-3 gap-3">
       {
@@ -187,7 +187,7 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
       }
     </div>
     <p class="text-sm mt-4" style="color: var(--text-dim)">
-      這就是現在最需要人手的地方:把一篇文章補上腳註、補上預期輸出、實測一輪,
+      這就是現在最需要人手的地方:把一篇文章補上腳註、補上預期輸出、實測一輪，
       這三個數字就會往上跳。
       <a href="/contribute/" style="color: var(--accent)">來認領一篇 →</a>
     </p>
@@ -218,7 +218,7 @@ const maxCount = Math.max(...content.byCategory.map((c) => c.count), 1);
       <section>
         <h2 class="text-xl font-bold mb-1">創始貢獻者</h2>
         <p class="text-sm mb-4" style="color: var(--text-dim)">
-          這個站剛開始,現在加入的人會留在這份最早的名單上。
+          這個站剛開始，現在加入的人會留在這份最早的名單上。
         </p>
         <div class="flex flex-wrap gap-3">
           {activity.top.map((c) => (

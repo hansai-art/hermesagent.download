@@ -16,7 +16,7 @@ Hermes Agent · 中文入口
 
 # 非官方中文下載、安裝與新手學習入口
 
-整理官方下載、安裝教學、Skill / MCP 推薦、高手使用摘要與 GitHub Issue 精選問答,幫中文使用者從安裝到進階工作流一次上手。
+整理官方下載、安裝教學、Skill / MCP 推薦、高手使用摘要與 GitHub Issue 精選問答，幫中文使用者從安裝到進階工作流一次上手。
 
 Unofficial community guide Not affiliated with Nous Research
 

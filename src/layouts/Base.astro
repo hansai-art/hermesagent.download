@@ -22,9 +22,9 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const pageSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
-// Organization schema:讓搜尋引擎把本站認成一個實體,而不是散落的頁面。
-// sameAs 宣告的是「同一個經營者」,與「與 Nous Research 無隸屬關係」不衝突:
-// 前者講誰在維護這個站,後者講這個站不代表上游專案。
+// Organization schema:讓搜尋引擎把本站認成一個實體，而不是散落的頁面。
+// sameAs 宣告的是「同一個經營者」，與「與 Nous Research 無隸屬關係」不衝突:
+// 前者講誰在維護這個站，後者講這個站不代表上游專案。
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -32,7 +32,7 @@ const orgSchema = {
   name: 'HermesAgent.download',
   url: 'https://hermesagent.download/',
   description:
-    'Hermes Agent(Nous Research 開源 AI agent)的非官方中文社群知識庫,與 Nous Research 無隸屬關係。',
+    'Hermes Agent(Nous Research 開源 AI agent)的非官方中文社群知識庫，與 Nous Research 無隸屬關係。',
   sameAs: [
     'https://github.com/hansai-art/hermesagent.download',
     'https://www.techhanlin.tw',

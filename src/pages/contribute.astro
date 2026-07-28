@@ -8,14 +8,14 @@ const PROMPT_RAW = `https://raw.githubusercontent.com/${REPO}/main/CONTRIBUTE_PR
 
 // 拿得出手的兩個數字:issue 中文精選是這個站的獨有價值
 const issueCount = dashboard.content.byCategory.find((c) => c.slug === 'issues')?.count ?? 0;
-const skillCount = 173; // 官方 skills 全目錄篇幅,見 /skills/catalog/
-const aiPrompt = `讀取 ${PROMPT_RAW} 的完整內容,然後按照裡面的指示引導我為 hermesagent.download 寫一篇 Hermes Agent 中文文件。`;
+const skillCount = 173; // 官方 skills 全目錄篇幅，見 /skills/catalog/
+const aiPrompt = `讀取 ${PROMPT_RAW} 的完整內容，然後按照裡面的指示引導我為 hermesagent.download 寫一篇 Hermes Agent 中文文件。`;
 
 const iceBreakers = [
   '你上週被哪個錯誤訊息卡住超過 30 分鐘?',
-  '你有哪個自己摸索出來的 workaround,一直沒寫下來?',
-  '官方文件裡有哪一段,你看完還是不知道該打什麼指令?',
-  '你剛開始用 Hermes Agent 時,最希望有人先告訴你什麼?',
+  '你有哪個自己摸索出來的 workaround，一直沒寫下來?',
+  '官方文件裡有哪一段，你看完還是不知道該打什麼指令?',
+  '你剛開始用 Hermes Agent 時，最希望有人先告訴你什麼?',
   '你把 Hermes 接到哪個平台或工具上?過程踩了什麼坑?',
   '你用哪個模型供應商?一個月花多少錢?',
 ];
@@ -25,7 +25,7 @@ const paths = [
     tag: '🟢 最省力',
     title: '回報一個錯誤',
     time: '2 分鐘',
-    desc: '看到指令跑不動、內容過期、連結壞掉——開一個 issue 就好,不用自己修。',
+    desc: '看到指令跑不動、內容過期、連結壞掉——開一個 issue 就好，不用自己修。',
     gets: ['不需要會 Markdown', '不需要 fork', '中文填表單即可', '修好後你會被列為回報者'],
     cta: { label: '開 issue 回報 →', href: `https://github.com/${REPO}/issues/new?template=01-content-error.yml` },
   },
@@ -33,15 +33,15 @@ const paths = [
     tag: '🟡 有點門檻',
     title: '直接改一頁',
     time: '10 分鐘',
-    desc: '每篇文章底部都有「編輯這一頁」。點下去就是 GitHub 編輯器,改完自動幫你開 PR。',
-    gets: ['不用把整個專案 clone 下來', '改錯了也沒關係,PR 會有人審', '自動化會幫你檢查格式', '合併後你出現在貢獻者牆'],
+    desc: '每篇文章底部都有「編輯這一頁」。點下去就是 GitHub 編輯器，改完自動幫你開 PR。',
+    gets: ['不用把整個專案 clone 下來', '改錯了也沒關係，PR 會有人審', '自動化會幫你檢查格式', '合併後你出現在貢獻者牆'],
     cta: { label: '從待驗證清單挑一篇 →', href: '#taskboard' },
   },
   {
     tag: '🤖 讓 AI 代勞',
     title: '捐出你的 AI 額度',
     time: '15 分鐘',
-    desc: '你的 Claude / ChatGPT / Gemini 訂閱額度用不完?貼一句話給它,它會讀完我們的編輯規範,產出可以直接送出的文章。',
+    desc: '你的 Claude / ChatGPT / Gemini 訂閱額度用不完?貼一句話給它，它會讀完我們的編輯規範，產出可以直接送出的文章。',
     gets: ['你只需要有一個 AI 訂閱', 'AI 自動讀取編輯規範與缺口清單', '產出直接是可 PR 的 Markdown', '不需要你自己寫任何一個字'],
     cta: { label: '複製 prompt ↓', href: '#ai-prompt' },
   },
@@ -50,7 +50,7 @@ const paths = [
     title: 'Fork & PR',
     time: '看你寫多少',
     desc: '所有內容都是 knowledge/ 下的純 Markdown。編輯規範、品質掃描、自動化 pipeline 全部公開。',
-    gets: ['完整的編輯規範文件', 'PR 自動跑品質掃描,不會讓你猜標準', '可累積成公開的開源履歷', '寫得多可以取得 repo 權限'],
+    gets: ['完整的編輯規範文件', 'PR 自動跑品質掃描，不會讓你猜標準', '可累積成公開的開源履歷', '寫得多可以取得 repo 權限'],
     cta: { label: '看貢獻指南 →', href: `https://github.com/${REPO}/blob/main/CONTRIBUTING.md` },
   },
 ];
@@ -58,17 +58,17 @@ const paths = [
 
 <Base
   title="我想貢獻 — HermesAgent.download"
-  description="你踩過的坑,下一個人不用再踩。四種參與方式,從兩分鐘的錯誤回報到完整撰稿——包括「捐出你的 AI 額度」,連一個字都不用自己寫。"
+  description="你踩過的坑，下一個人不用再踩。四種參與方式，從兩分鐘的錯誤回報到完整撰稿——包括「捐出你的 AI 額度」，連一個字都不用自己寫。"
 >
   <!-- Hero -->
   <section class="py-10">
     <h1 class="text-4xl font-bold mb-4">我想貢獻 ✋</h1>
     <p class="text-lg mb-3" style="color: var(--text)">
-      你花三小時才解開的錯誤,下一個人只要三分鐘。
+      你花三小時才解開的錯誤，下一個人只要三分鐘。
     </p>
     <p class="mb-6" style="color: var(--text-dim)">
       這個站的內容大多由 AI 起草、由人補完。你不需要從零寫一篇文章——
-      修正一句過期的指令、補上一個踩過的坑,就已經是完整的貢獻。
+      修正一句過期的指令、補上一個踩過的坑，就已經是完整的貢獻。
     </p>
 
     <!-- 現有基礎 + 待補空間 -->
@@ -78,9 +78,9 @@ const paths = [
     >
       <div class="font-semibold mb-2" style="color: var(--accent)">這裡已經有什麼</div>
       <p class="mb-3" style="color: var(--text-dim)">
-        {dashboard.content.total} 篇中文文件,其中 {issueCount} 篇是官方 GitHub issue
+        {dashboard.content.total} 篇中文文件，其中 {issueCount} 篇是官方 GitHub issue
         的中文精選——這是目前中文圈唯一有系統整理的一份。加上 {skillCount} 個官方 skills
-        全目錄、安裝與排錯逐題教學,{dashboard.credibility.withSourcesPct}%
+        全目錄、安裝與排錯逐題教學，{dashboard.credibility.withSourcesPct}%
         的文章都對得到官方來源。
       </p>
       <p style="color: var(--text)">
@@ -95,7 +95,7 @@ const paths = [
   <!-- 四條路徑 -->
   <section class="mb-16">
     <h2 class="text-2xl font-bold mb-2">選一條適合你的路</h2>
-    <p class="text-sm mb-6" style="color: var(--text-dim)">按門檻由低到高排列。四條都算貢獻,沒有高下之分。</p>
+    <p class="text-sm mb-6" style="color: var(--text-dim)">按門檻由低到高排列。四條都算貢獻，沒有高下之分。</p>
     <div class="grid md:grid-cols-2 gap-4">
       {
         paths.map((p) => (
@@ -129,8 +129,8 @@ const paths = [
   <section id="ai-prompt" class="mb-16 scroll-mt-20">
     <h2 class="text-2xl font-bold mb-2">🪙 捐出你的 AI 額度</h2>
     <p class="mb-4" style="color: var(--text-dim)">
-      每個月的 AI 訂閱額度用不完?用 15 分鐘,幫這裡多一篇文件。
-      把下面這句話貼給 ChatGPT / Claude / Gemini,它會自己讀完我們的編輯規範、
+      每個月的 AI 訂閱額度用不完?用 15 分鐘，幫這裡多一篇文件。
+      把下面這句話貼給 ChatGPT / Claude / Gemini，它會自己讀完我們的編輯規範、
       挑一個缺口、產出符合格式的文章——你只需要把結果送出。
     </p>
     <div class="rounded-lg border overflow-hidden" style="border-color: var(--border)">
@@ -154,13 +154,13 @@ const paths = [
     <div class="rounded-lg border p-4 mt-4 text-sm" style="border-color: var(--border); background: var(--bg-raised)">
       <div class="font-semibold mb-1" style="color: var(--text)">📰 一個現成的切入點:翻新版情報</div>
       <p style="color: var(--text-dim)">
-        每次 Hermes Agent 發布新版,系統會自動開一個
+        每次 Hermes Agent 發布新版，系統會自動開一個
         <a
           href={`https://github.com/${REPO}/issues?q=is%3Aissue+label%3Aupstream-release`}
           target="_blank"
           rel="noopener noreferrer"
           style="color: var(--accent)">帶著 release notes 與現成 prompt 的 issue</a
-        >。你把那段 prompt 貼給 AI,它就會產出一篇中文版本情報——連 release notes 都幫你附好了,
+        >。你把那段 prompt 貼給 AI，它就會產出一篇中文版本情報——連 release notes 都幫你附好了，
         比從零挑題目更省事。範例:
         <a href="/releases/v2026-7-20/" style="color: var(--accent)">v0.19.0 Quicksilver</a>。
       </p>
@@ -171,7 +171,7 @@ const paths = [
   <section id="taskboard" class="mb-16 scroll-mt-20">
     <h2 class="text-2xl font-bold mb-2">📋 現在最需要的</h2>
     <p class="text-sm mb-6" style="color: var(--text-dim)">
-      這份清單由系統每日自動計算,不是人工維護的願望清單。挑一個順眼的下手就行。
+      這份清單由系統每日自動計算，不是人工維護的願望清單。挑一個順眼的下手就行。
     </p>
 
     {
@@ -210,7 +210,7 @@ const paths = [
             🔍 這些教學需要有人實測一輪
           </h3>
           <p class="text-xs mb-3" style="color: var(--text-dim)">
-            依「最後實測日」排序,最舊的排前面。照著跑一遍,確認指令還能動,
+            依「最後實測日」排序，最舊的排前面。照著跑一遍，確認指令還能動，
             更新日期就是完整的貢獻——不用寫任何新內容。
           </p>
           <div class="rounded-lg border divide-y" style="border-color: var(--border); background: var(--bg-raised)">
@@ -243,7 +243,7 @@ const paths = [
   <section class="mb-16">
     <h2 class="text-2xl font-bold mb-2">不知道寫什麼?</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
-      這幾個問題你隨便答一個,都能變成一篇有人需要的文章。
+      這幾個問題你隨便答一個，都能變成一篇有人需要的文章。
     </p>
     <div class="grid sm:grid-cols-2 gap-3">
       {
@@ -265,7 +265,7 @@ const paths = [
         rel="noopener noreferrer"
         style="color: var(--accent)">開一個 issue 講給我們聽 →</a
       >
-      我們會幫你整理成文章,並在文章掛上你的名字。
+      我們會幫你整理成文章，並在文章掛上你的名字。
     </p>
   </section>
 
@@ -273,34 +273,34 @@ const paths = [
   <section class="mb-16">
     <h2 class="text-2xl font-bold mb-2">你會得到什麼</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
-      老實說,貢獻不是做慈善。下面這些是你實際拿得到的東西,由上而下大致從「最自利」排到「最長遠」。
+      老實說，貢獻不是做慈善。下面這些是你實際拿得到的東西，由上而下大致從「最自利」排到「最長遠」。
     </p>
     <div class="grid md:grid-cols-2 gap-4 text-sm">
       {
         [
           {
             t: '⏳ 幫到未來的自己',
-            d: '你現在解出來的錯,三個月後多半會忘記怎麼解。寫下來,第一個回來查、第一個省到時間的,就是那時候的你。這篇文章其實是寫給未來的你自己的筆記。',
+            d: '你現在解出來的錯，三個月後多半會忘記怎麼解。寫下來，第一個回來查、第一個省到時間的，就是那時候的你。這篇文章其實是寫給未來的你自己的筆記。',
           },
           {
             t: '♻️ 你已經是受益者',
-            d: '你打開這個站,就已經用掉了別人留下的答案。貢獻不是單方面付出,是把一個你本來就在用的互助池,續上一點——好讓它下次還在。',
+            d: '你打開這個站，就已經用掉了別人留下的答案。貢獻不是單方面付出，是把一個你本來就在用的互助池，續上一點——好讓它下次還在。',
           },
           {
             t: '🔍 被搜尋、被 AI 引用',
-            d: '內容是公開靜態網頁,對搜尋引擎與 AI 爬蟲友善(站上有 llms.txt)。你寫的解法會被找到——包括被 ChatGPT、Perplexity 這類 AI 助手當成來源引用,連同你的名字。',
+            d: '內容是公開靜態網頁，對搜尋引擎與 AI 爬蟲友善(站上有 llms.txt)。你寫的解法會被找到——包括被 ChatGPT、Perplexity 這類 AI 助手當成來源引用，連同你的名字。',
           },
           {
             t: '📜 可展示的開源履歷',
-            d: 'GitHub 上的 commit 與 PR 是公開、可驗證的紀錄,雇主看得到。持續貢獻可以取得 repo 的審稿與寫入權限——這是履歷上寫得出來的具體東西。',
+            d: 'GitHub 上的 commit 與 PR 是公開、可驗證的紀錄，雇主看得到。持續貢獻可以取得 repo 的審稿與寫入權限——這是履歷上寫得出來的具體東西。',
           },
           {
-            t: '👤 署名,而且門檻很低',
+            t: '👤 署名，而且門檻很低',
             d: '所有貢獻者都會出現在儀表板的貢獻者牆與 GitHub 名單上。回報一個錯誤、提供一段資訊也算——不是只有寫程式、寫長文的人才算數。',
           },
           {
             t: '🧭 你的判斷會變成規範',
-            d: '審稿時的意見會回寫進編輯規範文件。你踩過的坑不只變成一篇文章,還會變成後來所有人遵循的標準——你的經驗被制度化了。',
+            d: '審稿時的意見會回寫進編輯規範文件。你踩過的坑不只變成一篇文章，還會變成後來所有人遵循的標準——你的經驗被制度化了。',
           },
         ].map((x) => (
           <div class="rounded-lg border p-4" style="border-color: var(--border); background: var(--bg-raised)">
@@ -318,7 +318,7 @@ const paths = [
   <section class="rounded-lg border p-6 text-center" style="border-color: var(--border); background: var(--bg-raised)">
     <p class="text-lg mb-2" style="color: var(--text)">這個站還很年輕。你來的時間剛好。</p>
     <p class="text-sm mb-5" style="color: var(--text-dim)">
-      所有東西都在 GitHub 上,包括這個站怎麼運作、品質怎麼把關、數據長什麼樣。
+      所有東西都在 GitHub 上，包括這個站怎麼運作、品質怎麼把關、數據長什麼樣。
     </p>
     <div class="flex flex-wrap gap-3 justify-center">
       <a

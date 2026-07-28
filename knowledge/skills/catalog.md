@@ -44,7 +44,7 @@ status: "published"
 - [architecture-diagram](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/architecture-diagram/SKILL.md) Dark-themed SVG architecture/cloud/infra diagrams as HTML.
 - [ascii-art](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/ascii-art/SKILL.md) ASCII art: pyfiglet, cowsay, boxes, image-to-ascii.
 - [ascii-video](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/ascii-video/SKILL.md) ASCII video: convert video/audio to colored ASCII MP4/GIF.
-- [baoyu-infographic](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/baoyu-infographic/SKILL.md) Infographics: 21 layouts x 21 styles (信息图, 可视化).
+- [baoyu-infographic](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/baoyu-infographic/SKILL.md) Infographics: 21 layouts x 21 styles (信息图，可视化).
 - [claude-design](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/claude-design/SKILL.md) Design one-off HTML artifacts (landing, deck, prototype).
 - [comfyui](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/comfyui/SKILL.md) Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the official comfy-cli for lifecycle and direct REST/WebSocket API for execution.
 - [design-md](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/design-md/SKILL.md) Author/validate/export Google's DESIGN.md token spec files.

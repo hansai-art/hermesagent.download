@@ -1,6 +1,6 @@
 ---
 // 站內搜尋:header 觸發鈕 + 全螢幕覆蓋層。
-// 索引(public/api/search-index.json)只在第一次開啟搜尋時才下載,不拖慢首屏。
+// 索引(public/api/search-index.json)只在第一次開啟搜尋時才下載，不拖慢首屏。
 import { CATEGORIES } from '../config/categories.mjs';
 
 const catMap = Object.fromEntries(CATEGORIES.map((c) => [c.slug, `${c.emoji} ${c.name}`]));
@@ -113,7 +113,7 @@ const catMap = Object.fromEntries(CATEGORIES.map((c) => [c.slug, `${c.emoji} ${c
     const hits = mini.search(query).slice(0, 12);
     activeIndex = hits.length ? 0 : -1;
     if (!hits.length) {
-      results.innerHTML = `<div class="px-4 py-8 text-center text-sm" style="color: var(--text-dim)">找不到「${esc(query)}」<br><span class="text-xs">試試更短的關鍵字,或到 GitHub 提議新增這篇文章</span></div>`;
+      results.innerHTML = `<div class="px-4 py-8 text-center text-sm" style="color: var(--text-dim)">找不到「${esc(query)}」<br><span class="text-xs">試試更短的關鍵字，或到 GitHub 提議新增這篇文章</span></div>`;
       return;
     }
     results.innerHTML = hits

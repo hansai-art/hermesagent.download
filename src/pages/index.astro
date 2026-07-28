@@ -18,7 +18,7 @@ for (const a of articles) {
   countByCategory.set(cat, (countByCategory.get(cat) ?? 0) + 1);
 }
 
-// 挑拿得出手的四個:issue 中文精選是這個站的獨有價值,放在文章總數旁邊
+// 挑拿得出手的四個:issue 中文精選是這個站的獨有價值，放在文章總數旁邊
 const issueCount = dashboard.content.byCategory.find((c) => c.slug === 'issues')?.count ?? 0;
 const vitals = [
   { n: dashboard.content.total, label: '篇中文文件' },
@@ -27,32 +27,32 @@ const vitals = [
   { n: dashboard.credibility.verifiedFresh, label: '篇近期實測' },
 ];
 
-// 設備需求速查:數字對齊 /install/system-requirements/,改這裡要一起改那頁
-// 雲端欄的記憶體與硬碟是本站在 MacBook Air M1 上的實測,本機模型欄取自官方 local-ollama-setup
+// 設備需求速查:數字對齊 /install/system-requirements/，改這裡要一起改那頁
+// 雲端欄的記憶體與硬碟是本站在 MacBook Air M1 上的實測，本機模型欄取自官方 local-ollama-setup
 const specRoutes = [
   {
     icon: '☁️',
     title: '用雲端 API',
-    who: '多數人走這條。模型跑在別人的伺服器,你這台只負責發請求與執行工具',
+    who: '多數人走這條。模型跑在別人的伺服器，你這台只負責發請求與執行工具',
     specs: [
       { k: '記憶體', v: '8 GB 就夠' },
       { k: '硬碟', v: '留 15 GB' },
       { k: '顯示卡', v: '不需要' },
       { k: 'CPU', v: '沒有下限' },
     ],
-    note: 'Hermes 本體閒置時只佔 84 MB,單一工作階段尖峰 166 MB。把它當成多開一個瀏覽器分頁的等級來規劃,不是一台虛擬機。真正會擋住你的是作業系統,不是效能。',
+    note: 'Hermes 本體閒置時只佔 84 MB，單一工作階段尖峰 166 MB。把它當成多開一個瀏覽器分頁的等級來規劃，不是一台虛擬機。真正會擋住你的是作業系統，不是效能。',
   },
   {
     icon: '🖥️',
     title: '在自己電腦跑模型',
-    who: '不想付 API 費用,或資料不能離開自己的機器。透過 Ollama 接本機模型',
+    who: '不想付 API 費用，或資料不能離開自己的機器。透過 Ollama 接本機模型',
     specs: [
       { k: '記憶體', v: '24 GB 以上' },
       { k: '硬碟', v: '30 GB 以上' },
       { k: '顯示卡', v: '建議 NVIDIA 8 GB' },
       { k: 'CPU', v: '8 核心以上' },
     ],
-    note: '官方最低是 8 GB,但那個等級的模型不支援工具呼叫,只會聊天不會改檔案也不會跑指令。要 Hermes 真的動手,實際門檻是 24 GB。沒有顯示卡也能跑,只是每次回應要等 30 到 120 秒。',
+    note: '官方最低是 8 GB，但那個等級的模型不支援工具呼叫，只會聊天不會改檔案也不會跑指令。要 Hermes 真的動手，實際門檻是 24 GB。沒有顯示卡也能跑，只是每次回應要等 30 到 120 秒。',
   },
 ];
 
@@ -66,7 +66,7 @@ const routes = [
   {
     icon: '💻',
     title: '我想直接裝起來用',
-    desc: 'macOS / Windows / Linux / WSL2 逐步安裝,指令取自官方文件',
+    desc: 'macOS / Windows / Linux / WSL2 逐步安裝，指令取自官方文件',
     href: '/install/',
   },
   {
@@ -78,7 +78,7 @@ const routes = [
   {
     icon: '✋',
     title: '我想幫忙補內容',
-    desc: '從兩分鐘的錯誤回報,到捐出用不完的 AI 額度',
+    desc: '從兩分鐘的錯誤回報，到捐出用不完的 AI 額度',
     href: '/contribute/',
   },
 ];
@@ -91,11 +91,11 @@ const routes = [
       Hermes Agent <span style="color: var(--accent)">中文</span>社群知識庫
     </h1>
     <p class="max-w-2xl mx-auto text-lg mb-3" style="color: var(--text)">
-      別人踩過的坑,先幫你跳過。
+      別人踩過的坑，先幫你跳過。
     </p>
     <p class="max-w-2xl mx-auto mb-8 text-sm" style="color: var(--text-dim)">
-      這裡的每一篇,都是有人解完隨手留下的。安裝、設定、踩坑、官方 issue 中文精選——
-      你先拿走答案,哪天你也解出一個新的,再順手留下就好。
+      這裡的每一篇，都是有人解完隨手留下的。安裝、設定、踩坑、官方 issue 中文精選——
+      你先拿走答案，哪天你也解出一個新的，再順手留下就好。
     </p>
 
     <!-- 生命徵象 -->
@@ -146,7 +146,7 @@ const routes = [
   <section class="mb-14">
     <h2 class="text-xl font-bold mb-1">我的電腦跑得動嗎?</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
-      官方文件沒有寫這件事。答案取決於你走哪一條路,兩條路的門檻差了三倍以上。
+      官方文件沒有寫這件事。答案取決於你走哪一條路，兩條路的門檻差了三倍以上。
     </p>
 
     <div class="grid sm:grid-cols-2 gap-3">
@@ -193,11 +193,11 @@ const routes = [
       <span style="color: var(--text-dim)">
         2020 年以前的 MacBook 多半是 Intel。開終端機跑
         <code class="rounded px-1" style="background: var(--bg)">uname -m</code>
-        ,看到
+        ，看到
         <code class="rounded px-1" style="background: var(--bg)">arm64</code>
         才裝得起來;看到
         <code class="rounded px-1" style="background: var(--bg)">x86_64</code>
-        就是 Intel,再好的規格也沒用。
+        就是 Intel，再好的規格也沒用。
       </span>
     </div>
 
@@ -258,12 +258,12 @@ const routes = [
 
   <!-- 共筆號召 -->
   <section class="rounded-lg border p-6" style="border-color: var(--accent-dim); background: var(--bg-raised)">
-    <h2 class="text-xl font-bold mb-2">留下一篇,先幫到的是未來的你</h2>
+    <h2 class="text-xl font-bold mb-2">留下一篇，先幫到的是未來的你</h2>
     <p class="text-sm mb-4" style="color: var(--text-dim)">
-      你現在解出來的問題,三個月後多半會忘記怎麼解——寫下來,第一個受惠的是那時候的你自己。
+      你現在解出來的問題，三個月後多半會忘記怎麼解——寫下來，第一個受惠的是那時候的你自己。
       而且你的名字會掛在上面被搜尋、被 AI 引用;這裡才 {dashboard.content.gaps.length}
-      個分類還很空,現在寫的會直接定義那個分類的樣子,而不是淹沒在三百篇裡。
-      不會寫也算數:回報一個錯誤兩分鐘,或把用不完的 AI 額度借十五分鐘。
+      個分類還很空，現在寫的會直接定義那個分類的樣子，而不是淹沒在三百篇裡。
+      不會寫也算數:回報一個錯誤兩分鐘，或把用不完的 AI 額度借十五分鐘。
     </p>
     <div class="flex flex-wrap gap-3">
       <a href="/contribute/" class="rounded-md px-5 py-2 font-medium" style="background: var(--accent); color: var(--bg)">
