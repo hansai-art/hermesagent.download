@@ -114,6 +114,64 @@ html {
 .prose-dark th {
   background: var(--bg-raised);
 }
+/* ── 折疊區塊(細節收在這裡,新手不用看)── */
+.prose-dark details {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-raised);
+  margin-bottom: 0.75em;
+  overflow: hidden;
+}
+.prose-dark summary {
+  cursor: pointer;
+  padding: 0.85em 1.1em;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  transition: color 0.15s;
+}
+.prose-dark summary::-webkit-details-marker {
+  display: none;
+}
+.prose-dark summary::before {
+  content: '+';
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1em;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.prose-dark details[open] > summary::before {
+  content: '\2212';
+}
+.prose-dark summary:hover {
+  color: var(--accent);
+}
+.prose-dark details[open] > summary {
+  border-bottom: 1px solid var(--border);
+}
+/* 展開後的內容縮進,並讓第一個/最後一個元素不要貼邊 */
+.prose-dark details > *:not(summary) {
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+}
+.prose-dark details > *:not(summary):first-of-type {
+  margin-top: 1em;
+}
+.prose-dark details > *:not(summary):last-child {
+  margin-bottom: 1em;
+}
+.prose-dark details pre,
+.prose-dark details table {
+  margin-left: 1.1em;
+  margin-right: 1.1em;
+  padding-left: 0;
+  padding-right: 0;
+  width: calc(100% - 2.2em);
+}
+
 .prose-dark hr {
   border: none;
   border-top: 1px solid var(--border);
