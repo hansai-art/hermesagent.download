@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-07-28T03:43:47.234Z",
-  "total": 362,
-  "published": 361,
+  "generatedAt": "2026-07-29T03:47:24.571Z",
+  "total": 369,
+  "published": 368,
   "byStatus": {
-    "published": 361,
+    "published": 368,
     "archived": 1
   },
   "byCategory": {
     "issues": 308,
     "guides": 24,
-    "troubleshoot": 7,
-    "install": 6,
-    "concepts": 3,
+    "install": 8,
+    "troubleshoot": 8,
+    "releases": 5,
+    "concepts": 4,
     "integrations": 3,
     "skills": 3,
     "config": 2,
     "migrate": 2,
-    "releases": 2,
     "about": 1,
     "community": 1
   },
-  "articlesLast7Days": 30,
-  "articlesLast30Days": 361,
+  "articlesLast7Days": 34,
+  "articlesLast30Days": 366,
   "contributors": 1,
   "stars": 0,
   "forks": 0,
-  "commitsLast30Days": 41,
+  "commitsLast30Days": 63,
   "sourceCoveragePct": 100,
-  "verifiedFresh": 44
+  "verifiedFresh": 47
 }
