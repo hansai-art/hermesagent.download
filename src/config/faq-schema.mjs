@@ -70,7 +70,7 @@ export function extractFaq(body) {
   for (const line of section) {
     if (/^\s*<details[\s>]/i.test(line)) inDetails = true;
     const summary = line.match(/^\s*<summary>(.*?)<\/summary>\s*$/i);
-    // 折疊區裡的 ### 是答案的小標,不是另一個問題 —— 問題由 <summary> 決定。
+    // 折疊區裡的 ### 是答案的小標，不是另一個問題：問題由 <summary> 決定。
     const h3 = inDetails ? null : line.match(/^###\s+(.*\S)\s*$/);
     if (h3 || summary) {
       flush();
