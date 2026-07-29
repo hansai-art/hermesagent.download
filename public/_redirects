@@ -1,0 +1,48 @@
+# Cloudflare Pages 轉址表。第一條符合的規則生效，所以「具體規則」一定要排在「萬用規則」前面。
+#
+# 為什麼有這個檔（2026-07-29）：
+# 本站從舊 repo（hermesagent-download，連字號，已退役）重建成現在這個 repo 時，
+# 整個 /en/ 英文區被拿掉了，但 Google 早就索引了那 391 頁，而且沒有任何轉址接住。
+# GSC 28 天實測：有曝光的 39 個網址裡 26 個是 /en/，曝光 353 次、點擊 0，
+# 也就是全站 83% 的搜尋曝光打在 404 上。
+#
+# 為什麼用這個檔而不是 astro.config.mjs 的 redirects：
+# 靜態輸出時 Astro 的 redirects 產生的是 <meta http-equiv="refresh"> 頁面，不是真的 HTTP 301。
+# meta refresh 傳遞權重的效果差，而且使用者會看到閃一下的空白頁。
+# Cloudflare Pages 原生讀這個檔，給的是貨真價實的 301。
+#
+# 驗證方式（部署後）：
+#   curl -sI https://hermesagent.download/en/issues/features/ | head -1   # 應為 301
+#   curl -sIL https://hermesagent.download/en/issues/features/ | grep HTTP # 最後應為 200
+
+# --- 1. /issues/<分類>/ 這層在新站不存在，轉到 issues 索引 ---------------------
+# 這 9 個是舊站的問題分類頁，新站改成 /issues/ 索引加 /issues/<編號>/ 個別頁，
+# 沒有對應的分類層。轉到索引頁是語意最近的落點，不是隨便丟首頁。
+# 它們合計 240 次曝光，佔 /en/ 全部曝光的 68%，是這張表最值錢的部分。
+/en/issues/features/   /issues/   301
+/en/issues/auth/       /issues/   301
+/en/issues/desktop/    /issues/   301
+/en/issues/agent/      /issues/   301
+/en/issues/windows/    /issues/   301
+/en/issues/p1/         /issues/   301
+/en/issues/skills/     /issues/   301
+/en/issues/config/     /issues/   301
+/en/issues/tui/        /issues/   301
+
+# 中文版同樣少了這層（舊站有、新站沒有），一起接住，免得留著同一批 404。
+/issues/features/      /issues/   301
+/issues/auth/          /issues/   301
+/issues/desktop/       /issues/   301
+/issues/agent/         /issues/   301
+/issues/windows/       /issues/   301
+/issues/p1/            /issues/   301
+/issues/skills/        /issues/   301
+/issues/config/        /issues/   301
+/issues/tui/           /issues/   301
+
+# --- 2. 其餘 /en/ 一律去掉語言前綴 -------------------------------------------
+# 抽驗 GSC 看得到的 26 個 /en/ 網址，其中 17 個把 /en 拿掉就是線上 200 的中文頁
+# （/en/troubleshooting/context-length-exceeded/、/en/download/windows/、
+#  /en/issues/40166/、/en/start/migrate-from-openclaw/ 等都對得上）。
+# 用萬用規則一次涵蓋舊站全部 391 頁，不用逐條列。
+/en/*                  /:splat    301
