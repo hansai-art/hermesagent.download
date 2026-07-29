@@ -142,6 +142,53 @@ const routes = [
     </div>
   </section>
 
+  <!-- 最新文章 -->
+  {
+    latest.length > 0 && (
+      <section class="mb-14">
+        <h2 class="text-xl font-bold mb-4">最新文章</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          {latest.map((a) => (
+            <ArticleCard
+              id={a.id}
+              title={a.data.title}
+              description={a.data.description}
+              status={a.data.status}
+              hermesVersion={a.data.hermes_version}
+            />
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <!-- 分類 -->
+  <section class="mb-14">
+    <h2 class="text-xl font-bold mb-4">全部分類</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      {
+        CATEGORIES.map((c) => (
+          <a
+            href={`/${c.slug}/`}
+            class="rounded-lg border p-4 transition-colors hover:border-[var(--accent-dim)]"
+            style="border-color: var(--border); background: var(--bg-raised)"
+          >
+            <div class="text-2xl mb-1">{c.emoji}</div>
+            <div class="font-semibold" style="color: var(--text)">
+              {c.name}
+              <span class="text-xs font-normal ml-1" style="color: var(--text-dim)">
+                {countByCategory.get(c.slug) ?? 0}
+              </span>
+            </div>
+            <div class="text-xs mt-1 line-clamp-2" style="color: var(--text-dim)">
+              {c.description}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
   <!-- 設備需求速查 -->
   <section class="mb-14">
     <h2 class="text-xl font-bold mb-1">我的電腦跑得動嗎？</h2>
@@ -209,52 +256,6 @@ const routes = [
       完整說明：最低配備、哪些電腦不能裝、顯示卡怎麼挑 →
     </a>
   </section>
-
-  <!-- 分類 -->
-  <section class="mb-14">
-    <h2 class="text-xl font-bold mb-4">全部分類</h2>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-      {
-        CATEGORIES.map((c) => (
-          <a
-            href={`/${c.slug}/`}
-            class="rounded-lg border p-4 transition-colors hover:border-[var(--accent-dim)]"
-            style="border-color: var(--border); background: var(--bg-raised)"
-          >
-            <div class="text-2xl mb-1">{c.emoji}</div>
-            <div class="font-semibold" style="color: var(--text)">
-              {c.name}
-              <span class="text-xs font-normal ml-1" style="color: var(--text-dim)">
-                {countByCategory.get(c.slug) ?? 0}
-              </span>
-            </div>
-            <div class="text-xs mt-1 line-clamp-2" style="color: var(--text-dim)">
-              {c.description}
-            </div>
-          </a>
-        ))
-      }
-    </div>
-  </section>
-
-  {
-    latest.length > 0 && (
-      <section class="mb-14">
-        <h2 class="text-xl font-bold mb-4">最新文章</h2>
-        <div class="grid md:grid-cols-2 gap-3">
-          {latest.map((a) => (
-            <ArticleCard
-              id={a.id}
-              title={a.data.title}
-              description={a.data.description}
-              status={a.data.status}
-              hermesVersion={a.data.hermes_version}
-            />
-          ))}
-        </div>
-      </section>
-    )
-  }
 
   <!-- 共筆號召 -->
   <section class="rounded-lg border p-6" style="border-color: var(--accent-dim); background: var(--bg-raised)">
