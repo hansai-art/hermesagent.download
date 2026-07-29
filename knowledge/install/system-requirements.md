@@ -5,7 +5,7 @@ date: 2026-07-28
 subcategory: "requirements"
 hermes_version: ">=2026.5"
 last_verified: 2026-07-28
-human_reviewed: false
+human_reviewed: true
 upstream_refs:
   - "https://hermes-agent.nousresearch.com/docs/getting-started/platform-support"
   - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
