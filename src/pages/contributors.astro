@@ -1,0 +1,242 @@
+---
+import Base from '../layouts/Base.astro';
+import contributors from '../../data/contributors.json';
+
+// 這一頁存在的理由:站上到處在承諾「你的名字會出現在貢獻者牆」,
+// 但在此之前那面牆只有頭像跟 commit 數,對貢獻者沒有任何實質回饋。
+// 願意花時間寫技術文件的人,最實際的回報就是把他的名字、簡介與
+// 自己的網站放出來——那條 outbound 連結對他有真實價值。
+const { contributors: local = [], upstream, generatedAt } = contributors as any;
+const upstreamList = upstream?.contributors ?? [];
+
+const ARTICLES_SHOWN = 6;
+
+const fmt = (iso: string | null) =>
+  iso
+    ? new Date(iso).toLocaleDateString('zh-TW', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : '—';
+
+// company 常帶 @ 開頭(GitHub 慣例),顯示時去掉比較乾淨
+const tidyCompany = (s: string | null) => (s ? s.replace(/^@/, '') : null);
+
+const meta = (c: any) =>
+  [tidyCompany(c.company), c.location].filter(Boolean).join(' · ');
+---
+
+<Base
+  title="貢獻者 — HermesAgent.download"
+  description="這個站由誰寫成。每位貢獻者的簡介、個人網站與實際貢獻的文章，以及我們所依賴的上游 Hermes Agent 開發者名單。"
+>
+  <h1 class="text-3xl font-bold mb-2">👥 貢獻者</h1>
+  <p class="mb-2" style="color: var(--text-dim)">
+    這個站是共筆的。願意花時間把踩過的坑寫下來的人，名字、簡介與自己的網站都放在這裡。
+  </p>
+  <p class="text-xs mb-10" style="color: var(--text-dim)">
+    資料取自 GitHub 公開 profile，由 pipeline 每日更新。最後更新 {
+      fmt(generatedAt)
+    }
+  </p>
+
+  <!-- 本站貢獻者 -->
+  <section class="mb-16">
+    <h2 class="text-xl font-bold mb-1">本站貢獻者</h2>
+    <p class="text-sm mb-6" style="color: var(--text-dim)">
+      這個站剛開始，現在加入的人會留在這份最早的名單上。
+    </p>
+
+    <div class="grid gap-4 md:grid-cols-2">
+      {
+        local.map((c: any) => (
+          <div
+            class="rounded-lg border p-4"
+            style="border-color: var(--border); background: var(--bg-raised)"
+          >
+            <div class="flex items-start gap-3">
+              <img
+                src={c.avatar}
+                alt=""
+                width="48"
+                height="48"
+                class="rounded-full shrink-0"
+                loading="lazy"
+              />
+              <div class="min-w-0">
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-bold hover:underline"
+                  style="color: var(--text)"
+                >
+                  {c.name ?? c.login}
+                </a>
+                {c.name && (
+                  <span class="text-sm ml-1" style="color: var(--text-dim)">
+                    @{c.login}
+                  </span>
+                )}
+                {meta(c) && (
+                  <div class="text-xs mt-0.5" style="color: var(--text-dim)">
+                    {meta(c)}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {c.bio && (
+              <p class="text-sm mt-3" style="color: var(--text)">
+                {c.bio}
+              </p>
+            )}
+
+            {c.blog && (
+              <p class="text-sm mt-2">
+                <a
+                  href={c.blog}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="color: var(--accent)"
+                >
+                  {c.blog.replace(/^https?:\/\//, '').replace(/\/$/, '')} →
+                </a>
+              </p>
+            )}
+
+            {c.articles?.length > 0 && (
+              <div
+                class="mt-4 pt-3"
+                style="border-top: 1px solid var(--border)"
+              >
+                <div class="text-xs mb-2" style="color: var(--text-dim)">
+                  貢獻了 {c.articles.length} 篇，最近這幾篇：
+                </div>
+                <ul class="text-sm space-y-1">
+                  {c.articles.slice(0, ARTICLES_SHOWN).map((a: any) => (
+                    <li>
+                      <a href={a.url} style="color: var(--accent)">
+                        {a.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                {c.articles.length > ARTICLES_SHOWN && (
+                  <div class="text-xs mt-2" style="color: var(--text-dim)">
+                    還有 {c.articles.length - ARTICLES_SHOWN} 篇
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="text-sm mt-6" style="color: var(--text-dim)">
+      想加入？回報一個錯誤、改一段文字、或讓你的 AI 代寫一篇都算。
+      <a href="/contribute/" style="color: var(--accent)">看怎麼開始 →</a>
+    </p>
+  </section>
+
+  <!-- 上游開發者 -->
+  {
+    upstreamList.length > 0 && (
+      <section>
+        <h2 class="text-xl font-bold mb-1">上游 Hermes Agent 開發者</h2>
+        <p class="text-sm mb-2" style="color: var(--text-dim)">
+          這個站寫的每一篇教學，底下都是這些人做出來的東西。依 commit 數列出{' '}
+          {upstreamList.length} 位
+          <a
+            href={`https://github.com/${upstream.repo}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: var(--accent)"
+          >
+            {upstream.repo}
+          </a>
+          的貢獻者。
+        </p>
+        <p class="text-xs mb-6" style="color: var(--text-dim)">
+          ⚠️ 他們是上游開源專案的開發者，<strong>不是本站的貢獻者</strong>，
+          與本站沒有隸屬或合作關係。
+        </p>
+
+        <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {upstreamList.map((c: any) => (
+            <div
+              class="rounded-lg border p-3"
+              style="border-color: var(--border); background: var(--bg-raised)"
+            >
+              <div class="flex items-center gap-2">
+                <img
+                  src={c.avatar}
+                  alt=""
+                  width="32"
+                  height="32"
+                  class="rounded-full shrink-0"
+                  loading="lazy"
+                />
+                <div class="min-w-0">
+                  <a
+                    href={c.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-bold hover:underline"
+                    style="color: var(--text)"
+                  >
+                    {c.name ?? c.login}
+                  </a>
+                  <div
+                    class="text-xs tabular-nums"
+                    style="color: var(--text-dim)"
+                  >
+                    {c.contributions.toLocaleString('en-US')} commits
+                  </div>
+                </div>
+              </div>
+
+              {c.bio && (
+                <p
+                  class="text-xs mt-2 line-clamp-3"
+                  style="color: var(--text-dim)"
+                >
+                  {c.bio}
+                </p>
+              )}
+
+              {c.blog && (
+                <p class="text-xs mt-2 truncate">
+                  <a
+                    href={c.blog}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="color: var(--accent)"
+                  >
+                    {c.blog.replace(/^https?:\/\//, '').replace(/\/$/, '')} →
+                  </a>
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <p class="text-xs mt-6" style="color: var(--text-dim)">
+          以上資料全部取自 GitHub 公開 profile，並連回本人頁面。
+          不希望被列在這裡的話，
+          <a
+            href="https://github.com/hansai-art/hermesagent.download/issues/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: var(--accent)"
+          >
+            開一個 issue
+          </a>
+          告訴我們，會立刻移除。
+        </p>
+      </section>
+    )
+  }
+</Base>

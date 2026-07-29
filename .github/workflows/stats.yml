@@ -13,7 +13,12 @@ jobs:
   stats:
     runs-on: ubuntu-latest
     steps:
+      # fetch-depth: 0 是必要的 — generate-contributors 用本地 git log 算
+      # 「誰貢獻了哪幾篇文章」。預設的淺層 clone(depth=1)只看得到 1 個 commit,
+      # 那一段會靜靜地算出空結果而不報錯。
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22

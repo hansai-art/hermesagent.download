@@ -96,7 +96,15 @@ if (existsSync(cPath)) {
     forks: c.forks ?? 0,
     recentCommits30d: c.activity?.recentCommits30d ?? 0,
     lastCommitAt: c.activity?.lastCommitAt ?? null,
-    top: (c.contributors ?? []).slice(0, 12),
+    // 只帶儀表板牆需要的欄位。完整 profile 與文章歸屬留在 contributors.json,
+    // 由 /contributors/ 直接讀 — 否則每個人的 articles 陣列會把 dashboard.json 撐爆。
+    top: (c.contributors ?? []).slice(0, 12).map((x) => ({
+      login: x.login,
+      avatar: x.avatar,
+      url: x.url,
+      contributions: x.contributions,
+      articleCount: x.articles?.length ?? 0,
+    })),
   };
 }
 
