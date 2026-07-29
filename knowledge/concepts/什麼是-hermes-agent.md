@@ -58,7 +58,7 @@ Hermes Agent 本體是 **MIT 授權的開源專案，免費**[^5]。你付的是
 - 裝好了不知道選哪個模型 → [模型供應商與 API key 設定](/config/model-provider/)
 - 深入記憶怎麼運作 → [記憶系統](/concepts/記憶系統/)
 - 深入技能怎麼長出來 → [技能系統](/concepts/技能系統/)
-- 它跟 OpenClaw 到底差在哪 → [為什麼 Hermes Agent 被叫「龍蝦殺手」](/concepts/龍蝦殺手/)
+- 它跟 OpenClaw（龍蝦）到底差在哪 → [三個結構性差異與「龍蝦殺手」稱號拆解](/concepts/龍蝦殺手/)
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
 
 [^1]: Nous Research, Hermes Agent 官方文件 — https://hermes-agent.nousresearch.com/docs(2026-07-23 存取)

@@ -166,7 +166,7 @@ hermes security audit
 
 **注意：`hermes security audit` 的離開代碼也是 0**，即使掃出一堆漏洞。跟 `hermes doctor` 一樣不能拿來當自動化的判斷依據。
 
-**它不掃**全域安裝的套件，也不掃編輯器或瀏覽器擴充。這個邊界要記住：掃過乾淨不代表整台機器乾淨。技能與 MCP server 是會被 agent 直接執行的程式碼，相關的供應鏈風險見[為什麼 Hermes Agent 被叫「龍蝦殺手」](/concepts/龍蝦殺手/)的技能安全段。
+**它不掃**全域安裝的套件，也不掃編輯器或瀏覽器擴充。這個邊界要記住：掃過乾淨不代表整台機器乾淨。技能與 MCP server 是會被 agent 直接執行的程式碼，相關的供應鏈風險見[Hermes Agent 跟 OpenClaw 差在哪](/concepts/龍蝦殺手/)的技能安全段。
 
 ## 其他旗標
 

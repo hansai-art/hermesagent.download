@@ -106,7 +106,7 @@ hermes claw migrate --source /custom/path/.openclaw
 
 ## 下一步
 
-- 還在猶豫該不該搬 → [為什麼 Hermes Agent 被叫「龍蝦殺手」](/concepts/龍蝦殺手/)
+- 還在猶豫該不該搬 → [Hermes Agent 跟 OpenClaw 差在哪](/concepts/龍蝦殺手/)
 - 重新設定模型 → [模型供應商與 API key 設定](/config/model-provider/)
 - 接回 Telegram → [Telegram 常見坑與解法](/troubleshoot/telegram/)
 - 看看有哪些官方 skills → [技能全目錄](/skills/catalog/)
