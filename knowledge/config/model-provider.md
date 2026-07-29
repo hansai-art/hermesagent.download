@@ -145,6 +145,7 @@ Hermes Agent 本體是 MIT 授權的開源軟體，**免費**。你只付所選�
 
 ## 下一步
 
+- 想知道 token 實際花在哪 → [hermes insights：搞清楚 token 花在哪](/config/insights-token-usage/)
 - 還沒安裝 → [安裝部署](/install/)
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
 - 想看它能做什麼 → [技能目錄](/skills/catalog/)

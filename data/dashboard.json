@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-29T03:47:24.260Z",
+  "generatedAt": "2026-07-29T04:33:01.440Z",
   "content": {
-    "total": 368,
+    "total": 369,
     "byStatus": {
-      "published": 368,
+      "published": 369,
       "archived": 1
     },
     "byCategory": [
@@ -18,8 +18,8 @@
         "slug": "config",
         "emoji": "⚙️",
         "name": "模型與 API 設定",
-        "count": 2,
-        "needsHelp": true
+        "count": 3,
+        "needsHelp": false
       },
       {
         "slug": "skills",
@@ -93,28 +93,27 @@
       }
     ],
     "gaps": [
-      "config",
       "migrate",
       "community",
       "about"
     ]
   },
   "credibility": {
-    "withSources": 368,
+    "withSources": 369,
     "withSourcesPct": 100,
-    "footnotes": 148,
-    "verifiedFresh": 47,
+    "footnotes": 151,
+    "verifiedFresh": 48,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 56,
+    "substantial": 57,
     "citationCoverage": 93,
-    "citationCovered": 52,
+    "citationCovered": 53,
     "followableCoverage": 100,
-    "followableCovered": 21,
-    "teachingWithCode": 21,
+    "followableCovered": 22,
+    "teachingWithCode": 22,
     "humanReviewed": 1,
     "humanReviewedPct": 0
   },

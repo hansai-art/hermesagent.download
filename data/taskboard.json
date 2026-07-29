@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T03:47:24.420Z",
+  "generatedAt": "2026-07-29T04:33:01.627Z",
   "counts": {
-    "gaps": 4,
+    "gaps": 3,
     "verify": 12,
     "cite": 0,
     "drafts": 0
@@ -22,14 +22,6 @@
       "title": "關於:目前只有 1 篇",
       "hint": "免責聲明、貢獻指南、網站緣起",
       "url": "/about/"
-    },
-    {
-      "type": "gap",
-      "category": "config",
-      "emoji": "⚙️",
-      "title": "模型與 API 設定:目前只有 2 篇",
-      "hint": "OpenRouter、Anthropic、Gemini、Ollama 與本地模型的設定教學",
-      "url": "/config/"
     },
     {
       "type": "gap",
