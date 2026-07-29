@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-29T04:33:01.440Z",
+  "generatedAt": "2026-07-29T04:56:19.273Z",
   "content": {
-    "total": 369,
+    "total": 372,
     "byStatus": {
-      "published": 369,
+      "published": 372,
       "archived": 1
     },
     "byCategory": [
@@ -25,7 +25,7 @@
         "slug": "skills",
         "emoji": "🧩",
         "name": "技能目錄",
-        "count": 3,
+        "count": 4,
         "needsHelp": false
       },
       {
@@ -46,7 +46,7 @@
         "slug": "troubleshoot",
         "emoji": "🚑",
         "name": "疑難排解",
-        "count": 8,
+        "count": 10,
         "needsHelp": false
       },
       {
@@ -99,21 +99,21 @@
     ]
   },
   "credibility": {
-    "withSources": 369,
+    "withSources": 372,
     "withSourcesPct": 100,
-    "footnotes": 151,
-    "verifiedFresh": 48,
+    "footnotes": 160,
+    "verifiedFresh": 50,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 57,
+    "substantial": 60,
     "citationCoverage": 93,
-    "citationCovered": 53,
+    "citationCovered": 56,
     "followableCoverage": 100,
-    "followableCovered": 22,
-    "teachingWithCode": 22,
+    "followableCovered": 24,
+    "teachingWithCode": 24,
     "humanReviewed": 1,
     "humanReviewedPct": 0
   },
@@ -121,14 +121,15 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 63,
-    "lastCommitAt": "2026-07-29T03:45:22Z",
+    "recentCommits30d": 65,
+    "lastCommitAt": "2026-07-29T04:32:22Z",
     "top": [
       {
         "login": "hansai-art",
         "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
         "url": "https://github.com/hansai-art",
-        "contributions": 57
+        "contributions": 58,
+        "articleCount": 365
       }
     ]
   },
