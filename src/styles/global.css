@@ -82,6 +82,40 @@ html {
   border: none;
   padding: 0;
 }
+
+/* 一鍵複製：JS 會把每個 pre 包進 .code-wrap 並塞一顆按鈕。 */
+.code-wrap {
+  position: relative;
+}
+.code-wrap .copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-dim);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+.code-wrap:hover .copy-btn,
+.code-wrap .copy-btn:focus-visible {
+  opacity: 1;
+}
+.code-wrap .copy-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+/* 觸控裝置沒有 hover，按鈕一律顯示。 */
+@media (hover: none) {
+  .code-wrap .copy-btn {
+    opacity: 1;
+  }
+}
 .prose-dark ul,
 .prose-dark ol {
   padding-left: 1.5em;

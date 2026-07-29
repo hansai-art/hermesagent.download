@@ -157,3 +157,40 @@ const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
     </footer>
   </article>
 </Base>
+
+<script>
+  // 文章裡的每個程式碼／純文字區塊都給一顆複製按鈕。
+  // 文字要在按鈕插進 DOM 之前先抓，否則按鈕自己的字會被一起複製走。
+  document.querySelectorAll('.prose-dark pre').forEach((pre) => {
+    const text = pre.querySelector('code')?.textContent ?? pre.textContent ?? '';
+    if (!text.trim()) return;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copy-btn';
+    btn.textContent = '複製';
+    btn.setAttribute('aria-label', '複製這一段內容');
+
+    let reset;
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = '已複製';
+      } catch {
+        btn.textContent = '複製失敗';
+      }
+      clearTimeout(reset);
+      reset = setTimeout(() => {
+        btn.textContent = '複製';
+      }, 2000);
+    });
+
+    // 包一層再定位。直接放進 pre 的話，pre 有 overflow-x: auto，
+    // 按鈕會跟著橫向捲動跑掉。
+    const wrap = document.createElement('div');
+    wrap.className = 'code-wrap';
+    pre.parentNode?.insertBefore(wrap, pre);
+    wrap.appendChild(pre);
+    wrap.appendChild(btn);
+  });
+</script>
