@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T02:04:47.739Z",
+  "generatedAt": "2026-07-29T03:05:58.747Z",
   "counts": {
-    "gaps": 5,
+    "gaps": 4,
     "verify": 12,
     "cite": 0,
     "drafts": 0
@@ -38,14 +38,6 @@
       "title": "遷移指南:目前只有 2 篇",
       "hint": "從 OpenClaw 等其他工具搬到 Hermes Agent",
       "url": "/migrate/"
-    },
-    {
-      "type": "gap",
-      "category": "releases",
-      "emoji": "📰",
-      "title": "版本情報:目前只有 2 篇",
-      "hint": "每次上游 release 的中文解讀",
-      "url": "/releases/"
     }
   ],
   "verify": [

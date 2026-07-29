@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-29T02:04:47.474Z",
+  "generatedAt": "2026-07-29T03:05:58.479Z",
   "content": {
-    "total": 364,
+    "total": 367,
     "byStatus": {
-      "published": 364,
+      "published": 367,
       "archived": 1
     },
     "byCategory": [
@@ -67,8 +67,8 @@
         "slug": "releases",
         "emoji": "📰",
         "name": "版本情報",
-        "count": 2,
-        "needsHelp": true
+        "count": 5,
+        "needsHelp": false
       },
       {
         "slug": "concepts",
@@ -95,24 +95,23 @@
     "gaps": [
       "config",
       "migrate",
-      "releases",
       "community",
       "about"
     ]
   },
   "credibility": {
-    "withSources": 364,
+    "withSources": 367,
     "withSourcesPct": 100,
-    "footnotes": 102,
+    "footnotes": 143,
     "verifiedFresh": 46,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 52,
-    "citationCoverage": 92,
-    "citationCovered": 48,
+    "substantial": 55,
+    "citationCoverage": 93,
+    "citationCovered": 51,
     "followableCoverage": 100,
     "followableCovered": 20,
     "teachingWithCode": 20,
