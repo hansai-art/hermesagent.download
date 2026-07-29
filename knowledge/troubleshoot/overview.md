@@ -66,6 +66,8 @@ hermes
 | 症狀 | 看這篇 |
 |---|---|
 | `context length exceeded` | [怎麼解](/troubleshoot/context-length-exceeded/) |
+| `Preflight compression`、越用越慢 | [長 session 變慢怎麼解](/troubleshoot/long-session-preflight-compression/) |
+| cron 到時間沒通知 / 沒執行 | [先查 gateway、jobs.json 和 output](/troubleshoot/cron-job-did-not-run/) |
 | `Python 3.11 or newer` | [怎麼解](/troubleshoot/python-version-too-old/) |
 | Telegram 指令選單少東西、gateway 斷線 | [怎麼解](/troubleshoot/telegram/) |
 | 從 OpenClaw 搬過來後行為怪怪的 | [遷移指南](/migrate/migrate-from-openclaw/) |
