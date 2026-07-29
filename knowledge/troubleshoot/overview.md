@@ -86,6 +86,7 @@ hermes
 
 ## 下一步
 
+- 先讓機器幫你查一輪 → [hermes doctor 到底檢查什麼](/troubleshoot/hermes-doctor/)
 - 從頭開始 → [新手路線](/guides/start/)
 - 想看實際案例 → [官方 issue 中文精選](/issues/)
 

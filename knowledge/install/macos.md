@@ -77,10 +77,7 @@ hermes doctor
 
 這是官方的環境診斷指令[^1]，會逐項檢查相依套件。有項目報錯時，照它給的提示處理。
 
-> 📝 **這一段還缺實際輸出**:`hermes doctor` 跑起來長什麼樣、每一項檢查叫什麼名字，
-> 我們手上沒有實機畫面可以貼。如果你剛跑過，
-> [幫我們補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/macos.md)——
-> 這種「我剛好跑過」的補充，正是這個站最需要的貢獻。
+第一次跑會看到一整排黃色 ⚠，不用緊張：那大多是「你沒設定這個」而不是「這個壞了」。實機輸出、16 個檢查區塊各自的意思，以及怎麼分辨真問題與雜訊，見 [hermes doctor 到底檢查什麼](/troubleshoot/hermes-doctor/)（macOS 實測）。
 
 ## 設定模型供應商
 
