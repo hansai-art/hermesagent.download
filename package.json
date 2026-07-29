@@ -20,6 +20,7 @@
     "article-health": "node scripts/tools/article-health.mjs",
     "article-health:strict": "node scripts/tools/article-health.mjs --profile=release-pr",
     "check-links": "node scripts/tools/check-links.mjs",
+    "check-internal": "node scripts/tools/check-internal-links.mjs",
     "stats": "node scripts/tools/generate-stats.mjs",
     "contributors": "node scripts/core/generate-contributors.mjs",
     "dashboard": "node scripts/core/generate-dashboard.mjs",

@@ -6,6 +6,9 @@
 //   npm run check-links -- --limit 50 # 抽查前 50 個 URL
 //
 // 死鏈(4xx/5xx/網路錯誤)列出後 exit 1;303/429/999 等反爬回應視為存活。
+//
+// 站內連結不歸這支管 — 那是純檔案系統比對,快且確定性,所以獨立成
+// check-internal-links.mjs 並直接進 PR CI(npm run check-internal)。
 
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve, dirname } from 'node:path';

@@ -1,5 +1,6 @@
-# PR 免疫系統:每個 PR 自動跑文章健康掃描 + 建置驗證
-# Phase 2 會擴充:連結存活檢查、terminology 檢查、版本欄位比對
+# PR 免疫系統:每個 PR 自動跑文章健康掃描 + 建置驗證 + 站內連結檢查
+# 待擴充:terminology 檢查、版本欄位比對
+# 外部連結存活檢查刻意不放這裡:打真實網路,慢且會因對方站況假紅(見 check-links.mjs)
 name: Quality Check
 
 on:
@@ -32,3 +33,9 @@ jobs:
 
       - name: Build(sync + astro build)
         run: npm run build
+
+      # 要放在 build 之後 — 它比對的是 dist/ 的實體檔案。
+      # 擋的是「站內連結指向沒建出來的頁面」,例如 /dashboard/ 的貢獻 CTA
+      # 曾指向從未存在的 /about/貢獻指南/,在漏斗最關鍵的位置放了一個 404。
+      - name: 站內連結檢查
+        run: npm run check-internal
