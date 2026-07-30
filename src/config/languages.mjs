@@ -1,4 +1,4 @@
-// 語言 SSOT — sync 腳本與網站都從這裡讀取啟用語言。
+// 語言 SSOT - sync 腳本與網站都從這裡讀取啟用語言。
 // 新增語言時：在這裡加一筆，並建立 knowledge/{code}/ 目錄(翻譯 cascade 見 docs/editorial/)。
 // zh-TW 是本源語言，內容直接放在 knowledge/ 根層分類目錄下。
 

@@ -1,6 +1,6 @@
 ---
 title: "Telegram 接 Hermes Agent 的兩個坑"
-description: "指令選單莫名少了幾個、gateway 半夜自己斷線——這兩件事都有明確原因與官方解法，不是你設錯。"
+description: "指令選單莫名少了幾個、gateway 半夜自己斷線：這兩件事都有明確原因與官方解法，不是你設錯。"
 date: 2026-07-23
 subcategory: "telegram"
 hermes_version: ">=2026.5"
@@ -14,13 +14,13 @@ tags:
 status: "published"
 ---
 
-Telegram 是最多人拿來接 Hermes Agent 的平台——手機上隨時能丟一句話給它，它在遠端做完再回報。
+Telegram 是最多人拿來接 Hermes Agent 的平台：手機上隨時能丟一句話給它，它在遠端做完再回報。
 
 但有兩件事會讓你懷疑自己是不是設錯了：**指令選單裡莫名少了幾個 skill**，以及 **gateway 跑一跑就自己斷線**。這兩件事都不是你的錯，而且都有明確解法。
 
 ## 坑一：Telegram 只給 100 個斜線指令
 
-Telegram 平台對 bot 的斜線指令數量有 **100 個上限**。Hermes 的 skills 會註冊成斜線指令，skills 一多就會超過——超過的部分不會報錯，**就是安靜地不出現**[^1]。
+Telegram 平台對 bot 的斜線指令數量有 **100 個上限**。Hermes 的 skills 會註冊成斜線指令，skills 一多就會超過：超過的部分不會報錯，**就是安靜地不出現**[^1]。
 
 所以你會看到：某些 skill 在終端機裡好好的，在 Telegram 卻找不到。
 
@@ -36,7 +36,7 @@ skills:
 
 **成功判準**：重啟後在 Telegram 輸入 `/`，原本消失的指令回到選單裡。
 
-**該停用哪些**：挑那些在手機上根本不會用的——需要看大量輸出、需要編輯檔案、需要互動式操作的 skill，留在終端機用就好。
+**該停用哪些**：挑那些在手機上根本不會用的，需要看大量輸出、需要編輯檔案、需要互動式操作的 skill，留在終端機用就好。
 
 ## 坑二：gateway 一直斷線(WSL 使用者)
 
@@ -64,12 +64,12 @@ tmux attach -t hermes
 
 ## 多人共用要設授權
 
-如果你的 bot 不只自己用，務必設定授權——否則任何人找到你的 bot 都能操作你的 agent。
+如果你的 bot 不只自己用，務必設定授權：否則任何人找到你的 bot 都能操作你的 agent。
 
 官方訊息閘道支援 allowlist 與 DM 配對，在 `config.yaml` 的 gateway 區塊設定授權模式。
 
 > 📝 **這一段缺具體設定範例**:allowlist 的確切 YAML 結構我們還沒整理。
-> 有設定過的人[請補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/telegram.md)——
+> 有設定過的人[請補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/telegram.md)：
 > 這關係到安全性，值得寫清楚。
 
 ## 常見問題
@@ -94,4 +94,4 @@ tmux attach -t hermes
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
 - 其他問題 → [疑難排解總覽](/troubleshoot/overview/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)

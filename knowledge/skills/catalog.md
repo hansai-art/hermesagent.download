@@ -46,17 +46,17 @@ status: "published"
 - [ascii-video](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/ascii-video/SKILL.md) ASCII video: convert video/audio to colored ASCII MP4/GIF.
 - [baoyu-infographic](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/baoyu-infographic/SKILL.md) Infographics: 21 layouts x 21 styles (信息图，可视化).
 - [claude-design](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/claude-design/SKILL.md) Design one-off HTML artifacts (landing, deck, prototype).
-- [comfyui](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/comfyui/SKILL.md) Generate images, video, and audio with ComfyUI — install, launch, manage nodes/models, run workflows with parameter injection. Uses the official comfy-cli for lifecycle and direct REST/WebSocket API for execution.
+- [comfyui](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/comfyui/SKILL.md) Generate images, video, and audio with ComfyUI - install, launch, manage nodes/models, run workflows with parameter injection. Uses the official comfy-cli for lifecycle and direct REST/WebSocket API for execution.
 - [design-md](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/design-md/SKILL.md) Author/validate/export Google's DESIGN.md token spec files.
 - [excalidraw](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/excalidraw/SKILL.md) Hand-drawn Excalidraw JSON diagrams (arch, flow, seq).
 - [humanizer](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/humanizer/SKILL.md) Humanize text: strip AI-isms and add real voice.
 - [manim-video](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/manim-video/SKILL.md) Manim CE animations: 3Blue1Brown math/algo videos.
 - [p5js](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/p5js/SKILL.md) p5.js sketches: gen art, shaders, interactive, 3D.
 - [popular-web-designs](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/popular-web-designs/SKILL.md) 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS.
-- [pretext](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/pretext/SKILL.md) Use when building creative browser demos with @chenglou/pretext — DOM-free text layout for ASCII art, typographic flow around obstacles, text-as-geometry games, kinetic typography, and text-powered generative art. Produces single-file HTML demos by default.
+- [pretext](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/pretext/SKILL.md) Use when building creative browser demos with @chenglou/pretext - DOM-free text layout for ASCII art, typographic flow around obstacles, text-as-geometry games, kinetic typography, and text-powered generative art. Produces single-file HTML demos by default.
 - [sketch](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/sketch/SKILL.md) Throwaway HTML mockups: 2-3 design variants to compare.
 - [songwriting-and-ai-music](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/songwriting-and-ai-music/SKILL.md) Songwriting craft and Suno AI music prompts.
-- [touchdesigner-mcp](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/touchdesigner-mcp/SKILL.md) Control a running TouchDesigner instance via twozero MCP — create operators, set parameters, wire connections, execute Python, build real-time visuals. 36 native tools.
+- [touchdesigner-mcp](https://github.com/NousResearch/hermes-agent/blob/main/skills/creative/touchdesigner-mcp/SKILL.md) Control a running TouchDesigner instance via twozero MCP - create operators, set parameters, wire connections, execute Python, build real-time visuals. 36 native tools.
 
 ### data-science
 
@@ -110,7 +110,7 @@ status: "published"
 - [ocr-and-documents](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/ocr-and-documents/SKILL.md) Extract text from PDFs/scans (pymupdf, marker-pdf).
 - [petdex](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/petdex/SKILL.md) Install and select animated petdex mascots for Hermes.
 - [powerpoint](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/powerpoint/SKILL.md) Create, read, edit .pptx decks, slides, notes, templates.
-- [teams-meeting-pipeline](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/teams-meeting-pipeline/SKILL.md) Operate the Teams meeting summary pipeline via Hermes CLI — summarize meetings, inspect pipeline status, replay jobs, manage Microsoft Graph subscriptions.
+- [teams-meeting-pipeline](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/teams-meeting-pipeline/SKILL.md) Operate the Teams meeting summary pipeline via Hermes CLI - summarize meetings, inspect pipeline status, replay jobs, manage Microsoft Graph subscriptions.
 
 ### research
 
@@ -158,7 +158,7 @@ status: "published"
 
 - [evm](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/blockchain/evm/SKILL.md) Read-only EVM client: wallets, tokens, gas across 8 chains.
 - [hyperliquid](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/blockchain/hyperliquid/SKILL.md) Hyperliquid market data, account history, trade review.
-- [solana](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/blockchain/solana/SKILL.md) Query Solana blockchain data with USD pricing — wallet balances, token portfolios with values, transaction details, NFTs, whale detection, and live network stats. Uses Solana RPC + CoinGecko. No API key required.
+- [solana](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/blockchain/solana/SKILL.md) Query Solana blockchain data with USD pricing - wallet balances, token portfolios with values, transaction details, NFTs, whale detection, and live network stats. Uses Solana RPC + CoinGecko. No API key required.
 
 ### communication
 
@@ -169,18 +169,18 @@ status: "published"
 - [baoyu-article-illustrator](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/baoyu-article-illustrator/SKILL.md) Article illustrations: type × style × palette consistency.
 - [baoyu-comic](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/baoyu-comic/SKILL.md) Knowledge comics (知识漫画): educational, biography, tutorial.
 - [blender-mcp](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/blender-mcp/SKILL.md) Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbitrary Blender Python (bpy) code. Use when user wants to create or modify anything in Blender.
-- [concept-diagrams](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/concept-diagrams/SKILL.md) Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic color ramps, sentence-case typography, and automatic dark mode. Best suited for educational and non-software visuals — physics setups, chemistry mechanisms, math
+- [concept-diagrams](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/concept-diagrams/SKILL.md) Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic color ramps, sentence-case typography, and automatic dark mode. Best suited for educational and non-software visuals - physics setups, chemistry mechanisms, math
 - [creative-ideation](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/creative-ideation/SKILL.md) Generate ideas via named methods from creative practice.
 - [hyperframes](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/hyperframes/SKILL.md) Create HTML-based video compositions, animated title cards, social overlays, captioned talking-head videos, audio-reactive visuals, and shader transitions using HyperFrames. HTML is the source of truth for video. Use when the user wants a rendered MP4/WebM from an HTML composition, wants to animate
-- [kanban-video-orchestrator](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/kanban-video-orchestrator/SKILL.md) Plan, set up, and monitor a multi-agent video production pipeline backed by Hermes Kanban. Use when the user wants to make ANY video — narrative film, product/marketing, music video, explainer, ASCII/terminal art, abstract/generative loop, comic, 3D, real-time/installation — and the work warrants de
+- [kanban-video-orchestrator](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/kanban-video-orchestrator/SKILL.md) Plan, set up, and monitor a multi-agent video production pipeline backed by Hermes Kanban. Use when the user wants to make ANY video - narrative film, product/marketing, music video, explainer, ASCII/terminal art, abstract/generative loop, comic, 3D, real-time/installation - and the work warrants de
 - [meme-generation](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/meme-generation/SKILL.md) Generate real meme images by picking a template and overlaying text with Pillow. Produces actual .png meme files.
 - [pixel-art](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/pixel-art/SKILL.md) Pixel art w/ era palettes (NES, Game Boy, PICO-8).
 
 ### devops
 
-- [cli](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/cli/SKILL.md) Run 150+ AI apps via inference.sh CLI (infsh) — image generation, video creation, LLMs, search, 3D, social automation. Uses the terminal tool. Triggers: inference.sh, infsh, ai apps, flux, veo, image generation, video generation, seedream, seedance, tavily
-- [docker-management](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/docker-management/SKILL.md) Manage Docker containers, images, volumes, networks, and Compose stacks — lifecycle ops, debugging, cleanup, and Dockerfile optimization.
-- [hermes-s6-container-supervision](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/hermes-s6-container-supervision/SKILL.md) Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image — adding new services, debugging profile gateways, understanding the Architecture B main-program pattern.
+- [cli](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/cli/SKILL.md) Run 150+ AI apps via inference.sh CLI (infsh) - image generation, video creation, LLMs, search, 3D, social automation. Uses the terminal tool. Triggers: inference.sh, infsh, ai apps, flux, veo, image generation, video generation, seedream, seedance, tavily
+- [docker-management](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/docker-management/SKILL.md) Manage Docker containers, images, volumes, networks, and Compose stacks - lifecycle ops, debugging, cleanup, and Dockerfile optimization.
+- [hermes-s6-container-supervision](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/hermes-s6-container-supervision/SKILL.md) Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image - adding new services, debugging profile gateways, understanding the Architecture B main-program pattern.
 - [pinggy-tunnel](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/pinggy-tunnel/SKILL.md) Zero-install localhost tunnels over SSH via Pinggy.
 - [watchers](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/watchers/SKILL.md) Poll RSS, JSON APIs, and GitHub with watermark dedup.
 
@@ -195,11 +195,11 @@ status: "published"
 ### finance
 
 - [3-statement-model](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/3-statement-model/SKILL.md) Build fully-integrated 3-statement models (IS, BS, CF) in Excel with working capital schedules, D&A roll-forwards, debt schedule, and the plugs that make cash and retained earnings tie. Pairs with excel-author.
-- [comps-analysis](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/comps-analysis/SKILL.md) Build comparable company analysis in Excel — operating metrics, valuation multiples, statistical benchmarking vs peer sets. Pairs with excel-author. Use for public-company valuation, IPO pricing, sector benchmarking, or outlier detection.
-- [dcf-model](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/dcf-model/SKILL.md) Build institutional-quality DCF valuation models in Excel — revenue projections, FCF build, WACC, terminal value, Bear/Base/Bull scenarios, 5x5 sensitivity tables. Pairs with excel-author. Use for intrinsic-value equity analysis.
-- [excel-author](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/excel-author/SKILL.md) Build auditable Excel workbooks headless with openpyxl — blue/black/green cell conventions, formulas over hardcodes, named ranges, balance checks, sensitivity tables. Use for financial models, audit outputs, reconciliations.
-- [lbo-model](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/lbo-model/SKILL.md) Build leveraged buyout models in Excel — sources & uses, debt schedule, cash sweep, exit multiple, IRR/MOIC sensitivity. Pairs with excel-author. Use for PE screening, sponsor-case valuation, or illustrative LBO in a pitch.
-- [merger-model](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/merger-model/SKILL.md) Build accretion/dilution (merger) models in Excel — pro-forma P&L, synergies, financing mix, EPS impact. Pairs with excel-author. Use for M&A pitches, board materials, or deal evaluation.
+- [comps-analysis](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/comps-analysis/SKILL.md) Build comparable company analysis in Excel - operating metrics, valuation multiples, statistical benchmarking vs peer sets. Pairs with excel-author. Use for public-company valuation, IPO pricing, sector benchmarking, or outlier detection.
+- [dcf-model](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/dcf-model/SKILL.md) Build institutional-quality DCF valuation models in Excel - revenue projections, FCF build, WACC, terminal value, Bear/Base/Bull scenarios, 5x5 sensitivity tables. Pairs with excel-author. Use for intrinsic-value equity analysis.
+- [excel-author](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/excel-author/SKILL.md) Build auditable Excel workbooks headless with openpyxl - blue/black/green cell conventions, formulas over hardcodes, named ranges, balance checks, sensitivity tables. Use for financial models, audit outputs, reconciliations.
+- [lbo-model](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/lbo-model/SKILL.md) Build leveraged buyout models in Excel - sources & uses, debt schedule, cash sweep, exit multiple, IRR/MOIC sensitivity. Pairs with excel-author. Use for PE screening, sponsor-case valuation, or illustrative LBO in a pitch.
+- [merger-model](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/merger-model/SKILL.md) Build accretion/dilution (merger) models in Excel - pro-forma P&L, synergies, financing mix, EPS impact. Pairs with excel-author. Use for M&A pitches, board materials, or deal evaluation.
 - [pptx-author](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/pptx-author/SKILL.md) Build PowerPoint decks headless with python-pptx. Pairs with excel-author for model-backed decks where every number traces to a workbook cell. Use for pitch decks, IC memos, earnings notes.
 - [stocks](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/stocks/SKILL.md) Stock quotes, history, search, compare, crypto via Yahoo.
 
@@ -258,12 +258,12 @@ status: "published"
 ### payments
 
 - [mpp-agent](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/payments/mpp-agent/SKILL.md) Pay HTTP 402 APIs via Machine Payments Protocol (MPP).
-- [stripe-link-cli](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/payments/stripe-link-cli/SKILL.md) Agent payments via Stripe Link — cards, SPT, approvals.
+- [stripe-link-cli](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/payments/stripe-link-cli/SKILL.md) Agent payments via Stripe Link - cards, SPT, approvals.
 - [stripe-projects](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/payments/stripe-projects/SKILL.md) Provision SaaS services + sync creds via Stripe Projects.
 
 ### productivity
 
-- [canvas](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/productivity/canvas/SKILL.md) Canvas LMS integration — fetch enrolled courses and assignments using API token authentication.
+- [canvas](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/productivity/canvas/SKILL.md) Canvas LMS integration - fetch enrolled courses and assignments using API token authentication.
 - [here-now](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/productivity/here-now/SKILL.md) Publish static sites to {slug}.here.now and store private files in cloud Drives for agent-to-agent handoff.
 - [memento-flashcards](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/productivity/memento-flashcards/SKILL.md) \>-
 - [shop](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/productivity/shop/SKILL.md) Shop catalog search, checkout, order tracking, returns.
@@ -277,13 +277,13 @@ status: "published"
 - [darwinian-evolver](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/darwinian-evolver/SKILL.md) Evolve prompts/regex/SQL/code with Imbue's evolution loop.
 - [domain-intel](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/domain-intel/SKILL.md) Passive domain reconnaissance using Python stdlib. Subdomain discovery, SSL certificate inspection, WHOIS lookups, DNS records, domain availability checks, and bulk multi-domain analysis. No API keys required.
 - [drug-discovery](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/drug-discovery/SKILL.md) \>
-- [duckduckgo-search](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/duckduckgo-search/SKILL.md) Free web search via DuckDuckGo — text, news, images, videos. No API key needed. Prefer the `ddgs` CLI when installed; use the Python DDGS library only after verifying that `ddgs` is available in the current runtime.
+- [duckduckgo-search](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/duckduckgo-search/SKILL.md) Free web search via DuckDuckGo - text, news, images, videos. No API key needed. Prefer the `ddgs` CLI when installed; use the Python DDGS library only after verifying that `ddgs` is available in the current runtime.
 - [gitnexus-explorer](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/gitnexus-explorer/SKILL.md) Index a codebase with GitNexus and serve an interactive knowledge graph via web UI + Cloudflare tunnel.
-- [osint-investigation](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/osint-investigation/SKILL.md) Public-records OSINT investigation framework — SEC EDGAR filings, USAspending contracts, Senate lobbying, OFAC sanctions, ICIJ offshore leaks, NYC property records (ACRIS), OpenCorporates registries, CourtListener court records, Wayback Machine archives, Wikipedia + Wikidata, GDELT news monitoring.
-- [parallel-cli](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/parallel-cli/SKILL.md) Optional vendor skill for Parallel CLI — agent-native web search, extraction, deep research, enrichment, FindAll, and monitoring. Prefer JSON output and non-interactive flows.
-- [qmd](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/qmd/SKILL.md) Search personal knowledge bases, notes, docs, and meeting transcripts locally using qmd — a hybrid retrieval engine with BM25, vector search, and LLM reranking. Supports CLI and MCP integration.
+- [osint-investigation](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/osint-investigation/SKILL.md) Public-records OSINT investigation framework - SEC EDGAR filings, USAspending contracts, Senate lobbying, OFAC sanctions, ICIJ offshore leaks, NYC property records (ACRIS), OpenCorporates registries, CourtListener court records, Wayback Machine archives, Wikipedia + Wikidata, GDELT news monitoring.
+- [parallel-cli](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/parallel-cli/SKILL.md) Optional vendor skill for Parallel CLI - agent-native web search, extraction, deep research, enrichment, FindAll, and monitoring. Prefer JSON output and non-interactive flows.
+- [qmd](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/qmd/SKILL.md) Search personal knowledge bases, notes, docs, and meeting transcripts locally using qmd - a hybrid retrieval engine with BM25, vector search, and LLM reranking. Supports CLI and MCP integration.
 - [scrapling](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/scrapling/SKILL.md) Web scraping with Scrapling - HTTP fetching, stealth browser automation, Cloudflare bypass, and spider crawling via CLI and Python.
-- [searxng-search](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/searxng-search/SKILL.md) Free meta-search via SearXNG — aggregates results from 70+ search engines. Self-hosted or use a public instance. No API key needed. Falls back automatically when the web search toolset is unavailable.
+- [searxng-search](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/research/searxng-search/SKILL.md) Free meta-search via SearXNG - aggregates results from 70+ search engines. Self-hosted or use a public instance. No API key needed. Falls back automatically when the web search toolset is unavailable.
 
 ### security
 

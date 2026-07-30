@@ -1,4 +1,4 @@
-# DESIGN.md — 黑色設計語言
+# DESIGN.md：黑色設計語言
 
 > 沿用 hermesagent.download 既有的深色設計感。tokens 定義在 `src/styles/global.css` 的
 > `:root`,改那裡即全站生效。本文件是規範與理由,不是第二份真相來源。
@@ -12,7 +12,7 @@
 | `--border` | `#26262c` | 1px 細邊框,取代陰影 |
 | `--text` | `#e8e8ea` | 主文字(不用純白,降低眩光) |
 | `--text-dim` | `#9a9aa3` | 次要文字、meta 資訊 |
-| `--accent` | `#d8a752` | Hermes 金——連結、CTA、強調 |
+| `--accent` | `#d8a752` | Hermes 金：連結、CTA、強調 |
 | `--accent-dim` | `#8a6c38` | hover 邊框、次要強調 |
 
 > ⚠️ Phase 1 內容搬遷時,對照舊站實際色票微調上表(特別是 accent 色)。

@@ -14,7 +14,7 @@ tags:
 status: "published"
 ---
 
-幾乎每篇教學都會叫你「改 `config.yaml`」——設模型、開記憶審核、加 MCP server。但很少有人先告訴你這個檔案的**全貌**：它在哪、跟 `.env` 怎麼分工、改錯了怎麼救。這篇補上那張地圖。
+幾乎每篇教學都會叫你「改 `config.yaml`」：設模型、開記憶審核、加 MCP server。但很少有人先告訴你這個檔案的**全貌**：它在哪、跟 `.env` 怎麼分工、改錯了怎麼救。這篇補上那張地圖。
 
 ## 一條你必須先記住的規則
 
@@ -25,7 +25,7 @@ Hermes 的設定拆成**兩個檔案**，分界只有一條[^1]:
 | `~/.hermes/config.yaml` | **所有非機密設定** | 模型、執行後端、記憶上限、壓縮策略 |
 | `~/.hermes/.env` | **所有機密** | API key、bot token、密碼 |
 
-⚠️ **密鑰永遠放 `.env`，絕不寫進 `config.yaml`**[^1]。這不只是慣例——`.env` 有不同的處理方式，而且 log 會自動遮蔽其中的秘密。把 API key 貼進 `config.yaml` 等於讓它更容易外洩。
+⚠️ **密鑰永遠放 `.env`，絕不寫進 `config.yaml`**[^1]。這不只是慣例：`.env` 有不同的處理方式，而且 log 會自動遮蔽其中的秘密。把 API key 貼進 `config.yaml` 等於讓它更容易外洩。
 
 要在 config.yaml 裡引用密鑰，用 `${變數名}` 語法讓它去 `.env` 取，而不是直接寫死：
 
@@ -39,10 +39,10 @@ auxiliary:
 
 同一個設定在多處出現時，Hermes 從高到低這樣決定[^2]:
 
-1. **CLI 參數**——單次覆蓋，例如 `hermes chat --model anthropic/claude-sonnet-4`
-2. **`config.yaml`**——你的主設定檔
-3. **`.env`**——環境變數退路(密鑰一定在這)
-4. **內建預設值**——你什麼都沒設時的安全預設
+1. **CLI 參數**：單次覆蓋，例如 `hermes chat --model anthropic/claude-sonnet-4`
+2. **`config.yaml`**：你的主設定檔
+3. **`.env`**：環境變數退路(密鑰一定在這)
+4. **內建預設值**：你什麼都沒設時的安全預設
 
 意思是：命令列臨時試一個模型，不會動到你 config.yaml 的長期設定；關掉命令列，又回到檔案裡的值。
 
@@ -66,7 +66,7 @@ hermes config edit         # 真的要手改時，用它開編輯器
 
 ## 哪個需求，改哪一段
 
-config.yaml 分成很多區塊。你不需要全懂——下面這張表對照「你想做什麼」和「改哪一段」，深入的都有專篇：
+config.yaml 分成很多區塊。你不需要全懂：下面這張表對照「你想做什麼」和「改哪一段」，深入的都有專篇：
 
 | 你想… | 區塊 | 看哪篇 |
 |---|---|---|
@@ -79,10 +79,10 @@ config.yaml 分成很多區塊。你不需要全懂——下面這張表對照�
 
 ### 幾個常被問到的 key
 
-- **`terminal.backend`**(預設 `local`)——執行後端，可選 `local` / `docker` / `ssh` / `modal` / `daytona` / `singularity`[^4]。想沙盒隔離就設 `docker`。
-- **`memory.write_approval`**(預設 `false`)——設 `true`,agent 每次要寫記憶都先問過你[^4]。
-- **`agent.max_turns`**(預設 `500`)——單場對話的最大迭代數[^4]。
-- **`compression.threshold`**(預設 `0.50`)——上下文用到這個比例就開始壓縮[^4]。
+- **`terminal.backend`**(預設 `local`)：執行後端，可選 `local` / `docker` / `ssh` / `modal` / `daytona` / `singularity`[^4]。想沙盒隔離就設 `docker`。
+- **`memory.write_approval`**(預設 `false`)：設 `true`,agent 每次要寫記憶都先問過你[^4]。
+- **`agent.max_turns`**(預設 `500`)：單場對話的最大迭代數[^4]。
+- **`compression.threshold`**(預設 `0.50`)：上下文用到這個比例就開始壓縮[^4]。
 
 ## `~/.hermes/` 裡還有什麼
 
@@ -125,7 +125,7 @@ config.yaml 只是這個目錄的一員。全貌[^5]:
 - 搞懂記憶那一段在調什麼 → [記憶系統](/concepts/記憶系統/)
 - 換到沙盒 / 遠端執行 → [進階安裝](/install/advanced/)
 
-[^1]: Nous Research, Configuration — https://hermes-agent.nousresearch.com/docs/user-guide/configuration(2026-07-27 存取)。兩檔分工：config.yaml 放非機密設定、.env 放 API key 與密鑰；config.yaml 內以 `${VAR}` 引用 .env 變數
+[^1]: Nous Research, Configuration：https://hermes-agent.nousresearch.com/docs/user-guide/configuration (2026-07-27 存取)。兩檔分工：config.yaml 放非機密設定、.env 放 API key 與密鑰；config.yaml 內以 `${VAR}` 引用 .env 變數
 [^2]: 同上，優先順序由高到低：CLI 參數 > `~/.hermes/config.yaml` > `~/.hermes/.env` > 內建預設值
 [^3]: 同上，`hermes config` 指令家族(get / set / unset / edit / check / migrate)自動判斷寫入 config.yaml 或 .env 並驗證合法性
 [^4]: 同上，常見 key 預設值：`terminal.backend`=local(可選 docker/ssh/modal/daytona/singularity)、`memory.write_approval`=false、`agent.max_turns`=500、`compression.threshold`=0.50

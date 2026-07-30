@@ -1,4 +1,4 @@
-# RESEARCH-TEMPLATE.md — 寫作前研究模板
+# RESEARCH-TEMPLATE.md：寫作前研究模板
 
 複製以下模板到草稿(不入庫,或放 PR description),填完再動筆。
 
@@ -24,8 +24,8 @@
 
 ### 相關上游 issues
 
-- #xxxx — 摘要
-- #xxxx — 摘要
+- #xxxx - 摘要
+- #xxxx - 摘要
 
 ### 既有文章盤點(避免重複)
 

@@ -27,7 +27,7 @@ status: "published"
 
 **怎麼確認成功**：應用程式能開啟，並進入可以開始對話的畫面。
 
-接著跳到下面的「設定模型供應商」——沒設定模型的話還不能用。
+接著跳到下面的「設定模型供應商」：沒設定模型的話還不能用。
 
 ## 路線二：指令版(一行安裝)
 
@@ -61,7 +61,7 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
 ### 重新載入 shell(最多人卡在這)
 
-安裝腳本把 `~/.local/bin` 加進了 PATH，但**你現在這個終端機視窗還不知道這件事**。所以裝完直接打 `hermes` 會說找不到指令——這不是安裝失敗。
+安裝腳本把 `~/.local/bin` 加進了 PATH，但**你現在這個終端機視窗還不知道這件事**。所以裝完直接打 `hermes` 會說找不到指令：這不是安裝失敗。
 
 ```bash
 source ~/.zshrc
@@ -127,5 +127,5 @@ hermes
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
 - 想先搞懂它是什麼 → [什麼是 Hermes Agent](/concepts/什麼是-hermes-agent/)
 
-[^1]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation(2026-07-23 存取)
-[^2]: 同上，FAQ：安裝程式會把 `~/.local/bin` 加進 PATH，新開的 shell 會自動載入 — https://hermes-agent.nousresearch.com/docs/reference/faq
+[^1]: Nous Research, Installation：https://hermes-agent.nousresearch.com/docs/getting-started/installation (2026-07-23 存取)
+[^2]: 同上，FAQ：安裝程式會把 `~/.local/bin` 加進 PATH，新開的 shell 會自動載入：https://hermes-agent.nousresearch.com/docs/reference/faq

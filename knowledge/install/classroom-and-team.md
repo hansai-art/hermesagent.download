@@ -71,10 +71,10 @@ Hermes 一定要接一個模型供應商才能動[^3]。**開課前必須先決�
 
 ## 四、四個會在教室現場炸掉的坑
 
-1. **Intel Mac** — 學員規格再好都裝不起來，而且不是「舊電腦才會中」，2021 到 2023 年買的 Mac 也可能是 Intel。行前信一定要問「晶片」那一欄寫什麼。
-2. **Claude Pro 訂閱不能用** — 官方只支援 Claude Max 而且要另外購買 extra usage 額度，Pro 方案走不通[^3]。這一條最容易讓人白跑。
-3. **公司或學校網路擋掉 OAuth** — 多數供應商用瀏覽器彈窗登入，內網環境常常開不起來。前一天請學員在家先登入一次。
-4. **學員自己裝過 Python 3.14** — 會裝到一半失敗。請他們不要自己先裝 Python，交給官方安裝程式處理[^5]。
+1. **Intel Mac**：學員規格再好都裝不起來，而且不是「舊電腦才會中」，2021 到 2023 年買的 Mac 也可能是 Intel。行前信一定要問「晶片」那一欄寫什麼。
+2. **Claude Pro 訂閱不能用**：官方只支援 Claude Max 而且要另外購買 extra usage 額度，Pro 方案走不通[^3]。這一條最容易讓人白跑。
+3. **公司或學校網路擋掉 OAuth**：多數供應商用瀏覽器彈窗登入，內網環境常常開不起來。前一天請學員在家先登入一次。
+4. **學員自己裝過 Python 3.14**：會裝到一半失敗。請他們不要自己先裝 Python，交給官方安裝程式處理[^5]。
 
 ---
 
@@ -165,8 +165,8 @@ hermes doctor
 - 各系統安裝步驟：[macOS](/install/macos/)、[Windows](/install/windows/)、[Linux](/install/linux/)、[WSL2](/install/wsl2/)
 - 五種安裝方式比較：[下載與安裝方式比較](/install/download/)
 
-[^1]: Nous Research, Platform Support：https://hermes-agent.nousresearch.com/docs/getting-started/platform-support（2026-07-28 存取）
-[^3]: Nous Research, AI Providers，含 Claude Max「extra usage」限制的 caution 段：https://hermes-agent.nousresearch.com/docs/integrations/providers（2026-07-28 存取）
-[^4]: Nous Research, Nous Portal：https://hermes-agent.nousresearch.com/docs/integrations/nous-portal（2026-07-28 存取）
-[^5]: Nous Research, Installation，含 `--skip-browser` 旗標：https://hermes-agent.nousresearch.com/docs/getting-started/installation（2026-07-28 存取）
-[^6]: Nous Research, Tool Gateway：https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway（2026-07-28 存取）
+[^1]: Nous Research, Platform Support：https://hermes-agent.nousresearch.com/docs/getting-started/platform-support （2026-07-28 存取）
+[^3]: Nous Research, AI Providers，含 Claude Max「extra usage」限制的 caution 段：https://hermes-agent.nousresearch.com/docs/integrations/providers （2026-07-28 存取）
+[^4]: Nous Research, Nous Portal：https://hermes-agent.nousresearch.com/docs/integrations/nous-portal （2026-07-28 存取）
+[^5]: Nous Research, Installation，含 `--skip-browser` 旗標：https://hermes-agent.nousresearch.com/docs/getting-started/installation （2026-07-28 存取）
+[^6]: Nous Research, Tool Gateway：https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway （2026-07-28 存取）

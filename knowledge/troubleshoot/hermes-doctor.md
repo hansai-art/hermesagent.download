@@ -95,7 +95,7 @@ hermes doctor
 
 ## 最重要的閱讀方法：⚠ 不等於壞掉
 
-第一次跑 `hermes doctor`，畫面上會有一整排黃色 ⚠，很嚇人。但實測下來，這些 ⚠ 大多是**「這個東西你沒設定」**，不是「這個東西壞了」。
+第一次跑 `hermes doctor`，畫面上會有一整排黃色 ⚠，很嚇人。但實測下來，這些 ⚠ 大多是「**這個東西你沒設定**」，不是「這個東西壞了」。
 
 三種常見的 ⚠，含意完全不同：
 
@@ -197,8 +197,8 @@ hermes security audit
 - 模型連不上 → [API key not set / API key 無效怎麼解](/troubleshoot/api-key-not-set/)
 - 指令找不到 → [command not found 怎麼解](/troubleshoot/command-not-found/)
 
-[^1]: NousResearch/hermes-agent, PR #55576「fix: redact status --all API keys, harden compression message handling」，merged 2026-06-30，2026-07-29 經 GitHub API 確認合併狀態 — https://github.com/NousResearch/hermes-agent/pull/55576
-[^2]: GitHub Search API，`repo:NousResearch/hermes-agent redact status in:title` 共 11 筆，其中 #41776、#37050 等多筆 closed 但未合併，2026-07-29 查詢 — https://github.com/NousResearch/hermes-agent/issues?q=redact+status+in%3Atitle
-[^3]: 本機實測 `hermes security --help`（macOS、v0.17.0、2026-07-29），原文：「Covers the Hermes venv (installed PyPI dists), Python deps declared by plugins under ~/.hermes/plugins/, and pinned npx/uvx MCP servers in config.yaml. Does NOT scan globally-installed packages or editor/browser extensions.」官方指令說明見 — https://hermes-agent.nousresearch.com/docs
-[^4]: 本機實測 `hermes doctor --help` 與 `hermes status --help`（macOS、v0.17.0、2026-07-29）列出的旗標。官方文件見 — https://hermes-agent.nousresearch.com/docs
-[^5]: Nous Research, Hermes Agent v0.18.0 (v2026.7.1) — The Judgment Release，發布日期 2026-07-01，本站中文解讀見 [v0.18.0 Judgment](/releases/v2026-7-1/) — https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.1
+[^1]: NousResearch/hermes-agent, PR #55576「fix: redact status --all API keys, harden compression message handling」，merged 2026-06-30，2026-07-29 經 GitHub API 確認合併狀態：https://github.com/NousResearch/hermes-agent/pull/55576
+[^2]: GitHub Search API，`repo:NousResearch/hermes-agent redact status in:title` 共 11 筆，其中 #41776、#37050 等多筆 closed 但未合併，2026-07-29 查詢：https://github.com/NousResearch/hermes-agent/issues?q=redact+status+in%3Atitle
+[^3]: 本機實測 `hermes security --help`（macOS、v0.17.0、2026-07-29），原文：「Covers the Hermes venv (installed PyPI dists), Python deps declared by plugins under ~/.hermes/plugins/, and pinned npx/uvx MCP servers in config.yaml. Does NOT scan globally-installed packages or editor/browser extensions.」官方指令說明見：https://hermes-agent.nousresearch.com/docs
+[^4]: 本機實測 `hermes doctor --help` 與 `hermes status --help`（macOS、v0.17.0、2026-07-29）列出的旗標。官方文件見：https://hermes-agent.nousresearch.com/docs
+[^5]: Nous Research, Hermes Agent v0.18.0 (v2026.7.1)：The Judgment Release，發布日期 2026-07-01，本站中文解讀見 [v0.18.0 Judgment](/releases/v2026-7-1/)：https://github.com/NousResearch/hermes-agent/releases/tag/v2026.7.1

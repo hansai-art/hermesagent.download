@@ -5,7 +5,7 @@ import contributors from '../../data/contributors.json';
 // 這一頁存在的理由:站上到處在承諾「你的名字會出現在貢獻者牆」,
 // 但在此之前那面牆只有頭像跟 commit 數,對貢獻者沒有任何實質回饋。
 // 願意花時間寫技術文件的人,最實際的回報就是把他的名字、簡介與
-// 自己的網站放出來——那條 outbound 連結對他有真實價值。
+// 自己的網站放出來：那條 outbound 連結對他有真實價值。
 const { contributors: local = [], upstream, generatedAt } = contributors as any;
 const upstreamList = upstream?.contributors ?? [];
 
@@ -18,7 +18,7 @@ const fmt = (iso: string | null) =>
         month: 'long',
         day: 'numeric',
       })
-    : '—';
+    : '-';
 
 // company 常帶 @ 開頭(GitHub 慣例),顯示時去掉比較乾淨
 const tidyCompany = (s: string | null) => (s ? s.replace(/^@/, '') : null);
@@ -28,7 +28,7 @@ const meta = (c: any) =>
 ---
 
 <Base
-  title="貢獻者 — HermesAgent.download"
+  title="貢獻者"
   description="這個站由誰寫成。每位貢獻者的簡介、個人網站與實際貢獻的文章，以及我們所依賴的上游 Hermes Agent 開發者名單。"
 >
   <h1 class="text-3xl font-bold mb-2">👥 貢獻者</h1>

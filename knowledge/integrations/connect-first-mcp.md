@@ -17,7 +17,7 @@ status: "published"
 
 MCP 讓 agent 接上外部工具，但第一次設定最容易卡在一個地方：**改完 config 卻發現工具沒出現**，然後不知道是設定錯了、還是根本沒生效。
 
-這篇用「檔案系統 MCP」走一遍完整流程——因為它最單純，而且走通一次，其他 MCP 都是同一套路。
+這篇用「檔案系統 MCP」走一遍完整流程：因為它最單純，而且走通一次，其他 MCP 都是同一套路。
 
 ## 先確認 MCP 支援有裝
 
@@ -48,7 +48,7 @@ mcp_servers:
     args: ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/my-project"]
 ```
 
-`project_fs` 是你自己取的名字。最後那個路徑**就是你允許 agent 讀寫的目錄**[^3]——
+`project_fs` 是你自己取的名字。最後那個路徑**就是你允許 agent 讀寫的目錄**[^3]：
 
 ⚠️ **這是整篇最重要的一行**：不要圖方便指到家目錄根層(`/home/user` 或 `~`)。指到你正在做的**具體專案資料夾**就好。這個路徑決定了 agent 能碰到你哪些檔案，開太大等於把整台電腦的檔案交出去。
 
@@ -64,7 +64,7 @@ mcp_servers:
 
 ## 確認它真的接上了
 
-這一步別跳過——多數「MCP 沒反應」的困惑，其實是根本沒接上而不自知。
+這一步別跳過：多數「MCP 沒反應」的困惑，其實是根本沒接上而不自知。
 
 **方法一：問它**
 
@@ -72,7 +72,7 @@ mcp_servers:
 Tell me which MCP-backed tools are available right now
 ```
 
-**成功判準**：它會列出來自你剛設定的 server 的工具。檔案系統 MCP 的工具會長成 `mcp_project_fs_read_file` 這種樣子——命名規則是 `mcp_<server 名>_<工具名>`[^2]。看得到這種前綴的工具，就是接上了。
+**成功判準**：它會列出來自你剛設定的 server 的工具。檔案系統 MCP 的工具會長成 `mcp_project_fs_read_file` 這種樣子：命名規則是 `mcp_<server 名>_<工具名>`[^2]。看得到這種前綴的工具，就是接上了。
 
 **方法二：測連線**
 
@@ -109,7 +109,7 @@ mcp_servers:
       include: [list_issues, create_issue, search_code]
 ```
 
-`tools.include` 是白名單——只開這幾個，其他一律不給[^2]。這比開放全部再逐一擋安全。
+`tools.include` 是白名單：只開這幾個，其他一律不給[^2]。這比開放全部再逐一擋安全。
 
 一個容易忽略的安全設計：**stdio server 只拿得到你在 `env` 明確列出的環境變數，不會繼承你整個 shell 環境**[^2]。所以 API key 要在 `env` 裡明確給，它不會自己去讀你 shell 裡的。
 
@@ -150,7 +150,7 @@ hermes mcp install <名稱>   # 裝一個
 
 ### 我怎麼知道某個 npm 套件是不是可信的 MCP?
 
-`@modelcontextprotocol/*` 是官方參考實作，相對可信。來路不明的第三方 server 等於讓陌生程式碼在你環境裡跑——參考 [推薦 MCP](/integrations/recommended-mcp/) 的信任層級。
+`@modelcontextprotocol/*` 是官方參考實作，相對可信。來路不明的第三方 server 等於讓陌生程式碼在你環境裡跑：參考 [推薦 MCP](/integrations/recommended-mcp/) 的信任層級。
 
 ## 下一步
 
@@ -158,6 +158,6 @@ hermes mcp install <名稱>   # 裝一個
 - 看官方內建能力 → [技能全目錄](/skills/catalog/)
 - 搞懂技能與 MCP 的差別 → [技能系統](/concepts/技能系統/)
 
-[^1]: Nous Research, Use MCP with Hermes — https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes(2026-07-25 存取)
-[^2]: Nous Research, MCP — https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp(2026-07-25 存取)
+[^1]: Nous Research, Use MCP with Hermes：https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes (2026-07-25 存取)
+[^2]: Nous Research, MCP：https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp (2026-07-25 存取)
 [^3]: 同上，filesystem MCP 的 args 最後一個參數即為允許存取的目錄路徑

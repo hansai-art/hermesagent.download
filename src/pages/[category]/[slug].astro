@@ -70,7 +70,7 @@ const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
 ---
 
 <Base
-  title={`${d.title} — HermesAgent.download`}
+  title={d.title}
   description={d.description}
   schema={pageSchema}
   ogType="article"
@@ -151,7 +151,7 @@ const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
         <a href="/contribute/" style="color: var(--text-dim)">✋ 我想貢獻</a>
       </div>
       <p class="text-xs mt-3" style="color: var(--text-dim)">
-        看到指令跑不動、內容過期或連結壞掉？點「編輯這一頁」直接改，或回報給我們——
+        看到指令跑不動、內容過期或連結壞掉？點「編輯這一頁」直接改，或回報給我們：
         兩者都算貢獻，你的名字、簡介與個人網站會出現在<a href="/contributors/" style="color: var(--accent)">貢獻者頁</a>上。
       </p>
     </footer>

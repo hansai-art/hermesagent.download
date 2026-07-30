@@ -152,7 +152,7 @@ stt:
 - gateway 找不到 ffmpeg / node → 先看這篇的「解法一」
 - 想理解 config 分工 → [config.yaml 是什麼](/config/config-yaml-reference/)
 
-[^1]: Nous Research, Voice & TTS：STT 支援 local、local_command、Groq、OpenAI、Mistral、xAI，以及 `stt.providers.<name>: type: command`；command provider placeholder 包含 `{input_path}`、`{output_path}`、`{output_dir}`、`{format}`、`{language}`、`{model}`，成功後優先讀 `{output_path}` — https://hermes-agent.nousresearch.com/docs/user-guide/features/tts
-[^2]: Nous Research, FAQ：macOS launchd services inherit a minimal PATH，可能造成 gateway 找不到 Node.js / ffmpeg；官方建議重新執行 `hermes gateway install` 讓服務重新擷取 PATH，並用 PlistBuddy 檢查 plist — https://hermes-agent.nousresearch.com/docs/reference/faq
-[^3]: Nous Research, Environment Variables：`HERMES_LOCAL_STT_COMMAND` 是可選的本機 STT command template，支援 `{input_path}`、`{output_dir}`、`{language}`、`{model}`；`HERMES_LOCAL_STT_LANGUAGE` 可指定預設語言 — https://hermes-agent.nousresearch.com/docs/reference/environment-variables
+[^1]: Nous Research, Voice & TTS：STT 支援 local、local_command、Groq、OpenAI、Mistral、xAI，以及 `stt.providers.<name>: type: command`；command provider placeholder 包含 `{input_path}`、`{output_path}`、`{output_dir}`、`{format}`、`{language}`、`{model}`，成功後優先讀 `{output_path}`：https://hermes-agent.nousresearch.com/docs/user-guide/features/tts
+[^2]: Nous Research, FAQ：macOS launchd services inherit a minimal PATH，可能造成 gateway 找不到 Node.js / ffmpeg；官方建議重新執行 `hermes gateway install` 讓服務重新擷取 PATH，並用 PlistBuddy 檢查 plist：https://hermes-agent.nousresearch.com/docs/reference/faq
+[^3]: Nous Research, Environment Variables：`HERMES_LOCAL_STT_COMMAND` 是可選的本機 STT command template，支援 `{input_path}`、`{output_dir}`、`{language}`、`{model}`；`HERMES_LOCAL_STT_LANGUAGE` 可指定預設語言：https://hermes-agent.nousresearch.com/docs/reference/environment-variables
 [^4]: 本站實機驗證（macOS、Hermes Agent v0.17.0、2026-07-29）：`/opt/homebrew/bin/ffmpeg` 與 `/opt/homebrew/bin/whisper` 存在，`/usr/local/bin/ffmpeg` 不存在；`~/.hermes/config.yaml` 使用 `stt.provider: homebrew_whisper` 與 `stt.providers.homebrew_whisper.type: command`，command 以 `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin` 開頭。

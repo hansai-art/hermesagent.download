@@ -1,8 +1,8 @@
-# REWRITE-PIPELINE.md — 三階段寫作流程
+# REWRITE-PIPELINE.md：三階段寫作流程
 
 > Research → Write → Verify。每篇新文章與重寫都走這條流水線,品質關卡不可跳過。
 
-## Stage 1 — Research(研究)
+## Stage 1 - Research(研究)
 
 用 RESEARCH-TEMPLATE.md 蒐集事實,產出研究筆記:
 
@@ -13,7 +13,7 @@
 
 **關卡**:研究筆記裡沒有來源的宣稱,不准進入 Stage 2。
 
-## Stage 2 — Write(寫作)
+## Stage 2 - Write(寫作)
 
 依 EDITORIAL.md 的方法論寫作:
 
@@ -22,7 +22,7 @@
 - 重要宣稱掛 `[^n]` 腳註(CITATION-SYSTEM.md)
 - 填齊 frontmatter:`title` `description` `date` `hermes_version` `upstream_refs`
 
-## Stage 3 — Verify(驗證)
+## Stage 3 - Verify(驗證)
 
 **技術文件的靈魂**。發 PR 前:
 

@@ -1,6 +1,6 @@
 ---
 title: "該選哪一種安裝方式"
-description: "桌面版、命令列、WSL2、Docker、無伺服器——五種裝法各有適用場景。花兩分鐘選對，省下之後重裝的時間。"
+description: "桌面版、命令列、WSL2、Docker、無伺服器：五種裝法各有適用場景。花兩分鐘選對，省下之後重裝的時間。"
 date: 2026-07-23
 subcategory: "download"
 hermes_version: ">=2026.5"
@@ -15,7 +15,7 @@ tags:
 status: "published"
 ---
 
-Hermes Agent 有五種裝法。選錯了不會裝不起來，但會在之後某個時刻讓你覺得綁手綁腳——例如你想接自動化腳本時才發現桌面版做不到，或者你在筆電上裝好了才想到它應該要 24 小時待命。
+Hermes Agent 有五種裝法。選錯了不會裝不起來，但會在之後某個時刻讓你覺得綁手綁腳：例如你想接自動化腳本時才發現桌面版做不到，或者你在筆電上裝好了才想到它應該要 24 小時待命。
 
 花兩分鐘選對，比之後重裝一次划算。
 
@@ -38,7 +38,7 @@ Hermes Agent 有五種裝法。選錯了不會裝不起來，但會在之後某�
 | 裝法 | 適合 | 不適合 |
 |---|---|---|
 | **桌面版** | 第一次接觸、不常用終端機 | 要接腳本、要自動化 |
-| **命令列(macOS/Linux)** | 日常在終端機工作的人 | — |
+| **命令列(macOS/Linux)** | 日常在終端機工作的人 | - |
 | **WSL2** | Windows 上要完整 Linux 工具鏈 | 只是想簡單用(overkill) |
 | **Docker** | 要環境隔離、要可重現的部署 | 想快速試用 |
 | **無伺服器(Modal 等)** | 要 24 小時待命但不想養機器 | 需要存取本機檔案 |
@@ -47,10 +47,10 @@ Hermes Agent 有五種裝法。選錯了不會裝不起來，但會在之後某�
 
 ## 直接看你的平台
 
-- [macOS 安裝](/install/macos/) — 桌面版或一行指令
-- [Windows 安裝](/install/windows/) — 桌面版 / PowerShell / WSL2
-- [Linux 安裝](/install/linux/) — 含 VPS 長駐的 service user 部署
-- [WSL2 完整教學](/install/wsl2/) — 含 gateway 常駐與瀏覽器控制的坑
+- [macOS 安裝](/install/macos/)：桌面版或一行指令
+- [Windows 安裝](/install/windows/)：桌面版 / PowerShell / WSL2
+- [Linux 安裝](/install/linux/)：含 VPS 長駐的 service user 部署
+- [WSL2 完整教學](/install/wsl2/)：含 gateway 常駐與瀏覽器控制的坑
 
 ## 伺服器與無伺服器
 
@@ -58,7 +58,7 @@ Hermes Agent 有五種裝法。選錯了不會裝不起來，但會在之後某�
 
 VPS 部署的注意事項(service user、跳過瀏覽器相依)寫在 [Linux 安裝教學](/install/linux/)。
 
-> 📝 **這一塊我們還沒有文章**:Docker、Modal、Daytona 的實際部署步驟目前是空白的——
+> 📝 **這一塊我們還沒有文章**:Docker、Modal、Daytona 的實際部署步驟目前是空白的：
 > 官方文件有提到這些選項，但中文圈沒有人寫過完整流程。
 >
 > 如果你部署過其中任何一種，
@@ -77,4 +77,4 @@ VPS 部署的注意事項(service user、跳過瀏覽器相依)寫在 [Linux 安
 - 裝完要設模型 → [模型供應商與 API key 設定](/config/model-provider/)
 - 完全不知道從哪開始 → [新手路線](/guides/start/)
 
-[^1]: Nous Research, Docs — https://hermes-agent.nousresearch.com/docs(2026-07-23 存取)
+[^1]: Nous Research, Docs：https://hermes-agent.nousresearch.com/docs (2026-07-23 存取)

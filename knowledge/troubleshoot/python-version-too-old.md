@@ -21,7 +21,7 @@ Hermes requires Python 3.11 or newer
 
 看到這行，先問自己一個問題：**你是不是自己用 pip 裝的，或者在一台舊系統上手動裝的？**
 
-因為官方一行安裝腳本會自動裝好 Python 3.11[^1]——會撞到這個錯，通常代表安裝過程沒走那條路，或者你的環境裡有多個 Python 版本在打架。
+因為官方一行安裝腳本會自動裝好 Python 3.11[^1]：會撞到這個錯，通常代表安裝過程沒走那條路，或者你的環境裡有多個 Python 版本在打架。
 
 ## 先確認現在是幾版
 
@@ -69,7 +69,7 @@ python3 --version
 
 **預期輸出**:`Python 3.12.x`。
 
-> ⚠️ **注意**：在某些系統上，裝了新版 Python 不代表 `python3` 就會指向它——系統可能仍指向舊版。
+> ⚠️ **注意**：在某些系統上，裝了新版 Python 不代表 `python3` 就會指向它，系統可能仍指向舊版。
 > 如果裝完版本沒變，你需要調整 PATH 或使用 `update-alternatives`(Debian 系)。
 >
 > 📝 **待補**：各系統切換預設 Python 版本的具體做法，我們還沒整理完整。
@@ -101,16 +101,16 @@ hermes doctor
 
 ### 我不想動到系統 Python，會影響其他專案嗎？
 
-走官方安裝腳本就不會——它用 uv 建立獨立環境，不會替換你的系統 Python。
+走官方安裝腳本就不會：它用 uv 建立獨立環境，不會替換你的系統 Python。
 
 ### 升級 Python 會不會弄壞系統？
 
-在 Ubuntu / Debian 上，**安裝**新版本(`apt install python3.12`)是安全的，系統會保留舊版。危險的是把系統預設的 `python3` 指向新版——某些系統工具依賴特定版本。所以優先選解法一。
+在 Ubuntu / Debian 上，**安裝**新版本(`apt install python3.12`)是安全的，系統會保留舊版。危險的是把系統預設的 `python3` 指向新版：某些系統工具依賴特定版本。所以優先選解法一。
 
 ## 下一步
 
 - 裝好了要設模型 → [模型供應商與 API key 設定](/config/model-provider/)
 - 遇到別的錯 → [疑難排解總覽](/troubleshoot/overview/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
-[^2]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+[^2]: Nous Research, Installation：https://hermes-agent.nousresearch.com/docs/getting-started/installation

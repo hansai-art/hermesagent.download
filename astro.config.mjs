@@ -45,6 +45,12 @@ export default defineConfig({
     }),
   ],
   markdown: {
+    // 2026-07-30：smartypants 把正文裡的 `--flag` 轉成破折號，21 個 CLI 參數
+    // 在 16 頁上被印錯（`--tui` 變 `—tui`、`--no-skills` 變 `—no-skills`、
+    // `--output-format` 變 `—output-format`…）。讀者照抄會失敗，而且使用者真正
+    // 會搜的那串字根本不在頁面上。
+    // 這是 CLI 文件站，`--` 的正確性遠比彎引號與省略號好看重要。
+    smartypants: false,
     shikiConfig: {
       theme: 'github-dark',
       wrap: true,

@@ -1,6 +1,6 @@
 ---
 title: "模型供應商與 API key 設定"
-description: "選哪家、怎麼填 key、怎麼省錢、怎麼接本地模型。含讓子代理跑便宜模型的設定——這招最有感。"
+description: "選哪家、怎麼填 key、怎麼省錢、怎麼接本地模型。含讓子代理跑便宜模型的設定：這招最有感。"
 date: 2026-07-23
 subcategory: "provider"
 hermes_version: ">=2026.5"
@@ -15,9 +15,9 @@ tags:
 status: "published"
 ---
 
-Hermes Agent 裝好之後還不能用——它不自帶模型，你得先告訴它去哪裡取得推論能力。
+Hermes Agent 裝好之後還不能用：它不自帶模型，你得先告訴它去哪裡取得推論能力。
 
-這一步會決定兩件事：**體驗好不好**，以及**每個月付多少錢**。而這兩件事的差距可以很大——同樣的工作量，設定得好跟設定得差，成本可以差一個數量級。
+這一步會決定兩件事：**體驗好不好**，以及**每個月付多少錢**。而這兩件事的差距可以很大：同樣的工作量，設定得好跟設定得差，成本可以差一個數量級。
 
 ## 最快的路：官方 Portal
 
@@ -93,7 +93,7 @@ model:
 
 這招最有感，但很多人不知道。
 
-Hermes 會派出子代理(subagent)處理平行工作。這些子任務多半不需要最強的模型——但預設會用你設定的主模型，等於用旗艦模型的價格做雜事。
+Hermes 會派出子代理(subagent)處理平行工作。這些子任務多半不需要最強的模型：但預設會用你設定的主模型，等於用旗艦模型的價格做雜事。
 
 在 `~/.hermes/config.yaml` 的 `delegation` 區塊指定子代理專用的便宜模型[^1]:
 
@@ -106,7 +106,7 @@ delegation:
 主對話維持高品質，子任務走便宜模型。
 
 > 📝 **待補實測數據**：實際能省多少，取決於你的使用模式。
-> 如果你前後對比過帳單，[幫我們補上真實數字](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/model-provider.md)——
+> 如果你前後對比過帳單，[幫我們補上真實數字](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/model-provider.md)：
 > 這種只有實際用過才知道的資訊，正是這個站最缺的。
 
 ## 確認設定生效
@@ -133,7 +133,7 @@ Hermes Agent 本體是 MIT 授權的開源軟體，**免費**。你只付所選�
 
 ### API key 填了還是報錯？
 
-最常見的原因是 key 跟供應商配錯——OpenAI 的 key 不能用在 OpenRouter[^1]。詳細排查見 [API key not set 怎麼解](/troubleshoot/api-key-not-set/)。
+最常見的原因是 key 跟供應商配錯：OpenAI 的 key 不能用在 OpenRouter[^1]。詳細排查見 [API key not set 怎麼解](/troubleshoot/api-key-not-set/)。
 
 ### 對話中途想換模型？
 
@@ -150,4 +150,4 @@ Hermes Agent 本體是 MIT 授權的開源軟體，**免費**。你只付所選�
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
 - 想看它能做什麼 → [技能目錄](/skills/catalog/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)

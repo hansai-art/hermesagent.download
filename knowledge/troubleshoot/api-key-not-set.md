@@ -14,7 +14,7 @@ tags:
 status: "published"
 ---
 
-你確定 key 是對的——剛從供應商後台複製貼上的，一個字都沒錯。但 Hermes 就是說：
+你確定 key 是對的：剛從供應商後台複製貼上的，一個字都沒錯。但 Hermes 就是說：
 
 ```
 API key not set
@@ -22,7 +22,7 @@ API key not set
 
 或者更氣人的：key 明明填了，卻回你驗證失敗。
 
-**最常見的原因不是 key 打錯，是 key 跟供應商配錯了**。OpenAI 的 key 不能用在 OpenRouter 上，反之亦然[^1]——兩邊的 key 長得很像，很容易貼錯格子。
+**最常見的原因不是 key 打錯，是 key 跟供應商配錯了**。OpenAI 的 key 不能用在 OpenRouter 上，反之亦然[^1]：兩邊的 key 長得很像，很容易貼錯格子。
 
 ## 第一步：看目前到底設了什麼
 
@@ -32,7 +32,7 @@ hermes config show
 
 這會列出當前設定[^1]。看兩件事：
 
-1. **供應商是不是你以為的那個**——如果你以為在用 OpenRouter，但這裡顯示 OpenAI，那 key 當然對不上
+1. **供應商是不是你以為的那個**：如果你以為在用 OpenRouter，但這裡顯示 OpenAI，那 key 當然對不上
 2. **key 有沒有真的存進去**
 
 > 📝 **這一段缺實際輸出**:`hermes config show` 的實際欄位長什麼樣、key 是否會被遮罩，
@@ -55,7 +55,7 @@ hermes model
 hermes config set OPENROUTER_API_KEY sk-or-v1-xxxx
 ```
 
-**注意 key 的前綴**——它通常會告訴你這是哪一家的 key:
+**注意 key 的前綴**：它通常會告訴你這是哪一家的 key:
 
 | 前綴 | 供應商 |
 |---|---|
@@ -83,7 +83,7 @@ hermes
 
 進去隨便問一句話。**成功判準**：能正常回覆，不再出現 key 相關錯誤。
 
-如果還是失敗，錯誤訊息這次通常會更具體(例如額度不足、模型名稱不存在)，照著訊息處理即可——至少已經不是 key 沒設的問題了。
+如果還是失敗，錯誤訊息這次通常會更具體(例如額度不足、模型名稱不存在)，照著訊息處理即可：至少已經不是 key 沒設的問題了。
 
 ## 常見問題
 
@@ -116,4 +116,4 @@ hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 - 供應商怎麼選、怎麼省錢 → [模型供應商與 API key 設定](/config/model-provider/)
 - 遇到別的錯 → [疑難排解總覽](/troubleshoot/overview/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)

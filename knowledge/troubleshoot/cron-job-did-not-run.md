@@ -188,7 +188,7 @@ ERROR: <失敗時才印>
 - 搞懂 config 與本機檔案 → [config.yaml 是什麼](/config/config-yaml-reference/)
 - 任務跑很久又變慢 → [長 session 變慢與 preflight compression](/troubleshoot/long-session-preflight-compression/)
 
-[^1]: Nous Research, Scheduled Tasks (Cron) — https://hermes-agent.nousresearch.com/docs/user-guide/features/cron（2026-07-29 存取）。官方文件說明 cron 由 gateway daemon 執行、每 60 秒 tick、CLI 的 local delivery 會保存到 `~/.hermes/cron/output/`、可用 `hermes cron run/list/status` 管理。
+[^1]: Nous Research, Scheduled Tasks (Cron)：https://hermes-agent.nousresearch.com/docs/user-guide/features/cron （2026-07-29 存取）。官方文件說明 cron 由 gateway daemon 執行、每 60 秒 tick、CLI 的 local delivery 會保存到 `~/.hermes/cron/output/`、可用 `hermes cron run/list/status` 管理。
 [^2]: 本站 macOS 實測（Hermes Agent v0.17.0，2026-07-29）：no-agent cron job 手動 `hermes cron run` 後產生 output Markdown，回讀 `jobs.json` 顯示 `last_status: ok`、`last_error: None`。私人會議 URL、參與者名稱與 chat id 已刻意不寫入本文。
 [^3]: 本站實測排錯順序（macOS、Hermes Agent v0.17.0，2026-07-29）：先用 `hermes cron status` 確認 gateway，再用 `hermes cron list` 對照 `last_run_at` / `next_run_at`，最後才讀 output。這個順序能避免把 daemon 問題誤修成 prompt 問題。
 [^4]: 本站 CLI 環境限制（2026-07-29）：本機終端機沒有持續訊息投遞通道；若 cron job 只設定 local / 預設 delivery，結果只能由檔案回讀。需要通知就要送到 gateway-connected platform，例如 Telegram 或 Discord。

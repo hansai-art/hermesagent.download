@@ -132,5 +132,5 @@ OK
 - 想理解 skill 載入 → [Skills 系統](/skills/skills-mcp-overview/)
 
 [^1]: 本站實機案例（macOS、Hermes Agent v0.17.0、openai-codex、2026-06-30）：長需求後輸入 `plan`，session 紀錄確認第一步載入 `skill_view(name="plan")`，後續 log 出現 `Non-streaming API call stale for 90s ... Killing connection`，最終使用者看到 `API call failed after 3 retries: [Errno 32] Broken pipe`。
-[^2]: Nous Research, Slash Commands：`/compress`、`/skills`、`/skill <name>` 等指令為互動 session 功能；`plan` 屬於技能工作流，技能可透過 slash command 或自然語言載入 — https://hermes-agent.nousresearch.com/docs/reference/slash-commands
-[^3]: NousResearch/hermes-agent 原始碼：`run_agent.py` 中 stale timeout 優先序為 `providers.<id>.models.<model>.stale_timeout_seconds`、`providers.<id>.stale_timeout_seconds`、`HERMES_API_CALL_STALE_TIMEOUT`、預設 90 秒；`agent/chat_completion_helpers.py` 會在 non-streaming 請求 stale 時記錄並殺掉連線 — https://github.com/NousResearch/hermes-agent/blob/main/run_agent.py
+[^2]: Nous Research, Slash Commands：`/compress`、`/skills`、`/skill <name>` 等指令為互動 session 功能；`plan` 屬於技能工作流，技能可透過 slash command 或自然語言載入：https://hermes-agent.nousresearch.com/docs/reference/slash-commands
+[^3]: NousResearch/hermes-agent 原始碼：`run_agent.py` 中 stale timeout 優先序為 `providers.<id>.models.<model>.stale_timeout_seconds`、`providers.<id>.stale_timeout_seconds`、`HERMES_API_CALL_STALE_TIMEOUT`、預設 90 秒；`agent/chat_completion_helpers.py` 會在 non-streaming 請求 stale 時記錄並殺掉連線：https://github.com/NousResearch/hermes-agent/blob/main/run_agent.py

@@ -186,5 +186,5 @@ skills:
 - 想理解 config.yaml 分工 → [config.yaml 是什麼](/config/config-yaml-reference/)
 - 想知道怎麼挑 skill → [推薦 Skills](/skills/recommended-skills/)
 
-[^1]: Nous Research, Skills System：External Skill Directories 可在 `skills.external_dirs` 設定，支援 `~` 與 `${VAR}`，外部 skills 會出現在 prompt index、`skills_list`、`skill_view` 與 slash commands；同名時 local version wins；external dirs 不是 write-protection boundary；不存在的路徑會被略過 — https://hermes-agent.nousresearch.com/docs/user-guide/features/skills
+[^1]: Nous Research, Skills System：External Skill Directories 可在 `skills.external_dirs` 設定，支援 `~` 與 `${VAR}`，外部 skills 會出現在 prompt index、`skills_list`、`skill_view` 與 slash commands；同名時 local version wins；external dirs 不是 write-protection boundary；不存在的路徑會被略過：https://hermes-agent.nousresearch.com/docs/user-guide/features/skills
 [^2]: 本站實機驗證（macOS、Hermes Agent v0.17.0、2026-07-29）：`~/.hermes/config.yaml` 中 `skills.external_dirs` 指向 `/Users/jugang11/.agents/skills`，且 `/Users/jugang11/.agents/skills` 與 `/Users/jugang11/.hermes/skills` 皆存在。

@@ -15,7 +15,7 @@ tags:
 status: "published"
 ---
 
-Linux 上裝 Hermes Agent 只需要一行指令。但如果你少了前置套件，它會失敗得很莫名其妙——中途噴一段解壓縮錯誤然後停住，訊息不會告訴你缺的是 `xz-utils`。
+Linux 上裝 Hermes Agent 只需要一行指令。但如果你少了前置套件，它會失敗得很莫名其妙：中途噴一段解壓縮錯誤然後停住，訊息不會告訴你缺的是 `xz-utils`。
 
 所以先花三十秒把前置裝好。
 
@@ -132,4 +132,4 @@ shell 沒重新載入。見 [command not found 怎麼解](/troubleshoot/command-
 - 設定模型 → [模型供應商與 API key 設定](/config/model-provider/)
 - 遇到 Python 版本問題 → [Python 版本太舊怎麼解](/troubleshoot/python-version-too-old/)
 
-[^1]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation(2026-07-23 存取)
+[^1]: Nous Research, Installation：https://hermes-agent.nousresearch.com/docs/getting-started/installation (2026-07-23 存取)

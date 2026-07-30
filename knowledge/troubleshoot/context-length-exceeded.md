@@ -1,6 +1,6 @@
 ---
 title: "context length exceeded 怎麼解"
-description: "先用 /compress 救回當前對話，再從設定根治。本地模型使用者特別容易踩到——原因跟你想的不一樣。"
+description: "先用 /compress 救回當前對話，再從設定根治。本地模型使用者特別容易踩到：原因跟你想的不一樣。"
 date: 2026-07-23
 subcategory: "runtime"
 hermes_version: ">=2026.5"
@@ -14,7 +14,7 @@ tags:
 status: "published"
 ---
 
-你正在做一件事做到一半——agent 讀了幾個檔案、跑了幾個工具、來回討論了二十輪——然後它突然說：
+你正在做一件事做到一半：agent 讀了幾個檔案、跑了幾個工具、來回討論了二十輪：然後它突然說：
 
 ```
 context length exceeded
@@ -32,7 +32,7 @@ context length exceeded
 
 這會把先前的對話歷史摘要成較短的版本，騰出空間繼續[^1]。
 
-**成功判準**：能繼續對話，不再噴 context 錯誤。摘要會保留脈絡，但細節可能被壓掉——如果後面發現它「忘記」了某個細節，重新講一次即可。
+**成功判準**：能繼續對話，不再噴 context 錯誤。摘要會保留脈絡，但細節可能被壓掉：如果後面發現它「忘記」了某個細節，重新講一次即可。
 
 ## 看看到底用掉多少
 
@@ -46,7 +46,7 @@ context length exceeded
 
 這一步對**本地模型或自架 endpoint 的使用者特別重要**。
 
-Hermes 會嘗試偵測模型的 context 上限，但接自架服務時常常抓不準——它可能以為你的模型只有 8K，實際上有 128K，於是提早就報錯。
+Hermes 會嘗試偵測模型的 context 上限，但接自架服務時常常抓不準：它可能以為你的模型只有 8K，實際上有 128K，於是提早就報錯。
 
 編輯 `~/.hermes/config.yaml`:
 
@@ -68,7 +68,7 @@ model:
 
 `/compress` 是急救，不是常態解。幾個減少撞牆機率的做法：
 
-**做完一件事就開新對話**。Hermes 的記憶系統會跨 session 保留重要資訊，所以開新對話不等於從零開始——它記得你是誰、專案長什麼樣。持續在同一個 session 裡堆疊，反而是把大量已經處理完的細節一直帶著走。
+**做完一件事就開新對話**。Hermes 的記憶系統會跨 session 保留重要資訊，所以開新對話不等於從零開始：它記得你是誰、專案長什麼樣。持續在同一個 session 裡堆疊，反而是把大量已經處理完的細節一直帶著走。
 
 **大檔案別整個丟進去**。讓 agent 用工具去讀特定段落，比你貼一整份檔案有效率。
 
@@ -82,7 +82,7 @@ model:
 
 ### 換成 context 更大的模型能解決嗎？
 
-能拖延，但不能根治——長對話終究會撞牆。搭配 `/compress` 與適時開新對話才是穩定的做法。
+能拖延，但不能根治：長對話終究會撞牆。搭配 `/compress` 與適時開新對話才是穩定的做法。
 
 ### 壓縮之後 agent 忘記事情了怎麼辦？
 
@@ -93,4 +93,4 @@ model:
 - 設定模型與本地 endpoint → [模型供應商與 API key 設定](/config/model-provider/)
 - 遇到別的錯 → [疑難排解總覽](/troubleshoot/overview/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)

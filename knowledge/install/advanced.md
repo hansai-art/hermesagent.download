@@ -1,6 +1,6 @@
 ---
 title: "進階部署：Docker、無伺服器、遠端"
-description: "讓 agent 不綁在你的筆電上。官方支援六種執行環境——這篇說明各自的取捨，以及目前中文文件的缺口在哪。"
+description: "讓 agent 不綁在你的筆電上。官方支援六種執行環境：這篇說明各自的取捨，以及目前中文文件的缺口在哪。"
 date: 2026-07-23
 subcategory: "advanced"
 hermes_version: ">=2026.5"
@@ -30,13 +30,13 @@ agent 只在你開著電腦時能用，那它就只是一個比較聰明的終�
 | **Singularity** | HPC / 研究叢集環境 | 場景較特殊 |
 | **Modal(無伺服器)** | 24 小時待命但不想養機器 | 閒置會休眠，冷啟動有延遲 |
 
-Modal 這個選項的特別之處在於**閒置時自動休眠**[^1]——你不用為了等待狀態付整天的錢。
+Modal 這個選項的特別之處在於**閒置時自動休眠**[^1]：你不用為了等待狀態付整天的錢。
 
 ## 選擇的三個判準
 
 **一、它需要存取你本機的檔案嗎？**
 
-需要的話，遠端與無伺服器方案都會很麻煩——檔案不在那台機器上。這種情況比較適合本機或 Docker。
+需要的話，遠端與無伺服器方案都會很麻煩：檔案不在那台機器上。這種情況比較適合本機或 Docker。
 
 **二、你能接受冷啟動延遲嗎？**
 
@@ -56,11 +56,11 @@ VPS 便宜且完全可控，但你要負責更新、安全、監控。無伺服�
 
 坦白說：**Docker、Modal、Daytona 的實際部署步驟，這個站目前是空白的。**
 
-官方文件列出了這些選項，但中文圈沒有人寫過完整流程——踩什麼坑、設定檔怎麼寫、資料怎麼持久化、成本大概多少。這些是只有真的部署過的人才知道的東西。
+官方文件列出了這些選項，但中文圈沒有人寫過完整流程：踩什麼坑、設定檔怎麼寫、資料怎麼持久化、成本大概多少。這些是只有真的部署過的人才知道的東西。
 
 如果你跑過其中任何一種：
 
-- [開一個 issue 講給我們聽](https://github.com/hansai-art/hermesagent.download/issues/new?template=02-article-proposal.yml)——不用寫成文章，講重點就好，我們幫你整理並掛你的名字
+- [開一個 issue 講給我們聽](https://github.com/hansai-art/hermesagent.download/issues/new?template=02-article-proposal.yml)：不用寫成文章，講重點就好，我們幫你整理並掛你的名字
 - 或者[直接寫一篇](https://github.com/hansai-art/hermesagent.download/blob/main/CONTRIBUTING.md)
 
 這是目前這個站最需要人手的地方之一。
@@ -71,4 +71,4 @@ VPS 便宜且完全可控，但你要負責更新、安全、監控。無伺服�
 - VPS 部署 → [Linux 安裝教學](/install/linux/)
 - WSL2 常駐 → [WSL2 完整教學](/install/wsl2/)
 
-[^1]: Nous Research, Docs — https://hermes-agent.nousresearch.com/docs(2026-07-23 存取)
+[^1]: Nous Research, Docs：https://hermes-agent.nousresearch.com/docs (2026-07-23 存取)

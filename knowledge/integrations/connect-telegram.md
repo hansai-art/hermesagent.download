@@ -14,9 +14,9 @@ tags:
 status: "published"
 ---
 
-把 Hermes 接上 Telegram，你就能在手機上隨時丟一句話給它——它在遠端做完事再回你。這是最多人用的接法。
+把 Hermes 接上 Telegram，你就能在手機上隨時丟一句話給它：它在遠端做完事再回你。這是最多人用的接法。
 
-整個流程五步，大約十分鐘。**最容易卡的不是技術，是授權**——Hermes 預設拒絕所有人，你得先把自己加進白名單，否則連你自己傳訊息它都不理。這篇會特別講清楚那一步。
+整個流程五步，大約十分鐘。**最容易卡的不是技術，是授權**：Hermes 預設拒絕所有人，你得先把自己加進白名單，否則連你自己傳訊息它都不理。這篇會特別講清楚那一步。
 
 ## 第一步：跟 BotFather 要一個 token
 
@@ -28,7 +28,7 @@ Telegram 的機器人都是透過官方的 @BotFather 建立的[^1]:
 4. 取一個以 `bot` 結尾的 username(例如 `my_hermes_bot`)
 5. BotFather 會回你一段 token，長這樣：`123456789:ABCdefGHIjklMNOpqrSTUvwxYZ`[^1]
 
-⚠️ **這段 token 等於你 bot 的鑰匙**——拿到它的人就能控制你的 bot。別貼到公開的地方[^1]。
+⚠️ **這段 token 等於你 bot 的鑰匙**：拿到它的人就能控制你的 bot。別貼到公開的地方[^1]。
 
 ## 第二步：設定 Hermes
 
@@ -40,7 +40,7 @@ hermes gateway setup
 
 跳出選單時選 Telegram，貼上 token，填入允許的使用者 ID(下一步教你怎麼找 ID)。
 
-**或者手動設定**——編輯 `~/.hermes/.env`:
+**或者手動設定**：編輯 `~/.hermes/.env`:
 
 ```text
 TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrSTUvwxYZ
@@ -55,7 +55,7 @@ Hermes 的 gateway **預設拒絕所有人，這是刻意的安全設計**[^1]�
 
 先找出你的 Telegram 使用者 ID：傳訊息給 **@userinfobot**，它會回你一串數字 ID(像 `123456789`)[^3]。
 
-把這個數字填進 `TELEGRAM_ALLOWED_USERS`(第二步那個欄位)。這一步漏了，症狀會是「bot 上線了但完全不理我」——不是壞掉，是它不認得你。
+把這個數字填進 `TELEGRAM_ALLOWED_USERS`(第二步那個欄位)。這一步漏了，症狀會是「bot 上線了但完全不理我」：不是壞掉，是它不認得你。
 
 ## 第四步：開 gateway
 
@@ -71,7 +71,7 @@ bot 應該幾秒內上線[^1]。
 
 在 Telegram 上傳一句話給你的 bot。
 
-**成功判準**：它有回應。如果沒反應，查 `~/.hermes/logs/gateway.log`——gateway 啟動時會在這裡留連線紀錄[^1]。
+**成功判準**：它有回應。如果沒反應，查 `~/.hermes/logs/gateway.log`：gateway 啟動時會在這裡留連線紀錄[^1]。
 
 沒回應最常見的兩個原因：**沒把自己加進白名單**(回第三步)，或 **gateway 沒在跑**(回第四步)。
 
@@ -108,6 +108,6 @@ Telegram 對斜線指令有 100 個上限，超過的會安靜消失。解法見
 - WSL 使用者的常駐設定 → [WSL2 完整教學](/install/wsl2/)
 - 接外部工具 → [接上你的第一個 MCP](/integrations/connect-first-mcp/)
 
-[^1]: Nous Research, Telegram — https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram(2026-07-25 存取)。含 BotFather 建立流程、`hermes gateway setup`、`TELEGRAM_BOT_TOKEN` / `TELEGRAM_ALLOWED_USERS` 設定、預設拒絕所有人
+[^1]: Nous Research, Telegram：https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram (2026-07-25 存取)。含 BotFather 建立流程、`hermes gateway setup`、`TELEGRAM_BOT_TOKEN` / `TELEGRAM_ALLOWED_USERS` 設定、預設拒絕所有人
 [^2]: 同上，群組使用需在 BotFather 關閉 privacy mode，並於變更後將 bot 移除再重新加入群組
 [^3]: 同上，以 @userinfobot 查詢數字使用者 ID;`hermes gateway` 啟動後連線紀錄寫入 `~/.hermes/logs/gateway.log`

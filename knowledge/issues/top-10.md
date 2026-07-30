@@ -123,4 +123,4 @@ No.10．29 reactions．7 則討論
 
 社群 最後檢查 2026-07-04 [原始 issue ↗](https://github.com/NousResearch/hermes-agent/issues/9459)
 
-[回官方 Issue 精選問答](/issues/)�．[逐題排解教學](/troubleshoot/overview/)
+[回官方 Issue 精選問答](/issues/)．[逐題排解教學](/troubleshoot/overview/)

@@ -38,7 +38,7 @@ hermes insights
   ║                       Last 30 days                       ║
   ╚══════════════════════════════════════════════════════════╝
 
-  Period: <起日> — <迄日>
+  Period: <起日> - <迄日>
 
   📋 Overview
   ────────────────────────────────────────────────────────
@@ -171,6 +171,6 @@ hermes insights --days 30 --source cli
 - 環境有沒有問題 → [hermes doctor 到底檢查什麼](/troubleshoot/hermes-doctor/)
 - 上下文爆掉怎麼辦 → [context length exceeded 怎麼解](/troubleshoot/context-length-exceeded/)
 
-[^1]: 本機實測 `hermes insights --help`（macOS、v0.17.0、2026-07-29），說明原文：「Analyze session history to show token usage, costs, tool patterns, and activity trends」，旗標為 `--days` 與 `--source`。官方文件見 — https://hermes-agent.nousresearch.com/docs
-[^2]: 本機實測 `hermes insights` 於 `--days 7 / 30 / 90` 三個時間窗的 Overview 區塊數值（macOS、v0.17.0、2026-07-29），Total 與 Input+Output 的比值分別約 2.0、11.1、11.1，故兩者非相加關係。官方文件未定義 Total 的組成 — https://hermes-agent.nousresearch.com/docs
-[^3]: 報表區塊名稱與順序逐字取自實機輸出：Overview、Models Used、Platforms、Top Tools、Top Skills、Activity Patterns、Notable Sessions（macOS、v0.17.0、2026-07-29）。官方文件見 — https://hermes-agent.nousresearch.com/docs/reference/faq
+[^1]: 本機實測 `hermes insights --help`（macOS、v0.17.0、2026-07-29），說明原文：「Analyze session history to show token usage, costs, tool patterns, and activity trends」，旗標為 `--days` 與 `--source`。官方文件見：https://hermes-agent.nousresearch.com/docs
+[^2]: 本機實測 `hermes insights` 於 `--days 7 / 30 / 90` 三個時間窗的 Overview 區塊數值（macOS、v0.17.0、2026-07-29），Total 與 Input+Output 的比值分別約 2.0、11.1、11.1，故兩者非相加關係。官方文件未定義 Total 的組成：https://hermes-agent.nousresearch.com/docs
+[^3]: 報表區塊名稱與順序逐字取自實機輸出：Overview、Models Used、Platforms、Top Tools、Top Skills、Activity Patterns、Notable Sessions（macOS、v0.17.0、2026-07-29）。官方文件見：https://hermes-agent.nousresearch.com/docs/reference/faq

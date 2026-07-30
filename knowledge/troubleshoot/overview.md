@@ -1,6 +1,6 @@
 ---
 title: "排錯的正確順序"
-description: "亂槍打鳥最浪費時間。四層排查法：先確認執行檔、再確認設定、再確認模型、最後才是功能——照順序查，不會白費工。"
+description: "亂槍打鳥最浪費時間。四層排查法：先確認執行檔、再確認設定、再確認模型、最後才是功能，照順序查，不會白費工。"
 date: 2026-07-23
 subcategory: "overview"
 hermes_version: ">=2026.5"
@@ -27,7 +27,7 @@ status: "published"
 hermes doctor
 ```
 
-這是官方診斷指令[^1]。**如果連這個指令都找不到**，問題在最外層——不是設定、不是模型，是你的 shell 找不到執行檔。
+這是官方診斷指令[^1]。**如果連這個指令都找不到**，問題在最外層：不是設定、不是模型，是你的 shell 找不到執行檔。
 
 → [command not found 怎麼解](/troubleshoot/command-not-found/)(九成是 shell 沒重載 PATH，不是安裝失敗)
 
@@ -53,7 +53,7 @@ hermes config show
 hermes
 ```
 
-隨便問一句話。這一步會把「設定正確」和「真的能用」分開——設定填對了，但 key 過期、額度用完、模型名稱不存在，都會在這裡才爆出來。
+隨便問一句話。這一步會把「設定正確」和「真的能用」分開：設定填對了，但 key 過期、額度用完、模型名稱不存在，都會在這裡才爆出來。
 
 **看錯誤訊息的具體內容**：提到 key 就回第二層；提到 context 或 token 就是第四層；提到模型名稱不存在，回去確認 `HERMES_MODEL` 拼字。
 
@@ -82,7 +82,7 @@ hermes
 
 ## 回報問題
 
-確認不是已知問題，而且你覺得這裡的文件應該要寫但沒寫——
+確認不是已知問題，而且你覺得這裡的文件應該要寫但沒寫：
 [開一個 issue 告訴我們](https://github.com/hansai-art/hermesagent.download/issues/new?template=01-content-error.yml)。
 你花時間解出來的東西，下一個人就不用再花一次。
 
@@ -92,4 +92,4 @@ hermes
 - 從頭開始 → [新手路線](/guides/start/)
 - 想看實際案例 → [官方 issue 中文精選](/issues/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)

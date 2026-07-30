@@ -71,10 +71,10 @@ status: "published"
 | 顯示記憶體 | 跑得動什麼 | 新品可買 | 二手 |
 |---|---|---|---|
 | 8 GB | 只有最小的模型，多半不會動手做事 | RTX 5060／5050 | 不建議 |
-| 12 GB | 9B 級模型 + 64K context，堪用起點 | RTX 5070 | — |
-| 16 GB | 9B 級開到 128K context | RTX 5070 Ti／5080 | — |
+| 12 GB | 9B 級模型 + 64K context，堪用起點 | RTX 5070 | - |
+| 16 GB | 9B 級開到 128K context | RTX 5070 Ti／5080 | - |
 | **24 GB** | **官方推薦的 31B 級模型** | 截至 2026 年 7 月，消費級新品沒有這個容量 | **RTX 3090／4090** |
-| 32 GB | 31B 級開長 context | **RTX 5090** | — |
+| 32 GB | 31B 級開長 context | **RTX 5090** | - |
 
 一句話結論：
 
@@ -193,9 +193,9 @@ df -h ~
 
 ## 三個會讓你白忙的誤判
 
-1. **「我的 Mac 規格很好，應該可以裝」** — 只要是 Intel 機型就不行，跟規格無關。
-2. **「8 GB 就能在自己電腦跑 AI」** — 官方數字是這樣沒錯，但那個級距只塞得下 3B 小模型，要手動把 context 壓到 64K 下限，而且官方自己說這種小模型常常不會動手做事，只能聊天。實際要用，16 GB 起。
-3. **「要先裝好 Python」** — 不用，自己裝反而容易踩到 3.14 裝不起來的坑。
+1. **「我的 Mac 規格很好，應該可以裝」**：只要是 Intel 機型就不行，跟規格無關。
+2. **「8 GB 就能在自己電腦跑 AI」**：官方數字是這樣沒錯，但那個級距只塞得下 3B 小模型，要手動把 context 壓到 64K 下限，而且官方自己說這種小模型常常不會動手做事，只能聊天。實際要用，16 GB 起。
+3. **「要先裝好 Python」**：不用，自己裝反而容易踩到 3.14 裝不起來的坑。
 
 **配備符合就可以往下走**：[macOS](/install/macos/)、[Windows](/install/windows/)、[Linux](/install/linux/)、[WSL2](/install/wsl2/)。
 
@@ -370,7 +370,7 @@ hermes doctor
 | 程式本體 | 2.8 GB |
 | 用一陣子之後的完整資料夾（含聊天紀錄與快取） | 7.4 GB |
 
-**為什麼只能當參考**：你的數字幾乎一定跟我們不同，因為這些都會改變結果 — 有沒有開瀏覽器功能（開了會多吃幾百 MB）、接了幾個聊天軟體、同時開幾個對話、對話累積多久、裝了哪些額外功能。
+**為什麼只能當參考**：你的數字幾乎一定跟我們不同，因為這些都會改變結果，有沒有開瀏覽器功能（開了會多吃幾百 MB）、接了幾個聊天軟體、同時開幾個對話、對話累積多久、裝了哪些額外功能。
 
 請用「量級」判斷，不要拿單一數字當規格：**Hermes 本身是幾百 MB 的量級，不是幾個 GB。把它當成多開一個瀏覽器分頁，不是多開一台虛擬電腦。** 硬碟那個 7.4 GB 尤其不能照抄，聊天紀錄會一直累積，用三個月和用三年差距很大。
 
@@ -384,12 +384,12 @@ hermes doctor
 - 想比較五種安裝方式：[下載與安裝方式比較](/install/download/)
 - 伺服器長駐與容器化：[進階部署](/install/advanced/)
 
-[^1]: Nous Research, Platform Support：https://hermes-agent.nousresearch.com/docs/getting-started/platform-support（2026-07-28 存取）
-[^2]: Nous Research, Installation，Prerequisites 段：https://hermes-agent.nousresearch.com/docs/getting-started/installation（2026-07-28 存取）。記憶體與硬碟佔用為本站實測，官方文件無此資料。
-[^3]: Nous Research, Run Hermes Locally with Ollama：https://hermes-agent.nousresearch.com/docs/guides/local-ollama-setup（2026-07-28 存取）
-[^4]: Nous Research, Windows (Native) Guide，Feature matrix 段：https://hermes-agent.nousresearch.com/docs/user-guide/windows-native（2026-07-28 存取）
-[^5]: hermes-agent `pyproject.toml`，`requires-python = ">=3.11,<3.14"` 與其上方註解：https://github.com/NousResearch/hermes-agent/blob/main/pyproject.toml（2026-07-28 存取）
-[^6]: Nous Research, Termux，Known limitations on phones 段：https://hermes-agent.nousresearch.com/docs/getting-started/termux（2026-07-28 存取）
-[^7]: Nous Research, Local LLM on Mac（llama.cpp / MLX，含 Qwen3.5-9B 記憶體換算）：https://hermes-agent.nousresearch.com/docs/guides/local-llm-on-mac（2026-07-28 存取）
-[^8]: Nous Research, Quickstart，「Minimum context: 64K tokens」caution 段：https://hermes-agent.nousresearch.com/docs/getting-started/quickstart（2026-07-28 存取）
-[^9]: Nous Research, AI Providers，llama.cpp `--jinja` 與原生工具呼叫模型清單：https://hermes-agent.nousresearch.com/docs/integrations/providers（2026-07-28 存取）
+[^1]: Nous Research, Platform Support：https://hermes-agent.nousresearch.com/docs/getting-started/platform-support （2026-07-28 存取）
+[^2]: Nous Research, Installation，Prerequisites 段：https://hermes-agent.nousresearch.com/docs/getting-started/installation （2026-07-28 存取）。記憶體與硬碟佔用為本站實測，官方文件無此資料。
+[^3]: Nous Research, Run Hermes Locally with Ollama：https://hermes-agent.nousresearch.com/docs/guides/local-ollama-setup （2026-07-28 存取）
+[^4]: Nous Research, Windows (Native) Guide，Feature matrix 段：https://hermes-agent.nousresearch.com/docs/user-guide/windows-native （2026-07-28 存取）
+[^5]: hermes-agent `pyproject.toml`，`requires-python = ">=3.11,<3.14"` 與其上方註解：https://github.com/NousResearch/hermes-agent/blob/main/pyproject.toml （2026-07-28 存取）
+[^6]: Nous Research, Termux，Known limitations on phones 段：https://hermes-agent.nousresearch.com/docs/getting-started/termux （2026-07-28 存取）
+[^7]: Nous Research, Local LLM on Mac（llama.cpp / MLX，含 Qwen3.5-9B 記憶體換算）：https://hermes-agent.nousresearch.com/docs/guides/local-llm-on-mac （2026-07-28 存取）
+[^8]: Nous Research, Quickstart，「Minimum context: 64K tokens」caution 段：https://hermes-agent.nousresearch.com/docs/getting-started/quickstart （2026-07-28 存取）
+[^9]: Nous Research, AI Providers，llama.cpp `--jinja` 與原生工具呼叫模型清單：https://hermes-agent.nousresearch.com/docs/integrations/providers （2026-07-28 存取）

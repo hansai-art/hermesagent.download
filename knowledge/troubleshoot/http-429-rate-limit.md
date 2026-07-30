@@ -25,13 +25,13 @@ HTTP 429 Too Many Requests
 Rate limited by provider
 ```
 
-**先搞清楚一件事：429 不是 Hermes 的錯，是模型供應商在限你的速**[^1]。你的 API key、設定、網路都沒問題——是對方(OpenRouter、Gemini、z.ai、OpenAI…)按方案或當下負載，擋掉了你太密集的請求。所以「重裝 Hermes」「換 key 格式」這類方向都是白費。
+**先搞清楚一件事：429 不是 Hermes 的錯，是模型供應商在限你的速**[^1]。你的 API key、設定、網路都沒問題：是對方(OpenRouter、Gemini、z.ai、OpenAI…)按方案或當下負載，擋掉了你太密集的請求。所以「重裝 Hermes」「換 key 格式」這類方向都是白費。
 
 ## Hermes 已經幫你做的事
 
-遇到失敗的 API 呼叫，Hermes 不會馬上放棄——它會**自動重試，預設 3 次**(`agent.api_max_retries`)，重試用完才啟動備援[^2]。
+遇到失敗的 API 呼叫，Hermes 不會馬上放棄：它會**自動重試，預設 3 次**(`agent.api_max_retries`)，重試用完才啟動備援[^2]。
 
-所以如果只是偶發的 429，你通常不會察覺，它自己吞掉了。**你會看到 429，代表供應商在持續擋**——這時重試沒用，因為每次重試都撞同一道牆。得換做法。
+所以如果只是偶發的 429，你通常不會察覺，它自己吞掉了。**你會看到 429，代表供應商在持續擋**：這時重試沒用，因為每次重試都撞同一道牆。得換做法。
 
 ## 照這個順序解
 
@@ -73,7 +73,7 @@ credential_pool_strategies:
 
 ### 4. 升級供應商方案
 
-前面都撐不住，就是你的用量超過方案上限了——升級付費層通常直接提高速率上限[^1]。
+前面都撐不住，就是你的用量超過方案上限了：升級付費層通常直接提高速率上限[^1]。
 
 ### 5. 換一個模型或供應商
 
@@ -83,9 +83,9 @@ credential_pool_strategies:
 
 社群回報過的 429，病灶不完全一樣：
 
-- **Gemini 顯示配額正常卻噴 429**——`google-gemini-cli` 供應商觸發 429，但 `gquota` 顯示額度還有。這類是供應商端計量與實際限速不一致，等待或換 key 輪替較有效([原始 issue](https://github.com/NousResearch/hermes-agent/issues/10210) 一類的供應商端問題)。
-- **z.ai 尖峰時段限速**——`zai/glm` 系列在尖峰時段對 Hermes 做速率限制，離峰或多 key 輪替可緩解。
-- **HTTP 529 Overloaded**——跟 429 長得像但不同：529 是供應商**伺服器整體過載**(不是針對你限速)。重試同樣撞牆，解法一樣是等、或換供應商。MiniMax 就出現過反覆 529。
+- **Gemini 顯示配額正常卻噴 429**：`google-gemini-cli` 供應商觸發 429，但 `gquota` 顯示額度還有。這類是供應商端計量與實際限速不一致，等待或換 key 輪替較有效([原始 issue](https://github.com/NousResearch/hermes-agent/issues/10210) 一類的供應商端問題)。
+- **z.ai 尖峰時段限速**：`zai/glm` 系列在尖峰時段對 Hermes 做速率限制，離峰或多 key 輪替可緩解。
+- **HTTP 529 Overloaded**：跟 429 長得像但不同：529 是供應商**伺服器整體過載**(不是針對你限速)。重試同樣撞牆，解法一樣是等、或換供應商。MiniMax 就出現過反覆 529。
 
 ## 常見問題
 
@@ -107,5 +107,5 @@ key 設錯會回 401/403(未授權)，不是 429。429 代表 key 是對的、�
 - key 根本沒被讀到(401/403)→ [API key not set](/troubleshoot/api-key-not-set/)
 - 對話太長被擋(context length)→ [context length exceeded](/troubleshoot/context-length-exceeded/)
 
-[^1]: Nous Research, FAQ(Rate limiting / 429)— https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-27 存取)。429 =「已超過供應商速率上限」；建議動作：等待重試、升級方案、換模型或供應商、`hermes chat --provider <alternative>` 切換後端
-[^2]: Nous Research, Configuration — https://hermes-agent.nousresearch.com/docs/user-guide/configuration(2026-07-27 存取)。`agent.api_max_retries` 預設 3(重試耗盡才啟動備援);`credential_pool_strategies.<provider>` 支援 fill_first / round_robin / least_used / random 多金鑰輪替；`HERMES_API_CALL_STALE_TIMEOUT` 預設 90 秒為非串流停滯偵測
+[^1]: Nous Research, FAQ(Rate limiting / 429)：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-27 存取)。429 =「已超過供應商速率上限」；建議動作：等待重試、升級方案、換模型或供應商、`hermes chat --provider <alternative>` 切換後端
+[^2]: Nous Research, Configuration：https://hermes-agent.nousresearch.com/docs/user-guide/configuration (2026-07-27 存取)。`agent.api_max_retries` 預設 3(重試耗盡才啟動備援);`credential_pool_strategies.<provider>` 支援 fill_first / round_robin / least_used / random 多金鑰輪替；`HERMES_API_CALL_STALE_TIMEOUT` 預設 90 秒為非串流停滯偵測

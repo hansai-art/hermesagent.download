@@ -1,6 +1,6 @@
 ---
 title: "hermes: command not found 怎麼解"
-description: "裝完打 hermes 卻說找不到指令——九成不是安裝失敗，是 shell 還沒重新載入 PATH。三十秒可解。"
+description: "裝完打 hermes 卻說找不到指令：九成不是安裝失敗，是 shell 還沒重新載入 PATH。三十秒可解。"
 date: 2026-07-23
 subcategory: "install"
 hermes_version: ">=2026.5"
@@ -27,7 +27,7 @@ zsh: command not found: hermes
 
 安裝腳本把 `hermes` 執行檔放在 `~/.local/bin`，並把這個路徑寫進你的 shell 設定檔[^1]。
 
-但**已經開著的終端機視窗是在安裝之前啟動的**，它讀到的是舊的 PATH——就像你改了設定檔卻沒重啟程式。
+但**已經開著的終端機視窗是在安裝之前啟動的**，它讀到的是舊的 PATH：就像你改了設定檔卻沒重啟程式。
 
 ## 解法一：重新載入 shell(最快)
 
@@ -74,7 +74,7 @@ PATH 沒問題卻還是找不到，直接看檔案在不在：
 ls -l ~/.local/bin/hermes
 ```
 
-**預期輸出**：一行檔案資訊。如果是 `No such file or directory`，那才是真的安裝失敗——重跑一次安裝指令，並注意過程中有沒有紅色錯誤訊息。
+**預期輸出**：一行檔案資訊。如果是 `No such file or directory`，那才是真的安裝失敗：重跑一次安裝指令，並注意過程中有沒有紅色錯誤訊息。
 
 ## 全面診斷
 
@@ -103,5 +103,5 @@ Hermes 預設載入 `~/.bashrc`。用其他 shell 要在 `config.yaml` 的 `term
 - 裝好了要設模型 → [模型供應商與 API key 設定](/config/model-provider/)
 - 遇到別的錯 → [疑難排解總覽](/troubleshoot/overview/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq(2026-07-23 存取)
-[^2]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+[^2]: Nous Research, Installation：https://hermes-agent.nousresearch.com/docs/getting-started/installation

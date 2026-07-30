@@ -20,7 +20,7 @@ const articles = (await getCollection('zh-TW'))
 ---
 
 <Base
-  title={`${category.name} — HermesAgent.download`}
+  title={category.name}
   description={category.description}
 >
   <h1 class="text-3xl font-bold mb-2">{category.emoji} {category.name}</h1>
@@ -32,7 +32,7 @@ const articles = (await getCollection('zh-TW'))
         class="rounded-lg border p-8 text-center"
         style="border-color: var(--border); color: var(--text-dim)"
       >
-        這個分類還沒有文章——
+        這個分類還沒有文章：
         <a href="/about/" style="color: var(--accent)">
           來寫第一篇
         </a>

@@ -248,7 +248,7 @@ Uncaught Error: Minified React error #520
 - 想看 token 花在哪 → [hermes insights：搞清楚 token 花在哪](/config/insights-token-usage/)
 - 想先排除環境問題 → [排錯的正確順序](/troubleshoot/overview/)
 
-[^1]: Nous Research, FAQ — https://hermes-agent.nousresearch.com/docs/reference/faq（2026-07-29 存取）。FAQ 的 Performance Issues 寫到 slow responses 可能來自 heavy system prompt with many tools，建議 reduce active toolsets；high token usage / session getting too long 可用 `/compress`、`/usage` 或開新 session。
-[^2]: Nous Research, Configuration — https://hermes-agent.nousresearch.com/docs/user-guide/configuration（2026-07-29 存取）。本站另以 v0.17.0 config 參考整理 `compression.threshold` 常見預設值與 `hermes config` 使用方式。
+[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq （2026-07-29 存取）。FAQ 的 Performance Issues 寫到 slow responses 可能來自 heavy system prompt with many tools，建議 reduce active toolsets；high token usage / session getting too long 可用 `/compress`、`/usage` 或開新 session。
+[^2]: Nous Research, Configuration：https://hermes-agent.nousresearch.com/docs/user-guide/configuration （2026-07-29 存取）。本站另以 v0.17.0 config 參考整理 `compression.threshold` 常見預設值與 `hermes config` 使用方式。
 [^3]: 本站 macOS 實測（Hermes Agent v0.17.0，2026-07-29）：`desktop.log` 命中 `Preflight compression` 與 `Compression summary failed`；`agent.log` 命中多筆 `context=~` 超過 190K tokens 與 API latency 記錄。本文只保留非機密、可泛化的 log 片段。
 [^4]: 本站 2026-06 至 2026-07 多次長 session 排查的共同結論：刪少量 skill 只讓 prompt size 小幅下降；真正影響體感的是 session 歷史、tool output、active toolsets 與 compression 狀態。這是本篇把「拆 session」排在「刪 skill」前面的原因。

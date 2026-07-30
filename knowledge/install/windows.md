@@ -1,6 +1,6 @@
 ---
 title: "在 Windows 上安裝 Hermes Agent"
-description: "三條路：桌面版、原生 PowerShell、WSL2。這篇幫你選，並附每一步的成功判準——選錯路重來很痛。"
+description: "三條路：桌面版、原生 PowerShell、WSL2。這篇幫你選，並附每一步的成功判準：選錯路重來很痛。"
 date: 2026-07-23
 subcategory: "windows"
 hermes_version: ">=2026.5"
@@ -15,13 +15,13 @@ tags:
 status: "published"
 ---
 
-Windows 上裝 Hermes Agent 有三條路，而**選錯了之後要重來很麻煩**——尤其是你已經設定好模型、累積了一些記憶之後才發現路線不對。所以先花一分鐘選對。
+Windows 上裝 Hermes Agent 有三條路，而**選錯了之後要重來很麻煩**：尤其是你已經設定好模型、累積了一些記憶之後才發現路線不對。所以先花一分鐘選對。
 
 ## 先選路線
 
 | 你的情況 | 建議路線 |
 |---|---|
-| 只想用，不太碰終端機 | **桌面版**——點兩下安裝，相依套件全自動 |
+| 只想用，不太碰終端機 | **桌面版**：點兩下安裝，相依套件全自動 |
 | 想在 PowerShell 裡用，不想裝 Linux | **原生 PowerShell** |
 | 會寫腳本、要接自動化、需要完整 Linux 工具鏈 | **WSL2** |
 
@@ -120,7 +120,7 @@ hermes
 
 ### 三條路線可以同時裝嗎？
 
-可以，彼此獨立。但設定與記憶不共用——桌面版的對話紀錄不會出現在 WSL2 版裡。
+可以，彼此獨立。但設定與記憶不共用：桌面版的對話紀錄不會出現在 WSL2 版裡。
 
 ### 該用 CMD 還是 PowerShell?
 
@@ -132,4 +132,4 @@ PowerShell。官方安裝指令 `iex (irm ...)` 是 PowerShell 語法，在 CMD 
 - 設定模型 → [模型供應商與 API key 設定](/config/model-provider/)
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
 
-[^1]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation(2026-07-23 存取)
+[^1]: Nous Research, Installation：https://hermes-agent.nousresearch.com/docs/getting-started/installation (2026-07-23 存取)

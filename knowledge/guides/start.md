@@ -27,16 +27,16 @@ status: "published"
    裝好執行檔        告訴它用哪個 LLM    確認整條路通了     Telegram / skills / MCP
 ```
 
-**重點**：第 1 步和第 2 步是分開的。很多人裝完就打 `hermes`，發現沒反應以為安裝失敗——其實只是還沒告訴它要用哪個模型。
+**重點**：第 1 步和第 2 步是分開的。很多人裝完就打 `hermes`，發現沒反應以為安裝失敗：其實只是還沒告訴它要用哪個模型。
 
 ## 步驟一：安裝(約 10 分鐘)
 
 選你的作業系統：
 
-- [macOS](/install/macos/) — 桌面版或一行指令
-- [Windows](/install/windows/) — 桌面版 / PowerShell / WSL2 三選一
-- [Linux](/install/linux/) — 一行指令，但要先裝 `curl` 和 `xz-utils`
-- [WSL2 完整路線](/install/wsl2/) — 想要完整 Linux 工具鏈的 Windows 使用者
+- [macOS](/install/macos/)：桌面版或一行指令
+- [Windows](/install/windows/)：桌面版 / PowerShell / WSL2 三選一
+- [Linux](/install/linux/)：一行指令，但要先裝 `curl` 和 `xz-utils`
+- [WSL2 完整路線](/install/wsl2/)：想要完整 Linux 工具鏈的 Windows 使用者
 
 **完成判準**:
 
@@ -46,7 +46,7 @@ hermes doctor
 
 有輸出、沒有大量紅色錯誤，就代表執行檔裝好了。
 
-**卡住了？** 打 `hermes` 說 command not found 是最常見的狀況，而且**九成不是安裝失敗**——見 [command not found 怎麼解](/troubleshoot/command-not-found/)。
+**卡住了？** 打 `hermes` 說 command not found 是最常見的狀況，而且**九成不是安裝失敗**：見 [command not found 怎麼解](/troubleshoot/command-not-found/)。
 
 ## 步驟二：設定模型(約 5 分鐘)
 
@@ -76,7 +76,7 @@ hermes config show
 
 看得到你剛設的供應商與模型。
 
-**卡住了？** key 明明是對的卻報錯，九成是 key 跟供應商配錯了——見 [API key not set 怎麼解](/troubleshoot/api-key-not-set/)。
+**卡住了？** key 明明是對的卻報錯，九成是 key 跟供應商配錯了：見 [API key not set 怎麼解](/troubleshoot/api-key-not-set/)。
 
 ## 步驟三：第一次對話(2 分鐘)
 
@@ -86,7 +86,7 @@ hermes
 
 隨便問一句話，例如「你能做什麼？」
 
-**完成判準**：它正常回覆了。到這裡整條路就通了——安裝、模型、對話三段都沒問題。
+**完成判準**：它正常回覆了。到這裡整條路就通了：安裝、模型、對話三段都沒問題。
 
 建議第一次對話多花五分鐘做這件事：**告訴它你是誰、你在做什麼專案、你的偏好**。Hermes 的記憶系統會跨對話保留這些，講一次之後就不用再重複。
 
@@ -119,4 +119,4 @@ hermes
 - 遇到其他問題 → [疑難排解總覽](/troubleshoot/overview/)
 - 想看別人怎麼用 → [官方 issue 中文精選](/issues/)
 
-[^1]: Nous Research, Installation — https://hermes-agent.nousresearch.com/docs/getting-started/installation(2026-07-23 存取)
+[^1]: Nous Research, Installation：https://hermes-agent.nousresearch.com/docs/getting-started/installation (2026-07-23 存取)

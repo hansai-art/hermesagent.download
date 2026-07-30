@@ -11,14 +11,42 @@ interface Props {
   // 傳進來會與站台層級的 Organization schema 一起注入 <head>。
   schema?: Record<string, unknown> | Record<string, unknown>[];
   ogType?: string;
+  // 首頁的標題本身就以品牌開頭，不需要再接後綴。
+  brand?: boolean;
 }
 
 const {
   title,
-  description = 'Hermes Agent 中文社群知識庫 — 共筆、開源、自動進化',
+  description = 'Hermes Agent 中文社群知識庫：共筆、開源、自動進化',
   schema,
   ogType = 'website',
+  brand = true,
 } = Astro.props;
+
+// 標題後綴由這裡統一決定，call site 只傳頁面本身的標題。
+//
+// 為什麼要判斷寬度（2026-07-30 量測）：
+// 391 頁裡有 322 頁的 <title> 顯示寬度超過 60（全形算 2，約 600px 的 SERP 預算），
+// 中位數 84，最長 149。issues/ 的標題本身就是完整錯誤字串，而那串字正是使用者會搜的字，
+// NEVER 截斷它。但「｜HermesAgent.download」固定吃掉 21 格寬度，
+// 在已經超預算的頁面上，那 21 格等於用品牌名蓋掉使用者真正要看的錯誤訊息。
+// 所以：放得下就掛品牌，放不下就讓內容佔滿。
+const BRAND = 'HermesAgent.download';
+const BRAND_SEPARATOR = '｜';
+const TITLE_BUDGET = 60;
+
+function displayWidth(value: string) {
+  let width = 0;
+  for (const char of value) width += (char.codePointAt(0) ?? 0) > 0x2e80 ? 2 : 1;
+  return width;
+}
+
+const brandSuffix = `${BRAND_SEPARATOR}${BRAND}`;
+// 標題本身已經含品牌名就不要再接一次（/about/ 的標題是「關於 HermesAgent.download」）。
+const documentTitle =
+  brand && !title.includes(BRAND) && displayWidth(title) + displayWidth(brandSuffix) <= TITLE_BUDGET
+    ? `${title}${brandSuffix}`
+    : title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const pageSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
@@ -46,10 +74,10 @@ const orgSchema = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <title>{documentTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />

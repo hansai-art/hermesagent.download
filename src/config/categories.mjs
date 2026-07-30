@@ -1,4 +1,4 @@
-// 分類 SSOT — knowledge/ 目錄結構、sync 腳本、網站導覽都以這份清單為準。
+// 分類 SSOT - knowledge/ 目錄結構、sync 腳本、網站導覽都以這份清單為準。
 // 新增分類：這裡加一筆 + 建立 knowledge/{slug}/ 目錄，兩邊一起動。
 
 export const CATEGORIES = [

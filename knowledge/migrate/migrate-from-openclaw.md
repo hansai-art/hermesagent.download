@@ -15,7 +15,7 @@ tags:
 status: "published"
 ---
 
-換工具最怕的不是學新介面，是**累積的東西搬不過來**——你調教了幾個月的 SOUL.md、agent 對你的記憶、自己寫的 skills。
+換工具最怕的不是學新介面，是**累積的東西搬不過來**：你調教了幾個月的 SOUL.md、agent 對你的記憶、自己寫的 skills。
 
 好消息：Hermes 內建了官方的 OpenClaw 遷移指令，這些東西大部分能直接搬[^1]。
 
@@ -144,8 +144,8 @@ hermes claw migrate --workspace-target /absolute/path
 
 ## 搬完之後要做的三件事
 
-1. **重新設定 API key**——除了 Telegram token，其他機密不會跟著搬。見 [模型供應商與 API key 設定](/config/model-provider/)
-2. **檢查 skills 有沒有正常運作**——OpenClaw skills 被放進 `~/.hermes/skills/openclaw-imports/`，格式相容不代表行為完全一致
+1. **重新設定 API key**：除了 Telegram token，其他機密不會跟著搬。見 [模型供應商與 API key 設定](/config/model-provider/)
+2. **檢查 skills 有沒有正常運作**：OpenClaw skills 被放進 `~/.hermes/skills/openclaw-imports/`，格式相容不代表行為完全一致
 3. **有接 Telegram 的話**，確認允許名單有搬過來，見 [Telegram 常見坑](/troubleshoot/telegram/)
 
 ## 常見問題
@@ -181,6 +181,6 @@ hermes claw cleanup             # 確認後才真的封存
 - 接回 Telegram → [Telegram 常見坑與解法](/troubleshoot/telegram/)
 - 看看有哪些官方 skills → [技能全目錄](/skills/catalog/)
 
-[^1]: NousResearch/hermes-agent, OpenClaw Migration SKILL.md（preset 內容、機密允許清單原文「currently: TELEGRAM_BOT_TOKEN」），2026-07-29 存取 — https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/migration/openclaw-migration/SKILL.md
+[^1]: NousResearch/hermes-agent, OpenClaw Migration SKILL.md（preset 內容、機密允許清單原文「currently: TELEGRAM_BOT_TOKEN」），2026-07-29 存取：https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/migration/openclaw-migration/SKILL.md
 
-[^2]: 本機實測 `hermes claw --help`、`hermes claw migrate --help`、`hermes claw cleanup --help` 與 `hermes claw migrate --dry-run`（macOS、v0.17.0、2026-07-29）。摘要區塊、gateway 活躍連線的中止訊息與離開代碼 0 均為實際輸出，家目錄路徑已代換。官方文件見 — https://hermes-agent.nousresearch.com/docs
+[^2]: 本機實測 `hermes claw --help`、`hermes claw migrate --help`、`hermes claw cleanup --help` 與 `hermes claw migrate --dry-run`（macOS、v0.17.0、2026-07-29）。摘要區塊、gateway 活躍連線的中止訊息與離開代碼 0 均為實際輸出，家目錄路徑已代換。官方文件見：https://hermes-agent.nousresearch.com/docs

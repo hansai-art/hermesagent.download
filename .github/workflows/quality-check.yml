@@ -34,8 +34,15 @@ jobs:
       - name: Build(sync + astro build)
         run: npm run build
 
-      # 要放在 build 之後 — 它比對的是 dist/ 的實體檔案。
+      # 要放在 build 之後：它比對的是 dist/ 的實體檔案。
       # 擋的是「站內連結指向沒建出來的頁面」,例如 /dashboard/ 的貢獻 CTA
       # 曾指向從未存在的 /about/貢獻指南/,在漏斗最關鍵的位置放了一個 404。
       - name: 站內連結檢查
         run: npm run check-internal
+
+      # 也要在 build 之後：它掃的是 dist/ 的可見文字。
+      # 擋的是「build 會過、狀態碼 200、但讀者看到錯東西」的字元問題:
+      # 2026-07-30 量到全形破折號 2,061 處，以及 21 個被排版轉換吃掉的 CLI 參數
+      # (`--tui` 印成 `—tui`,照抄一定失敗)。
+      - name: 可見文字字元檢查
+        run: npm run lint:chars

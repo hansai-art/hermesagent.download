@@ -1,4 +1,4 @@
-# QUALITY-CHECKLIST.md — 發文前檢查清單
+# QUALITY-CHECKLIST.md：發文前檢查清單
 
 PR 前逐項打勾。審稿者用同一份清單審。
 
