@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T06:49:51.381Z",
+  "generatedAt": "2026-07-30T03:39:08.487Z",
   "content": {
     "total": 374,
     "byStatus": {
@@ -101,7 +101,7 @@
   "credibility": {
     "withSources": 374,
     "withSourcesPct": 100,
-    "footnotes": 169,
+    "footnotes": 174,
     "verifiedFresh": 52,
     "verifiedStale": 0,
     "neverVerified": 0,
@@ -121,21 +121,21 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 65,
-    "lastCommitAt": "2026-07-29T04:32:22Z",
+    "recentCommits30d": 78,
+    "lastCommitAt": "2026-07-30T02:10:05Z",
     "top": [
       {
         "login": "hansai-art",
         "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
         "url": "https://github.com/hansai-art",
-        "contributions": 58,
-        "articleCount": 365
+        "contributions": 71,
+        "articleCount": 370
       }
     ]
   },
   "upstream": {
     "lastReleaseTag": "v2026.7.20",
     "checkedAt": "2026-07-23T00:00:00Z",
-    "daysSinceCheck": 6
+    "daysSinceCheck": 7
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T04:56:18.650Z",
+  "generatedAt": "2026-07-30T03:39:08.341Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -7,13 +7,19 @@
       "login": "hansai-art",
       "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
       "url": "https://github.com/hansai-art",
-      "contributions": 58,
+      "contributions": 71,
       "name": "Hans",
       "bio": "Taiwanese AI Animation Director with 14+ years in motion design and advertising. Partnered with global brands including TSMC, Samsung, and ASUS.",
       "blog": "https://www.techhanlin.tw",
       "company": "Group.G",
       "location": "Taipai",
       "articles": [
+        {
+          "slug": "config-yaml-reference",
+          "category": "config",
+          "title": "config.yaml 是什麼：兩個檔案、一條規則、一組指令",
+          "url": "/config/config-yaml-reference/"
+        },
         {
           "slug": "insights-token-usage",
           "category": "config",
@@ -27,22 +33,310 @@
           "url": "/config/model-provider/"
         },
         {
+          "slug": "start",
+          "category": "guides",
+          "title": "新手路線：從零到跑起來",
+          "url": "/guides/start/"
+        },
+        {
+          "slug": "advanced",
+          "category": "install",
+          "title": "進階部署：Docker、無伺服器、遠端",
+          "url": "/install/advanced/"
+        },
+        {
+          "slug": "classroom-and-team",
+          "category": "install",
+          "title": "開課與團隊導入：學員電腦要準備什麼",
+          "url": "/install/classroom-and-team/"
+        },
+        {
+          "slug": "download",
+          "category": "install",
+          "title": "該選哪一種安裝方式",
+          "url": "/install/download/"
+        },
+        {
+          "slug": "linux",
+          "category": "install",
+          "title": "在 Linux 上安裝 Hermes Agent",
+          "url": "/install/linux/"
+        },
+        {
           "slug": "macos",
           "category": "install",
           "title": "在 macOS 上安裝 Hermes Agent",
           "url": "/install/macos/"
         },
         {
-          "slug": "hermes-doctor",
-          "category": "troubleshoot",
-          "title": "hermes doctor 到底檢查什麼：16 個區塊逐項解讀",
-          "url": "/troubleshoot/hermes-doctor/"
+          "slug": "system-requirements",
+          "category": "install",
+          "title": "Hermes Agent 建議配備：我的電腦跑得動嗎？",
+          "url": "/install/system-requirements/"
         },
         {
-          "slug": "overview",
-          "category": "troubleshoot",
-          "title": "排錯的正確順序",
-          "url": "/troubleshoot/overview/"
+          "slug": "windows",
+          "category": "install",
+          "title": "在 Windows 上安裝 Hermes Agent",
+          "url": "/install/windows/"
+        },
+        {
+          "slug": "wsl2",
+          "category": "install",
+          "title": "在 WSL2 上安裝 Hermes Agent",
+          "url": "/install/wsl2/"
+        },
+        {
+          "slug": "connect-first-mcp",
+          "category": "integrations",
+          "title": "接上你的第一個 MCP：從設定到驗證",
+          "url": "/integrations/connect-first-mcp/"
+        },
+        {
+          "slug": "connect-telegram",
+          "category": "integrations",
+          "title": "把 Hermes 接上 Telegram：從零到能對話",
+          "url": "/integrations/connect-telegram/"
+        },
+        {
+          "slug": "recommended-mcp",
+          "category": "integrations",
+          "title": "值得優先接的 MCP Server",
+          "url": "/integrations/recommended-mcp/"
+        },
+        {
+          "slug": "10232",
+          "category": "issues",
+          "title": "Issue 標題與內容皆僅為一個句點，未提供實質資訊",
+          "url": "/issues/10232/"
+        },
+        {
+          "slug": "10359",
+          "category": "issues",
+          "title": "功能請求：原生 Windows 支援（不透過 WSL2）",
+          "url": "/issues/10359/"
+        },
+        {
+          "slug": "12572",
+          "category": "issues",
+          "title": "功能請求：提供不含 Playwright/Chromium 的輕量版 Docker image",
+          "url": "/issues/12572/"
+        },
+        {
+          "slug": "12639",
+          "category": "issues",
+          "title": "功能請求：支援原生 Google / Vertex AI provider（繞過 OpenRouter 402 錯誤與速率限制）",
+          "url": "/issues/12639/"
+        },
+        {
+          "slug": "13922",
+          "category": "issues",
+          "title": "非常稳定的api中转站 可以尝试下",
+          "url": "/issues/13922/"
+        },
+        {
+          "slug": "15080",
+          "category": "issues",
+          "title": "[Bug] Claude Max 20x 訂閱搭配有效 OAuth token 呼叫原生 Anthropic API 時全部回傳 HTTP 400",
+          "url": "/issues/15080/"
+        },
+        {
+          "slug": "15602",
+          "category": "issues",
+          "title": "google-workspace skill：新增多帳號支援",
+          "url": "/issues/15602/"
+        },
+        {
+          "slug": "16640",
+          "category": "issues",
+          "title": "功能請求：Docker 穩定版釋出頻道",
+          "url": "/issues/16640/"
+        },
+        {
+          "slug": "1855",
+          "category": "issues",
+          "title": "功能請求：終端機支援多後端（本地 + 多組具名遠端）並保留持久 shell",
+          "url": "/issues/1855/"
+        },
+        {
+          "slug": "20510",
+          "category": "issues",
+          "title": "功能請求：跨裝置雲端同步 Hermes 所有設定",
+          "url": "/issues/20510/"
+        },
+        {
+          "slug": "20859",
+          "category": "issues",
+          "title": "[Feature] 支援 Mistral 作為 LLM provider",
+          "url": "/issues/20859/"
+        },
+        {
+          "slug": "22791",
+          "category": "issues",
+          "title": "功能請求：新增 Infisical 作為外部 Vault 後端（#3630 的子 issue）",
+          "url": "/issues/22791/"
+        },
+        {
+          "slug": "26847",
+          "category": "issues",
+          "title": "[Bug] xAI OAuth（xai-oauth）對一般 SuperGrok 訂閱者回傳 HTTP 403，後端疑似只放行 Heavy 方案",
+          "url": "/issues/26847/"
+        },
+        {
+          "slug": "29125",
+          "category": "issues",
+          "title": "[Bug] Hermes 透過 Claude CLI 無法運作",
+          "url": "/issues/29125/"
+        },
+        {
+          "slug": "29299",
+          "category": "issues",
+          "title": "功能請求：MCP OAuth 需要支援 HTTPS callback URL（而非只能用本機 HTTP）",
+          "url": "/issues/29299/"
+        },
+        {
+          "slug": "32925",
+          "category": "issues",
+          "title": "功能請求：整合 Microsoft SkillOpt 實現 agent skill 自我演化",
+          "url": "/issues/32925/"
+        },
+        {
+          "slug": "34071",
+          "category": "issues",
+          "title": "[Bug] v0.15.0 Docker image 缺少 stage2-hook.sh / main-wrapper.sh，container_boot 模組也被移除，導致啟動失敗",
+          "url": "/issues/34071/"
+        },
+        {
+          "slug": "34860",
+          "category": "issues",
+          "title": "內建 skill 同步後會留下過期的 .bak 備份資料夾",
+          "url": "/issues/34860/"
+        },
+        {
+          "slug": "37906",
+          "category": "issues",
+          "title": "[Bug] WhatsApp 的 send_message 工具無法識別 @lid JID、會誤傳到預設頻道，且原始電話號碼會觸發 jidDecode 錯誤",
+          "url": "/issues/37906/"
+        },
+        {
+          "slug": "38240",
+          "category": "issues",
+          "title": "[skills-index-watchdog] Skills index 自動偵測到過期或降級（degraded）",
+          "url": "/issues/38240/"
+        },
+        {
+          "slug": "38435",
+          "category": "issues",
+          "title": "Desktop 版貼上截圖時會重複附加兩份相同的圖片",
+          "url": "/issues/38435/"
+        },
+        {
+          "slug": "38519",
+          "category": "issues",
+          "title": "功能請求：Hermes Desktop 支援僅安裝前端（不含 agent 本體）",
+          "url": "/issues/38519/"
+        },
+        {
+          "slug": "38671",
+          "category": "issues",
+          "title": "功能請求：Desktop Remote Gateway 應支援真正的遠端工作區 / 檔案瀏覽器",
+          "url": "/issues/38671/"
+        },
+        {
+          "slug": "40399",
+          "category": "issues",
+          "title": "功能請求：Hermes Desktop 樣式、主題與字型自訂",
+          "url": "/issues/40399/"
+        },
+        {
+          "slug": "44300",
+          "category": "issues",
+          "title": "[功能需求] 桌面版終端機面板應自動跟隨 agent 使用的後端環境",
+          "url": "/issues/44300/"
+        },
+        {
+          "slug": "55230",
+          "category": "issues",
+          "title": "🎁 來自 Inversion Labs 的『禮物』：宣稱提供抗量子加密模組（已標記為 invalid）",
+          "url": "/issues/55230/"
+        },
+        {
+          "slug": "55697",
+          "category": "issues",
+          "title": "[Bug] read_file 少算 total_lines，檔案結尾沒換行時可能默默丟掉最後一行",
+          "url": "/issues/55697/"
+        },
+        {
+          "slug": "57735",
+          "category": "issues",
+          "title": "security.redact_secrets 會改寫實際執行的指令內容，而不只是遮蔽 log",
+          "url": "/issues/57735/"
+        },
+        {
+          "slug": "58149",
+          "category": "issues",
+          "title": "[Bug] unbroker 技能實測發現：web_extract 功能受限、broker 涵蓋範圍缺口、subagent 紀錄可靠度與缺少的 broker 參考資料",
+          "url": "/issues/58149/"
+        },
+        {
+          "slug": "58190",
+          "category": "issues",
+          "title": "內容已隱藏的 issue（原始標題已被移除）",
+          "url": "/issues/58190/"
+        },
+        {
+          "slug": "58239",
+          "category": "issues",
+          "title": "himalaya skill 的 flag 指令語法在 v1.2.0 已過時，導致指令出錯",
+          "url": "/issues/58239/"
+        },
+        {
+          "slug": "5941",
+          "category": "issues",
+          "title": "[Feature] 新增 Searxng 作為預設網頁搜尋 provider 之一（與 Firecrawl、Tavily 並列）",
+          "url": "/issues/5941/"
+        },
+        {
+          "slug": "8270",
+          "category": "issues",
+          "title": "所有 OpenRouter 模型都回傳 HTTP 400，但用 curl 測試同一組 API key 正常",
+          "url": "/issues/8270/"
+        },
+        {
+          "slug": "8461",
+          "category": "issues",
+          "title": "功能請求：在 Z.AI Coding Plan 中新增 glm-5.1 模型",
+          "url": "/issues/8461/"
+        },
+        {
+          "slug": "8831",
+          "category": "issues",
+          "title": "我感觉并没有学习也没有提升到",
+          "url": "/issues/8831/"
+        },
+        {
+          "slug": "8837",
+          "category": "issues",
+          "title": "我怎么知道它是多智能体协作还是？？",
+          "url": "/issues/8837/"
+        },
+        {
+          "slug": "top-10",
+          "category": "issues",
+          "title": "Hermes Agent 官方 Issue Top 10：最多人反應的問題與提案",
+          "url": "/issues/top-10/"
+        },
+        {
+          "slug": "migrate-from-openclaw",
+          "category": "migrate",
+          "title": "從 OpenClaw 搬到 Hermes Agent",
+          "url": "/migrate/migrate-from-openclaw/"
+        },
+        {
+          "slug": "move-to-new-machine",
+          "category": "migrate",
+          "title": "換電腦：把整個 Hermes 搬到新機器",
+          "url": "/migrate/move-to-new-machine/"
         },
         {
           "slug": "v2026-5-28",
@@ -75,34 +369,94 @@
           "url": "/releases/v2026-7-20/"
         },
         {
-          "slug": "migrate-from-openclaw",
-          "category": "migrate",
-          "title": "從 OpenClaw 搬到 Hermes Agent",
-          "url": "/migrate/migrate-from-openclaw/"
+          "slug": "catalog",
+          "category": "skills",
+          "title": "Hermes Agent 官方 Skills 全目錄（173 個）",
+          "url": "/skills/catalog/"
+        },
+        {
+          "slug": "external-dirs",
+          "category": "skills",
+          "title": "把自己的技能庫接進 Hermes：skills.external_dirs 實測",
+          "url": "/skills/external-dirs/"
+        },
+        {
+          "slug": "api-key-not-set",
+          "category": "troubleshoot",
+          "title": "API key not set / API key 無效怎麼解",
+          "url": "/troubleshoot/api-key-not-set/"
+        },
+        {
+          "slug": "command-not-found",
+          "category": "troubleshoot",
+          "title": "hermes: command not found 怎麼解",
+          "url": "/troubleshoot/command-not-found/"
+        },
+        {
+          "slug": "context-length-exceeded",
+          "category": "troubleshoot",
+          "title": "context length exceeded 怎麼解",
+          "url": "/troubleshoot/context-length-exceeded/"
+        },
+        {
+          "slug": "cron-job-did-not-run",
+          "category": "troubleshoot",
+          "title": "排程沒跑？先查 gateway、jobs.json 和 output，不要只看 Desktop 畫面",
+          "url": "/troubleshoot/cron-job-did-not-run/"
+        },
+        {
+          "slug": "hermes-doctor",
+          "category": "troubleshoot",
+          "title": "hermes doctor 到底檢查什麼：16 個區塊逐項解讀",
+          "url": "/troubleshoot/hermes-doctor/"
+        },
+        {
+          "slug": "http-429-rate-limit",
+          "category": "troubleshoot",
+          "title": "HTTP 429 Too Many Requests：被供應商限速，Hermes 一直重試也沒用",
+          "url": "/troubleshoot/http-429-rate-limit/"
+        },
+        {
+          "slug": "long-session-preflight-compression",
+          "category": "troubleshoot",
+          "title": "Hermes 越用越慢：看到 Preflight compression 時該怎麼辦",
+          "url": "/troubleshoot/long-session-preflight-compression/"
+        },
+        {
+          "slug": "macos-homebrew-whisper-transcript",
+          "category": "troubleshoot",
+          "title": "macOS 語音轉文字沒有產出 transcript：Homebrew whisper 找不到 ffmpeg 的解法",
+          "url": "/troubleshoot/macos-homebrew-whisper-transcript/"
+        },
+        {
+          "slug": "overview",
+          "category": "troubleshoot",
+          "title": "排錯的正確順序",
+          "url": "/troubleshoot/overview/"
+        },
+        {
+          "slug": "plan-broken-pipe",
+          "category": "troubleshoot",
+          "title": "輸入 plan 後 Broken pipe：不是 plan 壞了，是長需求加 skill 把首包拖到逾時",
+          "url": "/troubleshoot/plan-broken-pipe/"
+        },
+        {
+          "slug": "python-version-too-old",
+          "category": "troubleshoot",
+          "title": "Hermes requires Python 3.11 or newer 怎麼解",
+          "url": "/troubleshoot/python-version-too-old/"
+        },
+        {
+          "slug": "telegram",
+          "category": "troubleshoot",
+          "title": "Telegram 接 Hermes Agent 的兩個坑",
+          "url": "/troubleshoot/telegram/"
         },
         {
           "slug": "resources",
           "category": "community",
           "title": "更多資源",
           "url": "/community/resources/"
-        },
-        {
-          "slug": "system-requirements",
-          "category": "install",
-          "title": "Hermes Agent 建議配備：我的電腦跑得動嗎？",
-          "url": "/install/system-requirements/"
-        },
-        {
-          "slug": "classroom-and-team",
-          "category": "install",
-          "title": "開課與團隊導入：學員電腦要準備什麼",
-          "url": "/install/classroom-and-team/"
-        },
-        {
-          "slug": "config-yaml-reference",
-          "category": "config",
-          "title": "config.yaml 是什麼：兩個檔案、一條規則、一組指令",
-          "url": "/config/config-yaml-reference/"
         },
         {
           "slug": "school-01",
@@ -243,60 +597,6 @@
           "url": "/guides/school-32/"
         },
         {
-          "slug": "start",
-          "category": "guides",
-          "title": "新手路線：從零到跑起來",
-          "url": "/guides/start/"
-        },
-        {
-          "slug": "advanced",
-          "category": "install",
-          "title": "進階部署：Docker、無伺服器、遠端",
-          "url": "/install/advanced/"
-        },
-        {
-          "slug": "download",
-          "category": "install",
-          "title": "該選哪一種安裝方式",
-          "url": "/install/download/"
-        },
-        {
-          "slug": "linux",
-          "category": "install",
-          "title": "在 Linux 上安裝 Hermes Agent",
-          "url": "/install/linux/"
-        },
-        {
-          "slug": "windows",
-          "category": "install",
-          "title": "在 Windows 上安裝 Hermes Agent",
-          "url": "/install/windows/"
-        },
-        {
-          "slug": "wsl2",
-          "category": "install",
-          "title": "在 WSL2 上安裝 Hermes Agent",
-          "url": "/install/wsl2/"
-        },
-        {
-          "slug": "connect-first-mcp",
-          "category": "integrations",
-          "title": "接上你的第一個 MCP：從設定到驗證",
-          "url": "/integrations/connect-first-mcp/"
-        },
-        {
-          "slug": "connect-telegram",
-          "category": "integrations",
-          "title": "把 Hermes 接上 Telegram：從零到能對話",
-          "url": "/integrations/connect-telegram/"
-        },
-        {
-          "slug": "recommended-mcp",
-          "category": "integrations",
-          "title": "值得優先接的 MCP Server",
-          "url": "/integrations/recommended-mcp/"
-        },
-        {
           "slug": "10143",
           "category": "issues",
           "title": "[功能] Telegram 主題（Topic）分流：依論壇主題/討論串將訊息路由到不同 profile",
@@ -313,18 +613,6 @@
           "category": "issues",
           "title": "[Bug] 使用 MiniMax M2.7 時持續出現 HTTP 529「伺服器叢集負載過高」錯誤",
           "url": "/issues/10210/"
-        },
-        {
-          "slug": "10232",
-          "category": "issues",
-          "title": "Issue 標題與內容皆僅為一個句點，未提供實質資訊",
-          "url": "/issues/10232/"
-        },
-        {
-          "slug": "10359",
-          "category": "issues",
-          "title": "功能請求：原生 Windows 支援（不透過 WSL2）",
-          "url": "/issues/10359/"
         },
         {
           "slug": "1050",
@@ -411,22 +699,10 @@
           "url": "/issues/12240/"
         },
         {
-          "slug": "12572",
-          "category": "issues",
-          "title": "功能請求：提供不含 Playwright/Chromium 的輕量版 Docker image",
-          "url": "/issues/12572/"
-        },
-        {
           "slug": "12614",
           "category": "issues",
           "title": "[Bug] 全新 Matrix 環境設定完成後，bot 收不到任何訊息（sync 停滯）",
           "url": "/issues/12614/"
-        },
-        {
-          "slug": "12639",
-          "category": "issues",
-          "title": "功能請求：支援原生 Google / Vertex AI provider（繞過 OpenRouter 402 錯誤與速率限制）",
-          "url": "/issues/12639/"
         },
         {
           "slug": "13065",
@@ -453,12 +729,6 @@
           "url": "/issues/13834/"
         },
         {
-          "slug": "13922",
-          "category": "issues",
-          "title": "非常稳定的api中转站 可以尝试下",
-          "url": "/issues/13922/"
-        },
-        {
           "slug": "14420",
           "category": "issues",
           "title": "Hermes agent 無法根據先前的對話內容準確回答問題",
@@ -471,12 +741,6 @@
           "url": "/issues/14853/"
         },
         {
-          "slug": "15080",
-          "category": "issues",
-          "title": "[Bug] Claude Max 20x 訂閱搭配有效 OAuth token 呼叫原生 Anthropic API 時全部回傳 HTTP 400",
-          "url": "/issues/15080/"
-        },
-        {
           "slug": "15311",
           "category": "issues",
           "title": "[功能] 為訊息平台新增通用的動作按鈕 / 內嵌鍵盤支援",
@@ -487,12 +751,6 @@
           "category": "issues",
           "title": "feat(browser)：新增 Obscura 作為瀏覽器 provider（用 Rust 打造、支援 CDP 的無頭瀏覽器）",
           "url": "/issues/15445/"
-        },
-        {
-          "slug": "15602",
-          "category": "issues",
-          "title": "google-workspace skill：新增多帳號支援",
-          "url": "/issues/15602/"
         },
         {
           "slug": "157",
@@ -519,12 +777,6 @@
           "url": "/issues/16102/"
         },
         {
-          "slug": "16640",
-          "category": "issues",
-          "title": "功能請求：Docker 穩定版釋出頻道",
-          "url": "/issues/16640/"
-        },
-        {
           "slug": "16702",
           "category": "issues",
           "title": "功能請求：讓 dashboard 隨 gateway systemd 服務自動啟動",
@@ -547,12 +799,6 @@
           "category": "issues",
           "title": "TUI 快速調整終端機視窗大小後仍可能出現殘留 / 錯位的文字亂碼",
           "url": "/issues/18449/"
-        },
-        {
-          "slug": "1855",
-          "category": "issues",
-          "title": "功能請求：終端機支援多後端（本地 + 多組具名遠端）並保留持久 shell",
-          "url": "/issues/1855/"
         },
         {
           "slug": "18715",
@@ -597,18 +843,6 @@
           "url": "/issues/20500/"
         },
         {
-          "slug": "20510",
-          "category": "issues",
-          "title": "功能請求：跨裝置雲端同步 Hermes 所有設定",
-          "url": "/issues/20510/"
-        },
-        {
-          "slug": "20859",
-          "category": "issues",
-          "title": "[Feature] 支援 Mistral 作為 LLM provider",
-          "url": "/issues/20859/"
-        },
-        {
           "slug": "21444",
           "category": "issues",
           "title": "openai-codex / gpt-5.5 作為主要模型時，每次呼叫都會靜默卡住直到 stale timeout",
@@ -625,12 +859,6 @@
           "category": "issues",
           "title": "Matrix gateway 缺乏頻內管道，讓下游 dispatcher 能做逐則訊息的 LLM 調度",
           "url": "/issues/22714/"
-        },
-        {
-          "slug": "22791",
-          "category": "issues",
-          "title": "功能請求：新增 Infisical 作為外部 Vault 後端（#3630 的子 issue）",
-          "url": "/issues/22791/"
         },
         {
           "slug": "23402",
@@ -699,12 +927,6 @@
           "url": "/issues/26425/"
         },
         {
-          "slug": "26847",
-          "category": "issues",
-          "title": "[Bug] xAI OAuth（xai-oauth）對一般 SuperGrok 訂閱者回傳 HTTP 403，後端疑似只放行 Heavy 方案",
-          "url": "/issues/26847/"
-        },
-        {
           "slug": "26879",
           "category": "issues",
           "title": "[Bug] 同時設定 provider、base_url 與 api_key 時，auxiliary task 的 provider 身分會遺失",
@@ -733,18 +955,6 @@
           "category": "issues",
           "title": "WhatsApp：回覆訊息的 quotedMessageId / context 沒有傳給 agent，導致回覆情境遺失",
           "url": "/issues/28823/"
-        },
-        {
-          "slug": "29125",
-          "category": "issues",
-          "title": "[Bug] Hermes 透過 Claude CLI 無法運作",
-          "url": "/issues/29125/"
-        },
-        {
-          "slug": "29299",
-          "category": "issues",
-          "title": "功能請求：MCP OAuth 需要支援 HTTPS callback URL（而非只能用本機 HTTP）",
-          "url": "/issues/29299/"
         },
         {
           "slug": "2943",
@@ -801,12 +1011,6 @@
           "url": "/issues/32903/"
         },
         {
-          "slug": "32925",
-          "category": "issues",
-          "title": "功能請求：整合 Microsoft SkillOpt 實現 agent skill 自我演化",
-          "url": "/issues/32925/"
-        },
-        {
           "slug": "32956",
           "category": "issues",
           "title": "Codex Responses 串流當機，錯誤 TypeError: 'NoneType' object is not iterable（openai-codex / chatgpt.com backend）",
@@ -849,12 +1053,6 @@
           "url": "/issues/33932/"
         },
         {
-          "slug": "34071",
-          "category": "issues",
-          "title": "[Bug] v0.15.0 Docker image 缺少 stage2-hook.sh / main-wrapper.sh，container_boot 模組也被移除，導致啟動失敗",
-          "url": "/issues/34071/"
-        },
-        {
           "slug": "34352",
           "category": "issues",
           "title": "功能請求：解決 Hermes 多租戶（multi-tenant）問題",
@@ -871,12 +1069,6 @@
           "category": "issues",
           "title": "Windows 安裝腳本 install.ps1 直接執行時報錯，無法同時使用 -Ensure 與 -Stage",
           "url": "/issues/34821/"
-        },
-        {
-          "slug": "34860",
-          "category": "issues",
-          "title": "內建 skill 同步後會留下過期的 .bak 備份資料夾",
-          "url": "/issues/34860/"
         },
         {
           "slug": "3522",
@@ -921,40 +1113,16 @@
           "url": "/issues/37713/"
         },
         {
-          "slug": "37906",
-          "category": "issues",
-          "title": "[Bug] WhatsApp 的 send_message 工具無法識別 @lid JID、會誤傳到預設頻道，且原始電話號碼會觸發 jidDecode 錯誤",
-          "url": "/issues/37906/"
-        },
-        {
           "slug": "38129",
           "category": "issues",
           "title": "[Bug] Cron 排程工作會顯示 memory 工具，但實際執行時無法使用",
           "url": "/issues/38129/"
         },
         {
-          "slug": "38240",
-          "category": "issues",
-          "title": "[skills-index-watchdog] Skills index 自動偵測到過期或降級（degraded）",
-          "url": "/issues/38240/"
-        },
-        {
-          "slug": "38435",
-          "category": "issues",
-          "title": "Desktop 版貼上截圖時會重複附加兩份相同的圖片",
-          "url": "/issues/38435/"
-        },
-        {
           "slug": "38448",
           "category": "issues",
           "title": "hermes -z（oneshot 模式）可能漏掉 MCP 工具，因為工具清單在 MCP 探索完成前就先被快照",
           "url": "/issues/38448/"
-        },
-        {
-          "slug": "38519",
-          "category": "issues",
-          "title": "功能請求：Hermes Desktop 支援僅安裝前端（不含 agent 本體）",
-          "url": "/issues/38519/"
         },
         {
           "slug": "38602",
@@ -967,12 +1135,6 @@
           "category": "issues",
           "title": "[Feature] 原生支援 AWS Bedrock provider",
           "url": "/issues/3863/"
-        },
-        {
-          "slug": "38671",
-          "category": "issues",
-          "title": "功能請求：Desktop Remote Gateway 應支援真正的遠端工作區 / 檔案瀏覽器",
-          "url": "/issues/38671/"
         },
         {
           "slug": "38855",
@@ -1035,12 +1197,6 @@
           "url": "/issues/40297/"
         },
         {
-          "slug": "40399",
-          "category": "issues",
-          "title": "功能請求：Hermes Desktop 樣式、主題與字型自訂",
-          "url": "/issues/40399/"
-        },
-        {
           "slug": "410",
           "category": "issues",
           "title": "功能請求：安全機密管理工具（API key 匯入、範圍限定存取、遮罩與 skill 需求宣告）",
@@ -1093,12 +1249,6 @@
           "category": "issues",
           "title": "桌面版/TUI 續接舊 session 時出現「No LLM provider configured」錯誤（session 只存了 billing_provider，如 custom 供應商）",
           "url": "/issues/44022/"
-        },
-        {
-          "slug": "44300",
-          "category": "issues",
-          "title": "[功能需求] 桌面版終端機面板應自動跟隨 agent 使用的後端環境",
-          "url": "/issues/44300/"
         },
         {
           "slug": "4431",
@@ -1299,12 +1449,6 @@
           "url": "/issues/54220/"
         },
         {
-          "slug": "55230",
-          "category": "issues",
-          "title": "🎁 來自 Inversion Labs 的『禮物』：宣稱提供抗量子加密模組（已標記為 invalid）",
-          "url": "/issues/55230/"
-        },
-        {
           "slug": "55237",
           "category": "issues",
           "title": "Signal RPC 讀取回應內容沒有大小上限",
@@ -1357,12 +1501,6 @@
           "category": "issues",
           "title": "[Bug] context 壓縮在第 2、3 次觸發時報 Jinja 模板錯誤並毀損 session",
           "url": "/issues/55677/"
-        },
-        {
-          "slug": "55697",
-          "category": "issues",
-          "title": "[Bug] read_file 少算 total_lines，檔案結尾沒換行時可能默默丟掉最後一行",
-          "url": "/issues/55697/"
         },
         {
           "slug": "55698",
@@ -1441,12 +1579,6 @@
           "category": "issues",
           "title": "[功能需求] 提供正式的更新日誌（changelog）畫面",
           "url": "/issues/57731/"
-        },
-        {
-          "slug": "57735",
-          "category": "issues",
-          "title": "security.redact_secrets 會改寫實際執行的指令內容，而不只是遮蔽 log",
-          "url": "/issues/57735/"
         },
         {
           "slug": "57736",
@@ -1587,12 +1719,6 @@
           "url": "/issues/58134/"
         },
         {
-          "slug": "58149",
-          "category": "issues",
-          "title": "[Bug] unbroker 技能實測發現：web_extract 功能受限、broker 涵蓋範圍缺口、subagent 紀錄可靠度與缺少的 broker 參考資料",
-          "url": "/issues/58149/"
-        },
-        {
           "slug": "58150",
           "category": "issues",
           "title": "[Bug] Hermes 在 Windows 上使用系統內建的 Node.js，而非自帶的 Node.js",
@@ -1669,12 +1795,6 @@
           "category": "issues",
           "title": "[Bug] Matrix bot 能同步舊訊息，但完全不回應新訊息（無任何 log 輸出）",
           "url": "/issues/5819/"
-        },
-        {
-          "slug": "58190",
-          "category": "issues",
-          "title": "內容已隱藏的 issue（原始標題已被移除）",
-          "url": "/issues/58190/"
         },
         {
           "slug": "58192",
@@ -1765,12 +1885,6 @@
           "category": "issues",
           "title": "Bug：只設定 basic auth 時，Dashboard 自動 SSO 導向會出現 500 錯誤",
           "url": "/issues/58237/"
-        },
-        {
-          "slug": "58239",
-          "category": "issues",
-          "title": "himalaya skill 的 flag 指令語法在 v1.2.0 已過時，導致指令出錯",
-          "url": "/issues/58239/"
         },
         {
           "slug": "58248",
@@ -1935,12 +2049,6 @@
           "url": "/issues/5884/"
         },
         {
-          "slug": "5941",
-          "category": "issues",
-          "title": "[Feature] 新增 Searxng 作為預設網頁搜尋 provider 之一（與 Firecrawl、Tavily 並列）",
-          "url": "/issues/5941/"
-        },
-        {
           "slug": "5997",
           "category": "issues",
           "title": "[Feature] 讓每個 skill 可以指定切換不同的 LLM model",
@@ -2043,12 +2151,6 @@
           "url": "/issues/7893/"
         },
         {
-          "slug": "8270",
-          "category": "issues",
-          "title": "所有 OpenRouter 模型都回傳 HTTP 400，但用 curl 測試同一組 API key 正常",
-          "url": "/issues/8270/"
-        },
-        {
           "slug": "8287",
           "category": "issues",
           "title": "功能請求：支援同一個 Telegram 帳號用多個 bot 連到同一個 agent（各自獨立 session）",
@@ -2067,12 +2169,6 @@
           "url": "/issues/8457/"
         },
         {
-          "slug": "8461",
-          "category": "issues",
-          "title": "功能請求：在 Z.AI Coding Plan 中新增 glm-5.1 模型",
-          "url": "/issues/8461/"
-        },
-        {
           "slug": "850",
           "category": "issues",
           "title": "[Feature] 完整 Docker 化部署",
@@ -2083,18 +2179,6 @@
           "category": "issues",
           "title": "功能請求：Slack 平台改用 Block Kit 的 markdown block type，取代舊版 mrkdwn",
           "url": "/issues/8552/"
-        },
-        {
-          "slug": "8831",
-          "category": "issues",
-          "title": "我感觉并没有学习也没有提升到",
-          "url": "/issues/8831/"
-        },
-        {
-          "slug": "8837",
-          "category": "issues",
-          "title": "我怎么知道它是多智能体协作还是？？",
-          "url": "/issues/8837/"
         },
         {
           "slug": "9056",
@@ -2139,60 +2223,6 @@
           "url": "/issues/9549/"
         },
         {
-          "slug": "move-to-new-machine",
-          "category": "migrate",
-          "title": "換電腦：把整個 Hermes 搬到新機器",
-          "url": "/migrate/move-to-new-machine/"
-        },
-        {
-          "slug": "api-key-not-set",
-          "category": "troubleshoot",
-          "title": "API key not set / API key 無效怎麼解",
-          "url": "/troubleshoot/api-key-not-set/"
-        },
-        {
-          "slug": "command-not-found",
-          "category": "troubleshoot",
-          "title": "hermes: command not found 怎麼解",
-          "url": "/troubleshoot/command-not-found/"
-        },
-        {
-          "slug": "context-length-exceeded",
-          "category": "troubleshoot",
-          "title": "context length exceeded 怎麼解",
-          "url": "/troubleshoot/context-length-exceeded/"
-        },
-        {
-          "slug": "http-429-rate-limit",
-          "category": "troubleshoot",
-          "title": "HTTP 429 Too Many Requests：被供應商限速，Hermes 一直重試也沒用",
-          "url": "/troubleshoot/http-429-rate-limit/"
-        },
-        {
-          "slug": "python-version-too-old",
-          "category": "troubleshoot",
-          "title": "Hermes requires Python 3.11 or newer 怎麼解",
-          "url": "/troubleshoot/python-version-too-old/"
-        },
-        {
-          "slug": "telegram",
-          "category": "troubleshoot",
-          "title": "Telegram 接 Hermes Agent 的兩個坑",
-          "url": "/troubleshoot/telegram/"
-        },
-        {
-          "slug": "catalog",
-          "category": "skills",
-          "title": "Hermes Agent 官方 Skills 全目錄（173 個）",
-          "url": "/skills/catalog/"
-        },
-        {
-          "slug": "top-10",
-          "category": "issues",
-          "title": "Hermes Agent 官方 Issue Top 10：最多人反應的問題與提案",
-          "url": "/issues/top-10/"
-        },
-        {
           "slug": "recommended-skills",
           "category": "skills",
           "title": "推薦 Skills",
@@ -2208,8 +2238,8 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 65,
-    "lastCommitAt": "2026-07-29T04:32:22Z"
+    "recentCommits30d": 78,
+    "lastCommitAt": "2026-07-30T02:10:05Z"
   },
   "stars": 0,
   "forks": 0,
@@ -2222,7 +2252,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 7295,
+        "contributions": 7458,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2233,7 +2263,7 @@
         "login": "OutThisLife",
         "avatar": "https://avatars.githubusercontent.com/u/770929?v=4",
         "url": "https://github.com/OutThisLife",
-        "contributions": 2385,
+        "contributions": 2440,
         "name": "brooklyn!",
         "bio": null,
         "blog": "https://brooklyn.sh/",
@@ -2244,7 +2274,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 1035,
+        "contributions": 1055,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2255,7 +2285,7 @@
         "login": "benbarclay",
         "avatar": "https://avatars.githubusercontent.com/u/413810?v=4",
         "url": "https://github.com/benbarclay",
-        "contributions": 360,
+        "contributions": 380,
         "name": "Ben Barclay",
         "bio": null,
         "blog": null,
@@ -2277,7 +2307,7 @@
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 261,
+        "contributions": 263,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2321,7 +2351,7 @@
         "login": "austinpickett",
         "avatar": "https://avatars.githubusercontent.com/u/260188?v=4",
         "url": "https://github.com/austinpickett",
-        "contributions": 170,
+        "contributions": 171,
         "name": "Austin Pickett",
         "bio": null,
         "blog": "https://www.austinkpickett.com",
@@ -2362,6 +2392,17 @@
         "location": null
       },
       {
+        "login": "briandevans",
+        "avatar": "https://avatars.githubusercontent.com/u/252620095?v=4",
+        "url": "https://github.com/briandevans",
+        "contributions": 98,
+        "name": "Brian D. Evans",
+        "bio": "Inc. 500 entrepreneur. Founder of BDE Ventures. 40 Under 40. Building and investing at the intersection of AI, Web3, and infrastructure.",
+        "blog": "https://briandevans.com",
+        "company": "bde.io",
+        "location": null
+      },
+      {
         "login": "LeonSGP43",
         "avatar": "https://avatars.githubusercontent.com/u/154585401?v=4",
         "url": "https://github.com/LeonSGP43",
@@ -2370,17 +2411,6 @@
         "bio": null,
         "blog": null,
         "company": null,
-        "location": null
-      },
-      {
-        "login": "briandevans",
-        "avatar": "https://avatars.githubusercontent.com/u/252620095?v=4",
-        "url": "https://github.com/briandevans",
-        "contributions": 95,
-        "name": "Brian D. Evans",
-        "bio": "Inc. 500 entrepreneur. Founder of BDE Ventures. 40 Under 40. Building and investing at the intersection of AI, Web3, and infrastructure.",
-        "blog": "https://briandevans.com",
-        "company": "bde.io",
         "location": null
       },
       {
@@ -2398,7 +2428,7 @@
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 72,
+        "contributions": 81,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
@@ -2414,6 +2444,17 @@
         "bio": null,
         "blog": null,
         "company": "@shl0ms",
+        "location": null
+      },
+      {
+        "login": "yoniebans",
+        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
+        "url": "https://github.com/yoniebans",
+        "contributions": 62,
+        "name": "jonny",
+        "bio": null,
+        "blog": null,
+        "company": null,
         "location": null
       },
       {
@@ -2439,21 +2480,10 @@
         "location": null
       },
       {
-        "login": "yoniebans",
-        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
-        "url": "https://github.com/yoniebans",
-        "contributions": 61,
-        "name": "jonny",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "shannonsands",
         "avatar": "https://avatars.githubusercontent.com/u/7897813?v=4",
         "url": "https://github.com/shannonsands",
-        "contributions": 50,
+        "contributions": 58,
         "name": null,
         "bio": "Full Stack Web Application developer, specialising in Javascript, PHP & Python based technologies.",
         "blog": null,
@@ -2475,7 +2505,7 @@
         "login": "Bartok9",
         "avatar": "https://avatars.githubusercontent.com/u/259807879?v=4",
         "url": "https://github.com/Bartok9",
-        "contributions": 47,
+        "contributions": 48,
         "name": "Bartok",
         "bio": null,
         "blog": null,
@@ -2508,7 +2538,7 @@
         "login": "ygd58",
         "avatar": "https://avatars.githubusercontent.com/u/78954051?v=4",
         "url": "https://github.com/ygd58",
-        "contributions": 37,
+        "contributions": 38,
         "name": "buray",
         "bio": "Early man",
         "blog": null,
@@ -2522,6 +2552,17 @@
         "contributions": 36,
         "name": "İsco",
         "bio": "AI Explorer 🕵🏻‍♂️",
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "Frowtek",
+        "avatar": "https://avatars.githubusercontent.com/u/164990034?v=4",
+        "url": "https://github.com/Frowtek",
+        "contributions": 35,
+        "name": "Frowte3k",
+        "bio": null,
         "blog": null,
         "company": null,
         "location": null
@@ -2571,11 +2612,11 @@
         "location": null
       },
       {
-        "login": "Frowtek",
-        "avatar": "https://avatars.githubusercontent.com/u/164990034?v=4",
-        "url": "https://github.com/Frowtek",
+        "login": "victor-kyriazakos",
+        "avatar": "https://avatars.githubusercontent.com/u/93273468?v=4",
+        "url": "https://github.com/victor-kyriazakos",
         "contributions": 33,
-        "name": "Frowte3k",
+        "name": null,
         "bio": null,
         "blog": null,
         "company": null,
@@ -2643,17 +2684,6 @@
         "contributions": 27,
         "name": "AhmetArif",
         "bio": "Brick by Brick\r\nDc ; ahmetarif0x",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "EloquentBrush0x",
-        "avatar": "https://avatars.githubusercontent.com/u/283442588?v=4",
-        "url": "https://github.com/EloquentBrush0x",
-        "contributions": 25,
-        "name": "EloquentBrush",
-        "bio": "VibeCoder, Melancholic artist",
         "blog": null,
         "company": null,
         "location": null
