@@ -40,9 +40,22 @@
 /issues/config/        /issues/   301
 /issues/tui/           /issues/   301
 
-# --- 2. 其餘 /en/ 一律去掉語言前綴 -------------------------------------------
-# 抽驗 GSC 看得到的 26 個 /en/ 網址，其中 17 個把 /en 拿掉就是線上 200 的中文頁
-# （/en/troubleshooting/context-length-exceeded/、/en/download/windows/、
-#  /en/issues/40166/、/en/start/migrate-from-openclaw/ 等都對得上）。
-# 用萬用規則一次涵蓋舊站全部 391 頁，不用逐條列。
-/en/*                  /:splat    301
+# --- 2. 舊 repo 遺留的「舊 slug」/en/ 網址去掉語言前綴 -------------------------
+# 2026-07-31：/en/ 現在是「真實的英文區」(新 slug:/en/troubleshoot/、
+# /en/install/、/en/config/…)。原本的萬用規則 `/en/* /:splat` 會連新英文頁
+# 也一起 301 到中文,等於把整個英文區關掉。改成只針對「舊 slug 前綴」精準轉址
+# ——舊網址(troubleshooting / download / start / school / issues…)與新英文頁
+# 的現行 slug 不重疊,所以新英文頁得以正常 200 服務,舊網址 SEO 也照樣接住。
+# GSC 看得到的舊 /en/ 網址前綴都在這份清單內。
+/en/issues/*               /issues/:splat            301
+/en/troubleshooting/*      /troubleshooting/:splat   301
+/en/troubleshooting        /troubleshoot/overview/   301
+/en/download/*             /download/:splat          301
+/en/download               /download                 301
+/en/start/*                /start/:splat             301
+/en/start                  /start                    301
+/en/school/*               /school/:splat            301
+/en/school                 /school                   301
+/en/skills-mcp             /skills-mcp               301
+/en/mcp                    /mcp                       301
+/en/resources              /resources                301
