@@ -69,7 +69,7 @@ There are four rotation strategies[^2]:
 | `least_used` | Pick the least-used key |
 | `random` | Random |
 
-Put the keys in `.env` (secrets always go there — see [config.yaml reference](/config/config-yaml-reference/)). This turns "one pipe" into "several in parallel", which is especially effective for long-running agents.
+Put the keys in `.env` (secrets always go there — see [config.yaml reference](/en/config/config-yaml-reference/)). This turns "one pipe" into "several in parallel", which is especially effective for long-running agents.
 
 ### 4. Upgrade your provider plan
 
@@ -99,13 +99,13 @@ No. Hanging until the stale timeout (`HERMES_API_CALL_STALE_TIMEOUT`, default 90
 
 ### How do I tell 429 from a misconfigured key?
 
-A bad key returns 401/403 (unauthorized), not 429. A 429 means the key is correct — you're just going too fast. For key problems, see [API key not set](/troubleshoot/api-key-not-set/).
+A bad key returns 401/403 (unauthorized), not 429. A 429 means the key is correct — you're just going too fast. For key problems, see [API key not set](/en/troubleshoot/api-key-not-set/).
 
 ## Next steps
 
-- Where to put multiple keys and how to configure them → [config.yaml reference](/config/config-yaml-reference/)
-- The key isn't being read at all (401/403) → [API key not set](/troubleshoot/api-key-not-set/)
-- Blocked because the conversation is too long → [context length exceeded](/troubleshoot/context-length-exceeded/)
+- Where to put multiple keys and how to configure them → [config.yaml reference](/en/config/config-yaml-reference/)
+- The key isn't being read at all (401/403) → [API key not set](/en/troubleshoot/api-key-not-set/)
+- Blocked because the conversation is too long → [context length exceeded](/en/troubleshoot/context-length-exceeded/)
 
 [^1]: Nous Research, FAQ (Rate limiting / 429) — https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-27). 429 = "you've exceeded your provider's rate limits"; recommended actions: wait and retry, upgrade plan, switch model or provider, `hermes chat --provider <alternative>`.
 [^2]: Nous Research, Configuration — https://hermes-agent.nousresearch.com/docs/user-guide/configuration (accessed 2026-07-27). `agent.api_max_retries` defaults to 3 (fallback activates only after retries are exhausted); `credential_pool_strategies.<provider>` supports fill_first / round_robin / least_used / random multi-key rotation; `HERMES_API_CALL_STALE_TIMEOUT` defaults to 90s for non-streaming stall detection.

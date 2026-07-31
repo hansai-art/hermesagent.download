@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-31T10:21:21.501Z",
+  "generatedAt": "2026-07-31T10:24:08.110Z",
   "content": {
-    "total": 375,
+    "total": 390,
     "byStatus": {
-      "published": 375,
+      "published": 390,
       "archived": 1
     },
     "byCategory": [
@@ -99,18 +99,18 @@
     ]
   },
   "credibility": {
-    "withSources": 375,
+    "withSources": 390,
     "withSourcesPct": 100,
-    "footnotes": 176,
+    "footnotes": 206,
     "verifiedFresh": 52,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 63,
-    "citationCoverage": 92,
-    "citationCovered": 58,
+    "substantial": 78,
+    "citationCoverage": 77,
+    "citationCovered": 60,
     "followableCoverage": 100,
     "followableCovered": 26,
     "teachingWithCode": 26,
