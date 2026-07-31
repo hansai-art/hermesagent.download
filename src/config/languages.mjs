@@ -4,7 +4,7 @@
 
 export const LANGUAGES = [
   { code: 'zh-TW', name: '繁體中文', default: true },
-  // { code: 'en', name: 'English', default: false },  // Phase 4 之後再開
+  { code: 'en', name: 'English', default: false },
 ];
 
 export const ENABLED_LANGUAGE_CODES = LANGUAGES.map((l) => l.code);

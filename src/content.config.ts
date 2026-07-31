@@ -37,8 +37,15 @@ const zhTW = defineCollection({
   schema: articleSchema,
 });
 
+// 英文軸:內容來源 knowledge/en/,由 sync 投影到 src/content/en/。
+const en = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/en' }),
+  schema: articleSchema,
+});
+
 export const collections = {
   'zh-TW': zhTW,
+  en,
 };
 
 export type Article = z.infer<typeof articleSchema>;

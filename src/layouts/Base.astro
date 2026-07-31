@@ -15,6 +15,10 @@ interface Props {
   brand?: boolean;
   // 對搜尋引擎隱藏索引（薄的 issue 鏡像頁用），仍保留 follow 讓連結權重流動。
   noindex?: boolean;
+  // 頁面語言(<html lang>);雙語站每頁自報語言。
+  lang?: string;
+  // <link rel="alternate" hreflang> 清單:同一篇的各語言版本 + x-default。
+  alternates?: { hreflang: string; href: string }[];
 }
 
 const {
@@ -24,6 +28,8 @@ const {
   ogType = 'website',
   brand = true,
   noindex = false,
+  lang = 'zh-TW',
+  alternates = [],
 } = Astro.props;
 
 // 標題後綴由這裡統一決定，call site 只傳頁面本身的標題。
@@ -73,7 +79,7 @@ const orgSchema = {
 ---
 
 <!doctype html>
-<html lang="zh-TW">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -81,6 +87,7 @@ const orgSchema = {
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content={ogType} />

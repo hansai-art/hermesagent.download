@@ -1,0 +1,205 @@
+---
+// 文章頁共用渲染 — 中英雙軸共用同一套結構化資料 / noindex / FAQ / 版面邏輯。
+// zh 路由(/[category]/[slug])與 en 路由(/en/[category]/[slug])都用它,
+// 差別只在 locale:字串、日期格式、URL 前綴、inLanguage、knowledge 來源路徑。
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { getCategory } from '../config/categories.mjs';
+import { buildFaqSchema } from '../config/faq-schema.mjs';
+
+interface Props {
+  entry: any;
+  locale: 'zh-TW' | 'en';
+  // <link rel="alternate" hreflang> 清單(只有雙語版本都存在時才傳),交給 Base 注入 <head>。
+  alternates?: { hreflang: string; href: string }[];
+}
+const { entry, locale, alternates = [] } = Astro.props;
+const { Content } = await render(entry);
+const category = getCategory(entry.id.split('/')[0]);
+const d = entry.data;
+
+const SITE = 'https://hermesagent.download';
+const isEn = locale === 'en';
+const prefix = isEn ? '/en' : '';
+
+// 各語言的 UI 字串。
+const T = {
+  'zh-TW': {
+    home: '首頁', official: '官方來源', edit: '✏️ 編輯這一頁', report: '🐛 回報錯誤',
+    history: '🕘 修訂紀錄', contribute: '✋ 我想貢獻', applies: '適用版本', verified: '✅ 最後驗證',
+    copy: '複製', copied: '已複製', copyFail: '複製失敗',
+    outdated: (v: string) => `⚠️ 這篇文章可能已過期(對應 Hermes Agent ${v})。歡迎到 GitHub 協助更新。`,
+    contribHint: '看到指令跑不動、內容過期或連結壞掉?點「編輯這一頁」直接改,或回報給我們。',
+    contributors: '貢獻者頁', dateLocale: 'zh-TW', langLabel: 'EN', langHref: '英文版',
+  },
+  en: {
+    home: 'Home', official: 'Official sources', edit: '✏️ Edit this page', report: '🐛 Report an issue',
+    history: '🕘 Revision history', contribute: '✋ Contribute', applies: 'Applies to', verified: '✅ Last verified',
+    copy: 'Copy', copied: 'Copied', copyFail: 'Failed',
+    outdated: (v: string) => `⚠️ This article may be outdated (targets Hermes Agent ${v}). Contributions welcome on GitHub.`,
+    contribHint: 'Command not working, content outdated, or a broken link? Click “Edit this page” or report it.',
+    contributors: 'contributors', dateLocale: 'en-US', langLabel: '中文', langHref: 'Chinese version',
+  },
+}[locale];
+
+// knowledge/ 才是原始檔;en 來源在 knowledge/en/ 底下。
+const REPO = 'hansai-art/hermesagent.download';
+const knowledgePath = isEn ? `knowledge/en/${entry.id}.md` : `knowledge/${entry.id}.md`;
+const editUrl = `https://github.com/${REPO}/edit/main/${knowledgePath}`;
+const historyUrl = `https://github.com/${REPO}/commits/main/${knowledgePath}`;
+const issueUrl = `https://github.com/${REPO}/issues/new?template=01-content-error.yml&title=${encodeURIComponent(`[content] ${d.title}`)}`;
+
+const fmtDate = (date: Date) =>
+  date.toLocaleDateString(T.dateLocale, { year: 'numeric', month: 'long', day: 'numeric' });
+
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: d.title,
+  description: d.description,
+  inLanguage: locale,
+  datePublished: d.date.toISOString(),
+  dateModified: (d.last_verified ?? d.date).toISOString(),
+  author: { '@type': 'Person', name: d.author },
+  publisher: { '@id': `${SITE}/#org` },
+  mainEntityOfPage: pageUrl,
+  isAccessibleForFree: true,
+  about: {
+    '@type': 'SoftwareApplication',
+    name: 'Hermes Agent',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'macOS, Linux, Windows',
+  },
+};
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: T.home, item: `${SITE}${prefix}/` },
+    ...(category
+      ? [{ '@type': 'ListItem', position: 2, name: category.name, item: `${SITE}${prefix}/${category.slug}/` }]
+      : []),
+    { '@type': 'ListItem', position: category ? 3 : 2, name: d.title, item: pageUrl },
+  ],
+};
+const faqSchema = buildFaqSchema(entry.body);
+const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
+
+const categorySlug = entry.id.split('/')[0];
+const noindex = d.noindex ?? categorySlug === 'issues';
+
+// 語言切換連結:指向另一語言的同一篇(只有 alternate 存在時才顯示)。
+const otherHref = alternates.find((a) => a.hreflang === (isEn ? 'zh-TW' : 'en'))?.href;
+---
+
+<Base
+  title={d.title}
+  description={d.description}
+  schema={pageSchema}
+  ogType="article"
+  noindex={noindex}
+  alternates={alternates}
+  lang={locale}
+>
+  <article class="max-w-3xl mx-auto">
+    <nav class="text-sm mb-6 flex items-center justify-between" style="color: var(--text-dim)">
+      <span>
+        <a href={`${prefix}/`} style="color: var(--text-dim)">{T.home}</a>
+        <span class="mx-1">/</span>
+        {
+          category && (
+            <a href={`${prefix}/${category.slug}/`} style="color: var(--text-dim)">
+              {category.emoji} {category.name}
+            </a>
+          )
+        }
+      </span>
+      {otherHref && (
+        <a href={otherHref} style="color: var(--accent)" title={T.langHref}>{T.langLabel}</a>
+      )}
+    </nav>
+
+    {
+      d.status === 'outdated' && (
+        <div
+          class="rounded-lg border px-4 py-3 mb-6 text-sm"
+          style="border-color: var(--accent-dim); color: var(--accent); background: var(--bg-raised)"
+        >
+          {T.outdated(d.hermes_version)}
+        </div>
+      )
+    }
+
+    <h1 class="text-3xl font-bold mb-3">{d.title}</h1>
+    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm mb-8" style="color: var(--text-dim)">
+      <span>📅 {fmtDate(d.date)}</span>
+      {d.hermes_version !== '*' && <span>{T.applies} {d.hermes_version}</span>}
+      {d.last_verified && <span>{T.verified} {fmtDate(d.last_verified)}</span>}
+      <span>✍️ {d.author}</span>
+    </div>
+
+    <div class="prose-dark">
+      <Content />
+    </div>
+
+    {
+      d.upstream_refs.length > 0 && (
+        <section class="mt-10 pt-4 border-t text-sm" style="border-color: var(--border)">
+          <h2 class="font-semibold mb-2" style="color: var(--text-dim)">
+            {T.official}
+          </h2>
+          <ul class="space-y-1">
+            {d.upstream_refs.map((url: string) => (
+              <li>
+                <a href={url} target="_blank" rel="noopener noreferrer" style="color: var(--accent)" class="break-all">
+                  {url}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <footer class="mt-12 pt-5 border-t" style="border-color: var(--border)">
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+        <a href={editUrl} target="_blank" rel="noopener noreferrer" style="color: var(--accent)">{T.edit}</a>
+        <a href={issueUrl} target="_blank" rel="noopener noreferrer" style="color: var(--text-dim)">{T.report}</a>
+        <a href={historyUrl} target="_blank" rel="noopener noreferrer" style="color: var(--text-dim)">{T.history}</a>
+        <a href={`${prefix}/contribute/`} style="color: var(--text-dim)">{T.contribute}</a>
+      </div>
+      <p class="text-xs mt-3" style="color: var(--text-dim)">{T.contribHint}</p>
+    </footer>
+  </article>
+</Base>
+
+<script>
+  document.querySelectorAll('.prose-dark pre').forEach((pre) => {
+    const text = pre.querySelector('code')?.textContent ?? pre.textContent ?? '';
+    if (!text.trim()) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copy-btn';
+    const labels = document.documentElement.lang === 'en'
+      ? { copy: 'Copy', copied: 'Copied', fail: 'Failed' }
+      : { copy: '複製', copied: '已複製', fail: '複製失敗' };
+    btn.textContent = labels.copy;
+    let reset: ReturnType<typeof setTimeout>;
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = labels.copied;
+      } catch {
+        btn.textContent = labels.fail;
+      }
+      clearTimeout(reset);
+      reset = setTimeout(() => { btn.textContent = labels.copy; }, 2000);
+    });
+    const wrap = document.createElement('div');
+    wrap.className = 'code-wrap';
+    pre.parentNode?.insertBefore(wrap, pre);
+    wrap.appendChild(pre);
+    wrap.appendChild(btn);
+  });
+</script>

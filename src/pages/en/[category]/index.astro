@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { CATEGORIES } from '../../../config/categories.mjs';
+
+export async function getStaticPaths() {
+  return CATEGORIES.map((c) => ({
+    params: { category: c.slug },
+    props: { category: c },
+  }));
+}
+
+const { category } = Astro.props;
+
+const articles = (await getCollection('en'))
+  .filter((a) => a.id.split('/')[0] === category.slug)
+  .filter((a) => a.data.status !== 'draft' && a.data.status !== 'archived')
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<Base title={category.name} description={category.description} lang="en">
+  <nav class="text-sm mb-6" style="color: var(--text-dim)">
+    <a href="/en/" style="color: var(--text-dim)">Home</a>
+  </nav>
+  <h1 class="text-3xl font-bold mb-2">{category.emoji} {category.name}</h1>
+  <p class="mb-8" style="color: var(--text-dim)">{category.description}</p>
+
+  {
+    articles.length === 0 ? (
+      <div
+        class="rounded-lg border p-8 text-center"
+        style="border-color: var(--border); color: var(--text-dim)"
+      >
+        No articles in this category yet.
+      </div>
+    ) : (
+      <div class="grid md:grid-cols-2 gap-3">
+        {articles.map((a) => (
+          <ArticleCard
+            id={a.id}
+            title={a.data.title}
+            description={a.data.description}
+            status={a.data.status}
+            hermesVersion={a.data.hermes_version}
+            prefix="/en"
+          />
+        ))}
+      </div>
+    )
+  }
+</Base>

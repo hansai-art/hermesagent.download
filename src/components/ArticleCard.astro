@@ -7,15 +7,16 @@ interface Props {
   description: string;
   status?: string;
   hermesVersion?: string;
+  prefix?: string; // 語言前綴,英文卡片傳 "/en"
 }
 
-const { id, title, description, status = 'published', hermesVersion } = Astro.props;
+const { id, title, description, status = 'published', hermesVersion, prefix = '' } = Astro.props;
 const [categorySlug] = id.split('/');
 const category = getCategory(categorySlug);
 ---
 
 <a
-  href={`/${id}/`}
+  href={`${prefix}/${id}/`}
   class="block rounded-lg border p-5 transition-colors hover:border-[var(--accent-dim)]"
   style="border-color: var(--border); background: var(--bg-raised)"
 >
