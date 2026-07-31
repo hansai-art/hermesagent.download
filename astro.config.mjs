@@ -42,6 +42,9 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
+      // 個別 issue 鏡像頁為 noindex,不放進 sitemap(sitemap 只該列可索引頁)。
+      // 保留 /issues/ 分類索引頁本身。
+      filter: (page) => !/\/issues\/[^/]+\/?$/.test(page),
     }),
   ],
   markdown: {

@@ -37,7 +37,7 @@ status: "published"
 
 ### computer-use
 
-- [computer-use](https://github.com/NousResearch/hermes-agent/blob/main/skills/computer-use/SKILL.md) |
+- [computer-use](https://github.com/NousResearch/hermes-agent/tree/main/skills) |
 
 ### creative
 
@@ -60,11 +60,11 @@ status: "published"
 
 ### data-science
 
-- [jupyter-live-kernel](https://github.com/NousResearch/hermes-agent/blob/main/skills/data-science/jupyter-live-kernel/SKILL.md) Iterative Python via live Jupyter kernel (hamelnb).
+- [jupyter-live-kernel](https://github.com/NousResearch/hermes-agent/tree/main/skills) Iterative Python via live Jupyter kernel (hamelnb).
 
 ### dogfood
 
-- [dogfood](https://github.com/NousResearch/hermes-agent/blob/main/skills/dogfood/SKILL.md) Exploratory QA of web apps: find bugs, evidence, reports.
+- [dogfood](https://github.com/NousResearch/hermes-agent/tree/main/skills) Exploratory QA of web apps: find bugs, evidence, reports.
 
 ### email
 
@@ -82,19 +82,19 @@ status: "published"
 ### media
 
 - [gif-search](https://github.com/NousResearch/hermes-agent/blob/main/skills/media/gif-search/SKILL.md) Search/download GIFs from Tenor via curl + jq.
-- [heartmula](https://github.com/NousResearch/hermes-agent/blob/main/skills/media/heartmula/SKILL.md) HeartMuLa: Suno-like song generation from lyrics + tags.
+- [heartmula](https://github.com/NousResearch/hermes-agent/tree/main/skills) HeartMuLa: Suno-like song generation from lyrics + tags.
 - [songsee](https://github.com/NousResearch/hermes-agent/blob/main/skills/media/songsee/SKILL.md) Audio spectrograms/features (mel, chroma, MFCC) via CLI.
 - [youtube-content](https://github.com/NousResearch/hermes-agent/blob/main/skills/media/youtube-content/SKILL.md) YouTube transcripts to summaries, threads, blogs.
 
 ### mlops
 
-- [lm-evaluation-harness](https://github.com/NousResearch/hermes-agent/blob/main/skills/mlops/evaluation/lm-evaluation-harness/SKILL.md) lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.).
+- [lm-evaluation-harness](https://github.com/NousResearch/hermes-agent/tree/main/skills) lm-eval-harness: benchmark LLMs (MMLU, GSM8K, etc.).
 - [weights-and-biases](https://github.com/NousResearch/hermes-agent/blob/main/skills/mlops/evaluation/weights-and-biases/SKILL.md) W&B: log ML experiments, sweeps, model registry, dashboards.
 - [huggingface-hub](https://github.com/NousResearch/hermes-agent/blob/main/skills/mlops/huggingface-hub/SKILL.md) HuggingFace hf CLI: search/download/upload models, datasets.
 - [llama-cpp](https://github.com/NousResearch/hermes-agent/blob/main/skills/mlops/inference/llama-cpp/SKILL.md) llama.cpp local GGUF inference + HF Hub model discovery.
-- [vllm](https://github.com/NousResearch/hermes-agent/blob/main/skills/mlops/inference/vllm/SKILL.md) vLLM: high-throughput LLM serving, OpenAI API, quantization.
-- [audiocraft](https://github.com/NousResearch/hermes-agent/blob/main/skills/mlops/models/audiocraft/SKILL.md) AudioCraft: MusicGen text-to-music, AudioGen text-to-sound.
-- [segment-anything](https://github.com/NousResearch/hermes-agent/blob/main/skills/mlops/models/segment-anything/SKILL.md) SAM: zero-shot image segmentation via points, boxes, masks.
+- [vllm](https://github.com/NousResearch/hermes-agent/tree/main/skills) vLLM: high-throughput LLM serving, OpenAI API, quantization.
+- [audiocraft](https://github.com/NousResearch/hermes-agent/tree/main/skills) AudioCraft: MusicGen text-to-music, AudioGen text-to-sound.
+- [segment-anything](https://github.com/NousResearch/hermes-agent/tree/main/skills) SAM: zero-shot image segmentation via points, boxes, masks.
 
 ### note-taking
 
@@ -108,7 +108,7 @@ status: "published"
 - [nano-pdf](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/nano-pdf/SKILL.md) Edit PDF text/typos/titles via nano-pdf CLI (NL prompts).
 - [notion](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/notion/SKILL.md) Notion API + ntn CLI: pages, databases, markdown, Workers.
 - [ocr-and-documents](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/ocr-and-documents/SKILL.md) Extract text from PDFs/scans (pymupdf, marker-pdf).
-- [petdex](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/petdex/SKILL.md) Install and select animated petdex mascots for Hermes.
+- [petdex](https://github.com/NousResearch/hermes-agent/tree/main/skills) Install and select animated petdex mascots for Hermes.
 - [powerpoint](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/powerpoint/SKILL.md) Create, read, edit .pptx decks, slides, notes, templates.
 - [teams-meeting-pipeline](https://github.com/NousResearch/hermes-agent/blob/main/skills/productivity/teams-meeting-pipeline/SKILL.md) Operate the Teams meeting summary pipeline via Hermes CLI - summarize meetings, inspect pipeline status, replay jobs, manage Microsoft Graph subscriptions.
 
@@ -142,7 +142,7 @@ status: "published"
 
 ### yuanbao
 
-- [yuanbao](https://github.com/NousResearch/hermes-agent/blob/main/skills/yuanbao/SKILL.md) Yuanbao (元宝) groups: @mention users, query info/members.
+- [yuanbao](https://github.com/NousResearch/hermes-agent/tree/main/skills) Yuanbao (元宝) groups: @mention users, query info/members.
 
 ## 官方 Optional Skills（101）
 

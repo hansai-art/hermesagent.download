@@ -13,6 +13,8 @@ interface Props {
   ogType?: string;
   // 首頁的標題本身就以品牌開頭，不需要再接後綴。
   brand?: boolean;
+  // 對搜尋引擎隱藏索引（薄的 issue 鏡像頁用），仍保留 follow 讓連結權重流動。
+  noindex?: boolean;
 }
 
 const {
@@ -21,6 +23,7 @@ const {
   schema,
   ogType = 'website',
   brand = true,
+  noindex = false,
 } = Astro.props;
 
 // 標題後綴由這裡統一決定，call site 只傳頁面本身的標題。
@@ -76,6 +79,7 @@ const orgSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />

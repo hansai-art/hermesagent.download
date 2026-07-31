@@ -35,10 +35,15 @@ function* walkMd(dir) {
 const urlMap = new Map();
 for (const file of walkMd(KNOWLEDGE)) {
   const text = readFileSync(file, 'utf-8');
-  for (const m of text.matchAll(/https?:\/\/[^\s)"'\]<>,;，；]+/g)) {
+  // URL 在空白、引號、以及括號(半形與全形)處斷開。
+  // 排除 `(` 很重要:腳註慣例是「網址(2026-07-25 存取)」,不排除的話會把
+  // 「網址(2026-07-25」整串誤當 URL 而虛報死鏈。
+  for (const m of text.matchAll(/https?:\/\/[^\s)("'\]<>,;，；（）]+/g)) {
     const url = m[0].replace(/[.,)。」]+$/, '');
     // 文件中的本機/內網範例端點(Ollama 等)不是外部連結
     if (/^https?:\/\/(localhost|127\.0\.0\.1|0\.0\.0\.0|192\.168\.|10\.|\[::1\])/.test(url)) continue;
+    // RFC 2606 保留的文件示範網域(example.com、docs.example.com、*.example.*)不是真實連結
+    if (/^https?:\/\/([a-z0-9-]+\.)*example\.[a-z]+(\/|$|:)/i.test(url)) continue;
     if (!urlMap.has(url)) urlMap.set(url, []);
     urlMap.get(url).push(relative(REPO_ROOT, file));
   }

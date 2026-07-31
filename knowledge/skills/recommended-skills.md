@@ -91,7 +91,7 @@ status: "published"
 
 官方內建的桌面自動化：在背景點擊、輸入、捲動、拖曳，不搶你的游標與焦點，macOS / Windows / Linux 都支援。 信任層級：官方。新手友善度：7/10。
 
-→](https://github.com/NousResearch/hermes-agent/blob/main/skills/computer-use/SKILL.md)[
+→](https://github.com/NousResearch/hermes-agent/tree/main/skills)[
 
 ### docker-management
 

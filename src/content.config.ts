@@ -19,6 +19,9 @@ const articleSchema = z.object({
   // 自動搬遷、AI 起草的文章預設是 false；唯有人工審閱後才能設 true。
   // 這個欄位存在的意義是誠實：讓讀者分得出哪些內容有人背書。
   human_reviewed: z.boolean().optional().default(false),
+  // 是否對搜尋引擎隱藏索引(noindex)。未設時,issues/(上游薄鏡像)預設 noindex,
+  // 其餘預設索引。個別文章可覆寫:升級成 canonical 解法後設 false 即可重新索引。
+  noindex: z.boolean().optional(),
   upstream_refs: z.array(z.string().url()).optional().default([]),
   sources: z.array(z.string()).optional().default([]),
   status: z

@@ -67,6 +67,11 @@ const breadcrumbSchema = {
 // 讓 AI 回答引擎能直接讀出問答對(AEO 核心)。
 const faqSchema = buildFaqSchema(entry.body);
 const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema] : [])];
+
+// issues/ 是上游薄鏡像,預設 noindex(止血,避免稀釋整站品質訊號);
+// 個別文章可用 frontmatter noindex 覆寫。canonical 解法一律放 troubleshoot/。
+const categorySlug = entry.id.split('/')[0];
+const noindex = d.noindex ?? categorySlug === 'issues';
 ---
 
 <Base
@@ -74,6 +79,7 @@ const pageSchema = [articleSchema, breadcrumbSchema, ...(faqSchema ? [faqSchema]
   description={d.description}
   schema={pageSchema}
   ogType="article"
+  noindex={noindex}
 >
   <article class="max-w-3xl mx-auto">
     <nav class="text-sm mb-6" style="color: var(--text-dim)">
