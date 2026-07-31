@@ -92,6 +92,10 @@ for (const file of files) {
   for (const m of all.matchAll(/—/g)) {
     if (insideAsciiQuote(all, m.index)) continue; // 上游英文原文，逐字保留
     const window = all.slice(Math.max(0, m.index - 30), m.index + 31);
+    // 只攔「中文語境內」的破折號(對齊本檔開頭第 21 行的判準):破折號前後 30 字
+    // 內完全沒有中文 = 英文句子(含 /en/ 英文頁的正常 em-dash),放行。少了這道
+    // gate,英文頁每個正常 em-dash 都會被誤攔。
+    if (!CJK.test(window)) continue;
     findings['全形破折號（中文語境內，改用全形冒號或逗號）'].push([rel, window.trim()]);
   }
 
