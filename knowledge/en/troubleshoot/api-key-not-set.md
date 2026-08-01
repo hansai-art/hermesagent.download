@@ -1,6 +1,6 @@
 ---
-title: "API key not set / How to fix an invalid API key"
-description: "The most common cause isn't a mistyped key — it's a key mismatched with its provider. A three-step diagnosis, including conflicting settings in ~/.hermes/.env."
+title: "Seeing \"API key not set\" or being told your key is invalid? Let's fix it step by step"
+description: "The most common cause isn't a typo in your key — it's that the key is paired with the wrong provider. Walk through three calm steps, including the easy-to-miss conflicting settings in ~/.hermes/.env."
 date: 2026-07-23
 subcategory: "auth"
 hermes_version: ">=2026.5"
@@ -14,105 +14,118 @@ tags:
 status: "published"
 ---
 
-You're sure the key is right: you just copied and pasted it straight from the provider's dashboard, character for character. But Hermes keeps telling you:
+First, one word to know. This page keeps mentioning your **API key** (I'll just call it your "key"): it's a password-like string of characters that lets Hermes use the account you opened with some AI company. Another word is **provider** (the company that supplies the AI models — for example OpenAI, OpenRouter, or Anthropic). You first sign up for a key at one of these providers, then you hand that key to Hermes.
+
+Okay, back to the problem. You're sure the key is right: you just copy-pasted it from the provider's website, character for character, nothing missing. But Hermes still tells you:
 
 ```
 API key not set
 ```
 
-Or, even more maddening: the key is clearly filled in, yet it still comes back saying authentication failed.
+Or, even more annoying: you clearly filled the key in, and it still comes back saying "authentication failed."
 
-**The most common cause isn't a mistyped key — it's a key mismatched with its provider.** An OpenAI key won't work on OpenRouter, and vice versa[^1]: keys from the two look very similar, so it's easy to paste one into the wrong field.
+Take a breath. **The most common cause isn't a typo in your key — it's that the key is paired with the wrong provider.** Here's an analogy: each provider's key is like a bank card from a different bank. They look alike, but an OpenAI card won't work in an OpenRouter machine, and vice versa[^1]. Because the keys look so similar, it's easy to paste one into the wrong box.
 
-## Step 1: See what's actually configured
+Let's take the three steps below one at a time.
+
+## Step 1: See what's actually set right now
+
+In your terminal (the window where you type commands), enter:
 
 ```bash
 hermes config show
 ```
 
-This lists your current settings[^1]. Check two things:
+This command lists out Hermes's current settings for you[^1]. You only need to watch two things:
 
-1. **Whether the provider is the one you think it is**: if you believe you're using OpenRouter but this shows OpenAI, then of course the key won't match.
-2. **Whether the key actually got saved**
+1. **Is the provider the one you think it is?** If you had OpenRouter in mind but this shows OpenAI, then of course the key won't match — you'd be feeding an OpenRouter key to OpenAI, and it won't recognize it.
+2. **Did the key actually get saved?** Sometimes you think you filled it in, but it never really saved.
 
-> 📝 **This section is missing real output**: what the actual fields of `hermes config show` look like, and whether the key is masked — we don't have a live screen capture on hand.
-> [Help us fill it in](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/api-key-not-set.md).
+> 📝 **This section is still missing a real screenshot**: what the fields printed by `hermes config show` look like, and whether the key gets hidden behind asterisks —
+> we don't have an actual captured screen on hand.
+> [Help us fill this in](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/api-key-not-set.md).
 
-## Step 2: Set it up again from scratch
+## Step 2: Just set it up again
 
-The safest approach is to go through the interactive menu, which ensures the provider and the key are configured as a matched pair:
+The method least likely to go wrong is the "interactive menu" (the kind of screen that asks you questions and gives you choices step by step — you just follow along and pick):
 
 ```bash
 hermes model
 ```
 
-The menu walks you through choosing a provider and entering the key[^1]. This is less error-prone than configuring things by hand.
+This menu walks you through picking the provider first, then entering the key[^1]. Because it pairs the provider and the key together in one go, they almost never end up mismatched. That's much safer than typing everything in by hand.
 
-If you're certain which provider you're using, you can also set it directly:
+If you already know exactly which provider you want, you can also set it in a single command. For example:
 
 ```bash
 hermes config set OPENROUTER_API_KEY sk-or-v1-xxxx
 ```
 
-**Watch the key's prefix**: it usually tells you which provider the key belongs to:
+**Here's a handy trick: look at the first few characters of the key (the prefix).** The start of a key usually tells you which provider it belongs to:
 
-| Prefix | Provider |
+| Starts like this | This provider |
 |---|---|
 | `sk-or-v1-` | OpenRouter |
 | `sk-` | OpenAI |
 | `sk-ant-` | Anthropic |
 
-If the prefix doesn't match the provider you've configured, that's your mismatch.
+If the start of your key doesn't line up with the provider you set (say, you set OpenAI but the key starts with `sk-or-v1-`), then it's mismatched.
 
-## Step 3: Check .env for conflicting settings
+## Step 3: Check the .env file for conflicting old settings
 
-This is the step that's easiest to overlook. Hermes reads `~/.hermes/.env`, and if there's an old, conflicting key in there, it can override the one you just set[^1]:
+This step is the easiest to overlook, but it's often the real culprit.
+
+When Hermes starts up, it reads a file called `~/.hermes/.env` (`.env` is a plain-text file with settings written one per line; `~` means your personal home folder). If an old, mismatched key is hiding in this file, it can quietly override the one you just set[^1].
+
+Open it up and see what's inside:
 
 ```bash
 cat ~/.hermes/.env
 ```
 
-**What you'll see**: environment variables in `KEY=value` format, one per line. If it contains an old key you no longer use (for example, one left over from before you switched providers), delete or comment out those lines.
+**What you'll see**: lines in the format `KEY=value` (these are called "environment variables" — think of them as little sticky notes for the program, each one saying "this setting = this value"). If there's an old key in there that you no longer use (for example, one left over from before you switched providers), delete those whole lines, or put a `#` at the start of the line to comment it out (which tells the program to ignore that line for now).
 
-## Verify that it's fixed
+## How to confirm it's fixed
+
+Open Hermes:
 
 ```bash
 hermes
 ```
 
-Go in and ask it anything. **Success criterion**: it replies normally, with no more key-related errors.
+Once inside, just ask it anything. **As long as it replies normally and no longer throws a key-related error, you're done.**
 
-If it still fails, the error message this time is usually more specific (for example, insufficient credit, or a nonexistent model name) — just follow what the message says. At the very least, it's no longer a case of the key not being set.
+If it still fails, don't be discouraged. This time the error message is usually more specific (for example "insufficient quota" or "model name not found"), so just follow the new message. At the very least, you've gotten past the "key isn't set" hurdle.
 
-## FAQ
+## Common questions
 
-### My settings disappeared after an update?
+### My settings vanished after I updated Hermes?
 
-First run `hermes config show` to confirm the current state, then use `hermes model` to set things up again[^1].
+First run `hermes config show` to see what's left, then just set it up again with `hermes model`[^1].
 
-### I don't want to manage keys myself — is there an easier way?
+### I don't want to sign up with each provider one by one — is there an easier way?
 
-Yes. The official Portal handles it in one step, so you don't have to sign up for a key with each provider individually:
+Yes. The official Portal (an entry service) handles it all at once, so you don't have to go申請 a key at each provider yourself:
 
 ```bash
 hermes setup --portal
 ```
 
-### Want to switch to a different model?
+### I want to switch to a different AI model?
 
 ```bash
 hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 ```
 
-Or switch directly within a conversation: `/model <name>`, and for a different provider use `/model provider:model`[^1].
+Or switch on the spot while you're chatting with Hermes by typing: `/model <model-name>`. If you want a model from a different provider, write it in the form `/model provider:model`[^1].
 
-### Don't want to pay anything at all?
+### I don't want to spend any money at all — is that possible?
 
-Use a local model. Run `hermes model`, choose Custom endpoint, and enter your Ollama address. Local models are completely free[^1]. For configuration details, see [Model providers and API key setup](/en/config/model-provider/).
+Yes, just use a "local model" — meaning you let the AI run directly on your own computer, without going through any paid provider. To do it, run `hermes model`, choose Custom endpoint, and fill in the address for Ollama (Ollama is a free piece of software that runs AI models on your own computer). Local models are completely free[^1]. For the setup details, see [Model providers and API key setup](/en/config/model-provider/).
 
 ## Next steps
 
-- How to choose a provider and how to save money → [Model providers and API key setup](/en/config/model-provider/)
-- Hitting a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
+- Want to know how to choose a provider and save money → [Model providers and API key setup](/en/config/model-provider/)
+- Ran into a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)

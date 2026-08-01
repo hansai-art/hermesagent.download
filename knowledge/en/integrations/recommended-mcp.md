@@ -1,6 +1,6 @@
 ---
-title: "MCP Servers Worth Connecting First"
-description: "MCP lets an agent plug into external tools, but every server you connect is one more grant of permissions. This piece ranks them by benefit vs. risk and explains the trust level of each."
+title: "Which MCPs Should a Beginner Connect First? A Shortlist"
+description: "An MCP is a plug that lets your agent hook up to outside tools. But every one you plug in also hands over a slice of permission. This page sorts them by benefit vs. risk, so you know which to connect first and which to be careful with."
 date: 2026-07-23
 subcategory: "mcp"
 hermes_version: ">=2026.5"
@@ -15,79 +15,86 @@ tags:
 status: "published"
 ---
 
-MCP (Model Context Protocol) is the standard interface for connecting an agent to external tools. Hermes can connect to any MCP server[^1], which means its capabilities can expand without limit.
+Two words first, because they come up a lot below.
 
-But there's one thing worth thinking through first: **every MCP you connect hands over a slice of your permissions**. A filesystem MCP can read and write your files; a GitHub MCP can operate on your repos. This isn't meant to scare you, just to make the point: before you connect one, it's worth knowing exactly what you're authorizing.
+**agent (a helper AI)**: a program that does things for you. You tell it what you want, and it goes and does it.
 
-That's why the list below is ordered by benefit vs. risk, not by popularity.
+**MCP (short for Model Context Protocol, a shared way to plug outside tools into an agent)**: think of it as a standard plug. With it, your agent can hook up to all sorts of outside tools. Hermes can connect to any MCP[^1], so its abilities can grow almost without limit.
 
-## Connect These First
+That sounds great. But there is one thing worth thinking through before you start plugging things in.
+
+**Every MCP you connect hands over a slice of permission.** For example: connect a "file MCP" and your agent can read and change your files; connect a "GitHub MCP" and your agent can act on your projects on GitHub. This is not meant to scare you. It is just a reminder: before you connect, know what you are handing over.
+
+So the list below is not sorted by "what's most popular." It is sorted by "how big is the benefit, and how high is the risk."
+
+## Connect these first
 
 ### Filesystem MCP
 
 `@modelcontextprotocol/server-filesystem`
 
-Lets the agent read and write **the directories you specify**. This is usually the first one worth connecting, because most useful work needs it: reading a project's source, writing files, organizing data.
+This lets your agent read and write **the folders you point it at**. It is usually the first one worth connecting, because most useful work needs it: reading your project's code, saving files for you, tidying up data.
 
-**The key to controlling risk**: it can only access the directories you explicitly name in the configuration. **Don't take the shortcut of pointing it at the root of your home directory**, point it at a specific project folder instead.
+**The key to keeping the risk down is one sentence**: it can only touch the folders you spell out in the settings. **Do not, for convenience, point it at the very top of your home directory** (your home directory is the main entry point to all the stuff on your computer that belongs to you). Point it at one specific project folder instead. The smaller the range, the safer.
 
-- Trust level: trusted third party (official MCP reference implementation)
-- Risk: moderate, depending on which directories you open up
+- Who made it: a trusted third party (this is the official sample version put out by MCP itself)
+- Risk level: medium. The bigger the folder you open up, the higher the risk
 
 ### Git MCP
 
 `mcp-server-git`
 
-Performs git operations on a specified repo, launched with `uvx`, no separate installation required.
+This runs git operations on a project you choose (git is a tool that records every change you make to your code, like a "save-history notebook"). It starts up with the `uvx` command, so you do not have to install anything separately first.
 
-Compared with the GitHub MCP, this one only touches local repos and never touches your remote account, so it's far lower risk. **If all you want is to have the agent help review a diff or write a commit, this is enough.**
+Compared with the GitHub MCP below, this one is much safer: it only touches projects **on your own computer**, never your account online. **If you just want your agent to show you "what changed this time" (that's a diff), or to write a change record for you (that's a commit), this one is enough.**
 
-- Trust level: trusted third party
-- Risk: moderate, since it modifies your local git history
+- Who made it: a trusted third party
+- Risk level: medium. It does change the git save-history on your computer
 
 ### GitHub MCP
 
 `@modelcontextprotocol/server-github`
 
-Looks up issues, searches code, and operates on repos.
+This can look up issues (tickets that track problems or tasks), search code, and act on your projects on GitHub.
 
-**Be careful with this one**: it uses your GitHub token, and its permission scope is exactly the scope of that token. We recommend creating a separate **least-privilege token** rather than using your everyday do-everything one.
+**Be extra careful with this one.** It acts using your GitHub token (a token is a "digital key" that lets whoever holds it act as you). However many doors that key can open, your agent can do that much. So here is the advice: go and create a separate key with **as little permission as possible** for it to use. Do not hand over your everyday "opens everything" master key.
 
-- Trust level: trusted third party
-- Risk: moderate to high, since it involves remote account permissions
+- Who made it: a trusted third party
+- Risk level: medium-high, because it touches the permissions on your online account
 
-## Special-Purpose
+## Connect these only if you have a specific need
 
 ### Chrome DevTools MCP
 
 `chrome-devtools-mcp`
 
-Lets the agent control a browser. This is **especially important for WSL2 users**: controlling Chrome running on Windows directly from WSL2 does not go smoothly, and the official recommendation is precisely to go through this MCP bridge. See the [WSL2 guide](/install/wsl2/) for details.
+This lets your agent control your browser.
+
+It is **especially useful for WSL2 users** (WSL2 is a setup that lets you run Linux inside Windows). If you try to control Chrome on Windows directly from inside WSL2, it usually does not go smoothly. The official recommendation is to use this MCP as a "bridge" to connect across. See the [WSL2 guide](/install/wsl2/) for how.
 
 ### Others
 
-Linear MCP (project management), n8n MCP (automation workflows), and the like are a good fit for people already using those tools.
+There are also ones like Linear MCP (helps you manage project progress) and n8n MCP (chains a series of actions together automatically). These suit people who are **already using those tools**. If you are not using them, it is fine to skip for now.
 
-## Three Questions to Ask Before Connecting an MCP
+## Before connecting any MCP, ask yourself three questions
 
-**One: who wrote this server?** Official MCP reference implementations (`@modelcontextprotocol/*`) are relatively trustworthy; a third-party server of unknown origin means letting unfamiliar code run in your environment.
+**Question one: who made this MCP?** If the name starts with `@modelcontextprotocol/*`, it was put out by MCP itself, so it is relatively safe. If it was made by someone you can't identify, you are letting a piece of code you don't know run on your computer, so be more careful.
 
-**Two: what permissions does it need?** File paths, API tokens, network access: figure these out before you connect.
+**Question two: what permission does it want from me?** Which folders will it touch? Does it need an API token (a digital key that acts as you)? Does it need internet access? Find out before you connect.
 
-**Three: can you grant it less?** A dedicated token rather than an all-purpose one, a specific directory rather than your home directory, read-only rather than read-write.
+**Question three: can I give it less permission?** If you can give it a dedicated key, don't give it a master key. If you can open just one folder, don't open your whole home directory. If you can give "read-only" (can look but not change), don't give "read and write."
 
-## This Section Is Still Very Thin
+## Honestly, this section is still thin
 
-> 📝 **To be added**: the **actual setup steps** for each MCP above (how to write the config, how to confirm it's connected, common errors).
-> We don't have any of that yet. It's also the reason the `integrations/` category has fewer than three articles.
+> 📝 **Not written yet**: the **actual setup steps** for each MCP above — exactly how to fill in the settings file, how to confirm it really connected once you're done, and what the common errors look like. We don't have any of this yet. That's also why the `integrations/` category still has fewer than three articles.
 >
-> Which one have you connected? [Write a piece or tell us about it](https://github.com/hansai-art/hermesagent.download/issues/new?template=02-article-proposal.yml):
-> a complete setup guide would directly change what this category looks like.
+> Have you connected any of the ones above? [Write a piece to share, or just tell us](https://github.com/hansai-art/hermesagent.download/issues/new?template=02-article-proposal.yml):
+> one complete setup guide would change this whole category.
 
-## Next Steps
+## What to look at next
 
-- See the official built-in capabilities → [full skills catalog](/skills/catalog/)
-- Connect a browser from WSL2 → [complete WSL2 guide](/install/wsl2/)
-- Want to contribute an MCP setup guide → [contribution guide](/contribute/)
+- Want to know what Hermes can do out of the box → [full skills catalog](/skills/catalog/)
+- Want to connect a browser from WSL2 → [full WSL2 guide](/install/wsl2/)
+- Want to help write an MCP setup guide → [contributor guide](/contribute/)
 
 [^1]: Nous Research, Docs: https://hermes-agent.nousresearch.com/docs (accessed 2026-07-23)

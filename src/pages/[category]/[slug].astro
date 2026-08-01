@@ -5,16 +5,19 @@ import ArticlePage from '../../components/ArticlePage.astro';
 export async function getStaticPaths() {
   const SITE = 'https://hermesagent.download';
   const [zh, en] = await Promise.all([getCollection('zh-TW'), getCollection('en')]);
-  const enIds = new Set(en.filter((e) => e.data.status !== 'draft').map((e) => e.id));
+  // 用 translationKey(退回 id)把英文版配對起來,支援中英不同 slug。
+  const enByKey = new Map(
+    en.filter((e) => e.data.status !== 'draft').map((e) => [e.data.translationKey ?? e.id, e]),
+  );
   return zh
     .filter((e) => e.data.status !== 'draft')
     .map((e) => {
       const [category, ...rest] = e.id.split('/');
-      // 只有英文版也存在時才宣告 hreflang(避免指向不存在的頁)。
-      const alternates = enIds.has(e.id)
+      const enMatch = enByKey.get(e.data.translationKey ?? e.id);
+      const alternates = enMatch
         ? [
             { hreflang: 'zh-TW', href: `${SITE}/${e.id}/` },
-            { hreflang: 'en', href: `${SITE}/en/${e.id}/` },
+            { hreflang: 'en', href: `${SITE}/en/${enMatch.id}/` },
             { hreflang: 'x-default', href: `${SITE}/${e.id}/` },
           ]
         : [];

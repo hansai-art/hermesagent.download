@@ -1,6 +1,6 @@
 ---
-title: "Model Providers and API Key Setup"
-description: "Which provider to pick, how to enter your key, how to save money, and how to connect a local model. Includes the setting that runs subagents on a cheap model: the single highest-impact tweak."
+title: "Set Up Your Model Provider and API Key: A Step-by-Step Guide for Beginners"
+description: "Hermes won't work right after you install it. First you have to tell it where to borrow an AI brain. This guide walks you through picking one, adding your key, and one money-saving setting that really pays off."
 date: 2026-07-23
 subcategory: "provider"
 hermes_version: ">=2026.5"
@@ -15,71 +15,110 @@ tags:
 status: "published"
 ---
 
-Installing Hermes Agent isn't enough to start using it: it doesn't ship with a model of its own, so you first have to tell it where to get its inference capability.
+After you install Hermes Agent, it still can't do anything yet.
 
-This step determines two things: **how good the experience is**, and **how much you pay each month**. And the gap between those outcomes can be huge: for the same amount of work, a good configuration versus a poor one can differ in cost by an order of magnitude.
+Why not? Because Hermes has no AI brain built in (that brain is called a "model" — the AI that actually thinks and answers for you). Hermes is more like the "body" of an assistant: it knows all the moves, but you have to plug a brain into it first. This guide shows you how.
 
-## The fastest path: the official Portal
+The official name for this step is setting up your "model provider" (a provider is the company or service that supplies the AI model, like OpenAI or Google).
 
-If you'd rather not apply for an API key from each provider one by one:
+It decides two things:
+
+- How smooth the whole thing feels to use.
+- How much you pay each month.
+
+And the gap can be big. For the same amount of work, a good setup versus a bad one can cost you more than ten times as much. So spending a few minutes to get it right is worth it.
+
+Below are a few paths, from the easiest to the most advanced. Just pick one and do it.
+
+## The easiest path: let the official Portal handle it all at once
+
+If you "don't want to sign up with company after company and collect keys one at a time," pick this.
+
+In your terminal (that black window with white text where you type commands), enter this line:
 
 ```bash
 hermes setup --portal
 ```
 
-The Nous Portal gives you access to 300+ models, all configured in one go[^1].
+This uses Nous Portal (the official relay service for models) to connect you to 300-plus models in one go. You set it up once and you're done[^1].
 
-## The standard path: the interactive menu
+> Good to know: an API key is a password-like string of characters that proves "it's you using it this time," so the charges land on your account. The nice thing about the Portal is that you don't have to go collect that key from each company yourself.
+
+## The standard path: pick one step by step in the menu
+
+If you'd rather choose a provider yourself:
 
 ```bash
 hermes model
 ```
 
-This opens an interactive menu where you pick a provider and enter your API key[^1]. Officially supported providers include OpenRouter, OpenAI, Anthropic Claude, Google Gemini, as well as local models such as Ollama and vLLM.
+This opens an interactive menu (it asks you one item at a time — you move with the arrow keys and press Enter to choose). In it, you pick a provider, then paste in the API key that provider gave you[^1].
 
-**Success criterion**: the menu flow completes without errors, and `hermes config show` then displays the provider you selected.
+Officially supported: OpenRouter, OpenAI, Anthropic Claude, Google Gemini, plus "local models" like Ollama and vLLM (models that run on your own computer — more on that later).
 
-## How to choose among providers
+**How to confirm it worked**: the menu runs all the way through with no error popping up, and then when you run the line below, you can see the provider you just picked. That means success.
 
-| Provider | Best for |
+```bash
+hermes config show
+```
+
+## How to choose among them
+
+Not sure which one to pick? Just find your row in this table:
+
+| Provider | Who it's for |
 |---|---|
-| **Nous Portal** | People who don't want to manage keys and want access to many models at once |
-| **OpenRouter** | Switching and price-comparing across multiple models with a single key |
-| **OpenAI / Anthropic / Google** | People who already have an account, or who specifically depend on one provider's models |
-| **Ollama / vLLM (local)** | People who don't want to pay at all, or whose data can't leave their own machine |
+| **Nous Portal** | People who don't want to deal with keys and want lots of models in one shot |
+| **OpenRouter** | People who want to switch and compare prices across many models, all with one key |
+| **OpenAI / Anthropic / Google** | People who already have an account, or really depend on one company's model |
+| **Ollama / vLLM (local)** | People who don't want to pay a cent, or whose data can't leave their own computer |
 
-## Writing the configuration directly (advanced)
+## Advanced: write the setting in directly and skip the menu
 
-If you're sure which provider you want, you can skip the menu:
+If you already know exactly which provider you want, you can skip the menu and get it done with a single command line.
+
+The line below saves your OpenRouter key (replace `sk-or-v1-xxxx` with your own key):
 
 ```bash
 hermes config set OPENROUTER_API_KEY sk-or-v1-xxxx
 ```
 
-Specify a particular model:
+(An all-caps name like `OPENROUTER_API_KEY` is called an "environment variable" — think of it as "a labeled slot for a setting." Hermes goes to this slot to read your key.)
+
+To pick a specific model to use:
 
 ```bash
 hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 ```
 
-You can also switch on the fly within a conversation, no restart required[^1]:
+You can also switch models on the fly while you're chatting with Hermes, without restarting[^1]:
 
 ```
-/model <model-name>
+/model <模型名稱>
 /model provider:model
 ```
 
 ## Connecting a local model (completely free)
 
-Run `hermes model`, choose **Custom endpoint**, and enter the address of your local service. For Ollama, for example:
+A "local model" is an AI that runs on your own computer, without going through anyone else's servers. The upside is that it's free and your data never leaves; the trade-off is that your computer has to be powerful enough.
+
+How to do it: run `hermes model`, choose **Custom endpoint** in the menu (the address you connect to yourself), then enter the address of your local service. For Ollama, it's usually this:
 
 ```
 http://localhost:11434/v1
 ```
 
-**Important**: when connecting a local model, you must explicitly set the context length in the config file. Otherwise Hermes may infer the wrong limit, causing a `context length exceeded` error even before the conversation gets very long.
+**Very important**: when connecting a local model, you must "spell out the context length" in the config file.
 
-Edit `~/.hermes/config.yaml`:
+(Context is the "context window" — think of it as how much of the conversation the model can remember at once; it has an upper limit.)
+
+If you don't spell it out, Hermes may guess that limit wrong, and then before you've even chatted much, this error string pops up: `context length exceeded` (meaning "you've gone past the context length").
+
+Open the config file `~/.hermes/config.yaml` to edit it.
+
+(This file is called config.yaml, and it's Hermes' settings file. YAML is a settings format that "lays things out by indentation," so the spaces in front of each level can't be off.)
+
+Fill it in like this:
 
 ```yaml
 model:
@@ -87,15 +126,17 @@ model:
   context_length: 131072
 ```
 
-`context_length` should be set to **the number your server actually supports**[^1], not the model's theoretical maximum. For Ollama, that's the `num_ctx` value in the Modelfile.
+Here, `context_length` should be **the number your server can actually handle**[^1], not the maximum the model advertises. For Ollama, that number is `num_ctx` in the Modelfile (Ollama's model settings file).
 
-## Saving money: run subagents on a cheap model
+## The money-saving trick: let the "little helpers" run a cheap model
 
-This is the highest-impact trick, yet many people don't know about it.
+This trick pays off the most, but a lot of people don't know about it.
 
-Hermes dispatches subagents to handle work in parallel. Most of these subtasks don't need the most powerful model: but by default they use the main model you configured, meaning you're paying flagship prices to do chores.
+When Hermes hits a bigger job, it sends out some "little helpers" to split the work and do it in parallel. The official name for these little helpers is subagents.
 
-In the `delegation` section of `~/.hermes/config.yaml`, specify a dedicated cheap model for subagents[^1]:
+Here's the key point: these little helpers mostly do grunt work, and they don't need the strongest, most expensive model at all. But by default, they use the same main model you set up — which is like "paying flagship-tier prices to do chores." That's wasteful.
+
+The fix: in the `delegation` section of the config file `~/.hermes/config.yaml`, assign a separate cheap model just for these little helpers[^1]:
 
 ```yaml
 delegation:
@@ -103,51 +144,53 @@ delegation:
   provider: openrouter
 ```
 
-The main conversation stays high-quality, while subtasks run on the cheap model.
+Now: your own main conversation still runs on the good, high-quality model, while the little helpers doing chores in the background run on the cheap one. Split the two, and the bill comes down.
 
-> 📝 **Real-world data still needed**: how much you actually save depends on your usage patterns.
-> If you've compared your bills before and after, [help us fill in the real numbers](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/model-provider.md):
-> this kind of information, which you only learn from actual use, is exactly what this site is missing most.
+> 📝 **Real-world numbers still needed**: how much you actually save depends on how you use it.
+> If you've compared your bill before and after, [help us fill in the real numbers](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/model-provider.md):
+> this kind of "you only know it once you've actually used it" info is exactly what this site is missing most.
 
-## Confirming the configuration took effect
+## Last step: confirm the setting took effect
+
+First, take a look at the current setup:
 
 ```bash
 hermes config show
 ```
 
-**What to look for**: that the provider and model are the ones you configured.
+**What to look at**: whether the provider and model shown are the ones you just set up. If they are, you're good.
 
-Then actually run it once:
+Then actually run Hermes once:
 
 ```bash
 hermes
 ```
 
-Ask any question; a normal reply means the whole path is working.
+Type any sentence and ask it something. If it answers you normally, the whole path is working. Congrats.
 
-## Frequently asked questions
+## Common questions
 
 ### How much does this actually cost?
 
-Hermes Agent itself is open-source software under the MIT license, and it's **free**. You only pay the API costs of the provider you choose[^1]. With a local model, it costs nothing at all.
+The Hermes Agent program itself is free, open-source software (under the MIT license — a very permissive, free-to-use license). The only thing you pay for is the API cost of the provider you chose[^1]. If you use a local model, you don't pay a cent.
 
-### I entered the API key but still get an error?
+### I entered my key and it still errors out?
 
-The most common cause is a mismatch between the key and the provider: an OpenAI key can't be used with OpenRouter[^1]. For detailed troubleshooting, see [how to fix API key not set](/en/troubleshoot/api-key-not-set/).
+The most common reason: the key and the provider don't match. For example, an OpenAI key can't be used on OpenRouter[^1]. For details on how to check, see [How to fix "API key not set"](/en/troubleshoot/api-key-not-set/).
 
 ### Want to switch models mid-conversation?
 
-Use `/model <name>`, or `/model provider:model` to go across providers[^1], with no restart needed.
+Use `/model <名稱>` to switch; to jump to a different provider, use `/model provider:model`[^1]. Neither one needs a restart.
 
 ### Getting context length exceeded?
 
-First run `/compress` to compress the current conversation and `/usage` to check usage; the long-term fix is to explicitly set `context_length` in `config.yaml`[^1]. See [how to fix context length exceeded](/en/troubleshoot/context-length-exceeded/) for details.
+First use `/compress` to squeeze the current conversation down (it condenses the earlier content to free up space), then use `/usage` to see how much you've used. The long-term real fix is to spell out `context_length` in `config.yaml`[^1]. See [How to fix context length exceeded](/en/troubleshoot/context-length-exceeded/) for details.
 
 ## Next steps
 
-- Want to know where your tokens actually go → [hermes insights: figure out where your tokens go](/config/insights-token-usage/)
-- Haven't installed yet → [Installation and deployment](/install/)
-- Migrating from OpenClaw → [Migration guide](/en/migrate/migrate-from-openclaw/)
-- Curious what it can do → [Skills catalog](/skills/catalog/)
+- Want to know where your tokens actually go (a token is basically "the unit AI bills you by, roughly a chunk of a word") → [hermes insights: figure out where your tokens go](/config/insights-token-usage/)
+- Haven't installed yet → [Install and set up](/install/)
+- Moving over from OpenClaw → [Migration guide](/en/migrate/migrate-from-openclaw/)
+- Want to see what it can do → [Skills catalog](/skills/catalog/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)

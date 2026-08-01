@@ -1,6 +1,6 @@
 ---
-title: "How to Fix context length exceeded"
-description: "Rescue the current conversation with /compress first, then fix it for good in your config. Local-model users hit this especially often, and the cause is not what you'd expect."
+title: "What to do when you see context length exceeded"
+description: "Your chat suddenly froze with a context length exceeded message? Rescue the current conversation with one command, then fix your config file so it stops happening. People running local models hit this a lot, and the reason isn't what you'd guess."
 date: 2026-07-23
 subcategory: "runtime"
 hermes_version: ">=2026.5"
@@ -14,41 +14,67 @@ tags:
 status: "published"
 ---
 
-You're halfway through something: the agent has read a few files, run a few tools, gone back and forth for twenty rounds, and then it suddenly says:
+Picture yourself halfway through a task. Your agent (the AI assistant that does things for you) has read a few files, run some small tools for you, and you've gone back and forth for twenty-odd rounds. Then it suddenly says:
 
 ```
 context length exceeded
 ```
 
-The conversation is stuck, and you don't want to start over from scratch.
+What this line means is: "This conversation has too much stuffed into it. It's more than I can hold in mind at once."
 
-## First, put out the fire: compress the current conversation
+So the chat freezes. And you don't want to start over from scratch. Don't worry, let's walk through it step by step.
 
-Type this directly into the conversation:
+First, one piece of vocabulary. A **token** (think of it as a "chunk of text") is the unit an AI uses to measure how long a piece of text is. Roughly a few letters, or one word, makes one token. An AI can only take in so many tokens in a single conversation. That ceiling is called the **context length** (the conversation's capacity). The longer you chat, and the more you paste in, the closer you get to that ceiling. Once it's full, you see the error above.
+
+## Step 1: Put out the fire — compress the current conversation
+
+In the chat box, just type this command and send it:
 
 ```
 /compress
 ```
 
-This summarizes the earlier conversation history into a shorter version, freeing up room to continue[^1].
+A "command" is a special instruction you type to the agent. It usually starts with a slash (`/`).
 
-**Success criterion**: you can keep the conversation going and no longer get the context error. The summary preserves the overall context, but details may be compressed away. If you later notice it has "forgotten" some detail, just tell it again.
+What does this do? It takes everything you've talked about so far and boils it down into a shorter summary, freeing up room so the conversation can keep going[^1]. Think of it like a messy pile of paper on your desk: you jot the key points onto one sticky note and put the rest away.
 
-## Check how much you're actually using
+**How you know it worked**: you can keep typing and chatting, and the context error stops popping up. That's success.
+
+One thing to keep in mind: the summary keeps the big picture, but some small details may get squeezed out. If the agent later seems to have "forgotten" something, just tell it again. It isn't broken.
+
+## Step 2: See how much you've actually used
+
+Type this command and send it:
 
 ```
 /usage
 ```
 
-This shows your current token usage[^1]. It tells you whether you're nearly full or still far from the limit (and if you're far from the limit yet still getting an error, it's most likely the config problem below).
+It tells you how many tokens the current conversation has used up[^1].
 
-## Fix it for good: set the context length explicitly in your config
+Once you see the number, you can judge: are you truly close to full, or actually still far from the ceiling?
 
-This step is **especially important for users on local models or self-hosted endpoints**.
+If you're still far from the ceiling but getting the error anyway, then it's probably not a "chatted too much" problem. It's the **setting isn't filled in right** problem we'll cover next.
 
-Hermes tries to detect a model's context limit, but it often gets it wrong against self-hosted services: it may think your model only has 8K when it actually has 128K, so it errors out prematurely.
+## Step 3: Edit the config file to fix it at the root
 
-Edit `~/.hermes/config.yaml`:
+This step matters especially for people **running a local model, or hosting their own server**.
+
+Let me explain. A "local model" means the AI isn't running on someone else's cloud, but on your own computer or a server you set up yourself. A "self-hosted endpoint" — the endpoint (the connection point, the network address your program goes to for answers) — means something similar: you've set up your own place for Hermes to send its questions.
+
+So where's the problem? Hermes tries to guess "how many tokens your model can take at once." But when it connects to a self-hosted service, it often guesses wrong. It might think your model only has 8K (eight thousand tokens) of capacity, when it actually has 128K (a hundred twenty-eight thousand). So it gets nervous too early and throws the error too soon.
+
+The fix: tell it the correct number directly, instead of letting it guess.
+
+Open this file in a text editor:
+
+```
+~/.hermes/config.yaml
+```
+
+Quick note: `~` stands for your personal user folder. The dot at the start of `.hermes` means it's a hidden folder. `.yaml` is a config file format written as "name: value", one per line, using indentation (the spaces at the front of each line) to show structure — so don't mess up the indentation.
+
+Put these lines in it:
 
 ```yaml
 model:
@@ -56,41 +82,44 @@ model:
   context_length: 131072
 ```
 
-`context_length` should be set to **the number your server can actually support**, not the model's theoretical maximum[^1]. Set it too high and it will fail outright when you genuinely exceed it; set it too low and you waste capacity.
+Here, `context_length` should be **the number your server can actually handle**, not the model's "theoretical maximum"[^1].
 
-**How to know what to put**: check the context length configured when your inference service (Ollama, vLLM, etc.) started up. For Ollama, that's `num_ctx` in the model's Modelfile.
+- Too big: it will just fail when you really do go over.
+- Too small: you're wasting capacity for nothing.
 
-> 📝 **To be added**: we haven't yet compiled the specific commands for checking the context limit on each local inference service.
+**So how do I know what to put?** Look at the capacity your inference service (the program that actually runs the AI model, like Ollama, vLLM, and so on) was set to when it started up. With Ollama, for example, that number lives in the model's Modelfile (Ollama's config file that describes a model), and it's called `num_ctx`.
+
+> 📝 **To be added**: the exact commands for checking the context limit on each local inference service — we haven't written this up yet.
 > If you've run Ollama / vLLM / LM Studio,
-> [help us fill in this section](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/context-length-exceeded.md).
+> [help us fill in this part](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/context-length-exceeded.md).
 
-## A long-term habit: don't let conversations grow without limit
+## A long-term habit: don't let conversations run on forever
 
-`/compress` is first aid, not a permanent fix. A few ways to reduce how often you hit the wall:
+`/compress` is emergency first aid, not something to lean on every day. To hit the wall less often, build a few habits:
 
-**Start a new conversation once you finish a task**. Hermes's memory system carries important information across sessions, so a new conversation isn't starting from zero: it remembers who you are and what your project looks like. Continuously piling onto the same session instead means you keep dragging along a mountain of already-processed details.
+**Finish one task, then start a new conversation.** You might worry: if I start fresh, doesn't everything from before get forgotten? It doesn't. Hermes has a memory system that saves important information across conversations. So starting a new conversation isn't starting from zero — it still remembers who you are and what your project looks like. On the flip side, staying in the same conversation forever means dragging a huge pile of already-finished, no-longer-needed details along with you, getting heavier and heavier.
 
-**Don't dump entire large files in**. Letting the agent use tools to read specific sections is more efficient than pasting in a whole file.
+**Don't paste in whole large files.** Letting the agent use its tools to read just the small part it needs is far more efficient than you pasting in the entire file.
 
-**Watch tool output**. A single `ls -R` or a full log can eat up a huge number of tokens, and most of that content has no value once it's been used.
+**Watch what the tools spit out.** Some commands dump a wall of content the moment they run, like `ls -R` (which lists everything under a folder, all its subfolders layer by layer) or a full log (a record of what happened while a program ran). These eat up a load of tokens in one go, and most of that content is useless once you've read it.
 
-## Frequently asked questions
+## Common questions
 
-### Why do I sometimes get the error right at the start of a conversation?
+### Why does it sometimes error right at the start of a conversation?
 
-Most likely your configured `context_length` is larger than the server's actual capacity, so the very first request exceeds it. Try lowering the config value.
+Usually because the `context_length` you set is bigger than what your server can actually handle, so the very first request goes over. Try setting the value lower.
 
-### Will switching to a model with a larger context solve this?
+### Will switching to a model with bigger capacity solve it?
 
-It buys time, but it doesn't fix the root cause: a long enough conversation will eventually hit the wall. Combining `/compress` with starting new conversations at the right moments is the stable approach.
+It buys you time, but it doesn't fix the root cause. Chat long enough and you'll still hit the wall eventually. Pairing `/compress` with starting a new conversation when it makes sense is the stable approach.
 
-### What if the agent forgets things after compression?
+### After compressing, the agent seems to have forgotten things. What do I do?
 
-That's normal; a summary inevitably loses detail. Just restate the key information; anything that truly matters should be written into the memory system rather than left sitting in the conversation.
+That's normal — a summary always sacrifices some detail. Just say the key information again. Anything truly important that you want it to remember for good should be written into the memory system, not left sitting in this one conversation.
 
 ## Next steps
 
-- Configure the model and a local endpoint → [Model providers and API key setup](/en/config/model-provider/)
-- Hitting a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
+- Set up your model and local endpoint → [Model provider and API key setup](/en/config/model-provider/)
+- Hit a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)

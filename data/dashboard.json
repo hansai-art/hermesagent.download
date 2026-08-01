@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-01T03:58:20.007Z",
+  "generatedAt": "2026-08-01T11:36:02.945Z",
   "content": {
-    "total": 390,
+    "total": 393,
     "byStatus": {
-      "published": 390,
+      "published": 393,
       "archived": 1
     },
     "byCategory": [
@@ -99,20 +99,20 @@
     ]
   },
   "credibility": {
-    "withSources": 390,
+    "withSources": 393,
     "withSourcesPct": 100,
-    "footnotes": 206,
+    "footnotes": 242,
     "verifiedFresh": 52,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 78,
-    "citationCoverage": 77,
-    "citationCovered": 60,
-    "followableCoverage": 100,
-    "followableCovered": 26,
+    "substantial": 81,
+    "citationCoverage": 59,
+    "citationCovered": 48,
+    "followableCoverage": 85,
+    "followableCovered": 22,
     "teachingWithCode": 26,
     "humanReviewed": 1,
     "humanReviewedPct": 0
@@ -121,21 +121,21 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 88,
-    "lastCommitAt": "2026-07-31T10:37:11Z",
+    "recentCommits30d": 79,
+    "lastCommitAt": "2026-07-30T03:39:08Z",
     "top": [
       {
         "login": "hansai-art",
         "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
         "url": "https://github.com/hansai-art",
-        "contributions": 78,
-        "articleCount": 386
+        "contributions": 71,
+        "articleCount": 370
       }
     ]
   },
   "upstream": {
     "lastReleaseTag": "v2026.7.30",
     "checkedAt": "2026-07-31T05:40:26.913Z",
-    "daysSinceCheck": 0
+    "daysSinceCheck": 1
   }
 }

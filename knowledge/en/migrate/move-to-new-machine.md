@@ -1,6 +1,6 @@
 ---
-title: "Switching Computers: Move Your Entire Hermes Setup to a New Machine"
-description: "hermes backup packages up your whole ~/.hermes, and importing it on the new machine restores everything: memory, skills, config, conversations. But that zip contains your API key, so treat how you move it as confidential."
+title: "Got a new computer? Move your whole Hermes over"
+description: "One command, hermes backup, packs your entire ~/.hermes into a single file. On the new computer, hermes import restores everything: memories, skills, settings, conversations. One catch: that packed file hides your API key (the password programs use), so treat it as a secret when you move it."
 date: 2026-07-27
 subcategory: "backup"
 hermes_version: ">=2026.5"
@@ -14,98 +14,114 @@ tags:
 status: "published"
 ---
 
-When you switch to a new computer, the last thing you want to redo is everything you've built up over time: what the agent remembers about you, the skills it has grown on its own, the settings you've dialed in, and every past conversation. The good news is that Hermes has one-command packaging and restore built in, and **all of it moves together**.
+When you switch to a new computer, the annoying part is all the stuff that built up bit by bit: the things the agent remembers about you, the skills it taught itself, the settings you slowly got just right, and every past conversation. Redoing all of that from scratch hurts.
 
-But there's one thing to be clear about up front: **the packaged file contains your API key**. So "how you move this file" matters more than "how you generate it."
+Good news: Hermes has a built-in "pack it all up, unpack it all" feature. Everything above **can move together**.
 
-## The fastest approach: backup → import
+But there's one thing to be clear about first: **the packed file hides your API key inside it**.
 
-Package everything up on the **old machine**:
+What's an API key? Think of it as "a password that programs use." A program carries this password to connect to other services (like an AI model), and the other side only lets it in when the password checks out. So if this password leaks, someone else can impersonate you. That's why "how you move this file to the new computer" needs even more care than "how you create it."
+
+## The fastest way: pack it up, then import
+
+Step one, on your **old computer**, pack it up. Open the terminal (the black window where you type commands) and enter:
 
 ```bash
 hermes backup
 ```
 
-This produces a `~/hermes-backup-<timestamp>.zip` containing your complete `~/.hermes/` directory: **config, API keys, memories, skills, conversation sessions, and profiles all included**[^1].
+Once you run it, it creates a file in your home folder with a name like this: `~/hermes-backup-<timestamp>.zip` (here `~` means your home folder; `<timestamp>` gets swapped for the date and time of the moment you packed it, so the name is different every time; `.zip` is a format that squeezes many files into one bundle).
 
-Transfer this file to the new machine (the next section covers how to do it safely), then on the **new machine**:
+Inside that bundle is your complete `~/.hermes/` folder. In other words, **your settings, API key, memories, skills, conversation records (sessions), and setting bundles (profiles) are all in there**[^1].
+
+Step two, move that file to the new computer (the next section covers how to move it safely), then on the **new computer** enter these two lines:
 
 ```bash
 hermes import ~/hermes-backup-<timestamp>.zip
 hermes setup
 ```
 
-`hermes setup` wraps things up and confirms the environment is connected[^1].
+The first line, `hermes import`, unpacks the bundle and restores it. The second line, `hermes setup`, is a wrap-up check that makes sure everything on the new computer connects properly[^1].
 
-**Success criteria**: Start a conversation on the new machine and ask it "What do you remember about me?" It should be able to tell you your name, your preferences, and your project conventions. The skills are there too: `hermes skills browse` should show the ones from your old machine. If those all check out, the move succeeded.
+**How do you know the move worked?** On the new computer, start a fresh conversation and ask it: "What do you remember about me?" If it can name your name, your preferences, and how you like to run projects, then your memories moved over. Next, enter `hermes skills browse` to look at the skill list. If all the skills from your old computer are there, then the whole bundle moved correctly.
 
-## ⚠️ That zip is confidential; don't move it carelessly
+## ⚠️ This zip is a secret, don't move it carelessly
 
-A full `hermes backup` **includes `.env` and `auth.json`**: that is, all of your API keys and OAuth credentials[^2]. So:
+Let me stress this again, because it matters: the full backup that `hermes backup` creates **includes two files, `.env` and `auth.json`**. The `.env` file holds all your API keys; the `auth.json` file holds OAuth credentials (OAuth is a way to let a program log in on your behalf without handing over your password, and that credential is like a pass)[^2].
 
-- ✅ Transfer machine-to-machine directly with `scp`: `scp ~/hermes-backup-*.zip newmachine:~/`[^1]
-- ✅ USB drive, or an encrypted cloud drive
+Put another way, once this zip lands in someone else's hands, you've basically handed them all your passwords. So:
+
+- ✅ You can use `scp` to copy it computer-to-computer directly. `scp` is a command that securely copies a file from one computer to another, like this: `scp ~/hermes-backup-*.zip newmachine:~/` (replace `newmachine` with the name or address of your new computer)[^1]
+- ✅ You can use a USB drive, or an encrypted cloud drive
 - ❌ **Don't** email it to yourself
-- ❌ **Don't** drop it into an unencrypted public cloud folder
-- ❌ **Don't** paste it into a chat room, an issue, or anywhere public
+- ❌ **Don't** drop it in an unencrypted, public cloud folder
+- ❌ **Don't** paste it into a chat room, an issue (a bug-report ticket), or anywhere else other people can see
 
-Once this zip leaks, it's as if you handed over all your API keys to someone else. After the move is done, remember to delete the backup on the old machine too.
+One more thing people forget: after the move, remember to delete the backup file on the old computer. Don't leave it sitting around.
 
-## Just want to move a single profile (safe to share)
+## Just want to move one setting bundle (this kind is safe to share)
 
-If you only want to move **one of your profiles**, or you want to share your settings with a colleague or post them online, use profile export. Its biggest difference from a full backup: **it strips credentials**, making it suitable for safe sharing[^3]:
+Sometimes you don't want to move everything, just **one profile** (a setting bundle, meaning one self-contained set of settings; for example, you might have a "work" set and a "personal" set). Or maybe you want to share one set of settings with a coworker, or even post it publicly.
+
+For that, don't use the full backup. Use profile export instead. Its biggest difference from the full backup is this: **when it exports, it strips out the credentials (those passwords)**, so it's safe to share[^3]:
 
 ```bash
-# Export on the old machine
+# Export on the old computer (this exports the set named work)
 hermes profile export work ./work-backup.tar.gz
 
-# Import on the new machine
+# Import on the new computer
 hermes profile import ./work-backup.tar.gz work
 ```
 
+(`.tar.gz`, like `.zip`, is another format that bundles and compresses several files.)
+
+Here's a table so you can see the difference between the two approaches at a glance:
+
 | | `hermes backup` | `hermes profile export` |
 |---|---|---|
-| Scope | The entire `~/.hermes` | A single profile |
-| Format | `.zip` | `.tar.gz` |
-| Includes credentials | **Yes** (.env, auth.json) | **Stripped**, safe to share |
+| How much it moves | Your whole `~/.hermes` | Just one profile |
+| File format | `.zip` | `.tar.gz` |
+| Does it include passwords | **Yes** (includes .env, auth.json) | **No**, stripped out, safe to share |
 
-So the decision is simple: **use `backup` when moving your own setup, and `profile export` when handing it to someone else**.
+So the choice is simple: **moving your own setup and want everything, use `backup`; giving settings to someone else, use `profile export`**.
 
-## The manual approach: rsync
+## Advanced way: sync the folder directly with rsync
 
-If you'd rather not use the built-in commands, you can sync the directory directly. Just remember to **exclude the code repo** (you get that back by reinstalling, so there's no need to move it)[^4]:
+If you'd rather not use the built-in commands, you can also sync the folder contents over directly. `rsync` is a command that copies and syncs the contents of one folder to another computer.
+
+One thing to remember: **exclude the code repo** (a repo is a code repository, meaning the source code of the Hermes program itself; you get this again just by reinstalling on the new computer, so there's no need to move it)[^4]:
 
 ```bash
 rsync -av --exclude='hermes-agent' ~/.hermes/ newmachine:~/.hermes/
 ```
 
-This one will also carry over the secrets in `.env`, so only use it between machines and networks you trust.
+A heads-up: this command also moves the passwords in `.env` along with everything else, so only use it between computers and networks you trust.
 
-## FAQ
+## Common questions
 
-### Does memory really come along?
+### Do the memories really come along?
 
-Yes. `MEMORY.md` and `USER.md` both live in `~/.hermes/memories/`, and both a full backup and rsync will bring them along. If you're not sure where memory is stored or what it holds, see [Memory System](/concepts/記憶系統/).
+Yes. The things the agent remembers live in two files: `MEMORY.md` and `USER.md`, both inside the `~/.hermes/memories/` folder. Whether you use the full backup or rsync, they come along too. If you're not sure where memories are stored or what they contain, see [Memory system](/concepts/記憶系統/).
 
-### Does the version have to match when moving from the old machine?
+### When moving from the old computer, do both sides need the same version?
 
-The safest bet is to install the matching version of Hermes on the new machine first, then import. For installation instructions, see [Installation & Deployment](/install/).
+The safest approach is: install the matching version of Hermes on the new computer first, then do the import. For how to install, see [Install and deploy](/install/).
 
-### I'm migrating from OpenClaw, not switching Hermes machines?
+### I'm moving from OpenClaw, not switching Hermes computers?
 
-That's a different path; use `hermes claw migrate`. See [Migrating from OpenClaw to Hermes](/en/migrate/migrate-from-openclaw/).
+That's a different path. You use the `hermes claw migrate` command. For how, see [Migrate from OpenClaw to Hermes](/en/migrate/migrate-from-openclaw/).
 
-### Just want a backup, without switching machines?
+### I'm not switching computers, I just want a backup?
 
-That same `hermes backup` command is your backup. Combined with `updates.pre_update_backup` in your config, it will also automatically back up before an upgrade. See the [config.yaml reference](/en/config/config-yaml-reference/).
+That same `hermes backup` command is your backup. Also, if you turn on the `updates.pre_update_backup` option in your settings, it will automatically back up for you before every upgrade too. For details, see [config.yaml reference](/en/config/config-yaml-reference/).
 
 ## Next steps
 
-- Set it up on the new machine first → [Installation & Deployment](/install/)
-- Verify the settings you moved over → [config.yaml reference](/en/config/config-yaml-reference/)
-- Coming from OpenClaw rather than switching machines → [Migration guide](/en/migrate/migrate-from-openclaw/)
+- Install Hermes on the new computer first → [Install and deploy](/install/)
+- Confirm the settings you moved are all correct → [config.yaml reference](/en/config/config-yaml-reference/)
+- You're moving from OpenClaw, not switching machines → [Migration guide](/en/migrate/migrate-from-openclaw/)
 
-[^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-27). `hermes backup` produces `~/hermes-backup-<timestamp>.zip` (the full `~/.hermes/`: config, API keys, memories, skills, sessions, profiles); on the new machine, restore with `hermes import <file>` followed by `hermes setup`; `scp` can be used to transfer between machines
-[^2]: Same source; a full backup includes `.env` and `auth.json` (API keys and OAuth credentials), so the backup file should be stored and transferred confidentially
-[^3]: Same source; `hermes profile export <name> <file.tar.gz>` / `hermes profile import`: scoped to a single profile, in `.tar.gz` format, with credentials stripped for safe sharing
-[^4]: Same source; the manual alternative `rsync -av --exclude='hermes-agent' ~/.hermes/ newmachine:~/.hermes/`, excluding the code repo
+[^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-27). `hermes backup` produces `~/hermes-backup-<timestamp>.zip` (the full `~/.hermes/`: config, API keys, memories, skills, sessions, profiles); on the new machine, restore with `hermes import <file>` then `hermes setup`; you can use `scp` to transfer between machines
+[^2]: Same source, the full backup includes `.env` and `auth.json` (API keys and OAuth credentials), so the backup file should be kept and transferred as a secret
+[^3]: Same source, `hermes profile export <name> <file.tar.gz>` / `hermes profile import`: scope is a single profile, format `.tar.gz`, credentials stripped for safe sharing
+[^4]: Same source, the manual alternative `rsync -av --exclude='hermes-agent' ~/.hermes/ newmachine:~/.hermes/`, excluding the code repo

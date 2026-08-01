@@ -1,6 +1,6 @@
 ---
-title: "Connect Hermes to Telegram: From Zero to a Working Chat"
-description: "Fire a message at your agent anytime from your phone. Five steps: get a token from BotFather, configure, authorize yourself, start the gateway, verify. Includes the authorization step that trips most people up."
+title: "Beginner's Guide: Get Hermes Talking to You on Telegram"
+description: "Type one line on your phone, and your agent does the work on the other end and replies. Just five steps, about ten minutes. The step most people get stuck on -- allowing yourself in -- is walked through here step by step."
 date: 2026-07-25
 subcategory: "telegram"
 hermes_version: ">=2026.5"
@@ -14,100 +14,131 @@ tags:
 status: "published"
 ---
 
-Connect Hermes to Telegram and you can fire a message at it anytime from your phone: it does the work remotely and reports back. This is the most popular way to hook it up.
+First, here is what this guide gets you.
 
-The whole process is five steps and takes about ten minutes. **The part that trips people up isn't technical, it's authorization**: Hermes denies everyone by default, so you have to add yourself to the allowlist first, or it won't even respond to your own messages. This guide spells out that step in particular.
+Once you connect Hermes to Telegram, you can just type to it from your phone. It does the work on the far end (the computer or server where it runs) and sends the result back to your Telegram. It is like having a little helper on call. This is also the most popular way to connect it.
 
-## Step 1: Get a token from BotFather
+Let me explain one word up front, because it comes up a lot: an **agent** is "a program that acts as a helper and gets things done for you." The bot we keep mentioning below is simply how that agent shows up inside Telegram.
 
-Telegram bots are all created through the official @BotFather[^1]:
+The whole thing is only five steps, and takes about ten minutes.
 
-1. Search for **@BotFather** in Telegram (or open `t.me/BotFather`)
-2. Send `/newbot`
-3. Pick a display name (for example "Hermes Agent")
-4. Pick a username ending in `bot` (for example `my_hermes_bot`)
-5. BotFather replies with a token that looks like this: `123456789:ABCdefGHIjklMNOpqrSTUvwxYZ`[^1]
+A heads-up so you do not get surprised: **the hardest part is not the tech, it is the "authorization" step.** By default, Hermes refuses to talk to anyone. That is on purpose, for safety. So you have to manually add yourself to an "allowed list" first, or else even your own messages get ignored. This guide spells out that step carefully, so if you follow along you will not trip over it.
 
-⚠️ **This token is the key to your bot**: anyone who has it can control your bot. Don't paste it anywhere public[^1].
+## Step 1: Ask BotFather for a "key" (a token)
 
-## Step 2: Configure Hermes
+In Telegram, every bot has to be requested from an official account called @BotFather before it can exist[^1]. Think of it as the front desk that issues ID cards for bots.
 
-The easiest approach is the interactive setup, which walks you through entering the token and the authorized users[^1]:
+Follow along:
+
+1. Search for **@BotFather** in Telegram's search bar (or just open this link: `t.me/BotFather`)
+2. Send it a message: `/newbot`
+3. Give your bot a display name (the name other people see, for example "Hermes Agent")
+4. Then give it a username (an account handle). The rule is it must end in `bot` (for example `my_hermes_bot`)
+5. Once done, BotFather replies with a string of gibberish that looks like this: `123456789:ABCdefGHIjklMNOpqrSTUvwxYZ`[^1]
+
+That string of gibberish is called a **token**. You can think of it as "the key to your bot," or its password.
+
+⚠️ **This key is very important -- keep it safe.** Anyone who gets hold of it can impersonate you and take control of your bot. So never paste it anywhere public (chat groups, forums, GitHub, and so on)[^1].
+
+## Step 2: Tell Hermes about this key
+
+Now you hand that key to Hermes, so it knows which bot to control.
+
+The easiest way is to use the "interactive setup." You run one command, and it walks you through filling in the token and the allowed users, one question at a time[^1].
+
+A quick explanation first: the thing in the box below is a **command**, and you type it into a "terminal." A terminal is that plain window where you type commands to your computer (on Mac it is called "Terminal," and on Windows people often use PowerShell).
 
 ```bash
 hermes gateway setup
 ```
 
-When the menu appears, choose Telegram, paste in the token, and enter the allowed user IDs (the next step shows you how to find your ID).
+After you press Enter, a menu pops up. Pick Telegram, paste in the token from before, then fill in "the ID of the person allowed to use it" (the next step shows you where to find this ID, so do not worry yet).
 
-**Or configure it manually**: edit `~/.hermes/.env`:
+**If you would rather set it up by hand,** you can. The way to do that is to open and edit a file called `~/.hermes/.env`.
+
+Two terms to explain here. The `~` is a shortcut that means "your home folder" (your own user folder). A file ending in `.env` is a place made for storing "settings," one setting per line. Inside it, put these two lines:
 
 ```text
 TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrSTUvwxYZ
 TELEGRAM_ALLOWED_USERS=123456789
 ```
 
-Separate multiple users with commas[^1].
+The first line, `TELEGRAM_BOT_TOKEN`, holds your key. The second line, `TELEGRAM_ALLOWED_USERS`, holds "the IDs of the people allowed to talk to the bot." If you want to allow several people, just separate their IDs with commas[^1].
 
-## Step 3: Authorize yourself (the step that trips most people up)
+## Step 3: Add yourself to the allowed list (the step people get stuck on!)
 
-The Hermes gateway **denies everyone by default, and that's a deliberate security design**[^1]. So even you won't get a response until you're on the allowlist.
+This is the most important step, so read closely.
 
-First find your Telegram user ID: send a message to **@userinfobot**, and it replies with a string of digits (like `123456789`)[^3].
+Hermes has a layer called the **gateway (the layer that handles receiving and sending your bot's messages).** By default it **refuses everyone.** This is designed on purpose, for safety[^1]. Meaning: even you, if you are not on the allowed list, get no reply.
 
-Put that number into `TELEGRAM_ALLOWED_USERS` (the field from step 2). Miss this step and the symptom is "the bot is online but completely ignores me": it isn't broken, it just doesn't recognize you.
+So you first need to know "what your own Telegram ID number is." Every Telegram user has their own unique number, like a personal ID number.
 
-## Step 4: Start the gateway
+Finding your own ID is easy: in Telegram, search for **@userinfobot**, send it any message, and it immediately replies with a string of numbers -- that is your ID (it looks like `123456789`)[^3].
+
+Put that number into the `TELEGRAM_ALLOWED_USERS` field from Step 2.
+
+If you skip this step, here is what you will run into: "the bot is clearly online, but no matter what I send it, it does not reply." In that case **it is not broken -- it just does not recognize you.** Add your ID and it is fixed.
+
+## Step 4: Start the bot (start the gateway)
+
+With all the settings filled in, run this command to start the gateway layer we just talked about:
 
 ```bash
 hermes gateway
 ```
 
-The bot should come online within a few seconds[^1].
+If all goes well, your bot comes online within a few seconds[^1].
 
-> **Want it running long-term?** `hermes gateway` runs in the foreground and stops when you close the terminal. To keep it resident, use tmux (WSL users take note: systemd is unreliable). See the [WSL2 guide](/install/wsl2/) and [Telegram common pitfalls](/en/troubleshoot/telegram/) for how.
+> **Want it to stay on all the time, instead of stopping the moment you turn off your computer?** Let me be clear about this first: `hermes gateway` runs "in the foreground," which means it keeps occupying this terminal window; the moment you close that window, the bot stops with it.
+>
+> If you want it running quietly in the background for a long time, use a small tool called **tmux** (it lets a program keep living in the background after you close the window). One special note: if you use WSL (the setup that runs Linux inside Windows), there is a mechanism called systemd that is not reliable here, so do not depend on it. For the detailed how-to, see the [WSL2 guide](/install/wsl2/) and [common Telegram pitfalls](/en/troubleshoot/telegram/).
 
-## Step 5: Verify
+## Step 5: Test whether it worked
 
-Send a message to your bot on Telegram.
+Open Telegram and send a line to the bot you just made, for example "hi."
 
-**Success criterion**: it replies. If nothing happens, check `~/.hermes/logs/gateway.log`: the gateway writes connection records there when it starts[^1].
+**What counts as success:** it replies to you. That is success.
 
-The two most common reasons for no reply: **you didn't add yourself to the allowlist** (go back to step 3), or **the gateway isn't running** (go back to step 4).
+**If it does not respond,** do not panic. Go look at a log file: `~/.hermes/logs/gateway.log`. This file is the gateway's "diary" -- when it starts up it writes the connection status here, which helps you troubleshoot[^1].
 
-## Want to use it in a group?
+If there is no response, nine times out of ten it is one of these two causes:
 
-Group usage requires two extra actions[^2]:
+- **Forgot to add yourself to the allowed list** -> go back to Step 3 and do it again
+- **The gateway is not actually running** -> go back to Step 4 and start it
 
-1. **Disable privacy mode** in the bot's settings under BotFather
-2. After changing the privacy setting, remove the bot from the group and re-add it
+## Want to use it in a "group"?
 
-Without both steps, the bot won't receive messages in the group.
+If you want to bring the bot into a Telegram group so everyone in the group can use it, there are two extra things to do[^2]:
 
-## FAQ
+1. Go back into the bot's settings in BotFather and **turn off "privacy mode."** When privacy mode is on, the bot in a group can only see messages that "call it directly," not the general chat; only after you turn it off can it receive the group's messages.
+2. After changing the privacy setting, **remove the bot from the group and add it back** once (so the new setting takes effect).
 
-### A few skills are missing from the command menu?
+Miss either of these two steps and the bot in the group will not receive messages -- it just sits there like a block of wood.
 
-Telegram caps slash commands at 100, and anything over that silently disappears. For the fix, see [Telegram common pitfalls](/en/troubleshoot/telegram/).
+## Common questions
 
-### Migrating from OpenClaw — do I need to reset authorization?
+### Why are a few features (skills) missing from the command menu?
 
-The official migration carries over `TELEGRAM_ALLOWED_USERS`, and adding `--migrate-secrets` also carries over the token. It's still worth verifying it yourself once the migration is done; see the [migration guide](/en/migrate/migrate-from-openclaw/).
+Telegram has a cap on "slash commands" (the commands you type starting with `/`): a maximum of 100, and anything beyond that quietly disappears without an error. A "skill" here is one of the things the bot can do. For the fix, see [common Telegram pitfalls](/en/troubleshoot/telegram/).
 
-### Can I connect multiple platforms at once?
+### I moved over from OpenClaw -- do I need to reset the allowed list?
 
-Yes. The Hermes gateway supports 20+ messaging platforms, and Telegram is just one of them.
+The official migration tool moves your `TELEGRAM_ALLOWED_USERS` (the allowed list) over for you; if you add a `--migrate-secrets` option during migration, it also brings the token (the key) along. Still, it is safer to double-check it yourself afterward -- see the [migration guide](/en/migrate/migrate-from-openclaw/).
 
-### The bot is online but never replies?
+### Can I connect several chat platforms at once?
 
-Nine times out of ten it's the allowlist. Confirm your numeric ID is in `TELEGRAM_ALLOWED_USERS` and that the gateway is running.
+Yes. Hermes's gateway supports 20-plus messaging platforms, and Telegram is just one of them. You can connect several at the same time.
 
-## Next steps
+### The bot is online, but it does not reply to me at all?
 
-- Keeping the gateway resident and dealing with disconnects → [Telegram common pitfalls and fixes](/en/troubleshoot/telegram/)
-- Resident setup for WSL users → [Full WSL2 guide](/install/wsl2/)
-- Connecting external tools → [Connect your first MCP](/en/integrations/connect-first-mcp/)
+Nine times out of ten the reason is the "allowed list." Make sure your number ID is correctly filled into `TELEGRAM_ALLOWED_USERS`, and that the gateway is actually running.
 
-[^1]: Nous Research, Telegram: https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram (accessed 2026-07-25). Covers the BotFather creation flow, `hermes gateway setup`, the `TELEGRAM_BOT_TOKEN` / `TELEGRAM_ALLOWED_USERS` settings, and denying everyone by default
-[^2]: Ibid., group usage requires disabling privacy mode in BotFather and, after the change, removing the bot from the group and re-adding it
-[^3]: Ibid., look up your numeric user ID with @userinfobot; once `hermes gateway` starts, connection records are written to `~/.hermes/logs/gateway.log`
+## What to look at next
+
+- Keeping the gateway running all the time, or dealing with disconnects -> [common Telegram pitfalls and fixes](/en/troubleshoot/telegram/)
+- How WSL users keep it running persistently -> [full WSL2 guide](/install/wsl2/)
+- Getting your agent to use external tools -> [connect your first MCP](/en/integrations/connect-first-mcp/)
+
+[^1]: Nous Research, Telegram：https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram (2026-07-25 存取)。含 BotFather 建立流程、`hermes gateway setup`、`TELEGRAM_BOT_TOKEN` / `TELEGRAM_ALLOWED_USERS` 設定、預設拒絕所有人
+[^2]: 同上,群組使用需在 BotFather 關閉 privacy mode,並於變更後將 bot 移除再重新加入群組
+[^3]: 同上,以 @userinfobot 查詢數字使用者 ID;`hermes gateway` 啟動後連線紀錄寫入 `~/.hermes/logs/gateway.log`

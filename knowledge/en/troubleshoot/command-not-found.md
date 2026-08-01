@@ -1,6 +1,6 @@
 ---
-title: "How to Fix hermes: command not found"
-description: "You installed it, typed hermes, and got told the command doesn't exist. Nine times out of ten this isn't a failed install; your shell just hasn't reloaded its PATH yet. Fixable in thirty seconds."
+title: "Typed hermes and got \"command not found\"? Don't panic—30-second fix"
+description: "Installed Hermes, typed hermes, and got \"command not found\"? Nine times out of ten it isn't broken—your window just hasn't re-read its settings yet. Follow along; it takes about 30 seconds."
 date: 2026-07-23
 subcategory: "install"
 hermes_version: ">=2026.5"
@@ -15,92 +15,117 @@ tags:
 status: "published"
 ---
 
-The install script finishes, everything looks fine on screen, you eagerly type `hermes`, and then:
+The installer finished, everything looked fine. Feeling good, you typed `hermes` into your terminal (that black window where you type commands), and out popped this line:
 
 ```
 zsh: command not found: hermes
 ```
 
-**Don't reinstall yet.** Nine times out of ten the install succeeded; the problem is that your current terminal window doesn't know it exists.
+That means: "I don't recognize a command called hermes."
+
+**Don't rush to reinstall.** Nine times out of ten, it actually installed fine. The only problem is that the window you have open right now doesn't yet know your computer has this new `hermes` thing.
 
 ## Why this happens
 
-The install script places the `hermes` executable in `~/.local/bin` and writes that path into your shell configuration file[^1].
+First, one term. PATH (say it like "path") is a list. It tells your computer which folders to look in when you type a command. When you type `hermes`, the computer walks down this list, folder by folder, and only runs the command once it finds it.
 
-But **a terminal window that's already open was started before the install**, so it's reading the old PATH: it's like editing a config file without restarting the program.
+The installer did two things:
 
-## Fix 1: Reload the shell (fastest)
+1. It put the `hermes` program file into a folder called `~/.local/bin` (the `~` means your home folder—your own personal folder).
+2. It added "that folder" to the PATH list above, by writing it into your shell config file[^1]. (Your shell is the program that takes what you type and runs your commands. Its config file is a little cheat sheet the shell reads once, up front, every time it starts.)
+
+Here's the catch: **the window you have open right now was opened *before* you installed.** The cheat sheet it read at startup is the old one—it doesn't have the newly added folder on it yet. It's like updating your contacts but not restarting your phone, so you still see the old info.
+
+So the fix is simple: make this window "re-read the cheat sheet," or just "open a fresh window."
+
+## Fix 1: Tell the window to re-read its settings (fastest)
+
+Type this line:
 
 ```bash
 source ~/.zshrc
 ```
 
-macOS has defaulted to zsh since Catalina. If you use bash:
+`source` just means "re-read this cheat sheet right now, this instant."
+
+A quick note: starting with the macOS version called Catalina, the default shell is called zsh (say "Z shell"), and its cheat sheet file is named `.zshrc`. If you're using another common shell called bash, the cheat sheet has a different name, so type this instead:
 
 ```bash
 source ~/.bashrc
 ```
 
-**How to know it worked**: this command produces no output at all (no news is good news). Then type `hermes doctor`, and if you get a response, you're set.
+**How do you know it worked?** When you run this line, nothing shows up on screen—no news is good news. Now type `hermes doctor`. As long as something runs (and it's no longer "command not found"), you're good.
 
-## Fix 2: Open a new terminal window
+## Fix 2: Just open a brand-new terminal window
 
-Nothing to memorize. A new window re-reads the shell configuration file and automatically picks up the new PATH[^1].
+If you'd rather not remember commands, this is the no-brainer: close your current window and open a new one.
 
-If you're using the built-in terminal in VS Code or another IDE, you may need to **fully restart the editor** for it to take effect; closing the tab alone isn't enough.
+A fresh window reads that cheat sheet the moment it starts up, and the cheat sheet was updated long ago—so it recognizes `hermes` automatically[^1].
 
-## Still not working? Check whether PATH contains that entry
+One heads-up: if you're using the terminal that's "built into" VS Code or another code editor, closing just the terminal tab may not be enough. You may need to **fully quit the whole editor and reopen it** for it to take effect.
+
+## Tried both and still stuck? Let's check whether that folder is on the list
+
+Type this line to see whether the PATH list actually contains that folder:
 
 ```bash
 echo $PATH | tr ':' '\n' | grep local
 ```
 
-**Expected output**: you should see a line containing `/.local/bin`, for example `/Users/yourname/.local/bin`.
+(What this line does: it spreads the PATH list out one entry per line, then shows you only the lines that contain the word local.)
 
-**If nothing prints at all**, that means the install script wasn't able to modify your shell configuration file. Add it manually:
+**If all is well**: you'll see a line with `/.local/bin` in it, for example `/Users/yourname/.local/bin`. Seeing that means the list is fine.
+
+**If nothing prints out**: it means the installer didn't manage to write that folder into your cheat sheet. No problem—just add it by hand:
 
 ```bash
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-(bash users: replace both instances of `.zshrc` with `.bashrc`)
+The first line adds that folder to the cheat sheet; the second line re-reads the cheat sheet right away.
 
-## Confirm the executable actually exists
+(If you use bash, change both `.zshrc` above to `.bashrc`.)
 
-If PATH is fine but it's still not found, check directly whether the file is there:
+## List is fine, but still not found? Let's confirm the program file is really there
+
+Sometimes the list is right but the program file simply isn't there. Go check whether the file exists:
 
 ```bash
 ls -l ~/.local/bin/hermes
 ```
 
-**Expected output**: a single line of file information. If you get `No such file or directory`, then it really was a failed install: rerun the install command and watch for any red error messages during the process.
+`ls` means "list files."
 
-## Full diagnostics
+**If all is well**: it prints one line of file info (the name, the size, and so on).
+
+**If it prints `No such file or directory`**: *this* time the install really did fail. Run the install command again—and this time watch the process closely for any red error messages, because that's the real reason it got stuck.
+
+## Let it check everything for you at once
 
 ```bash
 hermes doctor
 ```
 
-The official environment-diagnostics command, which checks dependencies and configuration item by item[^2].
+This is the built-in "health check" command (doctor, as in a physician). It checks things one by one for you: whether what should be installed is installed, whether what should be set is set, and then it tells you what's wrong[^2]. When you don't know where to start looking, running this first is always a safe bet.
 
-## Frequently asked questions
+## Common questions
 
-### I use fish or another shell?
+### I use fish or some other shell—what do I do?
 
-Hermes loads `~/.bashrc` by default. With a different shell, add your own initialization file to `terminal.shell_init_files` in `config.yaml`[^1].
+By default, Hermes only reads the `~/.bashrc` cheat sheet. If you use a different shell (fish, for example), it has its own cheat sheet file, and Hermes won't know about it automatically. In `config.yaml` (Hermes's config file), under the `terminal.shell_init_files` setting, add the name of your own cheat sheet file[^1].
 
-### Does the desktop version have this problem too?
+### Does the desktop app (the one with a window) hit this too?
 
-No. The desktop version is a graphical application and isn't launched via PATH. But if you want to invoke it from the terminal, you still need to follow the steps above.
+No. The desktop app is a graphical program—one with a window you click with your mouse. When it starts up, it doesn't even look at that PATH list, so this problem doesn't come up. But if you want to launch it "by typing in the terminal," you still need to get PATH sorted out using the steps above.
 
-### Do I have to source it every time I open a new window?
+### Do I have to `source` every time I open a new window?
 
-No. `source` just makes the **current** window take effect immediately; the configuration file is already updated, so windows you open later will load it automatically.
+No. `source` is only there to rescue "this particular" old window that's already open and hasn't updated. The cheat sheet itself was fixed long ago, so every new window you open from now on reads the new version automatically at startup—no manual source needed.
 
 ## Next steps
 
-- Installed and need to set up a model → [Model providers and API key setup](/en/config/model-provider/)
+- Once installed, pick a model and set up your API key (an access key—basically a password that gives Hermes permission to use the AI service) → [Model providers and API key setup](/en/config/model-provider/)
 - Hit a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)

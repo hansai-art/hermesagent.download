@@ -1,6 +1,6 @@
 ---
-title: "Installing Hermes Agent on macOS"
-description: "Two paths: double-click the desktop installer, or install the command-line version with a single command. Every step has a success criterion, so you know what to check when you get stuck."
+title: "Installing Hermes Agent on a Mac for the First Time"
+description: "Two ways to install: double-click the desktop app, or run one line to install the command-line version. Every step tells you how to know it worked, and where to look if you get stuck."
 date: 2026-07-23
 subcategory: "macos"
 hermes_version: ">=2026.5"
@@ -15,43 +15,49 @@ tags:
 status: "published"
 ---
 
-You spot Hermes Agent on the official site and want to try it out, only to find there's a desktop version, a command-line version, and a string of dependencies you don't recognize. This article tells you which path to pick, and how to confirm you got each step right.
+You saw Hermes Agent on the website and want to give it a try. Then you open it up and find there's a desktop version, a command-line version, and a long list of confusing "dependencies" (a dependency is just another piece of software that this software needs in order to run). Don't panic. This guide tells you which one to pick, and after each step it tells you how to confirm you did it right.
 
-**The short answer first**: if you just want to use it, download the desktop version. If you want to plug it into a terminal workflow and run automations later, use the command-line version. The two can coexist.
+**Here's the short answer first.** If you just want to use it and don't want to touch the terminal, download the desktop version. If you want to plug it into the terminal (that black window where you type commands) and later run some automation, use the command-line version. You can install both at once — they won't fight each other.
 
-## Path 1: Desktop version
+## Option 1: The desktop version (easiest)
 
-Go to the [official download page](https://hermes-agent.nousresearch.com/), download the macOS installer, and double-click to install[^1].
+Go to the [official download page](https://hermes-agent.nousresearch.com/), download the macOS installer, double-click to open it, and follow the on-screen instructions to finish[^1].
 
-The installer handles all the dependencies on its own (uv, Python 3.11, Node.js v22, ripgrep, ffmpeg), so you don't need to install anything beforehand[^1].
+Good news: the installer sets up everything it needs on its own (the tools uv, Python 3.11, Node.js v22, ripgrep, and ffmpeg). You don't need to understand those names right now. The point is **you don't have to prepare anything in advance**[^1].
 
-**How to confirm success**: the app opens and brings you to a screen where you can start a conversation.
+**How to know it worked**: the app opens and takes you to a screen where you can start chatting with it.
 
-Then jump down to "Configuring a model provider" below: without a configured model, it isn't usable yet.
+After that, skip straight down to the "Set up a model provider" section below. Until you set up a model, it can't actually do anything yet.
 
-## Path 2: Command-line version (one-line install)
+## Option 2: The command-line version (one line does it)
 
-### First, confirm Git is present
+On this path you'll type in the terminal. It's not hard — just follow along.
 
-The install script installs everything else on its own, but Git needs to already be there[^1]:
+### Step 1: First, check that Git is on your computer
+
+The install script (a small program that does things for you automatically) sets up almost everything on its own. The one tool it needs you to already have is Git[^1]. Git is a very common programming tool, and many Macs come with it already. Let's check.
+
+Type this line in the terminal, then press Enter:
 
 ```bash
 git --version
 ```
 
-**Expected output**: a version string along the lines of `git version 2.39.5 (Apple Git-154)`.
+**You should see**: a line of version text that looks like `git version 2.39.5 (Apple Git-154)`. If you see that, Git is there and you can move on.
 
-If it says `command not found`, macOS will pop up a window asking you to install the Xcode Command Line Tools; just follow the prompts, or run `xcode-select --install` yourself.
+If it shows `command not found` (meaning "I can't find this command"), macOS will usually pop up a small window asking whether you want to install the Xcode Command Line Tools. Click through and follow the steps. Or you can install them yourself by typing: `xcode-select --install`.
 
-### Run the official install command
+### Step 2: Run the official install command
+
+Type this whole line in the terminal (you can just copy and paste it), then press Enter:
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 ```
 
-This line downloads and runs the official install script[^1]. It sets up uv, Python 3.11, Node.js v22, ripgrep, and ffmpeg, and places the `hermes` command in `~/.local/bin`. The default install location is `~/.hermes/hermes-agent/`.
+Here's what this line does: it goes online, grabs the official install script, and runs it right away[^1]. It installs uv, Python 3.11, Node.js v22, ripgrep, and ffmpeg for you, and it puts the `hermes` command into the `~/.local/bin` folder. The whole thing installs by default into `~/.hermes/hermes-agent/`. (The `~` in a path means your home directory, which is your own user folder.)
 
-> **Uneasy about running `curl | bash` directly?** This is the official installation method on the official domain, but you can also read it over before running it:
+> **Feeling a little nervous about running `curl | bash` directly?** That's normal. This really is the official way to install it, from the official address. But if you'd rather look at it before you run it, use these three lines instead: the first saves the script to a file, the second opens it so you can read it, and the third actually runs it:
 >
 > ```bash
 > curl -fsSL https://hermes-agent.nousresearch.com/install.sh -o install.sh
@@ -59,73 +65,87 @@ This line downloads and runs the official install script[^1]. It sets up uv, Pyt
 > bash install.sh
 > ```
 
-### Reload your shell (this is where most people get stuck)
+### Step 3: Reload your shell (this is where most people get stuck)
 
-The install script added `~/.local/bin` to your PATH, but **this terminal window doesn't know that yet**. So typing `hermes` right after installing will say the command can't be found: this is not an installation failure.
+Quick explanation first: your shell is the terminal environment you're typing into right now. The install script already added the `~/.local/bin` folder to your PATH (PATH is a list that tells the computer "which folders to look in for commands"). The catch is that **the terminal window you have open right now doesn't yet know the list was changed**.
+
+So if you type `hermes` right after installing, it will say it can't find the command. **This does not mean the install failed** — this window just hasn't caught up yet.
+
+The fix is simple. Type this line to make it re-read its settings:
 
 ```bash
 source ~/.zshrc
 ```
 
-macOS has defaulted to zsh since Catalina; if you use bash, change this to `source ~/.bashrc`. Or, simplest of all: **open a new terminal window**, which will automatically load the updated PATH[^2].
+A note: starting with the macOS version called Catalina, Macs use a shell called zsh by default, which is why the line above uses `~/.zshrc`. If you use bash (an older, different shell), type `source ~/.bashrc` instead.
 
-### Confirm it's installed
+There's an even lazier option: **just close the terminal and open a brand-new window**. A new window automatically reads the updated list, so it works too[^2].
+
+### Step 4: Confirm it's really installed
+
+Type this line:
 
 ```bash
 hermes doctor
 ```
 
-This is the official environment diagnostic command[^1], which checks the dependencies item by item. When something reports an error, follow the hints it gives.
+This is a built-in "health check" command[^1] (doctor as in a doctor's checkup — it gives your setup a health check). It goes through the dependencies one by one to see whether each is installed. If something is wrong, it gives you a hint, and you just follow the hint.
 
-The first time you run it, you'll see a whole row of yellow ⚠ marks. Don't panic: most of them mean "you haven't configured this" rather than "this is broken." For the actual output, what each of the 16 check blocks means, and how to tell real problems from noise, see [What hermes doctor actually checks](/troubleshoot/hermes-doctor/) (tested on macOS).
+**A heads-up so you're not surprised**: the first time you run it, you'll see a whole row of yellow ⚠ warning symbols. Don't worry. Most of these are saying "you haven't set this up yet," not "this is broken." To see what the real output looks like, what each of the 16 check sections is checking, and how to tell "a real problem" apart from "just not set up yet," see [what hermes doctor actually checks](/troubleshoot/hermes-doctor/) (this one has hands-on macOS testing).
 
-## Configuring a model provider
+## Set up a model provider
 
-It's not usable right after installing; you first have to tell it which model to use:
+Once it's installed, you still can't use it right away. First you have to tell it which AI model to use to answer you. A model provider is the company that supplies these AI models (which company's model you'll use, and which key you'll use to access it).
+
+Type this line:
 
 ```bash
 hermes model
 ```
 
-This opens an interactive menu where you pick a provider and enter your API key[^1]. Or do it all at once through the official Portal:
+It brings up an interactive menu (the kind where you move up and down with the keyboard and press Enter to confirm). In it, you pick a provider and then enter an API key[^1]. Think of an API key as a "key" — a string of characters the company gives you to prove "it's really you using it this time."
+
+Or, for a faster route, use the official Portal (a setup web page) to configure it all at once:
 
 ```bash
 hermes setup --portal
 ```
 
-For a provider comparison, cost-saving settings, and how to connect a local model, see [Configuring model providers and API keys](/en/config/model-provider/).
+To compare the different providers, set things up to save money, or connect a local model running on your own computer, see [model provider and API key setup](/en/config/model-provider/).
 
-## Getting started
+## Start using it
+
+Everything's ready. Type this line:
 
 ```bash
 hermes
 ```
 
-Once you reach the conversation interface, you're set.
+As soon as you reach the chat screen, you've succeeded. Congratulations!
 
-## Frequently asked questions
+## Common questions
 
-### Typing `hermes` says command not found?
+### I typed `hermes` but it says command not found?
 
-Nine times out of ten the shell just hasn't been reloaded; it's not an installation failure. Run `source ~/.zshrc` or open a new window. For a full explanation, see [How to fix command not found](/en/troubleshoot/command-not-found/).
+Nine times out of ten, it's because the shell hasn't been reloaded — not because the install failed. Type `source ~/.zshrc`, or just open a new terminal window. For a fuller explanation, see [how to fix command not found](/en/troubleshoot/command-not-found/).
 
 ### Do I need to install Python myself first?
 
-No. The official installer handles Python 3.11, Node.js v22, ripgrep, and ffmpeg[^1].
+No. The official installer takes care of Python 3.11, Node.js v22, ripgrep, and ffmpeg for you[^1].
 
-### Can I install both the desktop and command-line versions at the same time?
+### Can I install the desktop version and the command-line version at the same time?
 
-Yes, the two are independent installations.
+Yes. The two install separately and don't interfere with each other.
 
-### Which directory does it install to?
+### Which folder does it actually install into?
 
-By default, `~/.hermes/hermes-agent/`, with configuration files in `~/.hermes/`.
+The program itself installs by default into `~/.hermes/hermes-agent/`, and its config files go in `~/.hermes/`.
 
 ## Next steps
 
-- Configure a model and API key → [Model provider setup](/en/config/model-provider/)
-- Migrating over from OpenClaw → [Migration guide](/en/migrate/migrate-from-openclaw/)
-- Want to understand what it is first → [What is Hermes Agent](/concepts/什麼是-hermes-agent/)
+- Set up a model and API key → [model provider setup](/en/config/model-provider/)
+- Want to move over from OpenClaw → [migration guide](/en/migrate/migrate-from-openclaw/)
+- Want to understand what it even is first → [what is Hermes Agent](/concepts/什麼是-hermes-agent/)
 
 [^1]: Nous Research, Installation: https://hermes-agent.nousresearch.com/docs/getting-started/installation (accessed 2026-07-23)
-[^2]: Ibid., FAQ: the installer adds `~/.local/bin` to your PATH, and a newly opened shell will load it automatically: https://hermes-agent.nousresearch.com/docs/reference/faq
+[^2]: Same source, FAQ: the installer adds `~/.local/bin` to PATH, and a newly opened shell loads it automatically: https://hermes-agent.nousresearch.com/docs/reference/faq

@@ -1,6 +1,6 @@
 ---
-title: "Connecting Your First MCP: From Configuration to Verification"
-description: "Walk through the full flow with a filesystem MCP: edit config.yaml, reload, and confirm the tools actually show up. Covers the all-important permission scoping and the common 'tools didn't appear' troubleshooting."
+title: "Connect Your First MCP: Set It Up Step by Step, Then See It Actually Work"
+description: "A hands-on walkthrough using the simplest option, the filesystem MCP: open one config file, change a few lines, reload, and confirm the tools really show up. Plus the single most important habit — only turn on the permissions you need — and how to check step by step when a tool doesn't appear."
 date: 2026-07-25
 subcategory: "mcp"
 hermes_version: ">=2026.5"
@@ -15,31 +15,43 @@ tags:
 status: "published"
 ---
 
-MCP lets an agent connect to external tools, but the first time you set one up it's easy to get stuck in one place: **you finish editing the config and the tools don't show up**, and you have no idea whether the config is wrong or it simply didn't take effect.
+First, what this page is about.
 
-This article walks through the full flow with a "filesystem MCP," because it's the simplest one, and once you've gotten it working once, every other MCP follows the same pattern.
+MCP is short for "Model Context Protocol." Think of it as a power outlet for plugging in extra tools. Through it, your agent (the agent is the AI assistant that does tasks for you) can connect to outside tools — like reading and writing files on your computer, working with GitHub, or querying a database.
 
-## First, confirm MCP support is installed
+The first time you set up MCP, most people get stuck at the same spot: you finish editing the config, but the tools don't appear. And then you're confused — did I type the config wrong, or did it just not take effect?
 
-A standard install already bundles MCP[^1]. If you want to confirm this or install it manually:
+This page walks you all the way through, using the filesystem MCP (the tool that lets your agent read and write files in a folder you choose). We picked it because it's the simplest. And here's the good news: once you get this one working, connecting any other MCP later follows the exact same steps. You won't have to relearn it.
+
+Just follow along. It's not hard.
+
+## Step 1: Confirm the MCP feature is installed
+
+If you installed the standard way, the MCP feature is actually already included[^1] — usually you don't need to install anything extra.
+
+If you want to double-check, or install it yourself, open your terminal (the terminal is that window where you type commands) and enter:
 
 ```bash
 cd ~/.hermes/hermes-agent
 uv pip install -e ".[mcp]"
 ```
 
-## Two ways to connect: local vs. remote
+The first line, `cd`, means "switch into a folder" — here it switches to where Hermes is installed. The second line is what actually installs the MCP feature.
 
-MCP servers are all configured under `mcp_servers` in `~/.hermes/config.yaml`[^2], and come in two kinds:
+## Two ways to connect: get familiar, but we'll only use the first
 
-- **Local (stdio)**: runs a subprocess on your own machine, launched with `command` + `args`
-- **Remote (HTTP)**: connects to an already-hosted service, using `url`
+MCP servers (a server here is just the little program that provides the tools) all go in the same config file: `~/.hermes/config.yaml`, under a section called `mcp_servers`[^2].
 
-Start with a local one for your first — it's the easiest to understand.
+There are two ways to connect. Just get a rough idea of them for now:
 
-## Configuring the filesystem MCP
+- **Local (stdio)**: spin up a small program right on your own computer to provide the tools. In the config you use `command` plus `args` (which means "which command to run" plus "what settings to hand it"). "stdio" is just the technical name for this local way of talking — you don't need to memorize it.
+- **Remote (HTTP)**: connect to a service someone has already set up and put online. In the config you use `url` (the web address of that service).
 
-Edit `~/.hermes/config.yaml` and add:
+For your very first one, we'll use the **local** kind, because it's the easiest to understand and you don't have to deal with the network or accounts.
+
+## Step 2: Set up the filesystem MCP
+
+Open the file `~/.hermes/config.yaml` in whatever text editor you like, and add these lines:
 
 ```yaml
 mcp_servers:
@@ -48,55 +60,73 @@ mcp_servers:
     args: ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/my-project"]
 ```
 
-`project_fs` is a name you choose yourself. That last path is **exactly the directory you're allowing the agent to read from and write to**[^3]:
+Quick heads-up: this is YAML format (a way of writing settings that uses indentation to show which thing belongs under which). So the number of spaces at the front of each line matters. Just copy it exactly, and don't use Tab.
 
-⚠️ **This is the single most important line in the whole article**: don't take the easy route and point it at your home directory root (`/home/user` or `~`). Point it at the **specific project folder** you're actually working in. This path determines which of your files the agent can touch — opening it too wide is equivalent to handing over every file on your machine.
+Here's what these lines mean:
 
-## Reload without restarting
+- `project_fs` is a **name you make up yourself** — later you'll recognize this tool by it.
+- `command` and `args` together mean "use npx to run the filesystem MCP program."
+- That last path, `/home/user/my-project`, is **the folder you're allowing the agent to read and write**[^3].
 
-After editing the config, just run this directly in the conversation:
+⚠️ **This is the single most important line on the whole page, so please read carefully**: don't take the lazy route and point the path at the top level of your home directory (something all-encompassing like `/home/user` or `~`). Point it at the **specific project folder you're actually working in**, and that's it.
+
+Why? Because this path is like a key — it decides which of your files the agent can touch. Open it too wide and it's like handing over every file on your computer. Open it just right, and the agent can only reach this one project. Much safer.
+
+## Step 3: Reload — no restart needed
+
+After you change the config, you do **not** need to shut Hermes down and reopen it. Just type this one line into the conversation:
 
 ```text
 /reload-mcp
 ```
 
-This reloads the MCP configuration without having to restart the entire Hermes process[^2].
+It re-reads the MCP config and takes effect right away[^2]. That simple.
 
-## Confirm it actually connected
+## Step 4: Confirm it's really connected (don't skip this)
 
-Don't skip this step: most "my MCP isn't responding" confusion is really a case of it never having connected at all, without you realizing it.
+Lots of people want to skip this step, and then waste time later. Because most of the "why is my MCP not responding" confusion has the same real cause: **it was never connected, you just didn't know**. Spend ten seconds confirming now and save yourself half an hour of frustration later.
 
-**Method 1: Ask it**
+There are two ways. Pick one.
+
+**Way 1: just ask it**
+
+Type this into the conversation (copy it as-is; it being in English is fine):
 
 ```text
 Tell me which MCP-backed tools are available right now
 ```
 
-**Success criterion**: it lists the tools from the server you just configured. The filesystem MCP's tools look like `mcp_project_fs_read_file`: the naming rule is `mcp_<server name>_<tool name>`[^2]. If you can see tools with that prefix, it's connected.
+**How you know it worked**: it lists out a set of tools, and they come from the server you just set up. The filesystem MCP's tools have names that look like this: `mcp_project_fs_read_file`.
 
-**Method 2: Test the connection**
+See the pattern? The naming format is `mcp_<server name>_<tool name>`[^2]. So as long as you see tool names starting with a prefix like `mcp_project_fs_` (a prefix is just the opening chunk of the name), it means it's **connected**. Success.
+
+**Way 2: test the connection directly**
+
+Back in the terminal, enter:
 
 ```bash
 hermes mcp test project_fs
 ```
 
-`hermes mcp test <server name>` directly tests whether that server can be reached[^1].
+`hermes mcp test <server name>` goes and tries whether that server can be reached[^1], and the result is clear at a glance.
 
-## Tools didn't appear? Check in this order
+## Tool didn't show up? Check it in this order
 
-This is the most common situation the first time you set up an MCP. Here's the official list of causes, mapped out[^1]:
+The first time you set up MCP, "the tool didn't show up" is the most common thing that happens. Don't panic — plenty of people hit it. The table below organizes the reasons the docs list[^1]. Read it side by side:
 
-| Symptom | Usually because |
+| What you're seeing | Usually because |
 |---|---|
-| No tools at all | `enabled: false` wasn't removed, the runtime environment is missing, or the auth header is wrong |
-| A few tools missing | Filtered out by `include`, blocked by `exclude`, or the tool category is turned off |
-| Fewer tools than expected | Each server has its own policy filtering — this is normal behavior |
+| No tools at all | You forgot to remove `enabled: false` from the config, the environment the tool needs isn't set up, or the header used for authentication (a header is a small piece of identity info sent along with the connection) is filled in wrong |
+| A few tools missing | Filtered out by the `include` allowlist, blocked by the `exclude` blocklist, or a whole category of tools got turned off |
+| Fewer tools than you expected | Each server has its own filtering rules by default. This is normal, not broken |
 
-First confirm `/reload-mcp` has actually run, then use `hermes mcp test` to check the connection, and only then start suspecting the config contents.
+Suggested order to check: first confirm you **actually ran** `/reload-mcp` (without a reload, the current conversation is still reading the old config); then use `hermes mcp test` to see if the connection goes through; and only then go back and suspect the config content itself is wrong. This order saves you detours.
 
-## Scoping permissions: only enable the tools you need
+## Tighten permissions: only turn on the tools you really need
 
-Once the filesystem MCP is working, **permission scoping becomes important** when you connect MCPs like GitHub or databases. You can allow only specific tools:
+Once the filesystem MCP is working, you'll probably want to connect more powerful MCPs next — things like GitHub or a database. At that point, **"only turn on the permissions you need" becomes really important**.
+
+You can say "only allow these specific tools," like this:
 
 ```yaml
 mcp_servers:
@@ -109,13 +139,17 @@ mcp_servers:
       include: [list_issues, create_issue, search_code]
 ```
 
-`tools.include` is an allowlist: only these are enabled, everything else is denied[^2]. This is safer than enabling everything and then blocking tools one by one.
+Here `tools.include` is an **allowlist**: only the tools on the list are usable, everything else is off[^2]. This "only turn on these few" approach is much safer than "turn everything on, then block them one by one" — because the first way can't accidentally leave something open.
 
-An easily overlooked security design: **a stdio server only gets the environment variables you explicitly list under `env`; it does not inherit your entire shell environment**[^2]. So API keys must be given explicitly in `env` — it won't go read them from your shell on its own.
+While we're here, one nice safety mechanism a lot of people don't know about: **a local (stdio) server can only see the specific environment variables you explicitly list under `env`. It cannot peek at your whole shell environment**[^2].
 
-## Remote MCP (advanced)
+(An environment variable is a setting value handed to a program — often used to store sensitive things like passwords and keys; the shell is the environment where you type commands.)
 
-To connect to an already-hosted service, use `url`:
+So the point is: something like an API key (the secret key used to access a service) is only available to it if you explicitly put it in `env`. It won't go rummaging through your shell on its own. That's good for you — you won't accidentally leak a pile of passwords to it.
+
+## Remote MCP (advanced — look at this later, when you need it)
+
+If one day you need to connect to a service someone else has already set up and put online, switch to `url`:
 
 ```yaml
 mcp_servers:
@@ -125,39 +159,49 @@ mcp_servers:
       Authorization: "Bearer ***"
 ```
 
-For services that require OAuth (such as Linear), use `auth: oauth`[^2].
+Here `headers` is the identity info sent along with the connection, so the other side knows "it's you" and lets you in.
 
-## Installing from the official catalog
+If that service needs you to log in with OAuth (OAuth is the "authorize with your account, without handing over your password" method — like the "Log in with Google" button on many sites), add `auth: oauth`[^2]. Linear, for example, is this kind.
 
-Besides configuring manually, you can also use the official catalog:
+## Install from the official catalog (the easy way)
+
+Instead of writing the config line by line yourself, you can also use the official ready-made catalog and let it install for you:
 
 ```bash
 hermes mcp catalog          # see what's available
 hermes mcp install <name>   # install one
 ```
 
-⚠️ But be aware: when installing, Hermes runs the manifest's bootstrap commands **as well as the MCP server's own code**. Although the project reviews every entry in the catalog via PR, it's still recommended that you **read the manifest before installing**[^2].
+The first line "lists what's available to install in the catalog," and the second "picks one and installs it."
 
-## Frequently asked questions
+⚠️ But there's one thing you must know: when installing, Hermes runs the bootstrap commands in the manifest, **and it also runs the MCP server's own code**.
 
-### Need to control a Windows browser from inside WSL2?
+(The manifest is the "install checklist" that comes with the MCP, spelling out what needs to run to get it set up.)
 
-Use chrome-devtools-mcp as a bridge — see the [WSL2 guide](/install/wsl2/).
+Even though the official team reviews every entry in the catalog, it's still recommended you build a habit: **read the manifest before installing**[^2], so you can see clearly what it's about to run on your computer. One extra minute buys a lot of peace of mind.
 
-### Do I really have to run /reload-mcp after changing the config?
+## FAQ
 
-Yes. Without a reload, the current conversation is still reading the old config.
+### I'm inside WSL2 and want to control a browser on Windows. Can I?
 
-### How do I know whether an npm package is a trustworthy MCP?
+Yes. Use chrome-devtools-mcp as the bridge in the middle; for how, see the [WSL2 guide](/install/wsl2/). (WSL2 is a setup that runs Linux inside Windows.)
 
-`@modelcontextprotocol/*` are the official reference implementations and are relatively trustworthy. A third-party server of unknown origin is equivalent to letting unfamiliar code run in your environment: see the trust tiers in [Recommended MCPs](/en/integrations/recommended-mcp/).
+### Every time I change the config, do I really have to run /reload-mcp?
+
+Yes, always. If you don't reload, the current conversation is still reading the **old** config, so your change effectively did nothing.
+
+### How do I judge whether some npm package is a trustworthy MCP?
+
+One simple rule of thumb: names starting with `@modelcontextprotocol/*` are the official reference implementations and are relatively trustworthy.
+
+The other way around, a third-party server of unknown origin is essentially **letting a piece of code you don't know run in your environment** — be careful. To judge more systematically, see the trust levels laid out in [Recommended MCP](/en/integrations/recommended-mcp/).
 
 ## Next steps
 
 - Which MCPs are worth connecting → [MCP servers worth connecting first](/en/integrations/recommended-mcp/)
-- See the official built-in capabilities → [Full skills catalog](/skills/catalog/)
+- See the built-in capabilities → [Full skills catalog](/skills/catalog/)
 - Understand the difference between skills and MCP → [The skills system](/concepts/技能系統/)
 
 [^1]: Nous Research, Use MCP with Hermes: https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes (accessed 2026-07-25)
 [^2]: Nous Research, MCP: https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp (accessed 2026-07-25)
-[^3]: Ibid.; the last argument in the filesystem MCP's args is the directory path allowed for access
+[^3]: Same as above; the last argument in the filesystem MCP's args is the directory path it's allowed to access
