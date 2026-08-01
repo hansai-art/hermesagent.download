@@ -87,7 +87,7 @@ model:
 - 填太大:真的超過時會直接失敗。
 - 填太小:白白浪費了容量。
 
-**那我怎麼知道該填多少?**去看你的推論服務(inference service,就是實際在跑這個 AI 模型的那個程式,例如 Ollama、vLLM 等)啟動時設定的容量是多少。以 Ollama 為例,那個數字寫在模型的 Modelfile(Ollama 描述模型的設定檔)裡,叫 `num_ctx`。
+**那我怎麼知道該填多少**?去看你的推論服務(inference service,就是實際在跑這個 AI 模型的那個程式,例如 Ollama、vLLM 等)啟動時設定的容量是多少。以 Ollama 為例,那個數字寫在模型的 Modelfile(Ollama 描述模型的設定檔)裡,叫 `num_ctx`。
 
 > 📝 **待補**:各家本地推論服務要怎麼查自己的 context 上限,我們還沒整理好。
 > 你如果跑過 Ollama / vLLM / LM Studio,

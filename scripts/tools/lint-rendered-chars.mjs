@@ -109,7 +109,10 @@ for (const file of files) {
     findings['裸露的 **粗體**（CommonMark 在中文標點旁不認粗體，把 ** 移到引號內側）'].push([rel, m[0]]);
   }
 
-  for (const m of html.matchAll(/[—–]([A-Za-z][\w-]*)/g)) {
+  // 只抓「原本是 --flag 被排版轉換吃成 —flag」的情況:真正的 flag 前面是空白或
+  // 行首(` --tui` → ` —tui`),破折號前不會是字母。英文散文的破折號則是接在字母
+  // 後面(`ago—so`、`key—your`),那是正常的 em-dash,不該誤報成 CLI 參數。
+  for (const m of html.matchAll(/(?<![A-Za-z0-9])[—–]([A-Za-z][\w-]*)/g)) {
     findings['被排版轉換吃掉的 CLI 參數（應為 --flag）'].push([rel, m[0]]);
   }
 
