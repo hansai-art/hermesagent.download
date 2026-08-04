@@ -28,6 +28,12 @@ jobs:
       - name: Install
         run: npm ci
 
+      # 不用等 build：這一步只看程式碼的 import 語句，跟 dist/ 無關。
+      # 擋的是「程式碼直接 import 的套件，package.json 從沒宣告」——
+      # 已退役的姊妹 repo 曾經因為這樣間歇性壞掉，見 check-deps.mjs 開頭註解。
+      - name: 依賴完整性檢查
+        run: npm run check-deps
+
       - name: Article health scan(免疫系統)
         run: node scripts/tools/article-health.mjs --all
 
