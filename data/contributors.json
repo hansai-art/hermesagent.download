@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T02:26:13.471Z",
+  "generatedAt": "2026-08-09T02:33:26.556Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2352,8 +2352,8 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 98,
-    "lastCommitAt": "2026-08-07T03:22:41Z"
+    "recentCommits30d": 99,
+    "lastCommitAt": "2026-08-08T02:26:13Z"
   },
   "stars": 0,
   "forks": 0,
@@ -2366,7 +2366,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 7677,
+        "contributions": 7743,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2377,7 +2377,7 @@
         "login": "OutThisLife",
         "avatar": "https://avatars.githubusercontent.com/u/770929?v=4",
         "url": "https://github.com/OutThisLife",
-        "contributions": 2759,
+        "contributions": 2843,
         "name": "brooklyn!",
         "bio": null,
         "blog": "https://brooklyn.sh/",
@@ -2388,12 +2388,23 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 1403,
+        "contributions": 1443,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
         "company": "NousResearch",
         "location": "Delhi"
+      },
+      {
+        "login": "benbarclay",
+        "avatar": "https://avatars.githubusercontent.com/u/413810?v=4",
+        "url": "https://github.com/benbarclay",
+        "contributions": 396,
+        "name": "Ben Barclay",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
       },
       {
         "login": "ethernet8023",
@@ -2407,21 +2418,10 @@
         "location": "Toronto, ON"
       },
       {
-        "login": "benbarclay",
-        "avatar": "https://avatars.githubusercontent.com/u/413810?v=4",
-        "url": "https://github.com/benbarclay",
-        "contributions": 388,
-        "name": "Ben Barclay",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 269,
+        "contributions": 273,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2465,7 +2465,7 @@
         "login": "austinpickett",
         "avatar": "https://avatars.githubusercontent.com/u/260188?v=4",
         "url": "https://github.com/austinpickett",
-        "contributions": 181,
+        "contributions": 183,
         "name": "Austin Pickett",
         "bio": null,
         "blog": "https://www.austinkpickett.com",
@@ -2476,8 +2476,30 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 143,
+        "contributions": 146,
         "name": "liuhao1024",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "erosika",
+        "avatar": "https://avatars.githubusercontent.com/u/56565191?v=4",
+        "url": "https://github.com/erosika",
+        "contributions": 142,
+        "name": "Eri Barrett",
+        "bio": "building for the agentic world",
+        "blog": null,
+        "company": null,
+        "location": "NYC"
+      },
+      {
+        "login": "HexLab98",
+        "avatar": "https://avatars.githubusercontent.com/u/8422520?v=4",
+        "url": "https://github.com/HexLab98",
+        "contributions": 131,
+        "name": "HexLab",
         "bio": null,
         "blog": null,
         "company": null,
@@ -2493,28 +2515,6 @@
         "blog": null,
         "company": "NVIDIA",
         "location": null
-      },
-      {
-        "login": "HexLab98",
-        "avatar": "https://avatars.githubusercontent.com/u/8422520?v=4",
-        "url": "https://github.com/HexLab98",
-        "contributions": 129,
-        "name": "HexLab",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "erosika",
-        "avatar": "https://avatars.githubusercontent.com/u/56565191?v=4",
-        "url": "https://github.com/erosika",
-        "contributions": 123,
-        "name": "Eri Barrett",
-        "bio": "building for the agentic world",
-        "blog": null,
-        "company": null,
-        "location": "NYC"
       },
       {
         "login": "briandevans",
@@ -2594,21 +2594,10 @@
         "location": null
       },
       {
-        "login": "shannonsands",
-        "avatar": "https://avatars.githubusercontent.com/u/7897813?v=4",
-        "url": "https://github.com/shannonsands",
-        "contributions": 58,
-        "name": null,
-        "bio": "Full Stack Web Application developer, specialising in Javascript, PHP & Python based technologies.",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 57,
+        "contributions": 58,
         "name": null,
         "bio": "Just a capybara who codes",
         "blog": "https://www.linkedin.com/in/joao-marcos-dias-barros-a99362217",
@@ -2616,12 +2605,12 @@
         "location": "Brazil-Fortaleza"
       },
       {
-        "login": "Bartok9",
-        "avatar": "https://avatars.githubusercontent.com/u/259807879?v=4",
-        "url": "https://github.com/Bartok9",
-        "contributions": 48,
-        "name": "Bartok",
-        "bio": null,
+        "login": "shannonsands",
+        "avatar": "https://avatars.githubusercontent.com/u/7897813?v=4",
+        "url": "https://github.com/shannonsands",
+        "contributions": 58,
+        "name": null,
+        "bio": "Full Stack Web Application developer, specialising in Javascript, PHP & Python based technologies.",
         "blog": null,
         "company": null,
         "location": null
@@ -2638,15 +2627,37 @@
         "location": null
       },
       {
-        "login": "ehz0ah",
-        "avatar": "https://avatars.githubusercontent.com/u/130889443?v=4",
-        "url": "https://github.com/ehz0ah",
-        "contributions": 39,
-        "name": "Hao Zhe",
-        "bio": "SWE @ TikTok | CEG @ NUS",
+        "login": "Bartok9",
+        "avatar": "https://avatars.githubusercontent.com/u/259807879?v=4",
+        "url": "https://github.com/Bartok9",
+        "contributions": 48,
+        "name": "Bartok",
+        "bio": null,
         "blog": null,
-        "company": "National University of Singapore",
-        "location": "Singapore"
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "victor-kyriazakos",
+        "avatar": "https://avatars.githubusercontent.com/u/93273468?v=4",
+        "url": "https://github.com/victor-kyriazakos",
+        "contributions": 41,
+        "name": null,
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "ygd58",
+        "avatar": "https://avatars.githubusercontent.com/u/78954051?v=4",
+        "url": "https://github.com/ygd58",
+        "contributions": 40,
+        "name": "buray",
+        "bio": "Early man",
+        "blog": null,
+        "company": null,
+        "location": null
       },
       {
         "login": "wesleysimplicio",
@@ -2660,6 +2671,17 @@
         "location": null
       },
       {
+        "login": "ehz0ah",
+        "avatar": "https://avatars.githubusercontent.com/u/130889443?v=4",
+        "url": "https://github.com/ehz0ah",
+        "contributions": 39,
+        "name": "Hao Zhe",
+        "bio": "SWE @ TikTok | CEG @ NUS",
+        "blog": null,
+        "company": "National University of Singapore",
+        "location": "Singapore"
+      },
+      {
         "login": "sprmn24",
         "avatar": "https://avatars.githubusercontent.com/u/164800352?v=4",
         "url": "https://github.com/sprmn24",
@@ -2671,12 +2693,12 @@
         "location": null
       },
       {
-        "login": "ygd58",
-        "avatar": "https://avatars.githubusercontent.com/u/78954051?v=4",
-        "url": "https://github.com/ygd58",
-        "contributions": 38,
-        "name": "buray",
-        "bio": "Early man",
+        "login": "necoweb3",
+        "avatar": "https://avatars.githubusercontent.com/u/65560494?v=4",
+        "url": "https://github.com/necoweb3",
+        "contributions": 37,
+        "name": "neco",
+        "bio": null,
         "blog": null,
         "company": null,
         "location": null
@@ -2687,17 +2709,6 @@
         "url": "https://github.com/Frowtek",
         "contributions": 37,
         "name": "Frowte3k",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "victor-kyriazakos",
-        "avatar": "https://avatars.githubusercontent.com/u/93273468?v=4",
-        "url": "https://github.com/victor-kyriazakos",
-        "contributions": 37,
-        "name": null,
         "bio": null,
         "blog": null,
         "company": null,
@@ -2715,17 +2726,6 @@
         "location": null
       },
       {
-        "login": "necoweb3",
-        "avatar": "https://avatars.githubusercontent.com/u/65560494?v=4",
-        "url": "https://github.com/necoweb3",
-        "contributions": 36,
-        "name": "neco",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "nousbot-eng",
         "avatar": "https://avatars.githubusercontent.com/u/305976095?v=4",
         "url": "https://github.com/nousbot-eng",
@@ -2734,6 +2734,17 @@
         "bio": null,
         "blog": "https://nousresearch.com/",
         "company": "@nousresearch",
+        "location": null
+      },
+      {
+        "login": "webtecnica",
+        "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
+        "url": "https://github.com/webtecnica",
+        "contributions": 34,
+        "name": null,
+        "bio": null,
+        "blog": null,
+        "company": null,
         "location": null
       },
       {
@@ -2748,10 +2759,10 @@
         "location": null
       },
       {
-        "login": "webtecnica",
-        "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
-        "url": "https://github.com/webtecnica",
-        "contributions": 32,
+        "login": "rob-maron",
+        "avatar": "https://avatars.githubusercontent.com/u/132852777?v=4",
+        "url": "https://github.com/rob-maron",
+        "contributions": 29,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2787,17 +2798,6 @@
         "contributions": 29,
         "name": "AhmetArif",
         "bio": "Brick by Brick\r\nDc ; ahmetarif0x",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "rob-maron",
-        "avatar": "https://avatars.githubusercontent.com/u/132852777?v=4",
-        "url": "https://github.com/rob-maron",
-        "contributions": 28,
-        "name": null,
-        "bio": null,
         "blog": null,
         "company": null,
         "location": null
