@@ -28,7 +28,7 @@
 | ⭐ GitHub Stars | 0 |
 | 🔨 近 30 天更新 | 100 |
 
-<sub>每日自動更新.最後更新 2026-08-16.原始資料:[/api/stats.json](https://hermesagent.download/api/stats.json)</sub>
+<sub>每日自動更新.最後更新 2026-08-17.原始資料:[/api/stats.json](https://hermesagent.download/api/stats.json)</sub>
 
 <!-- STATS:END -->
 
