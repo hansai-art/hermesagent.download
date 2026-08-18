@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T01:59:17.545Z",
+  "generatedAt": "2026-08-18T01:55:32.747Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2353,11 +2353,11 @@
   ],
   "activity": {
     "recentCommits30d": 100,
-    "lastCommitAt": "2026-08-16T02:00:33Z"
+    "lastCommitAt": "2026-08-17T03:04:14Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 7,
+  "openIssues": 9,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2366,7 +2366,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 8286,
+        "contributions": 8432,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2377,7 +2377,7 @@
         "login": "OutThisLife",
         "avatar": "https://avatars.githubusercontent.com/u/770929?v=4",
         "url": "https://github.com/OutThisLife",
-        "contributions": 3007,
+        "contributions": 3017,
         "name": "brooklyn!",
         "bio": null,
         "blog": "https://brooklyn.sh/",
@@ -2388,7 +2388,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 1575,
+        "contributions": 1598,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2421,7 +2421,7 @@
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 284,
+        "contributions": 287,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2473,6 +2473,17 @@
         "location": "127.0.0.1"
       },
       {
+        "login": "liuhao1024",
+        "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
+        "url": "https://github.com/liuhao1024",
+        "contributions": 159,
+        "name": "liuhao1024",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "erosika",
         "avatar": "https://avatars.githubusercontent.com/u/56565191?v=4",
         "url": "https://github.com/erosika",
@@ -2482,17 +2493,6 @@
         "blog": null,
         "company": null,
         "location": "NYC"
-      },
-      {
-        "login": "liuhao1024",
-        "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
-        "url": "https://github.com/liuhao1024",
-        "contributions": 155,
-        "name": "liuhao1024",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
       },
       {
         "login": "HexLab98",
@@ -2509,7 +2509,7 @@
         "login": "afourniernv",
         "avatar": "https://avatars.githubusercontent.com/u/254985780?v=4",
         "url": "https://github.com/afourniernv",
-        "contributions": 129,
+        "contributions": 134,
         "name": "Alex Fournier",
         "bio": "NV AgenticAI SA",
         "blog": null,
@@ -2520,7 +2520,7 @@
         "login": "briandevans",
         "avatar": "https://avatars.githubusercontent.com/u/252620095?v=4",
         "url": "https://github.com/briandevans",
-        "contributions": 120,
+        "contributions": 125,
         "name": "Brian D. Evans",
         "bio": "Inc. 500 entrepreneur. Founder of BDE Ventures. 40 Under 40. Building and investing at the intersection of AI, Web3, and infrastructure.",
         "blog": "https://briandevans.com",
@@ -2542,7 +2542,7 @@
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 98,
+        "contributions": 100,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
@@ -2564,7 +2564,7 @@
         "login": "fangliquanflq",
         "avatar": "https://avatars.githubusercontent.com/u/280272527?v=4",
         "url": "https://github.com/fangliquanflq",
-        "contributions": 75,
+        "contributions": 78,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2575,11 +2575,22 @@
         "login": "SHL0MS",
         "avatar": "https://avatars.githubusercontent.com/u/131039422?v=4",
         "url": "https://github.com/SHL0MS",
-        "contributions": 75,
+        "contributions": 76,
         "name": "SHL0MS",
         "bio": null,
         "blog": null,
         "company": "@shl0ms",
+        "location": null
+      },
+      {
+        "login": "shannonsands",
+        "avatar": "https://avatars.githubusercontent.com/u/7897813?v=4",
+        "url": "https://github.com/shannonsands",
+        "contributions": 74,
+        "name": null,
+        "bio": "Full Stack Web Application developer, specialising in Javascript, PHP & Python based technologies.",
+        "blog": null,
+        "company": null,
         "location": null
       },
       {
@@ -2594,22 +2605,22 @@
         "location": null
       },
       {
-        "login": "shannonsands",
-        "avatar": "https://avatars.githubusercontent.com/u/7897813?v=4",
-        "url": "https://github.com/shannonsands",
-        "contributions": 64,
-        "name": null,
-        "bio": "Full Stack Web Application developer, specialising in Javascript, PHP & Python based technologies.",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "yoniebans",
         "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
         "url": "https://github.com/yoniebans",
         "contributions": 63,
         "name": "jonny",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "victor-kyriazakos",
+        "avatar": "https://avatars.githubusercontent.com/u/93273468?v=4",
+        "url": "https://github.com/victor-kyriazakos",
+        "contributions": 61,
+        "name": null,
         "bio": null,
         "blog": null,
         "company": null,
@@ -2627,10 +2638,10 @@
         "location": null
       },
       {
-        "login": "victor-kyriazakos",
-        "avatar": "https://avatars.githubusercontent.com/u/93273468?v=4",
-        "url": "https://github.com/victor-kyriazakos",
-        "contributions": 56,
+        "login": "konsisumer",
+        "avatar": "https://avatars.githubusercontent.com/u/11262660?v=4",
+        "url": "https://github.com/konsisumer",
+        "contributions": 53,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2649,10 +2660,10 @@
         "location": null
       },
       {
-        "login": "konsisumer",
-        "avatar": "https://avatars.githubusercontent.com/u/11262660?v=4",
-        "url": "https://github.com/konsisumer",
-        "contributions": 52,
+        "login": "webtecnica",
+        "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
+        "url": "https://github.com/webtecnica",
+        "contributions": 46,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2671,17 +2682,6 @@
         "location": null
       },
       {
-        "login": "webtecnica",
-        "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
-        "url": "https://github.com/webtecnica",
-        "contributions": 44,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "DavidMetcalfe",
         "avatar": "https://avatars.githubusercontent.com/u/80915?v=4",
         "url": "https://github.com/DavidMetcalfe",
@@ -2693,6 +2693,17 @@
         "location": "Canada"
       },
       {
+        "login": "ehz0ah",
+        "avatar": "https://avatars.githubusercontent.com/u/130889443?v=4",
+        "url": "https://github.com/ehz0ah",
+        "contributions": 41,
+        "name": "Hao Zhe",
+        "bio": "SWE @ TikTok | CEG @ NUS",
+        "blog": null,
+        "company": "National University of Singapore",
+        "location": "Singapore"
+      },
+      {
         "login": "necoweb3",
         "avatar": "https://avatars.githubusercontent.com/u/65560494?v=4",
         "url": "https://github.com/necoweb3",
@@ -2702,17 +2713,6 @@
         "blog": null,
         "company": null,
         "location": null
-      },
-      {
-        "login": "ehz0ah",
-        "avatar": "https://avatars.githubusercontent.com/u/130889443?v=4",
-        "url": "https://github.com/ehz0ah",
-        "contributions": 39,
-        "name": "Hao Zhe",
-        "bio": "SWE @ TikTok | CEG @ NUS",
-        "blog": null,
-        "company": "National University of Singapore",
-        "location": "Singapore"
       },
       {
         "login": "wesleysimplicio",
@@ -2742,6 +2742,17 @@
         "url": "https://github.com/Frowtek",
         "contributions": 37,
         "name": "Frowte3k",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "adybag14-cyber",
+        "avatar": "https://avatars.githubusercontent.com/u/252811164?v=4",
+        "url": "https://github.com/adybag14-cyber",
+        "contributions": 36,
+        "name": null,
         "bio": null,
         "blog": null,
         "company": null,
@@ -2781,21 +2792,10 @@
         "location": null
       },
       {
-        "login": "adybag14-cyber",
-        "avatar": "https://avatars.githubusercontent.com/u/252811164?v=4",
-        "url": "https://github.com/adybag14-cyber",
-        "contributions": 32,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "frizikk",
         "avatar": "https://avatars.githubusercontent.com/u/4850809?v=4",
         "url": "https://github.com/frizikk",
-        "contributions": 30,
+        "contributions": 33,
         "name": "Jakub Wolniewicz",
         "bio": null,
         "blog": null,
