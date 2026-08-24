@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T02:06:16.732Z",
+  "generatedAt": "2026-08-24T02:02:09.793Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2352,8 +2352,8 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 96,
-    "lastCommitAt": "2026-08-22T02:58:27Z"
+    "recentCommits30d": 89,
+    "lastCommitAt": "2026-08-23T02:06:17Z"
   },
   "stars": 0,
   "forks": 0,
@@ -2366,7 +2366,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 8742,
+        "contributions": 8826,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2377,7 +2377,7 @@
         "login": "OutThisLife",
         "avatar": "https://avatars.githubusercontent.com/u/770929?v=4",
         "url": "https://github.com/OutThisLife",
-        "contributions": 3206,
+        "contributions": 3209,
         "name": "brooklyn!",
         "bio": null,
         "blog": "https://brooklyn.sh/",
@@ -2388,7 +2388,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 1677,
+        "contributions": 1719,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2421,7 +2421,7 @@
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 301,
+        "contributions": 305,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2432,7 +2432,7 @@
         "login": "xxxigm",
         "avatar": "https://avatars.githubusercontent.com/u/54813621?v=4",
         "url": "https://github.com/xxxigm",
-        "contributions": 223,
+        "contributions": 224,
         "name": null,
         "bio": "I am constantly pushing myself to work harder and improve my skills every day.",
         "blog": null,
@@ -2476,8 +2476,19 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 166,
+        "contributions": 167,
         "name": "liuhao1024",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "HexLab98",
+        "avatar": "https://avatars.githubusercontent.com/u/8422520?v=4",
+        "url": "https://github.com/HexLab98",
+        "contributions": 159,
+        "name": "HexLab",
         "bio": null,
         "blog": null,
         "company": null,
@@ -2493,17 +2504,6 @@
         "blog": null,
         "company": null,
         "location": "NYC"
-      },
-      {
-        "login": "HexLab98",
-        "avatar": "https://avatars.githubusercontent.com/u/8422520?v=4",
-        "url": "https://github.com/HexLab98",
-        "contributions": 149,
-        "name": "HexLab",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
       },
       {
         "login": "afourniernv",
@@ -2531,7 +2531,7 @@
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 105,
+        "contributions": 110,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
@@ -2553,7 +2553,7 @@
         "login": "fangliquanflq",
         "avatar": "https://avatars.githubusercontent.com/u/280272527?v=4",
         "url": "https://github.com/fangliquanflq",
-        "contributions": 95,
+        "contributions": 98,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2564,9 +2564,9 @@
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 89,
+        "contributions": 90,
         "name": null,
-        "bio": "Just a capybara who codes \r\n\r\nLooking for Jobs",
+        "bio": "私は時々物を壊すのが好きで、時々物を建てるのが好きだ。",
         "blog": "https://www.linkedin.com/in/joao-marcos-dias-barros-a99362217",
         "company": null,
         "location": "Brazil-Fortaleza"
@@ -2641,7 +2641,7 @@
         "login": "Bartok9",
         "avatar": "https://avatars.githubusercontent.com/u/259807879?v=4",
         "url": "https://github.com/Bartok9",
-        "contributions": 53,
+        "contributions": 54,
         "name": "Bartok",
         "bio": null,
         "blog": null,
@@ -2674,7 +2674,7 @@
         "login": "webtecnica",
         "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
         "url": "https://github.com/webtecnica",
-        "contributions": 46,
+        "contributions": 49,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2696,7 +2696,7 @@
         "login": "DavidMetcalfe",
         "avatar": "https://avatars.githubusercontent.com/u/80915?v=4",
         "url": "https://github.com/DavidMetcalfe",
-        "contributions": 42,
+        "contributions": 43,
         "name": "David Metcalfe",
         "bio": "Improving employee productivity by automating processes and enhancing tools. Often found hovering at the intersection of design and technology.",
         "blog": null,
@@ -2737,6 +2737,17 @@
         "location": null
       },
       {
+        "login": "Frowtek",
+        "avatar": "https://avatars.githubusercontent.com/u/164990034?v=4",
+        "url": "https://github.com/Frowtek",
+        "contributions": 38,
+        "name": "Frowte3k",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "sprmn24",
         "avatar": "https://avatars.githubusercontent.com/u/164800352?v=4",
         "url": "https://github.com/sprmn24",
@@ -2748,21 +2759,10 @@
         "location": null
       },
       {
-        "login": "Frowtek",
-        "avatar": "https://avatars.githubusercontent.com/u/164990034?v=4",
-        "url": "https://github.com/Frowtek",
-        "contributions": 37,
-        "name": "Frowte3k",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "srojk34",
         "avatar": "https://avatars.githubusercontent.com/u/286497132?v=4",
         "url": "https://github.com/srojk34",
-        "contributions": 37,
+        "contributions": 38,
         "name": "İsco",
         "bio": "AI Explorer 🕵🏻‍♂️",
         "blog": null,
@@ -2781,6 +2781,17 @@
         "location": null
       },
       {
+        "login": "dokterdok",
+        "avatar": "https://avatars.githubusercontent.com/u/5354424?v=4",
+        "url": "https://github.com/dokterdok",
+        "contributions": 35,
+        "name": "David Dudok de Wit",
+        "bio": "Smart Staff Scheduling @BioSked, Product @AlixHQ (TripMode), ex-Growth/Product @ProtonMail, Continuity Activation Tool author",
+        "blog": "https://biosked.com",
+        "company": null,
+        "location": "Switzerland"
+      },
+      {
         "login": "nousbot-eng",
         "avatar": "https://avatars.githubusercontent.com/u/305976095?v=4",
         "url": "https://github.com/nousbot-eng",
@@ -2789,17 +2800,6 @@
         "bio": null,
         "blog": "https://nousresearch.com/",
         "company": "@nousresearch",
-        "location": null
-      },
-      {
-        "login": "rob-maron",
-        "avatar": "https://avatars.githubusercontent.com/u/132852777?v=4",
-        "url": "https://github.com/rob-maron",
-        "contributions": 34,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
         "location": null
       }
     ]
