@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T10:01:54.041Z",
+  "generatedAt": "2026-08-28T11:33:29.703Z",
   "counts": {
     "gaps": 3,
     "verify": 12,
@@ -38,8 +38,8 @@
       "category": "config",
       "emoji": "⚙️",
       "title": "設定模型供應商和 API key:新手一步步教學",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/config/model-provider/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/model-provider.md"
     },
@@ -48,8 +48,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "新手路線：從零到跑起來",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/guides/start/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/start.md"
     },
@@ -58,8 +58,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "進階部署：Docker、無伺服器、遠端",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/install/advanced/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/advanced.md"
     },
@@ -68,8 +68,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "該選哪一種安裝方式",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/install/download/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/download.md"
     },
@@ -78,8 +78,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "在 Linux 上安裝 Hermes Agent",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/install/linux/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/linux.md"
     },
@@ -88,8 +88,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "第一次在 Mac 上安裝 Hermes Agent",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/install/macos/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/macos.md"
     },
@@ -98,8 +98,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "在 Windows 上安裝 Hermes Agent(新手手把手版)",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/install/windows/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/windows.md"
     },
@@ -108,8 +108,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "在 WSL2 上安裝 Hermes Agent",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/install/wsl2/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/wsl2.md"
     },
@@ -118,8 +118,8 @@
       "category": "integrations",
       "emoji": "🔌",
       "title": "新手先接哪些 MCP?一份挑選清單",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/integrations/recommended-mcp/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/integrations/recommended-mcp.md"
     },
@@ -128,8 +128,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "看到「API key not set」或說 key 無效?這樣一步步查",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/troubleshoot/api-key-not-set/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/api-key-not-set.md"
     },
@@ -138,8 +138,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "打 hermes 卻說「找不到指令」?別急,三十秒解決",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/troubleshoot/command-not-found/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/command-not-found.md"
     },
@@ -148,8 +148,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "看到 context length exceeded 怎麼辦",
-      "hint": "最後實測 54 天前",
-      "days": 54,
+      "hint": "最後實測 55 天前",
+      "days": 55,
       "url": "/troubleshoot/context-length-exceeded/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/context-length-exceeded.md"
     }
