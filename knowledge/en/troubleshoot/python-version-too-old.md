@@ -1,18 +1,18 @@
 ---
-title: "What to do when you see \"Hermes requires Python 3.11 or newer\""
+title: 'What to do when you see "Hermes requires Python 3.11 or newer"'
 description: "This error usually means you didn't use the official installer. Here are three fixes, plus why some people never hit it."
 date: 2026-07-23
-subcategory: "install"
-hermes_version: ">=2026.5"
+subcategory: 'install'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
 tags:
-  - "install"
-  - "troubleshoot"
-status: "published"
+  - 'install'
+  - 'troubleshoot'
+status: 'published'
 ---
 
 ```text
@@ -43,7 +43,7 @@ If it shows 3.10 or a smaller number, you've found the problem: the version is t
 
 The official installer script already handles the Python version for you[^1]. Rather than wrestling with the old Python on your computer, let the script sort it out.
 
-Paste this line into your terminal and press Enter:
+Paste this line into your terminal and press Enter. It downloads the official installer from the Hermes domain and passes it to `bash` to run:
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
@@ -129,4 +129,5 @@ On Ubuntu / Debian, simply **installing** a new version (that is, `apt install p
 - Hit a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)
+
 [^2]: Nous Research, Installation: https://hermes-agent.nousresearch.com/docs/getting-started/installation

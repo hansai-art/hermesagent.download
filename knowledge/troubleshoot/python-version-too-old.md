@@ -1,18 +1,18 @@
 ---
-title: "看到「Hermes requires Python 3.11 or newer」怎麼辦"
-description: "這行錯誤通常代表你沒用官方的安裝方式。這裡有三種修法,還會告訴你為什麼有些人不會遇到。"
+title: '看到「Hermes requires Python 3.11 or newer」怎麼辦'
+description: '這行錯誤通常代表你沒用官方的安裝方式。這裡有三種修法,還會告訴你為什麼有些人不會遇到。'
 date: 2026-07-23
-subcategory: "install"
-hermes_version: ">=2026.5"
+subcategory: 'install'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
 tags:
-  - "install"
-  - "troubleshoot"
-status: "published"
+  - 'install'
+  - 'troubleshoot'
+status: 'published'
 ---
 
 ```text
@@ -43,7 +43,7 @@ python3 --version
 
 官方的安裝腳本本來就會自動處理 Python 版本[^1]。與其自己跟電腦裡的舊 Python 搏鬥,不如讓它幫你搞定。
 
-在終端機貼上這行,然後按 Enter:
+在終端機貼上這行,然後按 Enter。它會從 Hermes 官方網域下載並交給 `bash` 執行官方安裝腳本:
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
@@ -129,4 +129,5 @@ hermes doctor
 - 遇到的是別的錯誤 → [疑難排解總覽](/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ:https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+
 [^2]: Nous Research, Installation:https://hermes-agent.nousresearch.com/docs/getting-started/installation
