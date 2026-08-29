@@ -1,18 +1,18 @@
 ---
-title: "Set Up Your Model Provider and API Key: A Step-by-Step Guide for Beginners"
+title: 'Set Up Your Model Provider and API Key: A Step-by-Step Guide for Beginners'
 description: "Hermes won't work right after you install it. First you have to tell it where to borrow an AI brain. This guide walks you through picking one, adding your key, and one money-saving setting that really pays off."
 date: 2026-07-23
-subcategory: "provider"
-hermes_version: ">=2026.5"
+subcategory: 'provider'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
 tags:
-  - "provider"
-  - "config"
-status: "published"
+  - 'provider'
+  - 'config'
+status: 'published'
 ---
 
 After you install Hermes Agent, it still can't do anything yet.
@@ -66,12 +66,12 @@ hermes config show
 
 Not sure which one to pick? Just find your row in this table:
 
-| Provider | Who it's for |
-|---|---|
-| **Nous Portal** | People who don't want to deal with keys and want lots of models in one shot |
-| **OpenRouter** | People who want to switch and compare prices across many models, all with one key |
-| **OpenAI / Anthropic / Google** | People who already have an account, or really depend on one company's model |
-| **Ollama / vLLM (local)** | People who don't want to pay a cent, or whose data can't leave their own computer |
+| Provider                        | Who it's for                                                                      |
+| ------------------------------- | --------------------------------------------------------------------------------- |
+| **Nous Portal**                 | People who don't want to deal with keys and want lots of models in one shot       |
+| **OpenRouter**                  | People who want to switch and compare prices across many models, all with one key |
+| **OpenAI / Anthropic / Google** | People who already have an account, or really depend on one company's model       |
+| **Ollama / vLLM (local)**       | People who don't want to pay a cent, or whose data can't leave their own computer |
 
 ## Advanced: write the setting in directly and skip the menu
 
@@ -94,7 +94,7 @@ hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 You can also switch models on the fly while you're chatting with Hermes, without restarting[^1]:
 
 ```text
-/model <模型名稱>
+/model <model-name>
 /model provider:model
 ```
 
@@ -180,7 +180,7 @@ The most common reason: the key and the provider don't match. For example, an Op
 
 ### Want to switch models mid-conversation?
 
-Use `/model <名稱>` to switch; to jump to a different provider, use `/model provider:model`[^1]. Neither one needs a restart.
+Use `/model <model-name>` to switch; to jump to a different provider, use `/model provider:model`[^1]. Neither one needs a restart.
 
 ### Getting context length exceeded?
 
