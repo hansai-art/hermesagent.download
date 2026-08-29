@@ -1,17 +1,17 @@
 ---
-title: "Seeing \"API key not set\" or being told your key is invalid? Let's fix it step by step"
+title: 'Seeing "API key not set" or being told your key is invalid? Let''s fix it step by step'
 description: "The most common cause isn't a typo in your key — it's that the key is paired with the wrong provider. Walk through three calm steps, including the easy-to-miss conflicting settings in ~/.hermes/.env."
 date: 2026-07-23
-subcategory: "auth"
-hermes_version: ">=2026.5"
+subcategory: 'auth'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
 tags:
-  - "auth"
-  - "troubleshoot"
-status: "published"
+  - 'auth'
+  - 'troubleshoot'
+status: 'published'
 ---
 
 First, one word to know. This page keeps mentioning your **API key** (I'll just call it your "key"): it's a password-like string of characters that lets Hermes use the account you opened with some AI company. Another word is **provider** (the company that supplies the AI models — for example OpenAI, OpenRouter, or Anthropic). You first sign up for a key at one of these providers, then you hand that key to Hermes.
@@ -64,10 +64,10 @@ hermes config set OPENROUTER_API_KEY sk-or-v1-xxxx
 **Here's a handy trick: look at the first few characters of the key (the prefix).** The start of a key usually tells you which provider it belongs to:
 
 | Starts like this | This provider |
-|---|---|
-| `sk-or-v1-` | OpenRouter |
-| `sk-` | OpenAI |
-| `sk-ant-` | Anthropic |
+| ---------------- | ------------- |
+| `sk-or-v1-`      | OpenRouter    |
+| `sk-`            | OpenAI        |
+| `sk-ant-`        | Anthropic     |
 
 If the start of your key doesn't line up with the provider you set (say, you set OpenAI but the key starts with `sk-or-v1-`), then it's mismatched.
 
@@ -105,7 +105,7 @@ First run `hermes config show` to see what's left, then just set it up again wit
 
 ### I don't want to sign up with each provider one by one — is there an easier way?
 
-Yes. The official Portal (an entry service) handles it all at once, so you don't have to go申請 a key at each provider yourself:
+Yes. The official Portal (an entry service) handles it all at once, so you don't have to apply for a key at each provider yourself:
 
 ```bash
 hermes setup --portal
