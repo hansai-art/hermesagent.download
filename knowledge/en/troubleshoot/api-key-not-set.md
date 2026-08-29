@@ -8,6 +8,7 @@ last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
   - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
+  - 'https://hermes-agent.nousresearch.com/docs/configuration'
 tags:
   - 'auth'
   - 'troubleshoot'
@@ -129,3 +130,5 @@ Yes, just use a "local model" — meaning you let the AI run directly on your ow
 - Ran into a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)
+
+[^2]: Nous Research, Configuration: https://hermes-agent.nousresearch.com/docs/configuration (accessed 2026-08-30)

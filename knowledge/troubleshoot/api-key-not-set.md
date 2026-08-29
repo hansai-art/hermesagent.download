@@ -1,17 +1,18 @@
 ---
-title: "看到「API key not set」或說 key 無效?這樣一步步查"
-description: "最常見的原因其實不是 key 打錯,而是 key 跟供應商配錯對了。跟著三步驟慢慢查,包含最容易漏掉的 ~/.hermes/.env 衝突設定。"
+title: '看到「API key not set」或說 key 無效?這樣一步步查'
+description: '最常見的原因其實不是 key 打錯,而是 key 跟供應商配錯對了。跟著三步驟慢慢查,包含最容易漏掉的 ~/.hermes/.env 衝突設定。'
 date: 2026-07-23
-subcategory: "auth"
-hermes_version: ">=2026.5"
+subcategory: 'auth'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
+  - 'https://hermes-agent.nousresearch.com/docs/configuration'
 tags:
-  - "auth"
-  - "troubleshoot"
-status: "published"
+  - 'auth'
+  - 'troubleshoot'
+status: 'published'
 ---
 
 先解釋一個詞。這篇一直會講到 **API key**(以下就叫「key」):它是一串像密碼的字,讓 Hermes 能用你在某家 AI 公司開的帳號。還有一個詞是**供應商**(provider,就是提供 AI 模型的公司,例如 OpenAI、OpenRouter、Anthropic)。你要先在某家供應商那邊申請一把 key,再把它填給 Hermes。
@@ -63,11 +64,11 @@ hermes config set OPENROUTER_API_KEY sk-or-v1-xxxx
 
 **這裡有個小訣竅:看 key 開頭的那幾個字(前綴)。** key 的開頭通常會告訴你它是哪一家的:
 
-| 開頭長這樣 | 就是這家供應商 |
-|---|---|
-| `sk-or-v1-` | OpenRouter |
-| `sk-` | OpenAI |
-| `sk-ant-` | Anthropic |
+| 開頭長這樣  | 就是這家供應商 |
+| ----------- | -------------- |
+| `sk-or-v1-` | OpenRouter     |
+| `sk-`       | OpenAI         |
+| `sk-ant-`   | Anthropic      |
 
 如果你的 key 開頭,跟你設定的供應商對不起來(比方說你設 OpenAI,key 卻是 `sk-or-v1-` 開頭),那就是配錯了。
 
@@ -129,3 +130,5 @@ hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 - 遇到別的錯誤 → [疑難排解總覽](/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ:https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+
+[^2]: Nous Research, Configuration:https://hermes-agent.nousresearch.com/docs/configuration (2026-08-30 存取)

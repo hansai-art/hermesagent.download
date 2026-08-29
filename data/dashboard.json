@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T23:31:25.524Z",
+  "generatedAt": "2026-08-29T23:46:44.977Z",
   "content": {
     "total": 392,
     "byStatus": {
@@ -101,7 +101,7 @@
   "credibility": {
     "withSources": 392,
     "withSourcesPct": 100,
-    "footnotes": 244,
+    "footnotes": 246,
     "verifiedFresh": 52,
     "verifiedStale": 0,
     "neverVerified": 0,
@@ -109,8 +109,8 @@
   },
   "editorial": {
     "substantial": 81,
-    "citationCoverage": 59,
-    "citationCovered": 48,
+    "citationCoverage": 60,
+    "citationCovered": 49,
     "followableCoverage": 100,
     "followableCovered": 26,
     "teachingWithCode": 26,
