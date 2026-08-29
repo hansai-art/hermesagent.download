@@ -93,7 +93,7 @@ hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 
 也可以在跟 Hermes 聊天的過程中臨時換模型,不用重開[^1]:
 
-```
+```text
 /model <模型名稱>
 /model provider:model
 ```
@@ -104,7 +104,7 @@ hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 
 做法:執行 `hermes model`,在選單裡選 **Custom endpoint**(自訂連線位址),然後填入本地服務的網址。用 Ollama 的話,通常是這個:
 
-```
+```text
 http://localhost:11434/v1
 ```
 

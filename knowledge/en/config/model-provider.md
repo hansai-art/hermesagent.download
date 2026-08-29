@@ -93,7 +93,7 @@ hermes config set HERMES_MODEL anthropic/claude-opus-4.7
 
 You can also switch models on the fly while you're chatting with Hermes, without restarting[^1]:
 
-```
+```text
 /model <模型名稱>
 /model provider:model
 ```
@@ -104,7 +104,7 @@ A "local model" is an AI that runs on your own computer, without going through a
 
 How to do it: run `hermes model`, choose **Custom endpoint** in the menu (the address you connect to yourself), then enter the address of your local service. For Ollama, it's usually this:
 
-```
+```text
 http://localhost:11434/v1
 ```
 
