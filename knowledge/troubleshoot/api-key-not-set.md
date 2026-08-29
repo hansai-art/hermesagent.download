@@ -18,7 +18,7 @@ status: "published"
 
 好,回到問題。你很確定 key 是對的:剛從供應商的網站後台複製貼上,一個字都沒漏。但 Hermes 就是跟你說:
 
-```
+```text
 API key not set
 ```
 

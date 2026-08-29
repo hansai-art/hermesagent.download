@@ -16,7 +16,7 @@ status: "published"
 
 Picture yourself halfway through a task. Your agent (the AI assistant that does things for you) has read a few files, run some small tools for you, and you've gone back and forth for twenty-odd rounds. Then it suddenly says:
 
-```
+```text
 context length exceeded
 ```
 
@@ -30,7 +30,7 @@ First, one piece of vocabulary. A **token** (think of it as a "chunk of text") i
 
 In the chat box, just type this command and send it:
 
-```
+```text
 /compress
 ```
 
@@ -46,7 +46,7 @@ One thing to keep in mind: the summary keeps the big picture, but some small det
 
 Type this command and send it:
 
-```
+```text
 /usage
 ```
 
@@ -68,7 +68,7 @@ The fix: tell it the correct number directly, instead of letting it guess.
 
 Open this file in a text editor:
 
-```
+```text
 ~/.hermes/config.yaml
 ```
 

@@ -16,7 +16,7 @@ status: "published"
 
 想像你正在做一件事做到一半。你的 agent(就是這個會幫你做事的 AI 助手)讀了幾個檔案、幫你跑了幾個小工具、你們一來一往聊了二十幾輪。然後它突然冒出一句:
 
-```
+```text
 context length exceeded
 ```
 
@@ -30,7 +30,7 @@ context length exceeded
 
 在對話框裡,直接打這個指令然後送出:
 
-```
+```text
 /compress
 ```
 
@@ -46,7 +46,7 @@ context length exceeded
 
 打這個指令送出:
 
-```
+```text
 /usage
 ```
 
@@ -68,7 +68,7 @@ context length exceeded
 
 用文字編輯器打開這個檔案:
 
-```
+```text
 ~/.hermes/config.yaml
 ```
 

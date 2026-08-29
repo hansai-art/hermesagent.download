@@ -18,7 +18,7 @@ First, one word to know. This page keeps mentioning your **API key** (I'll just 
 
 Okay, back to the problem. You're sure the key is right: you just copy-pasted it from the provider's website, character for character, nothing missing. But Hermes still tells you:
 
-```
+```text
 API key not set
 ```
 

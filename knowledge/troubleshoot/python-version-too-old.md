@@ -15,7 +15,7 @@ tags:
 status: "published"
 ---
 
-```
+```text
 Hermes requires Python 3.11 or newer
 ```
 

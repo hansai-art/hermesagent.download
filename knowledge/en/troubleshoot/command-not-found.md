@@ -17,7 +17,7 @@ status: "published"
 
 The installer finished, everything looked fine. Feeling good, you typed `hermes` into your terminal (that black window where you type commands), and out popped this line:
 
-```
+```text
 zsh: command not found: hermes
 ```
 
