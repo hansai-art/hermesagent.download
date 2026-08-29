@@ -1,17 +1,17 @@
 ---
-title: "What config.yaml Is: Two Settings Files and One Handy Set of Commands, Explained"
+title: 'What config.yaml Is: Two Settings Files and One Handy Set of Commands, Explained'
 description: "Every tutorial tells you to 'go edit config.yaml,' but nobody shows you what that file looks like, where it lives, or how to fix it when it breaks. This starts from zero: what goes in config.yaml versus .env, which one wins, and why editing with commands is safer than editing by hand."
 date: 2026-07-27
-subcategory: "reference"
-hermes_version: ">=2026.5"
+subcategory: 'reference'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-27
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/user-guide/configuration"
+  - 'https://hermes-agent.nousresearch.com/docs/user-guide/configuration'
 tags:
-  - "config"
-  - "reference"
-status: "published"
+  - 'config'
+  - 'reference'
+status: 'published'
 ---
 
 First, one plain fact: `config.yaml` is Hermes's "settings file." It's a plain text file that stores your preferences, like which AI model to use or whether to turn a feature on. Almost every tutorial tells you to "go edit `config.yaml`": set the model, turn on memory approval, add tools.
@@ -22,10 +22,10 @@ But hardly anyone first shows you the **whole picture**: where this file actuall
 
 Hermes splits your settings across **two files**, and there's just one dividing line[^1]:
 
-| File | What goes in it | Examples |
-|---|---|---|
+| File                    | What goes in it                     | Examples                                                     |
+| ----------------------- | ----------------------------------- | ------------------------------------------------------------ |
 | `~/.hermes/config.yaml` | **Everything that is NOT a secret** | Model, where things run, memory limits, compression strategy |
-| `~/.hermes/.env` | **All the secrets** | API key, bot token, passwords |
+| `~/.hermes/.env`        | **All the secrets**                 | API key, bot token, passwords                                |
 
 A few terms here, and it's totally normal to see them for the first time:
 
@@ -41,7 +41,7 @@ So what if `config.yaml` genuinely needs to use a password? Don't type the passw
 ```yaml
 auxiliary:
   vision:
-    api_key: ${GOOGLE_API_KEY}   # 值在 .env,這裡只引用
+    api_key: ${GOOGLE_API_KEY} # The value is in .env; this only references it
 ```
 
 Think of `${GOOGLE_API_KEY}` as a sticky note that says "the real password is in the slot named GOOGLE_API_KEY over in .env." That way, even if someone sees your `config.yaml`, they don't see the real password.
@@ -59,18 +59,18 @@ In plain terms: trying out a model on the command line for one session won't tou
 
 ## Don't edit it by hand, use the `hermes config` commands
 
-The format `config.yaml` uses is called YAML. YAML is very picky about "indentation" (how many spaces sit at the front of each line). When you edit by hand, one extra or missing space can break the whole file so that Hermes can't read it anymore.
+The format `config.yaml` uses is called YAML. YAML is very picky about "indentation" (how many spaces sit at the front of each line). When you edit by hand, one extra or missing space can break the whole file so that Hermes can't read it anymore. The official [Configuration reference](https://hermes-agent.nousresearch.com/docs/user-guide/configuration) is the source of truth for the current settings and their defaults.
 
 The good news: Hermes has a built-in set of commands that does this for you. It **automatically figures out which file to write to** (a password goes into `.env`, everything else into `config.yaml`), and it checks whether what you entered is valid while it's at it[^3]:
 
 ```bash
 hermes config              # 看目前所有設定
-hermes config get model    # 查某個 key 解析後的值
+hermes config get model    # Show the resolved value of one key
 hermes config set model anthropic/claude-opus-4
 hermes config set terminal.backend docker
-hermes config set OPENROUTER_API_KEY sk-or-...   # 自動存到 .env
-hermes config unset KEY    # 移除你設過的值(回到預設)
-hermes config edit         # 真的要手改時,用它開編輯器
+hermes config set OPENROUTER_API_KEY sk-or-...   # Automatically saves to .env
+hermes config unset KEY    # Remove an override (return to the default)
+hermes config edit         # Open an editor when you really need to edit by hand
 ```
 
 Here, a **key** is "the name of a setting," for example `model`. `get` reads it, `set` sets it, `unset` clears it.
@@ -83,14 +83,14 @@ If you later upgrade Hermes and want to add the new settings options a new versi
 
 `config.yaml` is divided into many sections, and each section handles one kind of thing. You do **not** need to understand all of them. The table below matches "what you want to do" with "which section to edit," and each item has its own dedicated page you can dig into:
 
-| You want to… | Which section to edit | Read this |
-|---|---|---|
-| Switch models / set an AI provider | `model` | [Model providers and API keys](/en/config/model-provider/) |
-| Control what it remembers, turn on "ask me before writing" | `memory` | [The memory system](/concepts/記憶系統/) |
-| Manage skills, turn on skill-write approval | `skills` | [The skills system](/concepts/技能系統/) |
-| Connect external tools | `mcp_servers` | [Connect your first MCP](/en/integrations/connect-first-mcp/) |
-| Change where it runs (Docker/SSH) | `terminal.backend` | [Advanced install](/install/advanced/) |
-| Conversation too long, getting compressed / blown up | `compression` | [context length exceeded](/en/troubleshoot/context-length-exceeded/) |
+| You want to…                                               | Which section to edit | Read this                                                            |
+| ---------------------------------------------------------- | --------------------- | -------------------------------------------------------------------- |
+| Switch models / set an AI provider                         | `model`               | [Model providers and API keys](/en/config/model-provider/)           |
+| Control what it remembers, turn on "ask me before writing" | `memory`              | [The memory system](/concepts/記憶系統/)                             |
+| Manage skills, turn on skill-write approval                | `skills`              | [The skills system](/concepts/技能系統/)                             |
+| Connect external tools                                     | `mcp_servers`         | [Connect your first MCP](/en/integrations/connect-first-mcp/)        |
+| Change where it runs (Docker/SSH)                          | `terminal.backend`    | [Advanced install](/install/advanced/)                               |
+| Conversation too long, getting compressed / blown up       | `compression`         | [context length exceeded](/en/troubleshoot/context-length-exceeded/) |
 
 ### A few settings people often ask about
 
@@ -105,15 +105,15 @@ If you later upgrade Hermes and want to add the new settings options a new versi
 
 ```text
 ~/.hermes/
-├── config.yaml     # 非機密設定(這篇的主角)
-├── .env            # API key 與密鑰
-├── auth.json       # OAuth 憑證
-├── SOUL.md         # agent 的身分設定
-├── memories/       # MEMORY.md、USER.md
-├── skills/         # agent 長出來的技能
-├── cron/           # 排程任務
-├── sessions/       # gateway 對話
-└── logs/           # errors.log、gateway.log(密鑰自動遮蔽)
+├── config.yaml     # Non-secret settings (this page's subject)
+├── .env            # API keys and secrets
+├── auth.json       # OAuth credentials
+├── SOUL.md         # Agent identity settings
+├── memories/       # MEMORY.md and USER.md
+├── skills/         # Skills created by the agent
+├── cron/           # Scheduled jobs
+├── sessions/       # Gateway conversations
+└── logs/           # errors.log and gateway.log (secrets are automatically masked)
 ```
 
 (Quick terms: an **OAuth credential** is a kind of login pass that lets Hermes connect to certain services without retyping your username and password every time; the **gateway** is the layer that lets your bot send and receive messages.)
@@ -145,7 +145,11 @@ An administrator can use a system-level managed folder to pin certain values so 
 - Move to a separate little room / remote execution → [Advanced install](/install/advanced/)
 
 [^1]: Nous Research, Configuration: https://hermes-agent.nousresearch.com/docs/user-guide/configuration (accessed 2026-07-27). Split between the two files: config.yaml holds non-secret settings, .env holds API keys and secrets; inside config.yaml, reference .env variables with `${VAR}`
+
 [^2]: Ibid., priority from high to low: CLI argument > `~/.hermes/config.yaml` > `~/.hermes/.env` > built-in defaults
+
 [^3]: Ibid., the `hermes config` command family (get / set / unset / edit / check / migrate) automatically decides whether to write to config.yaml or .env and validates it
+
 [^4]: Ibid., common key defaults: `terminal.backend`=local (options: docker/ssh/modal/daytona/singularity), `memory.write_approval`=false, `agent.max_turns`=500, `compression.threshold`=0.50
+
 [^5]: Ibid., the `~/.hermes/` directory structure (config.yaml / .env / auth.json / SOUL.md / memories / skills / cron / sessions / logs, with secrets automatically masked in logs); for organization deployments an administrator can pin setting values with a managed directory
