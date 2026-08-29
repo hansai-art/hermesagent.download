@@ -43,7 +43,7 @@ This command lists out Hermes's current settings for you[^1]. You only need to w
 
 > 📝 **This section is still missing a real screenshot**: what the fields printed by `hermes config show` look like, and whether the key gets hidden behind asterisks —
 > we don't have an actual captured screen on hand.
-> [Help us fill this in](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/api-key-not-set.md).
+> [Help us fill this in](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/en/troubleshoot/api-key-not-set.md).
 
 ## Step 2: Just set it up again
 
