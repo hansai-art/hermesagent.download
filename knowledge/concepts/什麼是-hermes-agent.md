@@ -1,20 +1,20 @@
 ---
-title: "什麼是 Hermes Agent"
-description: "用五分鐘搞懂 Hermes Agent 是什麼、跟其他 AI 助手差在哪:會自己學會新技能的它、能跑在 20 多個平台上、還有一個不必你守著筆電的 agent。"
+title: '什麼是 Hermes Agent'
+description: '用五分鐘搞懂 Hermes Agent 是什麼、跟其他 AI 助手差在哪:會自己學會新技能的它、能跑在 20 多個平台上、還有一個不必你守著筆電的 agent。'
 date: 2026-07-23
-subcategory: "basics"
-hermes_version: ">=0.14"
+subcategory: 'basics'
+hermes_version: '>=0.14'
 last_verified: 2026-07-23
 translationKey: what-is-hermes-agent
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs"
-  - "https://github.com/NousResearch/hermes-agent"
+  - 'https://hermes-agent.nousresearch.com/docs'
+  - 'https://github.com/NousResearch/hermes-agent'
 tags:
-  - "basics"
-  - "overview"
-  - "concepts"
-status: "published"
+  - 'basics'
+  - 'overview'
+  - 'concepts'
+status: 'published'
 ---
 
 先想像一個很常見的畫面。
@@ -63,14 +63,14 @@ Hermes 的記憶是會一直累積的。它的記憶分兩塊。一塊是常駐�
 
 下面這張表,把文件裡常出現的詞用一句話講清楚,方便你之後對照。
 
-| 名詞 | 是什麼 |
-|---|---|
-| 技能(skill) | agent 自己建立、之後能重複拿來用的操作流程 |
-| 記憶系統(memory) | 跨越多次對話、持續累積的知識庫 |
-| 工具集(toolset) | 內建 60 多種工具,可以自由組合搭配 |
-| 閘道(gateway) | 把各個訊息平台接進來的統一入口 |
-| 子代理(subagent) | 派出去、可以同時平行做事的獨立小 agent |
-| MCP | 一種標準接頭,讓你接上任何 MCP server 來擴充它的工具能力 |
+| 名詞             | 是什麼                                                  |
+| ---------------- | ------------------------------------------------------- |
+| 技能(skill)      | agent 自己建立、之後能重複拿來用的操作流程              |
+| 記憶系統(memory) | 跨越多次對話、持續累積的知識庫                          |
+| 工具集(toolset)  | 內建 60 多種工具,可以自由組合搭配                       |
+| 閘道(gateway)    | 把各個訊息平台接進來的統一入口                          |
+| 子代理(subagent) | 派出去、可以同時平行做事的獨立小 agent                  |
+| MCP              | 一種標準接頭,讓你接上任何 MCP server 來擴充它的工具能力 |
 
 ## 要花多少錢
 
@@ -78,7 +78,7 @@ Hermes Agent 這個程式本身是 **MIT 授權的開源專案,完全免費**[^5
 
 那錢花在哪?花在「模型供應商」。這裡解釋一下:Hermes 自己不會思考,它背後要接一個 AI 模型來當大腦,而提供這個大腦的公司就是模型供應商,通常會按使用量收費。
 
-Hermes 支援 Nous Portal、OpenRouter、OpenAI,或任何相容的 endpoint(endpoint 就是「模型服務的連線地址」)。所以貴的、便宜的模型你都能自己挑,甚至可以用 Ollama 在自己電腦上跑本地模型,那樣就完全不花錢。
+Hermes 支援 Nous Portal、OpenRouter、OpenAI,或任何相容的 endpoint(endpoint 就是「模型服務的連線地址」)。所以貴的、便宜的模型你都能自己挑,甚至可以用 Ollama 在自己電腦上跑本地模型,那樣就完全不花錢[^7]。
 
 ## 下一步
 
@@ -90,8 +90,15 @@ Hermes 支援 Nous Portal、OpenRouter、OpenAI,或任何相容的 endpoint(endp
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
 
 [^1]: Nous Research, Hermes Agent 官方文件:https://hermes-agent.nousresearch.com/docs (2026-07-23 存取)
+
 [^2]: 同上,Skills 章節:「Procedural memory the agent creates and reuses」
+
 [^3]: 同上,部署選項章節(本機 / Docker / SSH / Daytona / Singularity / Modal)
+
 [^4]: 同上,Gateways 章節:「20+ platforms from one gateway」
+
 [^5]: NousResearch/hermes-agent, MIT License:https://github.com/NousResearch/hermes-agent
+
 [^6]: Nous Research, Memory:session_search 回傳資料庫原文,不做 LLM 摘要:https://hermes-agent.nousresearch.com/docs/user-guide/features/memory
+
+[^7]: Nous Research, Configuration:模型供應商與設定入口:https://hermes-agent.nousresearch.com/docs/user-guide/configuration (2026-08-30 存取)
