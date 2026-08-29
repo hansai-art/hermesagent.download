@@ -1,20 +1,20 @@
 ---
-title: "Hermes Agent 官方 Skills 全目錄（173 個）"
-description: "官方 repo 的完整 skill 清單：72 個內建（bundled）與 101 個官方 optional skills，每個附原始 SKILL.md 連結。"
+title: 'Hermes Agent 官方 Skills 全目錄（173 個）'
+description: '官方 repo 的完整 skill 清單：72 個內建（bundled）與 101 個官方 optional skills，每個附原始 SKILL.md 連結。'
 date: 2026-07-23
-subcategory: "catalog"
-hermes_version: "*"
+subcategory: 'catalog'
+hermes_version: '*'
 last_verified: 2026-07-04
 upstream_refs:
-  - "https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/apple-notes/SKILL.md"
-  - "https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/apple-reminders/SKILL.md"
-  - "https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/findmy/SKILL.md"
-  - "https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/imessage/SKILL.md"
-  - "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/claude-code/SKILL.md"
-  - "https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/codex/SKILL.md"
+  - 'https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/apple-notes/SKILL.md'
+  - 'https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/apple-reminders/SKILL.md'
+  - 'https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/findmy/SKILL.md'
+  - 'https://github.com/NousResearch/hermes-agent/blob/main/skills/apple/imessage/SKILL.md'
+  - 'https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/claude-code/SKILL.md'
+  - 'https://github.com/NousResearch/hermes-agent/blob/main/skills/autonomous-ai-agents/codex/SKILL.md'
 tags:
-  - "catalog"
-status: "published"
+  - 'catalog'
+status: 'published'
 ---
 
 直接列舉官方 repo 的 skills 目錄：72 個內建（bundled）加 101 個官方 optional skills。描述取自各 skill 的 SKILL.md 原文，每個都附官方來源連結。不知道先裝哪些？看[新手推薦清單](/skills/recommended-skills/)。最後檢查：2026-07-04。
@@ -117,7 +117,7 @@ status: "published"
 - [arxiv](https://github.com/NousResearch/hermes-agent/blob/main/skills/research/arxiv/SKILL.md) Search arXiv papers by keyword, author, category, or ID.
 - [blogwatcher](https://github.com/NousResearch/hermes-agent/blob/main/skills/research/blogwatcher/SKILL.md) Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool.
 - [llm-wiki](https://github.com/NousResearch/hermes-agent/blob/main/skills/research/llm-wiki/SKILL.md) Karpathy's LLM Wiki: build/query interlinked markdown KB.
-- [polymarket](https://github.com/NousResearch/hermes-agent/blob/main/skills/research/polymarket/SKILL.md) Query Polymarket: markets, prices, orderbooks, history.
+- [polymarket](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/finance/polymarket/SKILL.md) Query Polymarket: markets, prices, orderbooks, history.
 - [research-paper-writing](https://github.com/NousResearch/hermes-agent/blob/main/skills/research/research-paper-writing/SKILL.md) Write ML papers for NeurIPS/ICML/ICLR: design→submit.
 
 ### smart-home
@@ -168,7 +168,7 @@ status: "published"
 
 - [baoyu-article-illustrator](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/baoyu-article-illustrator/SKILL.md) Article illustrations: type × style × palette consistency.
 - [baoyu-comic](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/baoyu-comic/SKILL.md) Knowledge comics (知识漫画): educational, biography, tutorial.
-- [blender-mcp](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/blender-mcp/SKILL.md) Control Blender directly from Hermes via socket connection to the blender-mcp addon. Create 3D objects, materials, animations, and run arbitrary Blender Python (bpy) code. Use when user wants to create or modify anything in Blender.
+- blender-mcp：已自官方 repo 移除（2026-08-30 上游 tree 核對）。
 - [concept-diagrams](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/concept-diagrams/SKILL.md) Generate flat, minimal light/dark-aware SVG diagrams as standalone HTML files, using a unified educational visual language with 9 semantic color ramps, sentence-case typography, and automatic dark mode. Best suited for educational and non-software visuals - physics setups, chemistry mechanisms, math
 - [creative-ideation](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/creative-ideation/SKILL.md) Generate ideas via named methods from creative practice.
 - [hyperframes](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/hyperframes/SKILL.md) Create HTML-based video compositions, animated title cards, social overlays, captioned talking-head videos, audio-reactive visuals, and shader transitions using HyperFrames. HTML is the source of truth for video. Use when the user wants a rendered MP4/WebM from an HTML composition, wants to animate
@@ -178,7 +178,7 @@ status: "published"
 
 ### devops
 
-- [cli](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/cli/SKILL.md) Run 150+ AI apps via inference.sh CLI (infsh) - image generation, video creation, LLMs, search, 3D, social automation. Uses the terminal tool. Triggers: inference.sh, infsh, ai apps, flux, veo, image generation, video generation, seedream, seedance, tavily
+- cli：已自官方 repo 移除（2026-08-30 上游 tree 核對）。
 - [docker-management](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/docker-management/SKILL.md) Manage Docker containers, images, volumes, networks, and Compose stacks - lifecycle ops, debugging, cleanup, and Dockerfile optimization.
 - [hermes-s6-container-supervision](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/hermes-s6-container-supervision/SKILL.md) Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image - adding new services, debugging profile gateways, understanding the Architecture B main-program pattern.
 - [pinggy-tunnel](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/devops/pinggy-tunnel/SKILL.md) Zero-install localhost tunnels over SSH via Pinggy.

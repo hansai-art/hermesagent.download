@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-29T22:57:20.618Z",
+  "generatedAt": "2026-08-29T23:16:39.047Z",
   "content": {
-    "total": 393,
+    "total": 392,
     "byStatus": {
-      "published": 393,
-      "archived": 1
+      "published": 392,
+      "archived": 2
     },
     "byCategory": [
       {
@@ -60,7 +60,7 @@
         "slug": "issues",
         "emoji": "🐛",
         "name": "精選 Issue",
-        "count": 307,
+        "count": 306,
         "needsHelp": false
       },
       {
@@ -99,7 +99,7 @@
     ]
   },
   "credibility": {
-    "withSources": 393,
+    "withSources": 392,
     "withSourcesPct": 100,
     "footnotes": 244,
     "verifiedFresh": 52,
