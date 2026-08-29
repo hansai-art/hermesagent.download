@@ -1,23 +1,23 @@
 ---
-title: "Connect Your First MCP: Set It Up Step by Step, Then See It Actually Work"
+title: 'Connect Your First MCP: Set It Up Step by Step, Then See It Actually Work'
 description: "A hands-on walkthrough using the simplest option, the filesystem MCP: open one config file, change a few lines, reload, and confirm the tools really show up. Plus the single most important habit — only turn on the permissions you need — and how to check step by step when a tool doesn't appear."
 date: 2026-07-25
-subcategory: "mcp"
-hermes_version: ">=2026.5"
+subcategory: 'mcp'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-25
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp"
-  - "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes"
+  - 'https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp'
+  - 'https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes'
 tags:
-  - "mcp"
-  - "integrations"
-status: "published"
+  - 'mcp'
+  - 'integrations'
+status: 'published'
 ---
 
 First, what this page is about.
 
-MCP is short for "Model Context Protocol." Think of it as a power outlet for plugging in extra tools. Through it, your agent (the agent is the AI assistant that does tasks for you) can connect to outside tools — like reading and writing files on your computer, working with GitHub, or querying a database.
+MCP is short for "Model Context Protocol." Think of it as a power outlet for plugging in extra tools. Through it, your agent (the agent is the AI assistant that does tasks for you) can connect to outside tools — like reading and writing files on your computer, working with GitHub, or querying a database.[^4]
 
 The first time you set up MCP, most people get stuck at the same spot: you finish editing the config, but the tools don't appear. And then you're confused — did I type the config wrong, or did it just not take effect?
 
@@ -56,8 +56,9 @@ Open the file `~/.hermes/config.yaml` in whatever text editor you like, and add 
 ```yaml
 mcp_servers:
   project_fs:
-    command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/my-project"]
+    command: 'npx'
+    args:
+      ['-y', '@modelcontextprotocol/server-filesystem', '/home/user/my-project']
 ```
 
 Quick heads-up: this is YAML format (a way of writing settings that uses indentation to show which thing belongs under which). So the number of spaces at the front of each line matters. Just copy it exactly, and don't use Tab.
@@ -114,11 +115,11 @@ hermes mcp test project_fs
 
 The first time you set up MCP, "the tool didn't show up" is the most common thing that happens. Don't panic — plenty of people hit it. The table below organizes the reasons the docs list[^1]. Read it side by side:
 
-| What you're seeing | Usually because |
-|---|---|
-| No tools at all | You forgot to remove `enabled: false` from the config, the environment the tool needs isn't set up, or the header used for authentication (a header is a small piece of identity info sent along with the connection) is filled in wrong |
-| A few tools missing | Filtered out by the `include` allowlist, blocked by the `exclude` blocklist, or a whole category of tools got turned off |
-| Fewer tools than you expected | Each server has its own filtering rules by default. This is normal, not broken |
+| What you're seeing            | Usually because                                                                                                                                                                                                                          |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No tools at all               | You forgot to remove `enabled: false` from the config, the environment the tool needs isn't set up, or the header used for authentication (a header is a small piece of identity info sent along with the connection) is filled in wrong |
+| A few tools missing           | Filtered out by the `include` allowlist, blocked by the `exclude` blocklist, or a whole category of tools got turned off                                                                                                                 |
+| Fewer tools than you expected | Each server has its own filtering rules by default. This is normal, not broken                                                                                                                                                           |
 
 Suggested order to check: first confirm you **actually ran** `/reload-mcp` (without a reload, the current conversation is still reading the old config); then use `hermes mcp test` to see if the connection goes through; and only then go back and suspect the config content itself is wrong. This order saves you detours.
 
@@ -131,10 +132,10 @@ You can say "only allow these specific tools," like this:
 ```yaml
 mcp_servers:
   github:
-    command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-github"]
+    command: 'npx'
+    args: ['-y', '@modelcontextprotocol/server-github']
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "***"
+      GITHUB_PERSONAL_ACCESS_TOKEN: '***'
     tools:
       include: [list_issues, create_issue, search_code]
 ```
@@ -154,9 +155,9 @@ If one day you need to connect to a service someone else has already set up and 
 ```yaml
 mcp_servers:
   internal_api:
-    url: "https://mcp.internal.example.com/mcp"
+    url: 'https://mcp.internal.example.com/mcp'
     headers:
-      Authorization: "Bearer ***"
+      Authorization: 'Bearer ***'
 ```
 
 Here `headers` is the identity info sent along with the connection, so the other side knows "it's you" and lets you in.
@@ -203,5 +204,9 @@ The other way around, a third-party server of unknown origin is essentially **le
 - Understand the difference between skills and MCP → [The skills system](/concepts/技能系統/)
 
 [^1]: Nous Research, Use MCP with Hermes: https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes (accessed 2026-07-25)
+
 [^2]: Nous Research, MCP: https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp (accessed 2026-07-25)
+
 [^3]: Same as above; the last argument in the filesystem MCP's args is the directory path it's allowed to access
+
+[^4]: Model Context Protocol, Introduction: https://modelcontextprotocol.io/docs/getting-started/intro (accessed 2026-08-30)
