@@ -1,18 +1,18 @@
 ---
-title: "在 Linux 上安裝 Hermes Agent"
-description: "一行指令就能裝完，但前置套件缺了會失敗得莫名其妙。含桌機與 VPS 長駐兩種情境，以及 service user 部署。"
+title: '在 Linux 上安裝 Hermes Agent'
+description: '一行指令就能裝完，但前置套件缺了會失敗得莫名其妙。含桌機與 VPS 長駐兩種情境，以及 service user 部署。'
 date: 2026-07-23
-subcategory: "linux"
-hermes_version: ">=2026.5"
+subcategory: 'linux'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
 tags:
-  - "linux"
-  - "install"
-status: "published"
+  - 'linux'
+  - 'install'
+status: 'published'
 ---
 
 Linux 上裝 Hermes Agent 只需要一行指令。但如果你少了前置套件，它會失敗得很莫名其妙：中途噴一段解壓縮錯誤然後停住，訊息不會告訴你缺的是 `xz-utils`。
@@ -44,6 +44,8 @@ git --version
 **預期輸出**：類似 `git version 2.43.0` 的版本字串。顯示 `command not found` 就 `sudo apt install -y git`。
 
 ## 執行官方安裝指令
+
+下面的指令從 Hermes 官方網域下載安裝腳本，並交給 `bash` 執行。
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
@@ -84,7 +86,7 @@ hermes doctor
 
 如果你要讓 agent 在伺服器上長期跑，不建議用 root 或你自己的帳號。官方文件的做法是：先以管理者身分安裝 Playwright 的系統相依套件，再切換到專用的 service user 執行安裝腳本[^1]。
 
-伺服器上通常不需要瀏覽器功能，可以加參數跳過：
+伺服器上通常不需要瀏覽器功能，可以加參數跳過。這仍是從 Hermes 官方網域下載安裝腳本，再由 `bash` 執行：
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --skip-browser

@@ -1,18 +1,18 @@
 ---
-title: "Installing Hermes Agent on Windows (Step-by-Step for Beginners)"
-description: "There are three ways to install it on Windows. This guide helps you pick the right one, and tells you how to know each step worked. Picking wrong means starting over, so read this first."
+title: 'Installing Hermes Agent on Windows (Step-by-Step for Beginners)'
+description: 'There are three ways to install it on Windows. This guide helps you pick the right one, and tells you how to know each step worked. Picking wrong means starting over, so read this first.'
 date: 2026-07-23
-subcategory: "windows"
-hermes_version: ">=2026.5"
+subcategory: 'windows'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
 tags:
-  - "windows"
-  - "install"
-status: "published"
+  - 'windows'
+  - 'install'
+status: 'published'
 ---
 
 Hermes Agent is an AI assistant program that can do tasks for you. On Windows, there are three ways to install it.
@@ -23,11 +23,11 @@ First, the most important thing: **if you pick the wrong one of these three, swi
 
 Find which kind of person you are on the left, then look at which method to use on the right.
 
-| Your situation | Which one to use |
-|---|---|
-| I just want to use it, I rarely type commands | **Desktop version**: download one installer, double-click, and it sets up everything for you automatically |
-| I want to use it inside PowerShell, but I don't want to install Linux on top | **Native PowerShell** |
-| I write scripts, need to hook into automation, or need the full set of Linux tools | **WSL2** |
+| Your situation                                                                     | Which one to use                                                                                           |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| I just want to use it, I rarely type commands                                      | **Desktop version**: download one installer, double-click, and it sets up everything for you automatically |
+| I want to use it inside PowerShell, but I don't want to install Linux on top       | **Native PowerShell**                                                                                      |
+| I write scripts, need to hook into automation, or need the full set of Linux tools | **WSL2**                                                                                                   |
 
 A few terms to explain, so don't panic when you see them for the first time:
 
@@ -92,7 +92,7 @@ hermes doctor
 
 ## Method 3: WSL2
 
-If you pick WSL2, the install works exactly like it does on Linux. In your WSL2 Linux window, paste in this line and run it:
+If you pick WSL2, the install works exactly like it does on Linux. The command below downloads and runs the installer from Hermes' official domain. In your WSL2 Linux window, paste in this line and run it:
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash

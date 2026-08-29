@@ -1,18 +1,18 @@
 ---
-title: "在 Windows 上安裝 Hermes Agent(新手手把手版)"
-description: "Windows 上有三種安裝方法。這篇幫你挑一個最適合的,每一步都告訴你「怎麼看出成功了」。挑錯了要重來很麻煩,所以先看這篇。"
+title: '在 Windows 上安裝 Hermes Agent(新手手把手版)'
+description: 'Windows 上有三種安裝方法。這篇幫你挑一個最適合的,每一步都告訴你「怎麼看出成功了」。挑錯了要重來很麻煩,所以先看這篇。'
 date: 2026-07-23
-subcategory: "windows"
-hermes_version: ">=2026.5"
+subcategory: 'windows'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
 tags:
-  - "windows"
-  - "install"
-status: "published"
+  - 'windows'
+  - 'install'
+status: 'published'
 ---
 
 Hermes Agent 是一個可以幫你做事的 AI 助手程式。在 Windows 上,它有三種安裝方法。
@@ -23,11 +23,11 @@ Hermes Agent 是一個可以幫你做事的 AI 助手程式。在 Windows 上,�
 
 先看看你是哪一種人,再對照右邊該用哪種方法。
 
-| 你的情況 | 建議用哪種 |
-|---|---|
-| 我只想用,平常很少打指令 | **桌面版**:下載一個安裝檔,點兩下就好,什麼都自動幫你裝 |
-| 我想在 PowerShell 裡用,但不想額外裝 Linux | **原生 PowerShell** |
-| 我會寫腳本、要串自動化流程、需要完整的 Linux 工具 | **WSL2** |
+| 你的情況                                          | 建議用哪種                                            |
+| ------------------------------------------------- | ----------------------------------------------------- |
+| 我只想用,平常很少打指令                           | **桌面版**:下載一個安裝檔,點兩下就好,什麼都自動幫你裝 |
+| 我想在 PowerShell 裡用,但不想額外裝 Linux         | **原生 PowerShell**                                   |
+| 我會寫腳本、要串自動化流程、需要完整的 Linux 工具 | **WSL2**                                              |
 
 補充幾個名詞,第一次看到別緊張:
 
@@ -92,7 +92,7 @@ hermes doctor
 
 ## 方法三:WSL2
 
-如果你選 WSL2,安裝方式跟在 Linux 上完全一樣。在 WSL2 的 Linux 視窗裡,貼上這行執行:
+如果你選 WSL2,安裝方式跟在 Linux 上完全一樣。下面是 Hermes 官方網域的安裝腳本：它會下載並執行安裝流程。在 WSL2 的 Linux 視窗裡,貼上這行執行:
 
 ```bash
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
