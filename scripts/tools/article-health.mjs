@@ -182,11 +182,28 @@ const checks = [
     return issues;
   },
 
-  // 裸 curl | sh:安裝指令要能看出來源與脈絡
+  // curl | sh 只檢查可執行的 code fence，避免把說明文字或 issue 標題誤報成指令。
+  // 已知官方網域且前後文交代這是官方安裝腳本時，不重複警告。
   function nakedCurlPipe({ content }) {
     const issues = [];
-    content.split('\n').forEach((line, i) => {
-      if (/curl[^|]*\|\s*(sudo\s+)?(ba)?sh\b/.test(line)) {
+    let inFence = false;
+    const lines = content.split('\n');
+    lines.forEach((line, i) => {
+      if (/^\s*```/.test(line)) {
+        inFence = !inFence;
+        return;
+      }
+      if (!inFence || !/curl[^|]*\|\s*(sudo\s+)?(ba)?sh\b/.test(line)) return;
+      const url = line.match(/https?:\/\/[^\s|`]+/)?.[0];
+      let officialSource = false;
+      try {
+        officialSource = new URL(url).hostname === 'hermes-agent.nousresearch.com';
+      } catch {
+        // URL 缺失或格式不正確時，保留警告。
+      }
+      const context = lines.slice(Math.max(0, i - 3), i + 4).join('\n');
+      const explainsExecution = /(?:官方|official).{0,100}(?:安裝|install|script|腳本)|(?:安裝|install).{0,100}(?:官方|official)/i.test(context);
+      if (!officialSource || !explainsExecution) {
         issues.push({
           level: 'WARN',
           msg: `L${i + 1}: curl | sh 一行流——請確認 URL 是官方來源,並在前後文說明它會做什麼`,
