@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T20:15:54.501Z",
+  "generatedAt": "2026-08-29T20:29:46.353Z",
   "content": {
     "total": 393,
     "byStatus": {
@@ -111,8 +111,8 @@
     "substantial": 81,
     "citationCoverage": 59,
     "citationCovered": 48,
-    "followableCoverage": 92,
-    "followableCovered": 24,
+    "followableCoverage": 96,
+    "followableCovered": 25,
     "teachingWithCode": 26,
     "humanReviewed": 1,
     "humanReviewedPct": 0
