@@ -1,18 +1,18 @@
 ---
-title: "接上你的第一個 MCP:一步一步設定,再親眼確認成功"
-description: "手把手用最簡單的『檔案系統 MCP』走一次完整流程:打開設定檔改幾行、重新載入、再確認工具真的出現。也教你最重要的一件事，只開你需要的權限，還有『工具沒出現』時怎麼一步一步查。"
+title: '接上你的第一個 MCP:一步一步設定,再親眼確認成功'
+description: '手把手用最簡單的『檔案系統 MCP』走一次完整流程:打開設定檔改幾行、重新載入、再確認工具真的出現。也教你最重要的一件事，只開你需要的權限，還有『工具沒出現』時怎麼一步一步查。'
 date: 2026-07-25
-subcategory: "mcp"
-hermes_version: ">=2026.5"
+subcategory: 'mcp'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-25
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp"
-  - "https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes"
+  - 'https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp'
+  - 'https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes'
 tags:
-  - "mcp"
-  - "integrations"
-status: "published"
+  - 'mcp'
+  - 'integrations'
+status: 'published'
 ---
 
 先講一下這篇在做什麼。
@@ -38,6 +38,8 @@ uv pip install -e ".[mcp]"
 
 第一行 `cd` 是「切換到某個資料夾」的意思,這裡是切到 Hermes 的安裝位置。第二行才是真正在裝 MCP 功能。
 
+**完成判準**:指令跑完後沒有 `error` 或 `failed` 訊息即可。若它提示找不到 `uv`、目錄或套件,先不要繼續下一步，改看 [安裝與更新](/install/) 排除環境問題。
+
 ## 兩種接法:先認識一下,等下只用第一種
 
 MCP server(server 就是提供工具的那個小程式)都寫在同一個設定檔裡:`~/.hermes/config.yaml`,放在 `mcp_servers` 這個區塊底下[^2]。
@@ -56,11 +58,14 @@ MCP server(server 就是提供工具的那個小程式)都寫在同一個設定�
 ```yaml
 mcp_servers:
   project_fs:
-    command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/my-project"]
+    command: 'npx'
+    args:
+      ['-y', '@modelcontextprotocol/server-filesystem', '/home/user/my-project']
 ```
 
 小提醒:這是 YAML 格式(一種用「縮排」來表示層次的設定寫法),所以每一層前面的空格數量很重要,照抄就對了,不要用 Tab。
+
+**完成判準**:儲存後重新打開 `~/.hermes/config.yaml`，應能看到完整的 `mcp_servers`、`project_fs`、`command` 與 `args` 四層設定，且沒有被編輯器標成 YAML 語法錯誤。
 
 解釋一下這幾行:
 
@@ -81,6 +86,8 @@ mcp_servers:
 ```
 
 它會重新讀一次 MCP 設定,馬上生效[^2]。就這麼簡單。
+
+**完成判準**:執行後不要出現設定解析錯誤，接著直接做下方任一種驗證；能看到 `mcp_project_fs_` 開頭的工具或通過 `hermes mcp test`，才代表 reload 後的設定真的可用。
 
 ## 第四步:確認它真的接上了(別跳過)
 
@@ -110,15 +117,17 @@ hermes mcp test project_fs
 
 `hermes mcp test <server 名>` 會直接去試那個 server 連不連得上[^1],結果一目瞭然。
 
+**完成判準**:測試結果應顯示 `project_fs` 可連線，且命令以成功狀態結束。若顯示連線失敗，先核對設定中的 server 名、`npx` 是否可用，以及最後一個資料夾路徑是否存在。
+
 ## 工具沒出現?照這個順序一步步查
 
 第一次設 MCP,「工具沒出現」是最常見的狀況,別緊張,很多人都會遇到。下面這張表把官方列的原因整理好了[^1],對照著看:
 
-| 你看到的狀況 | 多半是這個原因 |
-|---|---|
+| 你看到的狀況     | 多半是這個原因                                                                                                             |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | 完全沒有任何工具 | 設定裡的 `enabled: false` 忘了拿掉、跑工具需要的環境沒裝好、或驗證用的 header(header 就是連線時附帶的一小段身分資訊)填錯了 |
-| 少了某幾個工具 | 被 `include` 白名單濾掉、被 `exclude` 黑名單擋掉、或某類工具整批被關了 |
-| 工具比你以為的少 | 每個 server 本來就有自己的過濾規則,這是正常的,不是壞了 |
+| 少了某幾個工具   | 被 `include` 白名單濾掉、被 `exclude` 黑名單擋掉、或某類工具整批被關了                                                     |
+| 工具比你以為的少 | 每個 server 本來就有自己的過濾規則,這是正常的,不是壞了                                                                     |
 
 查的順序建議這樣:先確認你**真的有跑過** `/reload-mcp`(沒 reload 的話,當前對話讀的還是舊設定);再用 `hermes mcp test` 看連線通不通;最後才回頭懷疑是設定內容寫錯。照這個順序,少走冤枉路。
 
@@ -131,15 +140,17 @@ hermes mcp test project_fs
 ```yaml
 mcp_servers:
   github:
-    command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-github"]
+    command: 'npx'
+    args: ['-y', '@modelcontextprotocol/server-github']
     env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "***"
+      GITHUB_PERSONAL_ACCESS_TOKEN: '***'
     tools:
       include: [list_issues, create_issue, search_code]
 ```
 
 這裡的 `tools.include` 是一份**白名單**:名單上的這幾個工具才給用,其他一律不給[^2]。這種「只開這幾個」的做法,比「先全部打開、再一個一個去擋」安全多了，因為前者不會漏。
+
+**完成判準**:reload 後重新列出 MCP 工具，應只看到 `include` 列出的工具，沒有列出的工具不應可用。先用最精簡的白名單測通，再依實際需要加項目。
 
 順帶講一個很多人不知道、但設計得很貼心的安全機制:**本地(stdio)的 server,只拿得到你在 `env` 裡明確列出來的那幾個環境變數,它不會偷看你整個 shell 環境**[^2]。
 
@@ -154,14 +165,16 @@ mcp_servers:
 ```yaml
 mcp_servers:
   internal_api:
-    url: "https://mcp.internal.example.com/mcp"
+    url: 'https://mcp.internal.example.com/mcp'
     headers:
-      Authorization: "Bearer ***"
+      Authorization: 'Bearer ***'
 ```
 
 這裡的 `headers` 就是連線時附帶的身分資訊,讓對方知道「是你」而放你進去。
 
 如果那個服務需要用 OAuth 登入(OAuth 就是那種「用你的帳號授權登入、不用直接給密碼」的方式,類似很多網站的『用 Google 帳號登入』),就加上 `auth: oauth`[^2]。像 Linear 就是這一類。
+
+**完成判準**:reload 後，遠端 server 應出現在可用 MCP 工具清單中；若它要求 OAuth，請在對話顯示的授權流程中由你本人完成登入，不要把帳密貼進設定檔。
 
 ## 從官方目錄裝(懶人做法)
 
@@ -173,6 +186,8 @@ hermes mcp install <名稱>   # 裝一個
 ```
 
 第一行是「列出目錄裡有哪些可裝的」,第二行是「挑一個裝下去」。
+
+**完成判準**:`hermes mcp catalog` 應列出可安裝項目；安裝後 reload，再用 `hermes mcp test <名稱>` 驗證新 server 可連線。目錄出現名稱不等於已可用，測試通過才算完成。
 
 ⚠️ 但有件事一定要知道:安裝的時候,Hermes 會執行 manifest 裡的啟動指令,**還會執行那個 MCP server 本身的程式碼**。
 
@@ -203,5 +218,7 @@ hermes mcp install <名稱>   # 裝一個
 - 搞懂技能與 MCP 的差別 → [技能系統](/concepts/技能系統/)
 
 [^1]: Nous Research, Use MCP with Hermes:https://hermes-agent.nousresearch.com/docs/guides/use-mcp-with-hermes (2026-07-25 存取)
+
 [^2]: Nous Research, MCP:https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp (2026-07-25 存取)
+
 [^3]: 同上,filesystem MCP 的 args 最後一個參數即為允許存取的目錄路徑
