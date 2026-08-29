@@ -60,14 +60,7 @@ function buildRouteSet() {
 const REQUIRED_FIELDS = ['title', 'description', 'date'];
 
 // 需要 last_verified 的分類(教學/操作類;issues 卡片本來就有)
-const VERIFIED_CATEGORIES = [
-  'install',
-  'config',
-  'guides',
-  'troubleshoot',
-  'migrate',
-  'integrations',
-];
+const VERIFIED_CATEGORIES = ['install', 'config', 'guides', 'troubleshoot', 'migrate', 'integrations'];
 
 // 譯名表的禁用寫法(docs/editorial/TERMINOLOGY.md;新增禁用詞兩邊一起加)
 const BANNED_TERMS = [
@@ -76,11 +69,7 @@ const BANNED_TERMS = [
   { re: /小白/g, fix: '新手' },
   { re: /让我们/g, fix: '(重寫為自然中文)' },
   // 只放「簡體獨有、繁體文本不可能出現」的字;正簡共用字(件/行/量/境/置…)絕不可加
-  {
-    re: /[优统专业务动经处开发过们记页头条频软网络设错误问题启运环变电脑议价适龄检测试历]/g,
-    fix: null,
-    label: '疑似簡體字',
-  },
+  { re: /[优统专业务动经处开发过们记页头条频软网络设错误问题启运环变电脑议价适龄检测试历]/g, fix: null, label: '疑似簡體字' },
 ];
 
 // 引用密度檢查(依 CITATION-SYSTEM.md)。抽成獨立函式,讓最後的達成率統計
@@ -90,9 +79,7 @@ const BANNED_TERMS = [
 function citationDensity({ file, data, content, ctx }) {
   if (!ctx.isSubstantial) return [];
   if ((data.status ?? 'published') !== 'published') return [];
-  const category = relative(KNOWLEDGE, file)
-    .replaceAll('\\', '/')
-    .split('/')[0];
+  const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
   const footnotes = (content.match(/^\[\^[^\]]+\]:/gm) ?? []).length;
 
   if (category === 'concepts') {
@@ -125,10 +112,7 @@ function citationDensity({ file, data, content, ctx }) {
   const citations = footnotes + refs + inlineOfficial;
   if (citations === 0) {
     return [
-      {
-        level: 'WARN',
-        msg: `${ctx.charCount} 字卻沒有任何引用(腳註、upstream_refs 或內文官方連結)`,
-      },
+      { level: 'WARN', msg: `${ctx.charCount} 字卻沒有任何引用(腳註、upstream_refs 或內文官方連結)` },
     ];
   }
   if (citations < expected) {
@@ -155,12 +139,7 @@ const checks = [
   function validStatus({ data }) {
     const valid = ['draft', 'published', 'outdated', 'archived'];
     if (data.status && !valid.includes(data.status)) {
-      return [
-        {
-          level: 'ERROR',
-          msg: `status \`${data.status}\` 不合法(${valid.join('/')})`,
-        },
-      ];
+      return [{ level: 'ERROR', msg: `status \`${data.status}\` 不合法(${valid.join('/')})` }];
     }
     return [];
   },
@@ -169,15 +148,9 @@ const checks = [
   function hasSources({ data }) {
     const status = data.status ?? 'published';
     if (status !== 'published') return [];
-    const refs =
-      (data.upstream_refs?.length ?? 0) + (data.sources?.length ?? 0);
+    const refs = (data.upstream_refs?.length ?? 0) + (data.sources?.length ?? 0);
     if (refs === 0) {
-      return [
-        {
-          level: 'WARN',
-          msg: '沒有 upstream_refs / sources,技術宣稱應對得到來源',
-        },
-      ];
+      return [{ level: 'WARN', msg: '沒有 upstream_refs / sources,技術宣稱應對得到來源' }];
     }
     return [];
   },
@@ -186,17 +159,10 @@ const checks = [
   function requiresLastVerified({ file, data }) {
     const status = data.status ?? 'published';
     if (status !== 'published') return [];
-    const category = relative(KNOWLEDGE, file)
-      .replaceAll('\\', '/')
-      .split('/')[0];
+    const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
     if (!VERIFIED_CATEGORIES.includes(category)) return [];
     if (!data.last_verified) {
-      return [
-        {
-          level: 'WARN',
-          msg: `${category}/ 的 published 文章應有 last_verified(最後實測日期)`,
-        },
-      ];
+      return [{ level: 'WARN', msg: `${category}/ 的 published 文章應有 last_verified(最後實測日期)` }];
     }
     return [];
   },
@@ -232,18 +198,12 @@ const checks = [
       let officialSource = false;
       try {
         const hostname = new URL(url).hostname;
-        officialSource = [
-          'hermes-agent.nousresearch.com',
-          'astral.sh',
-        ].includes(hostname);
+        officialSource = ['hermes-agent.nousresearch.com', 'astral.sh'].includes(hostname);
       } catch {
         // URL 缺失或格式不正確時，保留警告。
       }
       const context = lines.slice(Math.max(0, i - 3), i + 4).join('\n');
-      const explainsExecution =
-        /(?:官方|official).{0,100}(?:安裝|install|script|腳本)|(?:安裝|install).{0,100}(?:官方|official)/i.test(
-          context,
-        );
+      const explainsExecution = /(?:官方|official).{0,100}(?:安裝|install|script|腳本)|(?:安裝|install).{0,100}(?:官方|official)/i.test(context);
       if (!officialSource || !explainsExecution) {
         issues.push({
           level: 'WARN',
@@ -303,15 +263,9 @@ const checks = [
   // last_verified 過期偵測(> 90 天;FRESHNESS pipeline 的本地版)
   function freshness({ data }) {
     if (!data.last_verified) return [];
-    const days =
-      (Date.now() - new Date(data.last_verified).getTime()) / 86400000;
+    const days = (Date.now() - new Date(data.last_verified).getTime()) / 86400000;
     if (days > 90) {
-      return [
-        {
-          level: 'WARN',
-          msg: `last_verified 已 ${Math.floor(days)} 天,建議重新驗證`,
-        },
-      ];
+      return [{ level: 'WARN', msg: `last_verified 已 ${Math.floor(days)} 天,建議重新驗證` }];
     }
     return [];
   },
@@ -323,16 +277,11 @@ const checks = [
 
   // 可跟做(EDITORIAL:每個關鍵步驟要寫預期輸出或成功判準)
   function followable({ file, content, ctx }) {
-    const category = relative(KNOWLEDGE, file)
-      .replaceAll('\\', '/')
-      .split('/')[0];
+    const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
     if (!VERIFIED_CATEGORIES.includes(category)) return [];
     const fences = (content.match(/^\s*```/gm) ?? []).length / 2;
     if (fences === 0) return [];
-    const hasCheckpoint =
-      /預期輸出|成功判準|完成判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(
-        content,
-      );
+    const hasCheckpoint = /預期輸出|成功判準|完成判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(content);
     if (!hasCheckpoint) {
       return [
         {
@@ -347,14 +296,10 @@ const checks = [
   // 版本標註(技術文件的核心:沒標版本等於沒說適用範圍)
   function versionLabelled({ file, data, ctx }) {
     if (!ctx.isSubstantial) return [];
-    const category = relative(KNOWLEDGE, file)
-      .replaceAll('\\', '/')
-      .split('/')[0];
+    const category = relative(KNOWLEDGE, file).replaceAll('\\', '/').split('/')[0];
     if (!VERIFIED_CATEGORIES.includes(category)) return [];
     if ((data.hermes_version ?? '*') === '*') {
-      return [
-        { level: 'WARN', msg: 'hermes_version 未標明適用範圍(寫 * 等於沒標)' },
-      ];
+      return [{ level: 'WARN', msg: 'hermes_version 未標明適用範圍(寫 * 等於沒標)' }];
     }
     return [];
   },
@@ -363,17 +308,10 @@ const checks = [
   function listDump({ content, ctx }) {
     if (!ctx.isSubstantial) return [];
     const lines = content.split('\n').filter((l) => l.trim());
-    const listLines = lines.filter((l) =>
-      /^\s*([-*]|\d+[.)])\s/.test(l),
-    ).length;
+    const listLines = lines.filter((l) => /^\s*([-*]|\d+[.)])\s/.test(l)).length;
     const ratio = listLines / Math.max(lines.length, 1);
     if (ratio > 0.6) {
-      return [
-        {
-          level: 'WARN',
-          msg: `疑似 list-dump:${Math.round(ratio * 100)}% 的行是清單,缺少敘事`,
-        },
-      ];
+      return [{ level: 'WARN', msg: `疑似 list-dump:${Math.round(ratio * 100)}% 的行是清單,缺少敘事` }];
     }
     return [];
   },
@@ -382,9 +320,7 @@ const checks = [
 // ── 主流程 ──
 
 const rawArgs = process.argv.slice(2);
-const profile = (
-  rawArgs.find((a) => a.startsWith('--profile=')) ?? '--profile=default'
-).split('=')[1];
+const profile = (rawArgs.find((a) => a.startsWith('--profile=')) ?? '--profile=default').split('=')[1];
 const fileArgs = rawArgs.filter((a) => !a.startsWith('--'));
 
 const targets = fileArgs.length
@@ -444,30 +380,16 @@ for (const file of targets) {
       editorial.substantial++;
       // 「符合引用規範」而非「有沒有腳註」——概念文要腳註,其餘 upstream_refs
       // 與內文官方連結也算(與 citationDensity 檢查同一套判準)
-      if (
-        citationDensity({
-          file,
-          data: parsed.data,
-          content: parsed.content,
-          ctx: fileCtx,
-        }).length === 0
-      )
+      if (citationDensity({ file, data: parsed.data, content: parsed.content, ctx: fileCtx }).length === 0)
         editorial.citationOk++;
       if (VERIFIED_CATEGORIES.includes(cat)) {
         editorial.needsVersion++;
         if ((parsed.data.hermes_version ?? '*') !== '*') editorial.versioned++;
       }
     }
-    if (
-      VERIFIED_CATEGORIES.includes(cat) &&
-      (parsed.content.match(/^\s*```/gm) ?? []).length >= 2
-    ) {
+    if (VERIFIED_CATEGORIES.includes(cat) && (parsed.content.match(/^\s*```/gm) ?? []).length >= 2) {
       editorial.teachingWithCode++;
-      if (
-        /預期輸出|成功判準|完成判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(
-          parsed.content,
-        )
-      )
+      if (/預期輸出|成功判準|完成判準|怎麼確認|確認成功|應該會看到|輸出會像|成功的話|跑完會|看什麼/.test(parsed.content))
         editorial.teachingWithCheckpoint++;
     }
   }
@@ -477,9 +399,7 @@ for (const file of targets) {
   );
   if (issues.length === 0) continue;
 
-  console.log(
-    `${issues.some((i) => i.level === 'ERROR') ? '❌' : '⚠️ '} ${relative(REPO_ROOT, file)}`,
-  );
+  console.log(`${issues.some((i) => i.level === 'ERROR') ? '❌' : '⚠️ '} ${relative(REPO_ROOT, file)}`);
   for (const { level, msg } of issues) {
     console.log(`   ${level} ${msg}`);
     if (level === 'ERROR') errors++;
@@ -490,9 +410,7 @@ for (const file of targets) {
 const pct = (n, d) => (d === 0 ? '—' : `${Math.round((n / d) * 100)}%`);
 
 console.log('');
-console.log(
-  `📊 scanned ${scanned} files — ${errors} error(s), ${warns} warning(s) [profile=${profile}]`,
-);
+console.log(`📊 scanned ${scanned} files — ${errors} error(s), ${warns} warning(s) [profile=${profile}]`);
 
 if (fileArgs.length === 0) {
   console.log('');
