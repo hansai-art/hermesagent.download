@@ -1,17 +1,17 @@
 ---
-title: "看到 context length exceeded 怎麼辦"
-description: "對話突然卡住、跳出 context length exceeded?先用一個指令救回現在的對話,再改設定檔一勞永逸。用本地模型的人特別容易遇到,原因跟你想的不一樣。"
+title: '看到 context length exceeded 怎麼辦'
+description: '對話突然卡住、跳出 context length exceeded?先用一個指令救回現在的對話,再改設定檔一勞永逸。用本地模型的人特別容易遇到,原因跟你想的不一樣。'
 date: 2026-07-23
-subcategory: "runtime"
-hermes_version: ">=2026.5"
+subcategory: 'runtime'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
 tags:
-  - "runtime"
-  - "troubleshoot"
-status: "published"
+  - 'runtime'
+  - 'troubleshoot'
+status: 'published'
 ---
 
 想像你正在做一件事做到一半。你的 agent(就是這個會幫你做事的 AI 助手)讀了幾個檔案、幫你跑了幾個小工具、你們一來一往聊了二十幾輪。然後它突然冒出一句:
@@ -38,7 +38,7 @@ context length exceeded
 
 這一步會做什麼?它會把你們前面聊過的內容,整理成一份比較短的摘要,騰出空間讓對話繼續下去[^1]。就像把桌上一堆散亂的紙,重點抄在一張便利貼上,其他的先收起來。
 
-**怎麼算成功了**:你能繼續打字聊天,不再跳出 context 的錯誤,就成功了。
+**怎麼確認成功?** 你能繼續打字聊天,不再跳出 context 的錯誤,就成功了。
 
 要注意:摘要會保留大方向,但一些細節可能被壓掉。如果後面發現 agent「忘了」某件事,你再講一次就好,不是壞掉了。
 

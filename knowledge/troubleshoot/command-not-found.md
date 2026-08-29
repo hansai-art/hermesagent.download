@@ -1,18 +1,18 @@
 ---
-title: "打 hermes 卻說「找不到指令」?別急,三十秒解決"
-description: "裝完 Hermes,一打 hermes 卻跳出「找不到指令」?十次有九次不是裝壞了,只是你這個視窗還沒「重新讀」一次設定。跟著做,三十秒就好。"
+title: '打 hermes 卻說「找不到指令」?別急,三十秒解決'
+description: '裝完 Hermes,一打 hermes 卻跳出「找不到指令」?十次有九次不是裝壞了,只是你這個視窗還沒「重新讀」一次設定。跟著做,三十秒就好。'
 date: 2026-07-23
-subcategory: "install"
-hermes_version: ">=2026.5"
+subcategory: 'install'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
 tags:
-  - "install"
-  - "troubleshoot"
-status: "published"
+  - 'install'
+  - 'troubleshoot'
+status: 'published'
 ---
 
 安裝程式跑完了,畫面看起來一切正常。你很興奮地在終端機(就是那個黑黑的、要打字下指令的視窗)裡打了 `hermes`,結果冒出這一行:
@@ -54,7 +54,7 @@ source ~/.zshrc
 source ~/.bashrc
 ```
 
-**怎麼知道成功了?** 這行打下去,畫面「什麼都不會顯示」，沒消息就是好消息。接著打 `hermes doctor`,只要有東西跑出來(不再是「找不到指令」),就成功了。
+**怎麼確認成功?** 這行打下去,畫面「什麼都不會顯示」，沒消息就是好消息。接著打 `hermes doctor`,只要有東西跑出來(不再是「找不到指令」),就成功了。
 
 ## 解法二:直接開一個新的終端機視窗
 
@@ -129,4 +129,5 @@ Hermes 預設只會去讀 `~/.bashrc` 這張小抄。如果你用的是別種 sh
 - 遇到別的錯誤 → [疑難排解總覽](/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ:https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+
 [^2]: Nous Research, Installation:https://hermes-agent.nousresearch.com/docs/getting-started/installation
