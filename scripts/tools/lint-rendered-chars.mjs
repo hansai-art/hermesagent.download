@@ -26,9 +26,13 @@
  *   `<p>**粗體**測試</p>`、`<p>參數 —tui 測試</p>`，四項都必須各自報出來並 exit 1。
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, resolve } from 'node:path';
 
-const root = resolve(dirname(new URL(import.meta.url).pathname), '../..');
+// `URL.pathname` keeps a leading slash before a Windows drive letter (`/C:/…`),
+// which resolves outside the repository. Convert the module URL to a native path
+// before walking up to the repo root.
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const dist = join(root, 'dist');
 
 function walk(dir, hit = []) {
