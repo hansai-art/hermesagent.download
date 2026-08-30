@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T00:02:39.900Z",
+  "generatedAt": "2026-08-30T00:17:01.562Z",
   "content": {
     "total": 392,
     "byStatus": {
@@ -101,7 +101,7 @@
   "credibility": {
     "withSources": 392,
     "withSourcesPct": 100,
-    "footnotes": 249,
+    "footnotes": 252,
     "verifiedFresh": 52,
     "verifiedStale": 0,
     "neverVerified": 0,

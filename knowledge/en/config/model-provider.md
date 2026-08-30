@@ -40,7 +40,7 @@ In your terminal (that black window with white text where you type commands), en
 hermes setup --portal
 ```
 
-This uses Nous Portal (the official relay service for models) to connect you to 300-plus models in one go. You set it up once and you're done[^1].
+This uses Nous Portal (the official relay service for models) to connect you to 300-plus models in one go. You set it up once and you're done[^1][^3].
 
 > Good to know: an API key is a password-like string of characters that proves "it's you using it this time," so the charges land on your account. The nice thing about the Portal is that you don't have to go collect that key from each company yourself.
 
@@ -54,7 +54,7 @@ hermes model
 
 This opens an interactive menu (it asks you one item at a time — you move with the arrow keys and press Enter to choose). In it, you pick a provider, then paste in the API key that provider gave you[^1].
 
-Officially supported: OpenRouter, OpenAI, Anthropic Claude, Google Gemini, plus "local models" like Ollama and vLLM (models that run on your own computer — more on that later).
+Officially supported: OpenRouter, OpenAI, Anthropic Claude, Google Gemini, plus "local models" like Ollama and vLLM (models that run on your own computer — more on that later)[^2].
 
 **How to confirm it worked**: the menu runs all the way through with no error popping up, and then when you run the line below, you can see the provider you just picked. That means success.
 
@@ -194,3 +194,7 @@ First use `/compress` to squeeze the current conversation down (it condenses the
 - Want to see what it can do → [Skills catalog](/skills/catalog/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)
+
+[^2]: Nous Research, Provider integrations: https://hermes-agent.nousresearch.com/docs/integrations/providers (accessed 2026-08-30)
+
+[^3]: Nous Research, Nous Portal integration: https://hermes-agent.nousresearch.com/docs/integrations/nous-portal (accessed 2026-08-30)

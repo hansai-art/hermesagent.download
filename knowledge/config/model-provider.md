@@ -1,18 +1,18 @@
 ---
-title: "設定模型供應商和 API key:新手一步步教學"
-description: "Hermes 裝好還不能用,得先教它去哪裡借 AI 大腦。這篇帶你選一家、填好金鑰,還教你一招很有感的省錢設定。"
+title: '設定模型供應商和 API key:新手一步步教學'
+description: 'Hermes 裝好還不能用,得先教它去哪裡借 AI 大腦。這篇帶你選一家、填好金鑰,還教你一招很有感的省錢設定。'
 date: 2026-07-23
-subcategory: "provider"
-hermes_version: ">=2026.5"
+subcategory: 'provider'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
-  - "https://hermes-agent.nousresearch.com/docs/getting-started/installation"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
+  - 'https://hermes-agent.nousresearch.com/docs/getting-started/installation'
 tags:
-  - "provider"
-  - "config"
-status: "published"
+  - 'provider'
+  - 'config'
+status: 'published'
 ---
 
 Hermes Agent 裝好之後,其實還不能馬上用。
@@ -54,7 +54,7 @@ hermes model
 
 這會打開一個互動式選單(它會一項一項問你,你用方向鍵移動、按 Enter 選)。你在裡面選一家供應商,然後貼上那家給你的 API key[^1]。
 
-官方支援這些:OpenRouter、OpenAI、Anthropic Claude、Google Gemini,還有 Ollama、vLLM 這類「本地模型」(跑在你自己電腦上的模型,後面會講)。
+官方支援這些:OpenRouter、OpenAI、Anthropic Claude、Google Gemini,還有 Ollama、vLLM 這類「本地模型」(跑在你自己電腦上的模型,後面會講)[^2]。
 
 **怎麼確認成功了**:選單一路走到底沒有跳出錯誤,然後執行下面這行,看得到你剛剛選的那家供應商,就成功了。
 
@@ -66,12 +66,12 @@ hermes config show
 
 不知道選哪家?看這張表對號入座就好:
 
-| 供應商 | 適合誰 |
-|---|---|
-| **Nous Portal** | 不想管金鑰、想一次拿到很多種模型的人 |
-| **OpenRouter** | 想在多家模型之間切換、比價,用一把金鑰就通吃的人 |
-| **OpenAI / Anthropic / Google** | 本來就有帳號,或特別依賴某一家模型的人 |
-| **Ollama / vLLM(本地)** | 完全不想付錢,或資料不能離開自己電腦的人 |
+| 供應商                          | 適合誰                                          |
+| ------------------------------- | ----------------------------------------------- |
+| **Nous Portal**                 | 不想管金鑰、想一次拿到很多種模型的人            |
+| **OpenRouter**                  | 想在多家模型之間切換、比價,用一把金鑰就通吃的人 |
+| **OpenAI / Anthropic / Google** | 本來就有帳號,或特別依賴某一家模型的人           |
+| **Ollama / vLLM(本地)**         | 完全不想付錢,或資料不能離開自己電腦的人         |
 
 ## 進階:直接把設定寫進去,跳過選單
 
@@ -194,3 +194,5 @@ Hermes Agent 這個程式本身是免費的開源軟體(採 MIT 授權,一種很
 - 想看它能做什麼 → [技能目錄](/skills/catalog/)
 
 [^1]: Nous Research, FAQ:https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+
+[^2]: Nous Research, Provider integrations: https://hermes-agent.nousresearch.com/docs/integrations/providers (2026-08-30 存取)
