@@ -1,17 +1,17 @@
 ---
-title: "What to do when you see context length exceeded"
+title: 'What to do when you see context length exceeded'
 description: "Your chat suddenly froze with a context length exceeded message? Rescue the current conversation with one command, then fix your config file so it stops happening. People running local models hit this a lot, and the reason isn't what you'd guess."
 date: 2026-07-23
-subcategory: "runtime"
-hermes_version: ">=2026.5"
+subcategory: 'runtime'
+hermes_version: '>=2026.5'
 last_verified: 2026-07-04
 human_reviewed: false
 upstream_refs:
-  - "https://hermes-agent.nousresearch.com/docs/reference/faq"
+  - 'https://hermes-agent.nousresearch.com/docs/reference/faq'
 tags:
-  - "runtime"
-  - "troubleshoot"
-status: "published"
+  - 'runtime'
+  - 'troubleshoot'
+status: 'published'
 ---
 
 Picture yourself halfway through a task. Your agent (the AI assistant that does things for you) has read a few files, run some small tools for you, and you've gone back and forth for twenty-odd rounds. Then it suddenly says:
@@ -22,7 +22,7 @@ context length exceeded
 
 What this line means is: "This conversation has too much stuffed into it. It's more than I can hold in mind at once."
 
-So the chat freezes. And you don't want to start over from scratch. Don't worry, let's walk through it step by step.
+So the chat freezes. And you don't want to start over from scratch. Don't worry, let's walk through it step by step. Hermes includes both `/compress` and `/usage` as built-in conversation commands for handling and inspecting this situation[^2].
 
 First, one piece of vocabulary. A **token** (think of it as a "chunk of text") is the unit an AI uses to measure how long a piece of text is. Roughly a few letters, or one word, makes one token. An AI can only take in so many tokens in a single conversation. That ceiling is called the **context length** (the conversation's capacity). The longer you chat, and the more you paste in, the closer you get to that ceiling. Once it's full, you see the error above.
 
@@ -66,7 +66,7 @@ So where's the problem? Hermes tries to guess "how many tokens your model can ta
 
 The fix: tell it the correct number directly, instead of letting it guess.
 
-Open this file in a text editor:
+Open this file in a text editor. Hermes's official Configuration reference identifies `~/.hermes/config.yaml` as the place for non-secret settings[^3]:
 
 ```text
 ~/.hermes/config.yaml
@@ -123,3 +123,7 @@ That's normal — a summary always sacrifices some detail. Just say the key info
 - Hit a different error → [Troubleshooting overview](/en/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ: https://hermes-agent.nousresearch.com/docs/reference/faq (accessed 2026-07-23)
+
+[^2]: Ibid., `/compress` compresses a conversation and `/usage` reports its token usage.
+
+[^3]: Nous Research, Configuration: https://hermes-agent.nousresearch.com/docs/user-guide/configuration (accessed 2026-08-30).

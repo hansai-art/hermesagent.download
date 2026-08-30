@@ -66,7 +66,7 @@ context length exceeded
 
 解法是:你直接告訴它正確的數字,別讓它自己猜。
 
-用文字編輯器打開這個檔案:
+用文字編輯器打開這個檔案。Hermes 官方 Configuration 將 `~/.hermes/config.yaml` 定義為非機密設定的存放位置[^2]:
 
 ```text
 ~/.hermes/config.yaml
@@ -123,3 +123,5 @@ model:
 - 遇到別的錯誤 → [疑難排解總覽](/troubleshoot/overview/)
 
 [^1]: Nous Research, FAQ:https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+
+[^2]: Nous Research, Configuration: https://hermes-agent.nousresearch.com/docs/user-guide/configuration (2026-08-30 存取)。
