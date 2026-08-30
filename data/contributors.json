@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T07:12:10.962Z",
+  "generatedAt": "2026-08-30T05:33:41.139Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -7,7 +7,7 @@
       "login": "hansai-art",
       "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
       "url": "https://github.com/hansai-art",
-      "contributions": 80,
+      "contributions": 112,
       "name": "Hans",
       "bio": "Taiwanese AI Animation Director with 14+ years in motion design and advertising. Partnered with global brands including TSMC, Samsung, and ASUS.",
       "blog": "https://www.techhanlin.tw",
@@ -15,22 +15,148 @@
       "location": "Taipai",
       "articles": [
         {
+          "slug": "model-provider",
+          "category": "config",
+          "title": "設定模型供應商和 API key:新手一步步教學",
+          "url": "/config/model-provider/"
+        },
+        {
+          "slug": "config/model-provider",
+          "category": "en",
+          "title": "Set Up Your Model Provider and API Key: A Step-by-Step Guide for Beginners",
+          "url": "/en/config/model-provider/"
+        },
+        {
+          "slug": "troubleshoot/context-length-exceeded",
+          "category": "en",
+          "title": "What to do when you see context length exceeded",
+          "url": "/en/troubleshoot/context-length-exceeded/"
+        },
+        {
           "slug": "context-length-exceeded",
           "category": "troubleshoot",
           "title": "看到 context length exceeded 怎麼辦",
           "url": "/troubleshoot/context-length-exceeded/"
         },
         {
+          "slug": "troubleshoot/api-key-not-set",
+          "category": "en",
+          "title": "Seeing \"API key not set\" or being told your key is invalid? Let's fix it step by step",
+          "url": "/en/troubleshoot/api-key-not-set/"
+        },
+        {
+          "slug": "api-key-not-set",
+          "category": "troubleshoot",
+          "title": "看到「API key not set」或說 key 無效?這樣一步步查",
+          "url": "/troubleshoot/api-key-not-set/"
+        },
+        {
+          "slug": "13922",
+          "category": "issues",
+          "title": "非常穩定的 API 中轉站，可以嘗試",
+          "url": "/issues/13922/"
+        },
+        {
+          "slug": "58132",
+          "category": "issues",
+          "title": "feat: 會話新增重要性／優先級標記（Session Importance）",
+          "url": "/issues/58132/"
+        },
+        {
+          "slug": "8837",
+          "category": "issues",
+          "title": "我怎麼知道它是多智能體協作還是？？",
+          "url": "/issues/8837/"
+        },
+        {
+          "slug": "13181",
+          "category": "issues",
+          "title": "功能請求：簡化新增 OpenCode Go 等自訂模型到 Hermes Agent 的方式",
+          "url": "/issues/13181/"
+        },
+        {
+          "slug": "58207",
+          "category": "issues",
+          "title": "[Bug] Dashboard 在 gated 模式下，provider 登入視窗因缺少舊版 session token 而失敗",
+          "url": "/issues/58207/"
+        },
+        {
+          "slug": "catalog",
+          "category": "skills",
+          "title": "Hermes Agent 官方 Skills 全目錄（173 個）",
+          "url": "/skills/catalog/"
+        },
+        {
+          "slug": "config/config-yaml-reference",
+          "category": "en",
+          "title": "What config.yaml Is: Two Settings Files and One Handy Set of Commands, Explained",
+          "url": "/en/config/config-yaml-reference/"
+        },
+        {
+          "slug": "integrations/connect-first-mcp",
+          "category": "en",
+          "title": "Connect Your First MCP: Set It Up Step by Step, Then See It Actually Work",
+          "url": "/en/integrations/connect-first-mcp/"
+        },
+        {
+          "slug": "troubleshoot/python-version-too-old",
+          "category": "en",
+          "title": "What to do when you see \"Hermes requires Python 3.11 or newer\"",
+          "url": "/en/troubleshoot/python-version-too-old/"
+        },
+        {
+          "slug": "python-version-too-old",
+          "category": "troubleshoot",
+          "title": "看到「Hermes requires Python 3.11 or newer」怎麼辦",
+          "url": "/troubleshoot/python-version-too-old/"
+        },
+        {
+          "slug": "install/windows",
+          "category": "en",
+          "title": "Installing Hermes Agent on Windows (Step-by-Step for Beginners)",
+          "url": "/en/install/windows/"
+        },
+        {
+          "slug": "linux",
+          "category": "install",
+          "title": "在 Linux 上安裝 Hermes Agent",
+          "url": "/install/linux/"
+        },
+        {
+          "slug": "windows",
+          "category": "install",
+          "title": "在 Windows 上安裝 Hermes Agent(新手手把手版)",
+          "url": "/install/windows/"
+        },
+        {
+          "slug": "connect-first-mcp",
+          "category": "integrations",
+          "title": "接上你的第一個 MCP:一步一步設定,再親眼確認成功",
+          "url": "/integrations/connect-first-mcp/"
+        },
+        {
+          "slug": "command-not-found",
+          "category": "troubleshoot",
+          "title": "打 hermes 卻說「找不到指令」?別急,三十秒解決",
+          "url": "/troubleshoot/command-not-found/"
+        },
+        {
+          "slug": "troubleshoot/command-not-found",
+          "category": "en",
+          "title": "Typed hermes and got \"command not found\"? Don't panic—30-second fix",
+          "url": "/en/troubleshoot/command-not-found/"
+        },
+        {
+          "slug": "start",
+          "category": "guides",
+          "title": "新手路線：從零到跑起來",
+          "url": "/guides/start/"
+        },
+        {
           "slug": "config-yaml-reference",
           "category": "config",
           "title": "config.yaml 是什麼:一次看懂兩個設定檔和一組好用指令",
           "url": "/config/config-yaml-reference/"
-        },
-        {
-          "slug": "model-provider",
-          "category": "config",
-          "title": "設定模型供應商和 API key:新手一步步教學",
-          "url": "/config/model-provider/"
         },
         {
           "slug": "concepts/memory-system",
@@ -51,34 +177,10 @@
           "url": "/en/concepts/what-is-hermes-agent/"
         },
         {
-          "slug": "config/config-yaml-reference",
-          "category": "en",
-          "title": "What config.yaml Is: Two Settings Files and One Handy Set of Commands, Explained",
-          "url": "/en/config/config-yaml-reference/"
-        },
-        {
-          "slug": "config/model-provider",
-          "category": "en",
-          "title": "Set Up Your Model Provider and API Key: A Step-by-Step Guide for Beginners",
-          "url": "/en/config/model-provider/"
-        },
-        {
           "slug": "install/macos",
           "category": "en",
           "title": "Installing Hermes Agent on a Mac for the First Time",
           "url": "/en/install/macos/"
-        },
-        {
-          "slug": "install/windows",
-          "category": "en",
-          "title": "Installing Hermes Agent on Windows (Step-by-Step for Beginners)",
-          "url": "/en/install/windows/"
-        },
-        {
-          "slug": "integrations/connect-first-mcp",
-          "category": "en",
-          "title": "Connect Your First MCP: Set It Up Step by Step, Then See It Actually Work",
-          "url": "/en/integrations/connect-first-mcp/"
         },
         {
           "slug": "integrations/connect-telegram",
@@ -105,24 +207,6 @@
           "url": "/en/migrate/move-to-new-machine/"
         },
         {
-          "slug": "troubleshoot/api-key-not-set",
-          "category": "en",
-          "title": "Seeing \"API key not set\" or being told your key is invalid? Let's fix it step by step",
-          "url": "/en/troubleshoot/api-key-not-set/"
-        },
-        {
-          "slug": "troubleshoot/command-not-found",
-          "category": "en",
-          "title": "Typed hermes and got \"command not found\"? Don't panic—30-second fix",
-          "url": "/en/troubleshoot/command-not-found/"
-        },
-        {
-          "slug": "troubleshoot/context-length-exceeded",
-          "category": "en",
-          "title": "What to do when you see context length exceeded",
-          "url": "/en/troubleshoot/context-length-exceeded/"
-        },
-        {
           "slug": "troubleshoot/http-429-rate-limit",
           "category": "en",
           "title": "Seeing an HTTP 429 error? That's your provider slowing you down — Hermes isn't broken",
@@ -135,12 +219,6 @@
           "url": "/en/troubleshoot/overview/"
         },
         {
-          "slug": "troubleshoot/python-version-too-old",
-          "category": "en",
-          "title": "What to do when you see \"Hermes requires Python 3.11 or newer\"",
-          "url": "/en/troubleshoot/python-version-too-old/"
-        },
-        {
           "slug": "troubleshoot/telegram",
           "category": "en",
           "title": "Two Common Snags When Connecting Telegram to Hermes Agent",
@@ -151,18 +229,6 @@
           "category": "install",
           "title": "第一次在 Mac 上安裝 Hermes Agent",
           "url": "/install/macos/"
-        },
-        {
-          "slug": "windows",
-          "category": "install",
-          "title": "在 Windows 上安裝 Hermes Agent(新手手把手版)",
-          "url": "/install/windows/"
-        },
-        {
-          "slug": "connect-first-mcp",
-          "category": "integrations",
-          "title": "接上你的第一個 MCP:一步一步設定,再親眼確認成功",
-          "url": "/integrations/connect-first-mcp/"
         },
         {
           "slug": "connect-telegram",
@@ -189,18 +255,6 @@
           "url": "/migrate/move-to-new-machine/"
         },
         {
-          "slug": "api-key-not-set",
-          "category": "troubleshoot",
-          "title": "看到「API key not set」或說 key 無效?這樣一步步查",
-          "url": "/troubleshoot/api-key-not-set/"
-        },
-        {
-          "slug": "command-not-found",
-          "category": "troubleshoot",
-          "title": "打 hermes 卻說「找不到指令」?別急,三十秒解決",
-          "url": "/troubleshoot/command-not-found/"
-        },
-        {
           "slug": "http-429-rate-limit",
           "category": "troubleshoot",
           "title": "看到 HTTP 429 錯誤?那是供應商在限你的速度,不是 Hermes 壞了",
@@ -213,22 +267,10 @@
           "url": "/troubleshoot/overview/"
         },
         {
-          "slug": "python-version-too-old",
-          "category": "troubleshoot",
-          "title": "看到「Hermes requires Python 3.11 or newer」怎麼辦",
-          "url": "/troubleshoot/python-version-too-old/"
-        },
-        {
           "slug": "telegram",
           "category": "troubleshoot",
           "title": "Telegram 接 Hermes Agent 常遇到的兩個問題",
           "url": "/troubleshoot/telegram/"
-        },
-        {
-          "slug": "catalog",
-          "category": "skills",
-          "title": "Hermes Agent 官方 Skills 全目錄（173 個）",
-          "url": "/skills/catalog/"
         },
         {
           "slug": "recommended-skills",
@@ -241,12 +283,6 @@
           "category": "config",
           "title": "hermes insights：搞清楚 token 花在哪，但它不會告訴你花了多少錢",
           "url": "/config/insights-token-usage/"
-        },
-        {
-          "slug": "start",
-          "category": "guides",
-          "title": "新手路線：從零到跑起來",
-          "url": "/guides/start/"
         },
         {
           "slug": "advanced",
@@ -265,12 +301,6 @@
           "category": "install",
           "title": "該選哪一種安裝方式",
           "url": "/install/download/"
-        },
-        {
-          "slug": "linux",
-          "category": "install",
-          "title": "在 Linux 上安裝 Hermes Agent",
-          "url": "/install/linux/"
         },
         {
           "slug": "system-requirements",
@@ -307,12 +337,6 @@
           "category": "issues",
           "title": "功能請求：支援原生 Google / Vertex AI provider（繞過 OpenRouter 402 錯誤與速率限制）",
           "url": "/issues/12639/"
-        },
-        {
-          "slug": "13922",
-          "category": "issues",
-          "title": "非常稳定的api中转站 可以尝试下",
-          "url": "/issues/13922/"
         },
         {
           "slug": "15080",
@@ -493,12 +517,6 @@
           "category": "issues",
           "title": "我感觉并没有学习也没有提升到",
           "url": "/issues/8831/"
-        },
-        {
-          "slug": "8837",
-          "category": "issues",
-          "title": "我怎么知道它是多智能体协作还是？？",
-          "url": "/issues/8837/"
         },
         {
           "slug": "top-10",
@@ -829,12 +847,6 @@
           "category": "issues",
           "title": "功能提案：為具視覺能力的主模型提供原生 Vision 支援，附參考實作與相關 bug 發現",
           "url": "/issues/13065/"
-        },
-        {
-          "slug": "13181",
-          "category": "issues",
-          "title": "功能請求：簡化新增 OpenCode Go 等自訂模型到 Hermes Agent 的方式",
-          "url": "/issues/13181/"
         },
         {
           "slug": "13484",
@@ -1827,12 +1839,6 @@
           "url": "/issues/58130/"
         },
         {
-          "slug": "58132",
-          "category": "issues",
-          "title": "feat: 会话添加重要性/优先级标记 (Session Importance)",
-          "url": "/issues/58132/"
-        },
-        {
           "slug": "58134",
           "category": "issues",
           "title": "[功能需求] 強化桌寵顯示：加入即時執行狀態（參考 Petdex Desktop）",
@@ -1963,12 +1969,6 @@
           "category": "issues",
           "title": "[Bug] 依文件設定 save_trajectories: true 後，Trajectory 檔案仍未產生",
           "url": "/issues/58200/"
-        },
-        {
-          "slug": "58207",
-          "category": "issues",
-          "title": "[Bug] Dashboard 在 gated 模式下，provider 登入視窗因缺少舊版 session token 而失敗",
-          "url": "/issues/58207/"
         },
         {
           "slug": "58215",
@@ -2352,8 +2352,8 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 46,
-    "lastCommitAt": "2026-08-28T11:33:29Z"
+    "recentCommits30d": 78,
+    "lastCommitAt": "2026-08-30T00:17:22Z"
   },
   "stars": 0,
   "forks": 0,
@@ -2366,7 +2366,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 9187,
+        "contributions": 9259,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2388,7 +2388,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 1862,
+        "contributions": 1879,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2421,7 +2421,7 @@
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 321,
+        "contributions": 322,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2432,7 +2432,7 @@
         "login": "xxxigm",
         "avatar": "https://avatars.githubusercontent.com/u/54813621?v=4",
         "url": "https://github.com/xxxigm",
-        "contributions": 232,
+        "contributions": 234,
         "name": null,
         "bio": "I am constantly pushing myself to work harder and improve my skills every day.",
         "blog": null,
@@ -2451,6 +2451,17 @@
         "location": null
       },
       {
+        "login": "liuhao1024",
+        "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
+        "url": "https://github.com/liuhao1024",
+        "contributions": 196,
+        "name": "liuhao1024",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
@@ -2460,17 +2471,6 @@
         "blog": "https://sidb.in",
         "company": "@NousResearch",
         "location": "In front of a terminal"
-      },
-      {
-        "login": "liuhao1024",
-        "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
-        "url": "https://github.com/liuhao1024",
-        "contributions": 192,
-        "name": "liuhao1024",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
       },
       {
         "login": "austinpickett",
@@ -2509,7 +2509,7 @@
         "login": "fangliquanflq",
         "avatar": "https://avatars.githubusercontent.com/u/280272527?v=4",
         "url": "https://github.com/fangliquanflq",
-        "contributions": 145,
+        "contributions": 146,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2553,7 +2553,7 @@
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 104,
+        "contributions": 111,
         "name": null,
         "bio": "私は時々物を壊すのが好きで、時々物を建てるのが好きだ。",
         "blog": "https://www.linkedin.com/in/joao-marcos-dias-barros-a99362217",
@@ -2575,7 +2575,7 @@
         "login": "victor-kyriazakos",
         "avatar": "https://avatars.githubusercontent.com/u/93273468?v=4",
         "url": "https://github.com/victor-kyriazakos",
-        "contributions": 88,
+        "contributions": 90,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2660,6 +2660,17 @@
         "location": "Canada"
       },
       {
+        "login": "webtecnica",
+        "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
+        "url": "https://github.com/webtecnica",
+        "contributions": 52,
+        "name": null,
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "bbednarski9",
         "avatar": "https://avatars.githubusercontent.com/u/16690530?v=4",
         "url": "https://github.com/bbednarski9",
@@ -2669,17 +2680,6 @@
         "blog": null,
         "company": "@Nvidia",
         "location": "Los Angeles, California"
-      },
-      {
-        "login": "webtecnica",
-        "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
-        "url": "https://github.com/webtecnica",
-        "contributions": 51,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
       },
       {
         "login": "Bartok9",
@@ -2696,20 +2696,9 @@
         "login": "ygd58",
         "avatar": "https://avatars.githubusercontent.com/u/78954051?v=4",
         "url": "https://github.com/ygd58",
-        "contributions": 45,
+        "contributions": 46,
         "name": "buray",
         "bio": "Early man",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "necoweb3",
-        "avatar": "https://avatars.githubusercontent.com/u/65560494?v=4",
-        "url": "https://github.com/necoweb3",
-        "contributions": 44,
-        "name": "neco",
-        "bio": null,
         "blog": null,
         "company": null,
         "location": null
@@ -2726,23 +2715,23 @@
         "location": "Singapore"
       },
       {
+        "login": "necoweb3",
+        "avatar": "https://avatars.githubusercontent.com/u/65560494?v=4",
+        "url": "https://github.com/necoweb3",
+        "contributions": 44,
+        "name": "neco",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "wesleysimplicio",
         "avatar": "https://avatars.githubusercontent.com/u/6108320?v=4",
         "url": "https://github.com/wesleysimplicio",
         "contributions": 39,
         "name": "Wesley Simplicio",
         "bio": "Working..",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "Frowtek",
-        "avatar": "https://avatars.githubusercontent.com/u/164990034?v=4",
-        "url": "https://github.com/Frowtek",
-        "contributions": 39,
-        "name": "Frowte3k",
-        "bio": null,
         "blog": null,
         "company": null,
         "location": null
@@ -2759,12 +2748,12 @@
         "location": null
       },
       {
-        "login": "sprmn24",
-        "avatar": "https://avatars.githubusercontent.com/u/164800352?v=4",
-        "url": "https://github.com/sprmn24",
-        "contributions": 38,
-        "name": "sprmn",
-        "bio": "Measure twice, cut once.",
+        "login": "Frowtek",
+        "avatar": "https://avatars.githubusercontent.com/u/164990034?v=4",
+        "url": "https://github.com/Frowtek",
+        "contributions": 39,
+        "name": "Frowte3k",
+        "bio": null,
         "blog": null,
         "company": null,
         "location": null
@@ -2781,6 +2770,17 @@
         "location": "Ithaca, New York"
       },
       {
+        "login": "sprmn24",
+        "avatar": "https://avatars.githubusercontent.com/u/164800352?v=4",
+        "url": "https://github.com/sprmn24",
+        "contributions": 38,
+        "name": "sprmn",
+        "bio": "Measure twice, cut once.",
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "adybag14-cyber",
         "avatar": "https://avatars.githubusercontent.com/u/252811164?v=4",
         "url": "https://github.com/adybag14-cyber",
@@ -2792,14 +2792,14 @@
         "location": null
       },
       {
-        "login": "nousbot-eng",
-        "avatar": "https://avatars.githubusercontent.com/u/305976095?v=4",
-        "url": "https://github.com/nousbot-eng",
+        "login": "rob-maron",
+        "avatar": "https://avatars.githubusercontent.com/u/132852777?v=4",
+        "url": "https://github.com/rob-maron",
         "contributions": 35,
         "name": null,
         "bio": null,
-        "blog": "https://nousresearch.com/",
-        "company": "@nousresearch",
+        "blog": null,
+        "company": null,
         "location": null
       }
     ]

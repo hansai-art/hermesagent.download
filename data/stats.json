@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-29T07:12:11.396Z",
+  "generatedAt": "2026-08-30T05:33:41.571Z",
   "total": 394,
-  "published": 393,
+  "published": 392,
   "byStatus": {
-    "published": 393,
-    "archived": 1
+    "published": 392,
+    "archived": 2
   },
   "byCategory": {
     "issues": 308,
@@ -26,7 +26,7 @@
   "contributors": 1,
   "stars": 0,
   "forks": 0,
-  "commitsLast30Days": 46,
+  "commitsLast30Days": 78,
   "sourceCoveragePct": 100,
   "verifiedFresh": 52
 }
