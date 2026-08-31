@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T05:33:41.139Z",
+  "generatedAt": "2026-08-31T05:49:02.161Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -7,13 +7,19 @@
       "login": "hansai-art",
       "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
       "url": "https://github.com/hansai-art",
-      "contributions": 112,
+      "contributions": 113,
       "name": "Hans",
       "bio": "Taiwanese AI Animation Director with 14+ years in motion design and advertising. Partnered with global brands including TSMC, Samsung, and ASUS.",
       "blog": "https://www.techhanlin.tw",
       "company": "Group.G",
       "location": "Taipai",
       "articles": [
+        {
+          "slug": "v2026-8-27",
+          "category": "releases",
+          "title": "v0.20.6：先別把它當成普通 patch，更新行為與日常工具都變了",
+          "url": "/releases/v2026-8-27/"
+        },
         {
           "slug": "model-provider",
           "category": "config",
@@ -2352,12 +2358,12 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 78,
-    "lastCommitAt": "2026-08-30T00:17:22Z"
+    "recentCommits30d": 71,
+    "lastCommitAt": "2026-08-31T00:50:26Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 14,
+  "openIssues": 13,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2366,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 9259,
+        "contributions": 9291,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2388,7 +2394,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 1879,
+        "contributions": 1882,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2454,7 +2460,7 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 196,
+        "contributions": 199,
         "name": "liuhao1024",
         "bio": null,
         "blog": null,
@@ -2487,7 +2493,7 @@
         "login": "HexLab98",
         "avatar": "https://avatars.githubusercontent.com/u/8422520?v=4",
         "url": "https://github.com/HexLab98",
-        "contributions": 165,
+        "contributions": 167,
         "name": "HexLab",
         "bio": null,
         "blog": null,
@@ -2509,7 +2515,7 @@
         "login": "fangliquanflq",
         "avatar": "https://avatars.githubusercontent.com/u/280272527?v=4",
         "url": "https://github.com/fangliquanflq",
-        "contributions": 146,
+        "contributions": 152,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2638,6 +2644,17 @@
         "location": null
       },
       {
+        "login": "DavidMetcalfe",
+        "avatar": "https://avatars.githubusercontent.com/u/80915?v=4",
+        "url": "https://github.com/DavidMetcalfe",
+        "contributions": 57,
+        "name": "David Metcalfe",
+        "bio": "Improving employee productivity by automating processes and enhancing tools. Often found hovering at the intersection of design and technology.",
+        "blog": null,
+        "company": null,
+        "location": "Canada"
+      },
+      {
         "login": "konsisumer",
         "avatar": "https://avatars.githubusercontent.com/u/11262660?v=4",
         "url": "https://github.com/konsisumer",
@@ -2647,17 +2664,6 @@
         "blog": null,
         "company": null,
         "location": null
-      },
-      {
-        "login": "DavidMetcalfe",
-        "avatar": "https://avatars.githubusercontent.com/u/80915?v=4",
-        "url": "https://github.com/DavidMetcalfe",
-        "contributions": 54,
-        "name": "David Metcalfe",
-        "bio": "Improving employee productivity by automating processes and enhancing tools. Often found hovering at the intersection of design and technology.",
-        "blog": null,
-        "company": null,
-        "location": "Canada"
       },
       {
         "login": "webtecnica",
@@ -2781,21 +2787,21 @@
         "location": null
       },
       {
+        "login": "dokterdok",
+        "avatar": "https://avatars.githubusercontent.com/u/5354424?v=4",
+        "url": "https://github.com/dokterdok",
+        "contributions": 37,
+        "name": "David Dudok de Wit",
+        "bio": "Smart Staff Scheduling @BioSked, Product @AlixHQ (TripMode), ex-Growth/Product @ProtonMail, Continuity Activation Tool author",
+        "blog": "https://biosked.com",
+        "company": null,
+        "location": "Switzerland"
+      },
+      {
         "login": "adybag14-cyber",
         "avatar": "https://avatars.githubusercontent.com/u/252811164?v=4",
         "url": "https://github.com/adybag14-cyber",
         "contributions": 36,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "rob-maron",
-        "avatar": "https://avatars.githubusercontent.com/u/132852777?v=4",
-        "url": "https://github.com/rob-maron",
-        "contributions": 35,
         "name": null,
         "bio": null,
         "blog": null,
