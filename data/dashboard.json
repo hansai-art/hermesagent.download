@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-30T05:33:41.282Z",
+  "generatedAt": "2026-08-31T00:11:26.601Z",
   "content": {
-    "total": 392,
+    "total": 393,
     "byStatus": {
-      "published": 392,
+      "published": 393,
       "archived": 2
     },
     "byCategory": [
@@ -67,7 +67,7 @@
         "slug": "releases",
         "emoji": "📰",
         "name": "版本情報",
-        "count": 5,
+        "count": 6,
         "needsHelp": false
       },
       {
@@ -99,18 +99,18 @@
     ]
   },
   "credibility": {
-    "withSources": 392,
+    "withSources": 393,
     "withSourcesPct": 100,
-    "footnotes": 252,
+    "footnotes": 258,
     "verifiedFresh": 52,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 81,
-    "citationCoverage": 60,
-    "citationCovered": 49,
+    "substantial": 82,
+    "citationCoverage": 61,
+    "citationCovered": 50,
     "followableCoverage": 100,
     "followableCovered": 26,
     "teachingWithCode": 26,
@@ -136,6 +136,6 @@
   "upstream": {
     "lastReleaseTag": "v2026.8.27",
     "checkedAt": "2026-08-27T12:39:14.444Z",
-    "daysSinceCheck": 2
+    "daysSinceCheck": 3
   }
 }
