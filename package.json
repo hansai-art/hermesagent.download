@@ -21,6 +21,7 @@
     "article-health:strict": "node scripts/tools/article-health.mjs --profile=release-pr",
     "check-links": "node scripts/tools/check-links.mjs",
     "check-internal": "node scripts/tools/check-internal-links.mjs",
+    "check-deps": "node scripts/tools/check-deps.mjs",
     "lint:chars": "node scripts/tools/lint-rendered-chars.mjs",
     "stats": "node scripts/tools/generate-stats.mjs",
     "contributors": "node scripts/core/generate-contributors.mjs",
@@ -42,6 +43,7 @@
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
+    "depcheck": "^1.4.7",
     "husky": "^9.1.7",
     "lint-staged": "^17.1.1",
     "prettier": "^3.5.0",
