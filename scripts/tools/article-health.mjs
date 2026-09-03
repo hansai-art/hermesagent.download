@@ -36,10 +36,21 @@ function buildRouteSet() {
     const rel = relative(KNOWLEDGE, file).replaceAll('\\', '/');
     const parts = rel.split('/');
     if (parts.length < 2) continue;
-    const category = parts[0];
-    const slug = parts.slice(1).join('/').replace(/\.md$/, '');
-    routes.add(`/${category}/`);
-    routes.add(`/${category}/${slug}/`);
+    // 語言前綴:knowledge/en/{category}/{slug}.md → 路由前綴 /en。
+    // 沒處理前綴的話,會把 "en" 當成分類,漏掉 /en/{category}/ 分類索引頁,
+    // 讓連到 /en/install/ 這類 en 分類頁的連結被誤報 404。
+    let prefix = '';
+    let rest = parts;
+    if (parts[0] === 'en') {
+      prefix = '/en';
+      rest = parts.slice(1);
+    }
+    routes.add(`${prefix}/`);
+    if (rest.length < 2) continue;
+    const category = rest[0];
+    const slug = rest.slice(1).join('/').replace(/\.md$/, '');
+    routes.add(`${prefix}/${category}/`);
+    routes.add(`${prefix}/${category}/${slug}/`);
   }
   return routes;
 }
@@ -171,11 +182,29 @@ const checks = [
     return issues;
   },
 
-  // 裸 curl | sh:安裝指令要能看出來源與脈絡
+  // curl | sh 只檢查可執行的 code fence，避免把說明文字或 issue 標題誤報成指令。
+  // 已知官方網域且前後文交代這是官方安裝腳本時，不重複警告。
   function nakedCurlPipe({ content }) {
     const issues = [];
-    content.split('\n').forEach((line, i) => {
-      if (/curl[^|]*\|\s*(sudo\s+)?(ba)?sh\b/.test(line)) {
+    let inFence = false;
+    const lines = content.split('\n');
+    lines.forEach((line, i) => {
+      if (/^\s*```/.test(line)) {
+        inFence = !inFence;
+        return;
+      }
+      if (!inFence || !/curl[^|]*\|\s*(sudo\s+)?(ba)?sh\b/.test(line)) return;
+      const url = line.match(/https?:\/\/[^\s|`]+/)?.[0];
+      let officialSource = false;
+      try {
+        const hostname = new URL(url).hostname;
+        officialSource = ['hermes-agent.nousresearch.com', 'astral.sh'].includes(hostname);
+      } catch {
+        // URL 缺失或格式不正確時，保留警告。
+      }
+      const context = lines.slice(Math.max(0, i - 3), i + 4).join('\n');
+      const explainsExecution = /(?:官方|official).{0,100}(?:安裝|install|script|腳本)|(?:安裝|install).{0,100}(?:官方|official)/i.test(context);
+      if (!officialSource || !explainsExecution) {
         issues.push({
           level: 'WARN',
           msg: `L${i + 1}: curl | sh 一行流——請確認 URL 是官方來源,並在前後文說明它會做什麼`,
@@ -330,8 +359,15 @@ for (const file of targets) {
   }
   scanned++;
 
-  // 每篇的檢查脈絡:字數決定要不要套用「實質文章」等級的規範
-  const charCount = parsed.content.replace(/```[\s\S]*?```/g, '').replace(/\s/g, '').length;
+  // 每篇的檢查脈絡:字數決定要不要套用「實質文章」等級的規範。
+  // 語言感知:中文按「字」計、英文按「字元 ÷ 2.5」計(一個英文字約 2.5 字元),
+  // 讓中英文的「內容量」可比較。純字元數會讓英文(字元多)被引用密度門檻誤判偏嚴——
+  // 忠實翻譯的英文頁腳註數與中文源文相同,長度卻多一倍,不正規化就每篇假警告。
+  const _noCode = parsed.content.replace(/```[\s\S]*?```/g, '');
+  const _CJK = /[　-〿぀-ヿ㐀-鿿豈-﫿＀-￯]/g;
+  const _cjk = (_noCode.match(_CJK) ?? []).length;
+  const _nonCjk = _noCode.replace(_CJK, '').replace(/\s/g, '').length;
+  const charCount = Math.round(_cjk + _nonCjk / 2.5);
   const fileCtx = { ...ctx, charCount, isSubstantial: charCount >= 400 };
 
   // 統計

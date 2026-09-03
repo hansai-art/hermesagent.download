@@ -26,9 +26,13 @@
  *   `<p>**粗體**測試</p>`、`<p>參數 —tui 測試</p>`，四項都必須各自報出來並 exit 1。
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { dirname, join, relative, resolve } from 'node:path';
 
-const root = resolve(dirname(new URL(import.meta.url).pathname), '../..');
+// `URL.pathname` keeps a leading slash before a Windows drive letter (`/C:/…`),
+// which resolves outside the repository. Convert the module URL to a native path
+// before walking up to the repo root.
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const dist = join(root, 'dist');
 
 function walk(dir, hit = []) {
@@ -92,6 +96,10 @@ for (const file of files) {
   for (const m of all.matchAll(/—/g)) {
     if (insideAsciiQuote(all, m.index)) continue; // 上游英文原文，逐字保留
     const window = all.slice(Math.max(0, m.index - 30), m.index + 31);
+    // 只攔「中文語境內」的破折號(對齊本檔開頭第 21 行的判準):破折號前後 30 字
+    // 內完全沒有中文 = 英文句子(含 /en/ 英文頁的正常 em-dash),放行。少了這道
+    // gate,英文頁每個正常 em-dash 都會被誤攔。
+    if (!CJK.test(window)) continue;
     findings['全形破折號（中文語境內，改用全形冒號或逗號）'].push([rel, window.trim()]);
   }
 
@@ -105,7 +113,10 @@ for (const file of files) {
     findings['裸露的 **粗體**（CommonMark 在中文標點旁不認粗體，把 ** 移到引號內側）'].push([rel, m[0]]);
   }
 
-  for (const m of html.matchAll(/[—–]([A-Za-z][\w-]*)/g)) {
+  // 只抓「原本是 --flag 被排版轉換吃成 —flag」的情況:真正的 flag 前面是空白或
+  // 行首(` --tui` → ` —tui`),破折號前不會是字母。英文散文的破折號則是接在字母
+  // 後面(`ago—so`、`key—your`),那是正常的 em-dash,不該誤報成 CLI 參數。
+  for (const m of html.matchAll(/(?<![A-Za-z0-9])[—–]([A-Za-z][\w-]*)/g)) {
     findings['被排版轉換吃掉的 CLI 參數（應為 --flag）'].push([rel, m[0]]);
   }
 

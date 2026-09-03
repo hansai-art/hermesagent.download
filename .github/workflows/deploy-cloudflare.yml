@@ -41,7 +41,10 @@ jobs:
 
       - name: Deploy to Cloudflare Pages
         if: steps.check.outputs.ok == 'true'
-        run: npx wrangler pages deploy dist --project-name=hermesagent --branch=main
+        # wrangler 釘 4.116.0:4.117.0(latest)相依被撤/壞掉的 miniflare
+        # 5.20260730.0-alpha,CI 上 npm 解不到而部署失敗;4.116.0 相依穩定的
+        # miniflare 4.20260730.0。miniflare 的 latest dist-tag 誤指 alpha 修好前先釘住。
+        run: npx wrangler@4.116.0 pages deploy dist --project-name=hermesagent --branch=main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

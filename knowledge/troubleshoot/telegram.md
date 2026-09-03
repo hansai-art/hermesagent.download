@@ -1,6 +1,6 @@
 ---
-title: "Telegram 接 Hermes Agent 的兩個坑"
-description: "指令選單莫名少了幾個、gateway 半夜自己斷線：這兩件事都有明確原因與官方解法，不是你設錯。"
+title: "Telegram 接 Hermes Agent 常遇到的兩個問題"
+description: "指令選單裡少了幾個功能、gateway(讓 bot 收發訊息的那一層)跑一跑自己斷線:這兩件事都不是你設錯,有原因也有解法。"
 date: 2026-07-23
 subcategory: "telegram"
 hermes_version: ">=2026.5"
@@ -14,17 +14,28 @@ tags:
 status: "published"
 ---
 
-Telegram 是最多人拿來接 Hermes Agent 的平台：手機上隨時能丟一句話給它，它在遠端做完再回報。
+先講一下這篇在幹嘛。Hermes Agent 是一個會幫你做事的程式(俗稱 agent,你交代任務、它去執行)。很多人喜歡把它接到 Telegram 這個聊天軟體上。這樣做的好處是:你人在外面,用手機隨手打一句話丟給它,它在遠端的電腦上做完事情,再回訊息告訴你結果。很方便。
 
-但有兩件事會讓你懷疑自己是不是設錯了：**指令選單裡莫名少了幾個 skill**，以及 **gateway 跑一跑就自己斷線**。這兩件事都不是你的錯，而且都有明確解法。
+但接上去之後,有兩件事很容易讓你以為是自己設定錯了:
 
-## 坑一：Telegram 只給 100 個斜線指令
+1. **指令選單裡莫名少了幾個功能**。
+2. **gateway 跑一跑就自己斷線了**。
 
-Telegram 平台對 bot 的斜線指令數量有 **100 個上限**。Hermes 的 skills 會註冊成斜線指令，skills 一多就會超過：超過的部分不會報錯，**就是安靜地不出現**[^1]。
+這裡先解釋一個詞:gateway(閘道,就是讓你的 bot 能在 Telegram 上收發訊息的那一層程式)。你可以把它想成 bot 的「接線生」,訊息進出都要經過它。
 
-所以你會看到：某些 skill 在終端機裡好好的，在 Telegram 卻找不到。
+好消息是:上面這兩件事**都不是你的錯**,而且都有很明確的解法。下面一個一個帶你處理。
 
-**解法**：在 `~/.hermes/config.yaml` 停用這個平台用不到的 skills[^1]:
+## 問題一:Telegram 最多只給 100 個斜線指令
+
+先解釋一下「斜線指令」。在 Telegram 裡,你打一個斜線 `/` 就會跳出一排功能選單,那些以斜線開頭的就叫斜線指令(例如 `/start`)。
+
+Hermes 裡的每個 skill(技能,就是 agent 會的一項本事)接到 Telegram 後,都會變成一個斜線指令。問題來了:Telegram 這個平台規定,一個 bot **最多只能有 100 個斜線指令**。你的 skill 一多,超過 100 個的那些,Telegram **不會跳出任何錯誤訊息,就是安靜地讓它們不出現**[^1]。
+
+所以你會遇到這種怪事:某個 skill 在電腦的終端機(terminal,就是那個黑黑的、可以打指令的視窗)裡明明好好的,一到 Telegram 就找不到。不是壞了,是被擠掉了。
+
+**怎麼解決**:打開設定檔,把這個平台根本用不到的 skill 關掉,把名額讓出來。
+
+設定檔在這個位置:`~/.hermes/config.yaml`。這是一個 YAML 檔(一種給人看、也給程式讀的設定檔格式,靠縮排來分層次)。打開它,加上這幾行[^1]:
 
 ```yaml
 skills:
@@ -32,66 +43,74 @@ skills:
     telegram: [skill-a, skill-b]
 ```
 
-改完**要重啟 gateway** 才會生效。
+上面的 `skill-a`、`skill-b` 換成你想關掉的 skill 名字就好。
 
-**成功判準**：重啟後在 Telegram 輸入 `/`，原本消失的指令回到選單裡。
+改完之後,**一定要重新啟動 gateway**,新設定才會生效。(改了設定不重啟,等於白改。)
 
-**該停用哪些**：挑那些在手機上根本不會用的，需要看大量輸出、需要編輯檔案、需要互動式操作的 skill，留在終端機用就好。
+**怎麼確認成功了**:重啟後,回到 Telegram 打一個 `/`,原本不見的那些指令,應該就乖乖回到選單裡了。
 
-## 坑二：gateway 一直斷線(WSL 使用者)
+**該關掉哪些才好**:挑那些「在手機上根本不會用」的。像是會吐出一大堆文字、需要編輯檔案、需要你來回操作好幾步的 skill,這些留在電腦終端機用比較順手,就別占用 Telegram 的名額了。
 
-如果你在 WSL 裡跑 gateway，而它總是跑一陣子就沒反應，原因很可能是 **systemd 在 WSL 環境不可靠**[^1]。
+## 問題二:gateway 一直自己斷線(用 WSL 的人請看)
 
-這個坑特別討厭的地方在於：你照著一般 Linux 教學設好 systemd service,`systemctl status` 看起來也正常，但實際上重開 WSL 之後它就沒了。
+這一段是給用 WSL 的人看的。WSL 是「Windows 裡面跑 Linux」的一套東西(讓你在 Windows 電腦上,像用 Linux 一樣操作)。
 
-**解法**：不要依賴 systemd，改用前景模式或 tmux 常駐：
+如果你在 WSL 裡跑 gateway,而它每次跑一陣子就沒反應、沒動靜了,原因很可能出在 **systemd 在 WSL 環境裡不太可靠**[^1]。(systemd 是 Linux 上一個負責「在背景幫你把程式一直開著」的管家程式。)
+
+這個坑最討厭的地方是:它會騙你。你照著一般 Linux 教學,把 systemd 設好,叫它幫你顧著 gateway,你打 `systemctl status` 去看狀態,畫面上顯示一切正常。但實際上,只要 WSL 重開一次,這個管家就默默消失了,gateway 也跟著沒了。
+
+**怎麼解決**:別再靠 systemd 了。改用下面兩種方式之一,讓 gateway 自己一直開著。
+
+一種是「前景模式」,就是直接開一個視窗讓它跑著。另一種更推薦,用 tmux。tmux 是一個小工具,它能幫你開一個「不會因為你關掉視窗就跟著關掉」的常駐工作區。指令長這樣:
 
 ```bash
 tmux new -s hermes 'hermes gateway run'
 ```
 
-**成功判準**：關掉終端機視窗再開一個，`tmux ls` 看得到 `hermes` session 還在。
+**怎麼確認成功了**:把現在這個終端機視窗整個關掉,再重新開一個,打 `tmux ls`。如果還看得到那個叫 `hermes` 的 session(工作區),就代表它真的在背景活著,成功了。
 
-要回到那個 session:
+想回到那個工作區看看它在做什麼,打這個:
 
 ```bash
 tmux attach -t hermes
 ```
 
-(離開但不關閉：`Ctrl+B` 然後 `D`)
+看完想離開、但**不要**把它關掉:先按 `Ctrl+B`,放開,再按 `D`。這樣就會退出來,而 gateway 繼續在背景跑。
 
-⚠️ Windows 完全關閉 WSL 或重開機時，tmux session 還是會消失。開機自動啟動需要另外設定 Windows 工作排程器。詳見 [WSL2 安裝教學](/install/wsl2/)。
+⚠️ 提醒一件事:如果你把 WSL 整個關掉,或是電腦重開機,那 tmux 的工作區還是會消失(這是正常的,它撐不過關機)。如果你想要「電腦一開機、gateway 就自動啟動」,那要另外去 Windows 的「工作排程器」設定。詳細做法看這篇 [WSL2 安裝教學](/install/wsl2/)。
 
-## 多人共用要設授權
+## 如果不只你一個人用,一定要設授權
 
-如果你的 bot 不只自己用，務必設定授權：否則任何人找到你的 bot 都能操作你的 agent。
+如果你的 bot 只有你自己用,這段可以先跳過。但只要有第二個人會用,或是 bot 有可能被別人找到,那你**一定要**設授權。
 
-官方訊息閘道支援 allowlist 與 DM 配對，在 `config.yaml` 的 gateway 區塊設定授權模式。
+原因很直接:不設的話,任何人只要找到你的 bot,就能對你的 agent 下指令、叫它做事。等於你家門沒鎖。
 
-> 📝 **這一段缺具體設定範例**:allowlist 的確切 YAML 結構我們還沒整理。
-> 有設定過的人[請補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/telegram.md)：
-> 這關係到安全性，值得寫清楚。
+官方的訊息閘道支援兩種把關方式:allowlist(白名單,就是一份「只有這些人能用」的名單),還有 DM 配對(用私訊來確認身分)。這些都在 `config.yaml` 裡 gateway 那一段設定授權模式。
+
+> 📝 **這一段還缺一個具體範例**:allowlist 到底要怎麼寫、YAML 長什麼樣,我們還沒整理好。
+> 如果你設定過,[歡迎幫忙補上](https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/telegram.md):
+> 這牽涉到安全,值得寫清楚一點。
 
 ## 常見問題
 
-### 從 OpenClaw 搬過來，允許名單要重設嗎？
+### 我從 OpenClaw 搬過來,允許名單要重設嗎?
 
-官方遷移指令會搬 `TELEGRAM_ALLOWED_USERS` 這類相容設定，加 `--migrate-secrets` 時也會搬 `TELEGRAM_BOT_TOKEN`。搬完還是建議自己確認一次。見 [OpenClaw 遷移指南](/migrate/migrate-from-openclaw/)。
+不用從頭設。官方的遷移指令(幫你把舊系統的設定搬到新系統的工具)會自動把 `TELEGRAM_ALLOWED_USERS` 這類相容的設定一起搬過來。如果你在指令後面加上 `--migrate-secrets`,連 `TELEGRAM_BOT_TOKEN`(你的 bot 的通行密碼)也會一起搬。話雖如此,搬完還是建議你自己再確認一次,比較安心。做法看 [OpenClaw 遷移指南](/migrate/migrate-from-openclaw/)。
 
-### 指令選單改了但沒生效？
+### 我改了指令選單,但看起來沒變?
 
-兩個可能：gateway 沒重啟，或是 Telegram 客戶端快取了舊選單。先重啟 gateway，再把 Telegram 對話關掉重開。
+有兩個常見原因。一是 gateway 沒重啟(改設定一定要重啟才算數)。二是 Telegram 這個 App 自己把舊選單記住了(俗稱快取,就是它偷懶沿用舊資料)。處理順序:先重啟 gateway,再把 Telegram 裡那個對話關掉、重新打開一次。
 
-### 不在 WSL 也會斷線？
+### 我沒有用 WSL,也會斷線,為什麼?
 
-那就不是這個原因了。先看 gateway 的執行紀錄，可能是網路或 token 問題。
+那就不是上面講的那個原因了。這時候先去看 gateway 的執行紀錄(log,就是程式一邊跑一邊留下的紀錄,出事通常能從裡面找到線索)。可能是網路不穩,或是 token(通行密碼)有問題。
 
-> 📝 **待補**:gateway 紀錄要去哪裡看，我們還沒整理。歡迎補充。
+> 📝 **這裡待補**:gateway 的執行紀錄到底要去哪裡看,我們還沒整理好,歡迎補充。
 
 ## 下一步
 
-- WSL2 完整設定 → [WSL2 安裝教學](/install/wsl2/)
+- 想把 WSL2 完整設定好 → [WSL2 安裝教學](/install/wsl2/)
 - 從 OpenClaw 搬過來 → [遷移指南](/migrate/migrate-from-openclaw/)
-- 其他問題 → [疑難排解總覽](/troubleshoot/overview/)
+- 其他卡關 → [疑難排解總覽](/troubleshoot/overview/)
 
-[^1]: Nous Research, FAQ：https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)
+[^1]: Nous Research, FAQ:https://hermes-agent.nousresearch.com/docs/reference/faq (2026-07-23 存取)

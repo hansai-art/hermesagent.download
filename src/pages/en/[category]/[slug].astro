@@ -5,16 +5,19 @@ import ArticlePage from '../../../components/ArticlePage.astro';
 export async function getStaticPaths() {
   const SITE = 'https://hermesagent.download';
   const [zh, en] = await Promise.all([getCollection('zh-TW'), getCollection('en')]);
-  const zhIds = new Set(zh.filter((e) => e.data.status !== 'draft').map((e) => e.id));
+  const zhByKey = new Map(
+    zh.filter((e) => e.data.status !== 'draft').map((e) => [e.data.translationKey ?? e.id, e]),
+  );
   return en
     .filter((e) => e.data.status !== 'draft')
     .map((e) => {
       const [category, ...rest] = e.id.split('/');
-      const alternates = zhIds.has(e.id)
+      const zhMatch = zhByKey.get(e.data.translationKey ?? e.id);
+      const alternates = zhMatch
         ? [
-            { hreflang: 'zh-TW', href: `${SITE}/${e.id}/` },
+            { hreflang: 'zh-TW', href: `${SITE}/${zhMatch.id}/` },
             { hreflang: 'en', href: `${SITE}/en/${e.id}/` },
-            { hreflang: 'x-default', href: `${SITE}/${e.id}/` },
+            { hreflang: 'x-default', href: `${SITE}/${zhMatch.id}/` },
           ]
         : [];
       return { params: { category, slug: rest.join('/') }, props: { entry: e, alternates } };

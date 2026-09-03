@@ -22,6 +22,10 @@ const articleSchema = z.object({
   // 是否對搜尋引擎隱藏索引(noindex)。未設時,issues/(上游薄鏡像)預設 noindex,
   // 其餘預設索引。個別文章可覆寫:升級成 canonical 解法後設 false 即可重新索引。
   noindex: z.boolean().optional(),
+  // 跨語言配對鍵。中英兩版 slug 不同時(例:zh 用中文 slug「記憶系統」、
+  // en 用「memory-system」),兩邊填同一個 translationKey 就能配成語言對(hreflang)。
+  // 未填時退回用檔案 id 配對(pilot 頁中英 slug 相同,不需填)。
+  translationKey: z.string().optional(),
   upstream_refs: z.array(z.string().url()).optional().default([]),
   sources: z.array(z.string()).optional().default([]),
   status: z

@@ -7,7 +7,11 @@ const { cloudflareToken, ga4MeasurementId, googleSiteVerification } = ANALYTICS;
 ---
 
 {/* Google Search Console 網站驗證(HTML 標記法) */}
-{googleSiteVerification && <meta name="google-site-verification" content={googleSiteVerification} />}
+{
+  googleSiteVerification && (
+    <meta name="google-site-verification" content={googleSiteVerification} />
+  )
+}
 
 {/* Google Analytics 4 */}
 {
@@ -18,14 +22,16 @@ const { cloudflareToken, ga4MeasurementId, googleSiteVerification } = ANALYTICS;
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}
       />
-      <script is:inline define:vars={{ ga4MeasurementId }}>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', ga4MeasurementId);
-      </script>
+      <script
+        is:inline
+        define:vars={{ ga4MeasurementId }}
+        set:html={`window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
+}
+gtag('js', new Date());
+gtag('config', ga4MeasurementId);`}
+      />
     </>
   )
 }

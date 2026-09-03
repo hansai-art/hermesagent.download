@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-31T10:12:05.618Z",
+  "generatedAt": "2026-09-03T04:44:44.397Z",
   "content": {
-    "total": 375,
+    "total": 393,
     "byStatus": {
-      "published": 375,
-      "archived": 1
+      "published": 393,
+      "archived": 2
     },
     "byCategory": [
       {
@@ -60,14 +60,14 @@
         "slug": "issues",
         "emoji": "🐛",
         "name": "精選 Issue",
-        "count": 307,
+        "count": 306,
         "needsHelp": false
       },
       {
         "slug": "releases",
         "emoji": "📰",
         "name": "版本情報",
-        "count": 5,
+        "count": 6,
         "needsHelp": false
       },
       {
@@ -99,18 +99,18 @@
     ]
   },
   "credibility": {
-    "withSources": 375,
+    "withSources": 393,
     "withSourcesPct": 100,
-    "footnotes": 176,
+    "footnotes": 258,
     "verifiedFresh": 52,
     "verifiedStale": 0,
     "neverVerified": 0,
     "freshnessThresholdDays": 90
   },
   "editorial": {
-    "substantial": 63,
-    "citationCoverage": 92,
-    "citationCovered": 58,
+    "substantial": 82,
+    "citationCoverage": 61,
+    "citationCovered": 50,
     "followableCoverage": 100,
     "followableCovered": 26,
     "teachingWithCode": 26,
@@ -121,21 +121,21 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 79,
-    "lastCommitAt": "2026-07-30T03:39:08Z",
+    "recentCommits30d": 70,
+    "lastCommitAt": "2026-09-02T04:47:53Z",
     "top": [
       {
         "login": "hansai-art",
         "avatar": "https://avatars.githubusercontent.com/u/132933660?v=4",
         "url": "https://github.com/hansai-art",
-        "contributions": 71,
-        "articleCount": 370
+        "contributions": 113,
+        "articleCount": 390
       }
     ]
   },
   "upstream": {
-    "lastReleaseTag": "v2026.7.30",
-    "checkedAt": "2026-07-31T05:40:26.913Z",
-    "daysSinceCheck": 0
+    "lastReleaseTag": "v2026.8.31",
+    "checkedAt": "2026-09-01T07:34:24.286Z",
+    "daysSinceCheck": 1
   }
 }

@@ -20,15 +20,15 @@
 
 | 指標 | 數字 |
 |---|---|
-| 📄 文章總數 | 375 |
-| ✅ 已發布 | 374 |
+| 📄 文章總數 | 395 |
+| ✅ 已發布 | 393 |
 | 🔗 有官方來源 | 100% |
 | 🔍 近期實測驗證 | 52 |
 | 👥 貢獻者 | 1 |
 | ⭐ GitHub Stars | 0 |
-| 🔨 近 30 天更新 | 79 |
+| 🔨 近 30 天更新 | 70 |
 
-<sub>每日自動更新.最後更新 2026-07-31.原始資料:[/api/stats.json](https://hermesagent.download/api/stats.json)</sub>
+<sub>每日自動更新.最後更新 2026-09-03.原始資料:[/api/stats.json](https://hermesagent.download/api/stats.json)</sub>
 
 <!-- STATS:END -->
 
