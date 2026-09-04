@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T04:44:44.685Z",
+  "generatedAt": "2026-09-04T04:47:16.036Z",
   "total": 395,
   "published": 393,
   "byStatus": {
@@ -21,7 +21,7 @@
     "about": 1,
     "community": 1
   },
-  "articlesLast7Days": 1,
+  "articlesLast7Days": 0,
   "articlesLast30Days": 1,
   "contributors": 1,
   "stars": 0,
