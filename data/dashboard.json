@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T04:47:15.749Z",
+  "generatedAt": "2026-09-05T04:41:24.445Z",
   "content": {
     "total": 393,
     "byStatus": {
@@ -122,7 +122,7 @@
     "stars": 0,
     "forks": 0,
     "recentCommits30d": 70,
-    "lastCommitAt": "2026-09-03T10:49:03Z",
+    "lastCommitAt": "2026-09-04T04:47:16Z",
     "top": [
       {
         "login": "hansai-art",
@@ -136,6 +136,6 @@
   "upstream": {
     "lastReleaseTag": "v2026.8.31",
     "checkedAt": "2026-09-01T07:34:24.286Z",
-    "daysSinceCheck": 2
+    "daysSinceCheck": 3
   }
 }
