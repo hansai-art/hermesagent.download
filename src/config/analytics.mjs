@@ -18,5 +18,5 @@ export const ANALYTICS = {
   // Google Search Console：用「HTML 標記」驗證法時貼上 content 值
   // (search.google.com/search-console → 新增資源 → HTML 標記 → 複製 content=" " 裡的字串)
   // 若改用 DNS TXT 驗證(在 aexers 的 Cloudflare DNS 加一筆)，這裡留空即可。
-  googleSiteVerification: '',
+  googleSiteVerification: 'JU8YSz9EFejJYMYmxCv_F0jl3BNi-Kcq-SloLUj8MfA',
 };

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T04:53:26.660Z",
+  "generatedAt": "2026-09-08T08:09:06.178Z",
   "content": {
     "total": 393,
     "byStatus": {
@@ -134,8 +134,8 @@
     ]
   },
   "upstream": {
-    "lastReleaseTag": "v2026.8.31",
-    "checkedAt": "2026-09-01T07:34:24.286Z",
-    "daysSinceCheck": 6
+    "lastReleaseTag": "v2026.9.7",
+    "checkedAt": "2026-09-08T07:06:29.725Z",
+    "daysSinceCheck": 0
   }
 }
