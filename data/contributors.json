@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T05:10:17.822Z",
+  "generatedAt": "2026-09-15T05:04:12.003Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2359,11 +2359,11 @@
   ],
   "activity": {
     "recentCommits30d": 72,
-    "lastCommitAt": "2026-09-13T05:00:39Z"
+    "lastCommitAt": "2026-09-14T05:10:18Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 17,
+  "openIssues": 18,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 15209,
+        "contributions": 15305,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "OutThisLife",
         "avatar": "https://avatars.githubusercontent.com/u/770929?v=4",
         "url": "https://github.com/OutThisLife",
-        "contributions": 3428,
+        "contributions": 3431,
         "name": "brooklyn!",
         "bio": null,
         "blog": "https://brooklyn.sh/",
@@ -2394,7 +2394,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 2328,
+        "contributions": 2378,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2405,7 +2405,7 @@
         "login": "ethernet8023",
         "avatar": "https://avatars.githubusercontent.com/u/666465?v=4",
         "url": "https://github.com/ethernet8023",
-        "contributions": 561,
+        "contributions": 562,
         "name": "ethernet",
         "bio": "hii im a gal who writes code for computer. i make llms, pretty websites, 3d graphics, games, distributed systems, crypto, hardware, and a billion more things",
         "blog": "https://ethernet.computer",
@@ -2438,7 +2438,7 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 283,
+        "contributions": 287,
         "name": "liuhao1024",
         "bio": null,
         "blog": null,
@@ -2449,7 +2449,7 @@
         "login": "xxxigm",
         "avatar": "https://avatars.githubusercontent.com/u/54813621?v=4",
         "url": "https://github.com/xxxigm",
-        "contributions": 253,
+        "contributions": 255,
         "name": null,
         "bio": "I am constantly pushing myself to work harder and improve my skills every day.",
         "blog": null,
@@ -2482,7 +2482,7 @@
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
-        "contributions": 210,
+        "contributions": 215,
         "name": "Siddharth Balyan",
         "bio": "i like to build things.\r\nsometimes they break.\r\nother times they break other things.",
         "blog": "https://sidb.in",
@@ -2526,7 +2526,7 @@
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 177,
+        "contributions": 179,
         "name": null,
         "bio": "私は時々物を壊すのが好きで、時々物を建てるのが好きだ。",
         "blog": "https://www.linkedin.com/in/joao-marcos-dias-barros-a99362217",
@@ -2559,7 +2559,7 @@
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 126,
+        "contributions": 133,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
@@ -2567,11 +2567,11 @@
         "location": "Michigan"
       },
       {
-        "login": "LeonSGP43",
-        "avatar": "https://avatars.githubusercontent.com/u/154585401?v=4",
-        "url": "https://github.com/LeonSGP43",
-        "contributions": 103,
-        "name": "LeonSGP",
+        "login": "yoniebans",
+        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
+        "url": "https://github.com/yoniebans",
+        "contributions": 106,
+        "name": "jonny",
         "bio": null,
         "blog": null,
         "company": null,
@@ -2581,7 +2581,7 @@
         "login": "victor-kyriazakos",
         "avatar": "https://avatars.githubusercontent.com/u/93273468?v=4",
         "url": "https://github.com/victor-kyriazakos",
-        "contributions": 100,
+        "contributions": 106,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2589,11 +2589,11 @@
         "location": null
       },
       {
-        "login": "yoniebans",
-        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
-        "url": "https://github.com/yoniebans",
-        "contributions": 97,
-        "name": "jonny",
+        "login": "LeonSGP43",
+        "avatar": "https://avatars.githubusercontent.com/u/154585401?v=4",
+        "url": "https://github.com/LeonSGP43",
+        "contributions": 103,
+        "name": "LeonSGP",
         "bio": null,
         "blog": null,
         "company": null,
@@ -2647,7 +2647,7 @@
         "login": "webtecnica",
         "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
         "url": "https://github.com/webtecnica",
-        "contributions": 64,
+        "contributions": 65,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2666,12 +2666,12 @@
         "location": null
       },
       {
-        "login": "konsisumer",
-        "avatar": "https://avatars.githubusercontent.com/u/11262660?v=4",
-        "url": "https://github.com/konsisumer",
-        "contributions": 58,
+        "login": "Adolanium",
+        "avatar": "https://avatars.githubusercontent.com/u/94890352?v=4",
+        "url": "https://github.com/Adolanium",
+        "contributions": 60,
         "name": null,
-        "bio": null,
+        "bio": "Here be Dragons.",
         "blog": null,
         "company": null,
         "location": null
@@ -2686,6 +2686,17 @@
         "blog": null,
         "company": null,
         "location": "New York"
+      },
+      {
+        "login": "konsisumer",
+        "avatar": "https://avatars.githubusercontent.com/u/11262660?v=4",
+        "url": "https://github.com/konsisumer",
+        "contributions": 58,
+        "name": null,
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
       },
       {
         "login": "Bartok9",
@@ -2732,17 +2743,6 @@
         "location": null
       },
       {
-        "login": "Adolanium",
-        "avatar": "https://avatars.githubusercontent.com/u/94890352?v=4",
-        "url": "https://github.com/Adolanium",
-        "contributions": 41,
-        "name": null,
-        "bio": "Here be Dragons.",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "srojk34",
         "avatar": "https://avatars.githubusercontent.com/u/286497132?v=4",
         "url": "https://github.com/srojk34",
@@ -2781,7 +2781,18 @@
         "url": "https://github.com/wesleysimplicio",
         "contributions": 40,
         "name": "Wesley Simplicio",
-        "bio": "Working..",
+        "bio": "Software Engineer and founder at SimpleTI. Building Simplicio MCP — https://simpleti.com.br/simplicio. Open source: simplicio-loop. Real tools, real metrics.",
+        "blog": "https://simpleti.com.br/simplicio",
+        "company": "SimpleTI",
+        "location": "Guarulhos, SP, Brazil"
+      },
+      {
+        "login": "sprmn24",
+        "avatar": "https://avatars.githubusercontent.com/u/164800352?v=4",
+        "url": "https://github.com/sprmn24",
+        "contributions": 39,
+        "name": "sprmn",
+        "bio": "Measure twice, cut once.",
         "blog": null,
         "company": null,
         "location": null
@@ -2796,17 +2807,6 @@
         "blog": null,
         "company": "Avegen",
         "location": "Pune"
-      },
-      {
-        "login": "sprmn24",
-        "avatar": "https://avatars.githubusercontent.com/u/164800352?v=4",
-        "url": "https://github.com/sprmn24",
-        "contributions": 39,
-        "name": "sprmn",
-        "bio": "Measure twice, cut once.",
-        "blog": null,
-        "company": null,
-        "location": null
       }
     ]
   }
