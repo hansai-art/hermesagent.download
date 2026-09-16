@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T05:04:12.003Z",
+  "generatedAt": "2026-09-16T04:59:36.589Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2359,11 +2359,11 @@
   ],
   "activity": {
     "recentCommits30d": 72,
-    "lastCommitAt": "2026-09-14T05:10:18Z"
+    "lastCommitAt": "2026-09-15T07:29:25Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 18,
+  "openIssues": 19,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 15305,
+        "contributions": 15821,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "OutThisLife",
         "avatar": "https://avatars.githubusercontent.com/u/770929?v=4",
         "url": "https://github.com/OutThisLife",
-        "contributions": 3431,
+        "contributions": 3438,
         "name": "brooklyn!",
         "bio": null,
         "blog": "https://brooklyn.sh/",
@@ -2394,7 +2394,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 2378,
+        "contributions": 2493,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2438,8 +2438,19 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 287,
+        "contributions": 306,
         "name": "liuhao1024",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "fangliquanflq",
+        "avatar": "https://avatars.githubusercontent.com/u/280272527?v=4",
+        "url": "https://github.com/fangliquanflq",
+        "contributions": 258,
+        "name": null,
         "bio": null,
         "blog": null,
         "company": null,
@@ -2468,17 +2479,6 @@
         "location": "NYC"
       },
       {
-        "login": "fangliquanflq",
-        "avatar": "https://avatars.githubusercontent.com/u/280272527?v=4",
-        "url": "https://github.com/fangliquanflq",
-        "contributions": 243,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
@@ -2501,6 +2501,17 @@
         "location": null
       },
       {
+        "login": "austinpickett",
+        "avatar": "https://avatars.githubusercontent.com/u/260188?v=4",
+        "url": "https://github.com/austinpickett",
+        "contributions": 195,
+        "name": "Austin Pickett",
+        "bio": null,
+        "blog": "https://www.austinkpickett.com",
+        "company": "Operating System",
+        "location": "127.0.0.1"
+      },
+      {
         "login": "HexLab98",
         "avatar": "https://avatars.githubusercontent.com/u/8422520?v=4",
         "url": "https://github.com/HexLab98",
@@ -2512,37 +2523,15 @@
         "location": null
       },
       {
-        "login": "austinpickett",
-        "avatar": "https://avatars.githubusercontent.com/u/260188?v=4",
-        "url": "https://github.com/austinpickett",
-        "contributions": 190,
-        "name": "Austin Pickett",
-        "bio": null,
-        "blog": "https://www.austinkpickett.com",
-        "company": "Operating System",
-        "location": "127.0.0.1"
-      },
-      {
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 179,
+        "contributions": 181,
         "name": null,
         "bio": "私は時々物を壊すのが好きで、時々物を建てるのが好きだ。",
         "blog": "https://www.linkedin.com/in/joao-marcos-dias-barros-a99362217",
         "company": null,
         "location": "Brazil-Fortaleza"
-      },
-      {
-        "login": "afourniernv",
-        "avatar": "https://avatars.githubusercontent.com/u/254985780?v=4",
-        "url": "https://github.com/afourniernv",
-        "contributions": 142,
-        "name": "Alex Fournier",
-        "bio": "NV AgenticAI SA",
-        "blog": null,
-        "company": "NVIDIA",
-        "location": null
       },
       {
         "login": "briandevans",
@@ -2556,6 +2545,17 @@
         "location": null
       },
       {
+        "login": "afourniernv",
+        "avatar": "https://avatars.githubusercontent.com/u/254985780?v=4",
+        "url": "https://github.com/afourniernv",
+        "contributions": 142,
+        "name": "Alex Fournier",
+        "bio": "NV AgenticAI SA",
+        "blog": null,
+        "company": "NVIDIA",
+        "location": null
+      },
+      {
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
@@ -2565,6 +2565,17 @@
         "blog": "http://jeffq.com",
         "company": null,
         "location": "Michigan"
+      },
+      {
+        "login": "KoNit-K",
+        "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
+        "url": "https://github.com/KoNit-K",
+        "contributions": 121,
+        "name": "KoNit.",
+        "bio": "Life changes because of your actions and movement.",
+        "blog": null,
+        "company": null,
+        "location": "Remote"
       },
       {
         "login": "yoniebans",
@@ -2625,7 +2636,7 @@
         "login": "DavidMetcalfe",
         "avatar": "https://avatars.githubusercontent.com/u/80915?v=4",
         "url": "https://github.com/DavidMetcalfe",
-        "contributions": 72,
+        "contributions": 77,
         "name": "David Metcalfe",
         "bio": "Improving employee productivity by automating processes and enhancing tools. Often found hovering at the intersection of design and technology.",
         "blog": null,
@@ -2647,7 +2658,7 @@
         "login": "webtecnica",
         "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
         "url": "https://github.com/webtecnica",
-        "contributions": 65,
+        "contributions": 66,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2666,6 +2677,17 @@
         "location": null
       },
       {
+        "login": "chelsealong",
+        "avatar": "https://avatars.githubusercontent.com/u/14966750?v=4",
+        "url": "https://github.com/chelsealong",
+        "contributions": 61,
+        "name": "Jialong(Bruce) Li",
+        "bio": "Jialong Li\r\nAI Engineer in finance",
+        "blog": null,
+        "company": null,
+        "location": "New York"
+      },
+      {
         "login": "Adolanium",
         "avatar": "https://avatars.githubusercontent.com/u/94890352?v=4",
         "url": "https://github.com/Adolanium",
@@ -2675,17 +2697,6 @@
         "blog": null,
         "company": null,
         "location": null
-      },
-      {
-        "login": "chelsealong",
-        "avatar": "https://avatars.githubusercontent.com/u/14966750?v=4",
-        "url": "https://github.com/chelsealong",
-        "contributions": 58,
-        "name": "Jialong(Bruce) Li",
-        "bio": "Jialong Li\r\nAI Engineer in finance",
-        "blog": null,
-        "company": null,
-        "location": "New York"
       },
       {
         "login": "konsisumer",
@@ -2743,23 +2754,23 @@
         "location": null
       },
       {
-        "login": "srojk34",
-        "avatar": "https://avatars.githubusercontent.com/u/286497132?v=4",
-        "url": "https://github.com/srojk34",
-        "contributions": 41,
-        "name": "İsco",
-        "bio": "AI Explorer 🕵🏻‍♂️",
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "necoweb3",
         "avatar": "https://avatars.githubusercontent.com/u/65560494?v=4",
         "url": "https://github.com/necoweb3",
         "contributions": 41,
         "name": "neco",
         "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
+        "login": "srojk34",
+        "avatar": "https://avatars.githubusercontent.com/u/286497132?v=4",
+        "url": "https://github.com/srojk34",
+        "contributions": 41,
+        "name": "İsco",
+        "bio": "AI Explorer 🕵🏻‍♂️",
         "blog": null,
         "company": null,
         "location": null
@@ -2785,17 +2796,6 @@
         "blog": "https://simpleti.com.br/simplicio",
         "company": "SimpleTI",
         "location": "Guarulhos, SP, Brazil"
-      },
-      {
-        "login": "sprmn24",
-        "avatar": "https://avatars.githubusercontent.com/u/164800352?v=4",
-        "url": "https://github.com/sprmn24",
-        "contributions": 39,
-        "name": "sprmn",
-        "bio": "Measure twice, cut once.",
-        "blog": null,
-        "company": null,
-        "location": null
       },
       {
         "login": "PRATHAMESH75",
