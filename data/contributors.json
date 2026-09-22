@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T05:09:28.424Z",
+  "generatedAt": "2026-09-22T05:10:40.676Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2359,11 +2359,11 @@
   ],
   "activity": {
     "recentCommits30d": 69,
-    "lastCommitAt": "2026-09-20T05:03:41Z"
+    "lastCommitAt": "2026-09-21T05:09:28Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 19,
+  "openIssues": 20,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 17785,
+        "contributions": 17904,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "OutThisLife",
         "avatar": "https://avatars.githubusercontent.com/u/770929?v=4",
         "url": "https://github.com/OutThisLife",
-        "contributions": 3520,
+        "contributions": 3534,
         "name": "brooklyn!",
         "bio": null,
         "blog": "https://brooklyn.sh/",
@@ -2394,7 +2394,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 2942,
+        "contributions": 3026,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2427,7 +2427,7 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 406,
+        "contributions": 407,
         "name": "liuhao1024",
         "bio": null,
         "blog": null,
@@ -2438,7 +2438,7 @@
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 347,
+        "contributions": 350,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2460,7 +2460,7 @@
         "login": "xxxigm",
         "avatar": "https://avatars.githubusercontent.com/u/54813621?v=4",
         "url": "https://github.com/xxxigm",
-        "contributions": 266,
+        "contributions": 268,
         "name": null,
         "bio": "I am constantly pushing myself to work harder and improve my skills every day.",
         "blog": null,
@@ -2482,7 +2482,7 @@
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
-        "contributions": 220,
+        "contributions": 221,
         "name": "Siddharth Balyan",
         "bio": "i like to build things.\r\nsometimes they break.\r\nother times they break other things.",
         "blog": "https://sidb.in",
@@ -2490,21 +2490,10 @@
         "location": "In front of a terminal"
       },
       {
-        "login": "KoNit-K",
-        "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
-        "url": "https://github.com/KoNit-K",
-        "contributions": 215,
-        "name": "KoNit.",
-        "bio": "Life changes because of your actions and movement.",
-        "blog": null,
-        "company": null,
-        "location": "Remote"
-      },
-      {
         "login": "austinpickett",
         "avatar": "https://avatars.githubusercontent.com/u/260188?v=4",
         "url": "https://github.com/austinpickett",
-        "contributions": 212,
+        "contributions": 220,
         "name": "Austin Pickett",
         "bio": null,
         "blog": "https://www.austinkpickett.com",
@@ -2512,10 +2501,21 @@
         "location": "127.0.0.1"
       },
       {
+        "login": "KoNit-K",
+        "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
+        "url": "https://github.com/KoNit-K",
+        "contributions": 219,
+        "name": "KoNit.",
+        "bio": "Life changes because of your actions and movement.",
+        "blog": null,
+        "company": null,
+        "location": "Remote"
+      },
+      {
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 208,
+        "contributions": 209,
         "name": null,
         "bio": "私は時々物を壊すのが好きで、時々物を建てるのが好きだ。",
         "blog": "https://www.linkedin.com/in/joao-marcos-dias-barros-a99362217",
@@ -2556,6 +2556,17 @@
         "location": null
       },
       {
+        "login": "jquesnelle",
+        "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
+        "url": "https://github.com/jquesnelle",
+        "contributions": 142,
+        "name": "Jeffrey Quesnelle",
+        "bio": "Co-Founder/CTO, Nous Research",
+        "blog": "http://jeffq.com",
+        "company": null,
+        "location": "Michigan"
+      },
+      {
         "login": "afourniernv",
         "avatar": "https://avatars.githubusercontent.com/u/254985780?v=4",
         "url": "https://github.com/afourniernv",
@@ -2565,17 +2576,6 @@
         "blog": null,
         "company": "NVIDIA",
         "location": null
-      },
-      {
-        "login": "jquesnelle",
-        "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
-        "url": "https://github.com/jquesnelle",
-        "contributions": 140,
-        "name": "Jeffrey Quesnelle",
-        "bio": "Co-Founder/CTO, Nous Research",
-        "blog": "http://jeffq.com",
-        "company": null,
-        "location": "Michigan"
       },
       {
         "login": "yoniebans",
@@ -2614,7 +2614,7 @@
         "login": "chelsealong",
         "avatar": "https://avatars.githubusercontent.com/u/14966750?v=4",
         "url": "https://github.com/chelsealong",
-        "contributions": 88,
+        "contributions": 89,
         "name": "Jialong(Bruce) Li",
         "bio": "Jialong Li\r\nAI Engineer in finance",
         "blog": null,
@@ -2702,7 +2702,7 @@
         "login": "Finn763",
         "avatar": "https://avatars.githubusercontent.com/u/165816600?v=4",
         "url": "https://github.com/Finn763",
-        "contributions": 67,
+        "contributions": 68,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2769,8 +2769,8 @@
         "avatar": "https://avatars.githubusercontent.com/u/130889443?v=4",
         "url": "https://github.com/ehz0ah",
         "contributions": 51,
-        "name": "Hao Zhe",
-        "bio": "SWE @ TikTok | CEG @ NUS",
+        "name": "z1gon",
+        "bio": "hopping my way downtown",
         "blog": null,
         "company": "National University of Singapore",
         "location": "Singapore"
