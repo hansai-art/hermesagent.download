@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T05:36:29.447Z",
+  "generatedAt": "2026-09-29T05:54:05.741Z",
   "total": 395,
   "published": 393,
   "byStatus": {
@@ -26,7 +26,7 @@
   "contributors": 1,
   "stars": 0,
   "forks": 0,
-  "commitsLast30Days": 71,
+  "commitsLast30Days": 38,
   "sourceCoveragePct": 100,
   "verifiedFresh": 52
 }
