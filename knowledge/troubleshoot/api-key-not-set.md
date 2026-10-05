@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - 'auth'
   - 'troubleshoot'
-status: 'published'
+status: "outdated"
 ---
 
 先解釋一個詞。這篇一直會講到 **API key**(以下就叫「key」):它是一串像密碼的字,讓 Hermes 能用你在某家 AI 公司開的帳號。還有一個詞是**供應商**(provider,就是提供 AI 模型的公司,例如 OpenAI、OpenRouter、Anthropic)。你要先在某家供應商那邊申請一把 key,再把它填給 Hermes。

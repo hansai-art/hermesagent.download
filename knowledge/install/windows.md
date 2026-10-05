@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - 'windows'
   - 'install'
-status: 'published'
+status: "outdated"
 ---
 
 Hermes Agent 是一個可以幫你做事的 AI 助手程式。在 Windows 上,它有三種安裝方法。

@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "download"
   - "install"
-status: "published"
+status: "outdated"
 ---
 
 Hermes Agent 有五種裝法。選錯了不會裝不起來，但會在之後某個時刻讓你覺得綁手綁腳：例如你想接自動化腳本時才發現桌面版做不到，或者你在筆電上裝好了才想到它應該要 24 小時待命。

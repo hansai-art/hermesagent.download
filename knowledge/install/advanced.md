@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "advanced"
   - "deploy"
-status: "published"
+status: "outdated"
 ---
 
 一旦你開始把 Hermes 接上 Telegram 或排程任務，就會撞到一個現實：**你的筆電會關機**。

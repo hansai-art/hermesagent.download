@@ -11,7 +11,7 @@ upstream_refs:
 tags:
   - "telegram"
   - "troubleshoot"
-status: "published"
+status: "outdated"
 ---
 
 先講一下這篇在幹嘛。Hermes Agent 是一個會幫你做事的程式(俗稱 agent,你交代任務、它去執行)。很多人喜歡把它接到 Telegram 這個聊天軟體上。這樣做的好處是:你人在外面,用手機隨手打一句話丟給它,它在遠端的電腦上做完事情,再回訊息告訴你結果。很方便。

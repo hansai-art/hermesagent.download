@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - 'linux'
   - 'install'
-status: 'published'
+status: "outdated"
 ---
 
 Linux 上裝 Hermes Agent 只需要一行指令。但如果你少了前置套件，它會失敗得很莫名其妙：中途噴一段解壓縮錯誤然後停住，訊息不會告訴你缺的是 `xz-utils`。

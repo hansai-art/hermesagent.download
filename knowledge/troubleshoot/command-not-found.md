@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - 'install'
   - 'troubleshoot'
-status: 'published'
+status: "outdated"
 ---
 
 安裝程式跑完了,畫面看起來一切正常。你很興奮地在終端機(就是那個黑黑的、要打字下指令的視窗)裡打了 `hermes`,結果冒出這一行:

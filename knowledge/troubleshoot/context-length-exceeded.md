@@ -11,7 +11,7 @@ upstream_refs:
 tags:
   - 'runtime'
   - 'troubleshoot'
-status: 'published'
+status: "outdated"
 ---
 
 想像你正在做一件事做到一半。你的 agent(就是這個會幫你做事的 AI 助手)讀了幾個檔案、幫你跑了幾個小工具、你們一來一往聊了二十幾輪。然後它突然冒出一句:

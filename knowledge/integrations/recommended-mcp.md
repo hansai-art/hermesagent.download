@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "mcp"
   - "integrations"
-status: "published"
+status: "outdated"
 ---
 
 先講兩個名詞,後面會一直用到。

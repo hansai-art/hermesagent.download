@@ -13,7 +13,7 @@ tags:
   - "windows"
   - "wsl2"
   - "install"
-status: "published"
+status: "outdated"
 ---
 
 在 WSL2 裡裝 Hermes Agent，安裝本身跟 Linux 一模一樣：一行指令就完事。

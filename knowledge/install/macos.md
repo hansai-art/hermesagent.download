@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "macos"
   - "install"
-status: "published"
+status: "outdated"
 ---
 
 你在官網看到 Hermes Agent,想裝來玩玩看。結果一打開才發現:有桌面版、有指令版,還有一長串看不懂的「相依套件」(就是這個軟體要靠別的軟體才能跑,那些別的軟體就叫相依套件)。別慌。這篇會告訴你該選哪一種,而且每做完一步,都會告訴你「怎麼確認自己做對了」。

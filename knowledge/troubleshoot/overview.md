@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "overview"
   - "troubleshoot"
-status: "published"
+status: "outdated"
 ---
 
 出錯的時候,大家最常做、也最浪費時間的一件事,就是:看到一句錯誤訊息,立刻把它貼到 Google 搜,然後照著網路上找到的解法一個一個亂試。

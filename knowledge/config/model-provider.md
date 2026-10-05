@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - 'provider'
   - 'config'
-status: 'published'
+status: "outdated"
 ---
 
 Hermes Agent 裝好之後,其實還不能馬上用。

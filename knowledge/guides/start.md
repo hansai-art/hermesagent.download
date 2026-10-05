@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "onboarding"
   - "guides"
-status: "published"
+status: "outdated"
 ---
 
 第一次裝 AI agent 最容易卡住的地方，不是某個步驟太難，而是**不知道自己現在在哪一步、下一步該做什麼**。裝完了嗎？為什麼打指令沒反應？要先設模型還是先接平台？
