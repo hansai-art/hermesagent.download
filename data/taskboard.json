@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-05T05:56:47.681Z",
+  "generatedAt": "2026-10-06T06:35:00.868Z",
   "counts": {
-    "gaps": 3,
+    "gaps": 6,
     "verify": 12,
     "cite": 0,
     "drafts": 0
@@ -25,6 +25,30 @@
     },
     {
       "type": "gap",
+      "category": "install",
+      "emoji": "🖥️",
+      "title": "安裝部署:目前只有 2 篇",
+      "hint": "macOS、Windows、Linux、WSL2、Docker、Serverless 的安裝與部署指南",
+      "url": "/install/"
+    },
+    {
+      "type": "gap",
+      "category": "config",
+      "emoji": "⚙️",
+      "title": "模型與 API 設定:目前只有 2 篇",
+      "hint": "OpenRouter、Anthropic、Gemini、Ollama 與本地模型的設定教學",
+      "url": "/config/"
+    },
+    {
+      "type": "gap",
+      "category": "integrations",
+      "emoji": "🔌",
+      "title": "生態整合:目前只有 2 篇",
+      "hint": "Telegram、Slack、MCP 與其他平台的整合方式",
+      "url": "/integrations/"
+    },
+    {
+      "type": "gap",
       "category": "migrate",
       "emoji": "🔄",
       "title": "遷移指南:目前只有 2 篇",
@@ -35,123 +59,123 @@
   "verify": [
     {
       "type": "verify",
-      "category": "config",
-      "emoji": "⚙️",
-      "title": "設定模型供應商和 API key:新手一步步教學",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/config/model-provider/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/model-provider.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "使用方式（school-01）",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-01/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-01.md"
     },
     {
       "type": "verify",
       "category": "guides",
       "emoji": "📖",
-      "title": "新手路線：從零到跑起來",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/guides/start/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/start.md"
+      "title": "改完 tool / plugin / config 不知道要不要 reset（school-04）",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-04/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-04.md"
     },
     {
       "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "進階部署：Docker、無伺服器、遠端",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/install/advanced/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/advanced.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Skill 同步殘留與格式錯誤（school-05）",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-05/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-05.md"
     },
     {
       "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "該選哪一種安裝方式",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/install/download/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/download.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 05：第一次驗證後仍未滿足系統要求",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-06/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-06.md"
     },
     {
       "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "在 Linux 上安裝 Hermes Agent",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/install/linux/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/linux.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 06：任務中途 interruption 後沒有立即收尾",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-07/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-07.md"
     },
     {
       "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "第一次在 Mac 上安裝 Hermes Agent",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/install/macos/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/macos.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "長 session 與 MCP 太肥導致越用越慢（school-08）",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-08/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-08.md"
     },
     {
       "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "在 Windows 上安裝 Hermes Agent(新手手把手版)",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/install/windows/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/windows.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 08：表格使用裸 HTML 而非 Gutenberg block",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-09/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-09.md"
     },
     {
       "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "在 WSL2 上安裝 Hermes Agent",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/install/wsl2/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/wsl2.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 09：FAQ 看起來像 FAQ，但不是外掛可辨識格式",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-10/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-10.md"
     },
     {
       "type": "verify",
-      "category": "integrations",
-      "emoji": "🔌",
-      "title": "新手先接哪些 MCP?一份挑選清單",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/integrations/recommended-mcp/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/integrations/recommended-mcp.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 10：SEO 有做但沒有命中外掛檢查點",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-11/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-11.md"
     },
     {
       "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "看到「API key not set」或說 key 無效?這樣一步步查",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/troubleshoot/api-key-not-set/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/api-key-not-set.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 11：首頁圖片更新被過度推論",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-12/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-12.md"
     },
     {
       "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "打 hermes 卻說「找不到指令」?別急,三十秒解決",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/troubleshoot/command-not-found/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/command-not-found.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 12：先說 image generation 做得到，後來才承認 session 不行",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-13/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-13.md"
     },
     {
       "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "看到 context length exceeded 怎麼辦",
-      "hint": "最後實測 93 天前",
-      "days": 93,
-      "url": "/troubleshoot/context-length-exceeded/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/context-length-exceeded.md"
+      "category": "guides",
+      "emoji": "📖",
+      "title": "Case 13：太晚說明 `/reset` 才會生效",
+      "hint": "最後實測 83 天前",
+      "days": 83,
+      "url": "/guides/school-14/",
+      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-14.md"
     }
   ],
   "cite": [],
