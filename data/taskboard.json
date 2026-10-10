@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:22:48.381Z",
+  "generatedAt": "2026-10-10T06:04:37.448Z",
   "counts": {
     "gaps": 6,
     "verify": 12,
@@ -62,8 +62,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "使用方式（school-01）",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-01/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-01.md"
     },
@@ -72,8 +72,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "改完 tool / plugin / config 不知道要不要 reset（school-04）",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-04/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-04.md"
     },
@@ -82,8 +82,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Skill 同步殘留與格式錯誤（school-05）",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-05/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-05.md"
     },
@@ -92,8 +92,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 05：第一次驗證後仍未滿足系統要求",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-06/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-06.md"
     },
@@ -102,8 +102,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 06：任務中途 interruption 後沒有立即收尾",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-07/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-07.md"
     },
@@ -112,8 +112,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "長 session 與 MCP 太肥導致越用越慢（school-08）",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-08/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-08.md"
     },
@@ -122,8 +122,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 08：表格使用裸 HTML 而非 Gutenberg block",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-09/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-09.md"
     },
@@ -132,8 +132,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 09：FAQ 看起來像 FAQ，但不是外掛可辨識格式",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-10/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-10.md"
     },
@@ -142,8 +142,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 10：SEO 有做但沒有命中外掛檢查點",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-11/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-11.md"
     },
@@ -152,8 +152,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 11：首頁圖片更新被過度推論",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-12/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-12.md"
     },
@@ -162,8 +162,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 12：先說 image generation 做得到，後來才承認 session 不行",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-13/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-13.md"
     },
@@ -172,8 +172,8 @@
       "category": "guides",
       "emoji": "📖",
       "title": "Case 13：太晚說明 `/reset` 才會生效",
-      "hint": "最後實測 86 天前",
-      "days": 86,
+      "hint": "最後實測 87 天前",
+      "days": 87,
       "url": "/guides/school-14/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/guides/school-14.md"
     }

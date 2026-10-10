@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:22:48.188Z",
+  "generatedAt": "2026-10-10T06:04:37.129Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2358,12 +2358,12 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 34,
-    "lastCommitAt": "2026-10-08T06:21:50Z"
+    "recentCommits30d": 35,
+    "lastCommitAt": "2026-10-09T08:45:23Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 25,
+  "openIssues": 26,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 20321,
+        "contributions": 20389,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2405,7 +2405,7 @@
         "login": "ethernet8023",
         "avatar": "https://avatars.githubusercontent.com/u/666465?v=4",
         "url": "https://github.com/ethernet8023",
-        "contributions": 2191,
+        "contributions": 2214,
         "name": "ethernet",
         "bio": "hii im a gal who writes code for computer. i make llms, pretty websites, 3d graphics, games, distributed systems, crypto, hardware, and a billion more things",
         "blog": "https://ethernet.computer",
@@ -2416,7 +2416,7 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 535,
+        "contributions": 537,
         "name": "liuhao1024",
         "bio": null,
         "blog": null,
@@ -2427,7 +2427,7 @@
         "login": "benbarclay",
         "avatar": "https://avatars.githubusercontent.com/u/413810?v=4",
         "url": "https://github.com/benbarclay",
-        "contributions": 523,
+        "contributions": 526,
         "name": "Ben Barclay",
         "bio": null,
         "blog": null,
@@ -2438,7 +2438,7 @@
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
-        "contributions": 503,
+        "contributions": 504,
         "name": "Siddharth Balyan",
         "bio": "i like to build things.\r\nsometimes they break.\r\nother times they break other things.",
         "blog": "https://sidb.in",
@@ -2490,6 +2490,17 @@
         "location": "Brazil-Fortaleza"
       },
       {
+        "login": "jquesnelle",
+        "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
+        "url": "https://github.com/jquesnelle",
+        "contributions": 291,
+        "name": "Jeffrey Quesnelle",
+        "bio": "Co-Founder/CTO, Nous Research",
+        "blog": "http://jeffq.com",
+        "company": null,
+        "location": "Michigan"
+      },
+      {
         "login": "xxxigm",
         "avatar": "https://avatars.githubusercontent.com/u/54813621?v=4",
         "url": "https://github.com/xxxigm",
@@ -2499,17 +2510,6 @@
         "blog": null,
         "company": "@NousResearch",
         "location": null
-      },
-      {
-        "login": "jquesnelle",
-        "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
-        "url": "https://github.com/jquesnelle",
-        "contributions": 287,
-        "name": "Jeffrey Quesnelle",
-        "bio": "Co-Founder/CTO, Nous Research",
-        "blog": "http://jeffq.com",
-        "company": null,
-        "location": "Michigan"
       },
       {
         "login": "KoNit-K",
@@ -2537,7 +2537,7 @@
         "login": "erosika",
         "avatar": "https://avatars.githubusercontent.com/u/56565191?v=4",
         "url": "https://github.com/erosika",
-        "contributions": 245,
+        "contributions": 246,
         "name": "Eri Barrett",
         "bio": "building for the agentic world",
         "blog": null,
@@ -2592,7 +2592,7 @@
         "login": "unsupportedpastels",
         "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
         "url": "https://github.com/unsupportedpastels",
-        "contributions": 146,
+        "contributions": 147,
         "name": "Mark S.",
         "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
         "blog": null,
@@ -2710,17 +2710,6 @@
         "location": null
       },
       {
-        "login": "Tranquil-Flow",
-        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
-        "url": "https://github.com/Tranquil-Flow",
-        "contributions": 85,
-        "name": "Evi Nova",
-        "bio": "Blockchain Engineer",
-        "blog": null,
-        "company": "@selfxyz",
-        "location": null
-      },
-      {
         "login": "webtecnica",
         "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
         "url": "https://github.com/webtecnica",
@@ -2729,6 +2718,17 @@
         "bio": null,
         "blog": null,
         "company": null,
+        "location": null
+      },
+      {
+        "login": "Tranquil-Flow",
+        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
+        "url": "https://github.com/Tranquil-Flow",
+        "contributions": 85,
+        "name": "Evi Nova",
+        "bio": "Blockchain Engineer",
+        "blog": null,
+        "company": "@selfxyz",
         "location": null
       },
       {
@@ -2787,21 +2787,21 @@
         "location": null
       },
       {
+        "login": "ehz0ah",
+        "avatar": "https://avatars.githubusercontent.com/u/130889443?v=4",
+        "url": "https://github.com/ehz0ah",
+        "contributions": 63,
+        "name": "z1gon",
+        "bio": "hopping my way downtown",
+        "blog": null,
+        "company": "National University of Singapore",
+        "location": "Singapore"
+      },
+      {
         "login": "TESTPERSONAL",
         "avatar": "https://avatars.githubusercontent.com/u/6664588?v=4",
         "url": "https://github.com/TESTPERSONAL",
         "contributions": 61,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
-        "login": "konsisumer",
-        "avatar": "https://avatars.githubusercontent.com/u/11262660?v=4",
-        "url": "https://github.com/konsisumer",
-        "contributions": 59,
         "name": null,
         "bio": null,
         "blog": null,

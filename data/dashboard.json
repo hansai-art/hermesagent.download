@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T06:22:48.288Z",
+  "generatedAt": "2026-10-10T06:04:37.292Z",
   "content": {
     "total": 393,
     "byStatus": {
@@ -122,8 +122,8 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 34,
-    "lastCommitAt": "2026-10-08T06:21:50Z",
+    "recentCommits30d": 35,
+    "lastCommitAt": "2026-10-09T08:45:23Z",
     "top": [
       {
         "login": "hansai-art",
@@ -135,8 +135,8 @@
     ]
   },
   "upstream": {
-    "lastReleaseTag": "v2026.9.24",
-    "checkedAt": "2026-09-25T07:26:17.059Z",
-    "daysSinceCheck": 13
+    "lastReleaseTag": "v0.21.6",
+    "checkedAt": "2026-10-09T08:45:22.965Z",
+    "daysSinceCheck": 0
   }
 }
