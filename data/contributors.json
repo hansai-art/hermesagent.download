@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T05:05:31.966Z",
+  "generatedAt": "2026-10-15T04:54:41.150Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2358,12 +2358,12 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 36,
-    "lastCommitAt": "2026-10-13T06:55:05Z"
+    "recentCommits30d": 37,
+    "lastCommitAt": "2026-10-14T07:20:00Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 28,
+  "openIssues": 29,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 20668,
+        "contributions": 22636,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 5037,
+        "contributions": 5052,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2405,7 +2405,7 @@
         "login": "ethernet8023",
         "avatar": "https://avatars.githubusercontent.com/u/666465?v=4",
         "url": "https://github.com/ethernet8023",
-        "contributions": 2260,
+        "contributions": 2272,
         "name": "ethernet",
         "bio": "hii im a gal who writes code for computer. i make llms, pretty websites, 3d graphics, games, distributed systems, crypto, hardware, and a billion more things",
         "blog": "https://ethernet.computer",
@@ -2416,7 +2416,7 @@
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
-        "contributions": 836,
+        "contributions": 838,
         "name": "Siddharth Balyan",
         "bio": "i like to build things.\r\nsometimes they break.\r\nother times they break other things.",
         "blog": "https://sidb.in",
@@ -2460,7 +2460,7 @@
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 369,
+        "contributions": 372,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2493,7 +2493,7 @@
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 311,
+        "contributions": 313,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
@@ -2504,7 +2504,7 @@
         "login": "xxxigm",
         "avatar": "https://avatars.githubusercontent.com/u/54813621?v=4",
         "url": "https://github.com/xxxigm",
-        "contributions": 294,
+        "contributions": 296,
         "name": null,
         "bio": "I am constantly pushing myself to work harder and improve my skills every day.",
         "blog": null,
@@ -2523,6 +2523,17 @@
         "location": "Remote"
       },
       {
+        "login": "erosika",
+        "avatar": "https://avatars.githubusercontent.com/u/56565191?v=4",
+        "url": "https://github.com/erosika",
+        "contributions": 256,
+        "name": "Eri Barrett",
+        "bio": "building for the agentic world",
+        "blog": null,
+        "company": null,
+        "location": "NYC"
+      },
+      {
         "login": "jonpol01",
         "avatar": "https://avatars.githubusercontent.com/u/10163076?v=4",
         "url": "https://github.com/jonpol01",
@@ -2534,15 +2545,15 @@
         "location": "Tokyo, Japan"
       },
       {
-        "login": "erosika",
-        "avatar": "https://avatars.githubusercontent.com/u/56565191?v=4",
-        "url": "https://github.com/erosika",
-        "contributions": 246,
-        "name": "Eri Barrett",
-        "bio": "building for the agentic world",
+        "login": "unsupportedpastels",
+        "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
+        "url": "https://github.com/unsupportedpastels",
+        "contributions": 232,
+        "name": "Mark S.",
+        "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
         "blog": null,
         "company": null,
-        "location": "NYC"
+        "location": "NC, US"
       },
       {
         "login": "0xbyt4",
@@ -2598,17 +2609,6 @@
         "blog": null,
         "company": null,
         "location": null
-      },
-      {
-        "login": "unsupportedpastels",
-        "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
-        "url": "https://github.com/unsupportedpastels",
-        "contributions": 148,
-        "name": "Mark S.",
-        "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
-        "blog": null,
-        "company": null,
-        "location": "NC, US"
       },
       {
         "login": "victor-kyriazakos",
@@ -2699,6 +2699,17 @@
         "location": null
       },
       {
+        "login": "dokterdok",
+        "avatar": "https://avatars.githubusercontent.com/u/5354424?v=4",
+        "url": "https://github.com/dokterdok",
+        "contributions": 90,
+        "name": "David Dudok de Wit",
+        "bio": "Smart Staff Scheduling @BioSked, Product @AlixHQ (TripMode.ch), ex-Growth+Product Lead @ProtonMail, Continuity Activation Tool author",
+        "blog": "https://biosked.com",
+        "company": null,
+        "location": "Switzerland"
+      },
+      {
         "login": "SHL0MS",
         "avatar": "https://avatars.githubusercontent.com/u/131039422?v=4",
         "url": "https://github.com/SHL0MS",
@@ -2710,17 +2721,6 @@
         "location": null
       },
       {
-        "login": "Tranquil-Flow",
-        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
-        "url": "https://github.com/Tranquil-Flow",
-        "contributions": 85,
-        "name": "Evi Nova",
-        "bio": "Blockchain Engineer",
-        "blog": null,
-        "company": "@selfxyz",
-        "location": null
-      },
-      {
         "login": "webtecnica",
         "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
         "url": "https://github.com/webtecnica",
@@ -2729,6 +2729,17 @@
         "bio": null,
         "blog": null,
         "company": null,
+        "location": null
+      },
+      {
+        "login": "Tranquil-Flow",
+        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
+        "url": "https://github.com/Tranquil-Flow",
+        "contributions": 85,
+        "name": "Evi Nova",
+        "bio": "Blockchain Engineer",
+        "blog": null,
+        "company": "@selfxyz",
         "location": null
       },
       {
@@ -2754,6 +2765,17 @@
         "location": "China, Beijing"
       },
       {
+        "login": "686f6c61",
+        "avatar": "https://avatars.githubusercontent.com/u/6115107?v=4",
+        "url": "https://github.com/686f6c61",
+        "contributions": 66,
+        "name": "686f6c61",
+        "bio": "Product lover & Developer",
+        "blog": "https://686f6c61.dev",
+        "company": null,
+        "location": null
+      },
+      {
         "login": "PRATHAMESH75",
         "avatar": "https://avatars.githubusercontent.com/u/118293218?v=4",
         "url": "https://github.com/PRATHAMESH75",
@@ -2763,17 +2785,6 @@
         "blog": null,
         "company": "Avegen",
         "location": "Pune"
-      },
-      {
-        "login": "686f6c61",
-        "avatar": "https://avatars.githubusercontent.com/u/6115107?v=4",
-        "url": "https://github.com/686f6c61",
-        "contributions": 65,
-        "name": "686f6c61",
-        "bio": "Product lover & Developer",
-        "blog": "https://686f6c61.dev",
-        "company": null,
-        "location": null
       },
       {
         "login": "beardthelion",
@@ -2796,17 +2807,6 @@
         "blog": null,
         "company": "National University of Singapore",
         "location": "Singapore"
-      },
-      {
-        "login": "TESTPERSONAL",
-        "avatar": "https://avatars.githubusercontent.com/u/6664588?v=4",
-        "url": "https://github.com/TESTPERSONAL",
-        "contributions": 61,
-        "name": null,
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
       }
     ]
   }
