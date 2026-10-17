@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T04:45:11.697Z",
+  "generatedAt": "2026-10-17T04:42:38.624Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2358,12 +2358,12 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 37,
-    "lastCommitAt": "2026-10-15T07:11:23Z"
+    "recentCommits30d": 38,
+    "lastCommitAt": "2026-10-16T06:54:27Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 30,
+  "openIssues": 31,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 22697,
+        "contributions": 23077,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 5074,
+        "contributions": 5082,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2405,7 +2405,7 @@
         "login": "ethernet8023",
         "avatar": "https://avatars.githubusercontent.com/u/666465?v=4",
         "url": "https://github.com/ethernet8023",
-        "contributions": 2272,
+        "contributions": 2286,
         "name": "ethernet",
         "bio": "hii im a gal who writes code for computer. i make llms, pretty websites, 3d graphics, games, distributed systems, crypto, hardware, and a billion more things",
         "blog": "https://ethernet.computer",
@@ -2427,7 +2427,7 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 543,
+        "contributions": 562,
         "name": "liuhao1024",
         "bio": null,
         "blog": null,
@@ -2449,7 +2449,7 @@
         "login": "austinpickett",
         "avatar": "https://avatars.githubusercontent.com/u/260188?v=4",
         "url": "https://github.com/austinpickett",
-        "contributions": 409,
+        "contributions": 418,
         "name": "Austin Pickett",
         "bio": null,
         "blog": "https://www.austinkpickett.com",
@@ -2457,10 +2457,21 @@
         "location": "127.0.0.1"
       },
       {
+        "login": "unsupportedpastels",
+        "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
+        "url": "https://github.com/unsupportedpastels",
+        "contributions": 392,
+        "name": "Mark S.",
+        "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
+        "blog": null,
+        "company": null,
+        "location": "NC, US"
+      },
+      {
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 374,
+        "contributions": 382,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a true developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report.",
         "blog": "http://promptmeharder.com/",
@@ -2482,7 +2493,7 @@
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 324,
+        "contributions": 326,
         "name": null,
         "bio": "私は時々物を壊すのが好きで、時々物を建てるのが好きだ。",
         "blog": "https://www.linkedin.com/in/joao-marcos-dias-barros-a99362217",
@@ -2493,7 +2504,7 @@
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 313,
+        "contributions": 318,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
@@ -2515,23 +2526,12 @@
         "login": "KoNit-K",
         "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
         "url": "https://github.com/KoNit-K",
-        "contributions": 260,
+        "contributions": 280,
         "name": "KoNit.",
         "bio": "Life changes because of your actions and movement.",
         "blog": null,
         "company": null,
         "location": "Remote"
-      },
-      {
-        "login": "unsupportedpastels",
-        "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
-        "url": "https://github.com/unsupportedpastels",
-        "contributions": 258,
-        "name": "Mark S.",
-        "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
-        "blog": null,
-        "company": null,
-        "location": "NC, US"
       },
       {
         "login": "erosika",
@@ -2548,7 +2548,7 @@
         "login": "jonpol01",
         "avatar": "https://avatars.githubusercontent.com/u/10163076?v=4",
         "url": "https://github.com/jonpol01",
-        "contributions": 247,
+        "contributions": 253,
         "name": "John Paul Soliva",
         "bio": "・Robotics Engineer\r\n・Electronic Architecture Designer\r\n・R&D technical strategy development",
         "blog": "https://jp.linkedin.com/in/john-paul-soliva-7b260095",
@@ -2578,6 +2578,17 @@
         "location": null
       },
       {
+        "login": "yoniebans",
+        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
+        "url": "https://github.com/yoniebans",
+        "contributions": 172,
+        "name": "jonny",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "afourniernv",
         "avatar": "https://avatars.githubusercontent.com/u/254985780?v=4",
         "url": "https://github.com/afourniernv",
@@ -2597,17 +2608,6 @@
         "bio": "Inc. 500 entrepreneur. Founder of BDE Ventures. 40 Under 40. Building and investing at the intersection of AI, Web3, and infrastructure. Connector of dots.",
         "blog": "https://briandevans.com",
         "company": "bde.io",
-        "location": null
-      },
-      {
-        "login": "yoniebans",
-        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
-        "url": "https://github.com/yoniebans",
-        "contributions": 151,
-        "name": "jonny",
-        "bio": null,
-        "blog": null,
-        "company": null,
         "location": null
       },
       {
@@ -2633,6 +2633,17 @@
         "location": "Dubai, United Arab Emirates"
       },
       {
+        "login": "chelsealong",
+        "avatar": "https://avatars.githubusercontent.com/u/14966750?v=4",
+        "url": "https://github.com/chelsealong",
+        "contributions": 120,
+        "name": "Jialong(Bruce) Li",
+        "bio": "Jialong Li\r\nAI Engineer in finance",
+        "blog": null,
+        "company": null,
+        "location": "New York"
+      },
+      {
         "login": "Finn763",
         "avatar": "https://avatars.githubusercontent.com/u/165816600?v=4",
         "url": "https://github.com/Finn763",
@@ -2644,15 +2655,15 @@
         "location": null
       },
       {
-        "login": "chelsealong",
-        "avatar": "https://avatars.githubusercontent.com/u/14966750?v=4",
-        "url": "https://github.com/chelsealong",
-        "contributions": 118,
-        "name": "Jialong(Bruce) Li",
-        "bio": "Jialong Li\r\nAI Engineer in finance",
+        "login": "dskwe",
+        "avatar": "https://avatars.githubusercontent.com/u/6286305?v=4",
+        "url": "https://github.com/dskwe",
+        "contributions": 114,
+        "name": null,
+        "bio": null,
         "blog": null,
         "company": null,
-        "location": "New York"
+        "location": null
       },
       {
         "login": "DavidMetcalfe",
@@ -2666,15 +2677,15 @@
         "location": "Canada"
       },
       {
-        "login": "dskwe",
-        "avatar": "https://avatars.githubusercontent.com/u/6286305?v=4",
-        "url": "https://github.com/dskwe",
+        "login": "c2h5oh",
+        "avatar": "https://avatars.githubusercontent.com/u/446070?v=4",
+        "url": "https://github.com/c2h5oh",
         "contributions": 110,
-        "name": null,
+        "name": "Maciej Lisiewski",
         "bio": null,
         "blog": null,
-        "company": null,
-        "location": null
+        "company": "Modna Inc.",
+        "location": "Toronto, Canada"
       },
       {
         "login": "Adolanium",
@@ -2702,7 +2713,7 @@
         "login": "dokterdok",
         "avatar": "https://avatars.githubusercontent.com/u/5354424?v=4",
         "url": "https://github.com/dokterdok",
-        "contributions": 91,
+        "contributions": 101,
         "name": "David Dudok de Wit",
         "bio": "Smart Staff Scheduling @BioSked, Product @AlixHQ (TripMode.ch), ex-Growth+Product Lead @ProtonMail, Continuity Activation Tool author",
         "blog": "https://biosked.com",
@@ -2721,15 +2732,15 @@
         "location": null
       },
       {
-        "login": "c2h5oh",
-        "avatar": "https://avatars.githubusercontent.com/u/446070?v=4",
-        "url": "https://github.com/c2h5oh",
-        "contributions": 87,
-        "name": "Maciej Lisiewski",
-        "bio": null,
+        "login": "Tranquil-Flow",
+        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
+        "url": "https://github.com/Tranquil-Flow",
+        "contributions": 85,
+        "name": "Evi Nova",
+        "bio": "Blockchain Engineer",
         "blog": null,
-        "company": "Modna Inc.",
-        "location": "Toronto, Canada"
+        "company": "@selfxyz",
+        "location": null
       },
       {
         "login": "webtecnica",
@@ -2740,17 +2751,6 @@
         "bio": null,
         "blog": null,
         "company": null,
-        "location": null
-      },
-      {
-        "login": "Tranquil-Flow",
-        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
-        "url": "https://github.com/Tranquil-Flow",
-        "contributions": 85,
-        "name": "Evi Nova",
-        "bio": "Blockchain Engineer",
-        "blog": null,
-        "company": "@selfxyz",
         "location": null
       },
       {
@@ -2768,7 +2768,7 @@
         "login": "Wenfengcheng",
         "avatar": "https://avatars.githubusercontent.com/u/30426178?v=4",
         "url": "https://github.com/Wenfengcheng",
-        "contributions": 67,
+        "contributions": 70,
         "name": "funky-xamarin",
         "bio": "Xamarin is funky like funkyway!",
         "blog": null,
@@ -2779,7 +2779,7 @@
         "login": "686f6c61",
         "avatar": "https://avatars.githubusercontent.com/u/6115107?v=4",
         "url": "https://github.com/686f6c61",
-        "contributions": 66,
+        "contributions": 69,
         "name": "686f6c61",
         "bio": "Product lover & Developer",
         "blog": "https://686f6c61.dev",
@@ -2787,26 +2787,26 @@
         "location": null
       },
       {
+        "login": "itpartypattaya",
+        "avatar": "https://avatars.githubusercontent.com/u/260779083?v=4",
+        "url": "https://github.com/itpartypattaya",
+        "contributions": 67,
+        "name": "Anton V",
+        "bio": null,
+        "blog": "https://itparty.club",
+        "company": null,
+        "location": "Pattaya"
+      },
+      {
         "login": "PRATHAMESH75",
         "avatar": "https://avatars.githubusercontent.com/u/118293218?v=4",
         "url": "https://github.com/PRATHAMESH75",
-        "contributions": 65,
+        "contributions": 66,
         "name": "Prathamesh Chaudhari",
         "bio": "Software Engineer",
         "blog": null,
         "company": "Avegen",
         "location": "Pune"
-      },
-      {
-        "login": "beardthelion",
-        "avatar": "https://avatars.githubusercontent.com/u/56458543?v=4",
-        "url": "https://github.com/beardthelion",
-        "contributions": 64,
-        "name": null,
-        "bio": "There are no pacts between lions and men.",
-        "blog": null,
-        "company": null,
-        "location": null
       }
     ]
   }
