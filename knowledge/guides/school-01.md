@@ -10,7 +10,7 @@ upstream_refs:
 tags:
   - "school"
   - "error-cards"
-status: "published"
+status: "outdated"
 ---
 
 ## 症狀
