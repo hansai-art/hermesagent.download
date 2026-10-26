@@ -23,12 +23,12 @@
 | 📄 文章總數 | 395 |
 | ✅ 已發布 | 355 |
 | 🔗 有官方來源 | 100% |
-| 🔍 近期實測驗證 | 12 |
+| 🔍 近期實測驗證 | 9 |
 | 👥 貢獻者 | 1 |
 | ⭐ GitHub Stars | 0 |
-| 🔨 近 30 天更新 | 40 |
+| 🔨 近 30 天更新 | 39 |
 
-<sub>每日自動更新.最後更新 2026-10-25.原始資料:[/api/stats.json](https://hermesagent.download/api/stats.json)</sub>
+<sub>每日自動更新.最後更新 2026-10-26.原始資料:[/api/stats.json](https://hermesagent.download/api/stats.json)</sub>
 
 <!-- STATS:END -->
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T04:58:26.176Z",
+  "generatedAt": "2026-10-26T05:02:12.595Z",
   "counts": {
     "gaps": 7,
     "verify": 12,
@@ -70,8 +70,8 @@
       "category": "integrations",
       "emoji": "🔌",
       "title": "接上你的第一個 MCP:一步一步設定,再親眼確認成功",
-      "hint": "最後實測 92 天前",
-      "days": 92,
+      "hint": "最後實測 93 天前",
+      "days": 93,
       "url": "/integrations/connect-first-mcp/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/integrations/connect-first-mcp.md"
     },
@@ -80,8 +80,8 @@
       "category": "integrations",
       "emoji": "🔌",
       "title": "新手教學:讓 Hermes 在 Telegram 上跟你對話",
-      "hint": "最後實測 92 天前",
-      "days": 92,
+      "hint": "最後實測 93 天前",
+      "days": 93,
       "url": "/integrations/connect-telegram/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/integrations/connect-telegram.md"
     },
@@ -90,8 +90,8 @@
       "category": "config",
       "emoji": "⚙️",
       "title": "config.yaml 是什麼:一次看懂兩個設定檔和一組好用指令",
-      "hint": "最後實測 90 天前",
-      "days": 90,
+      "hint": "最後實測 91 天前",
+      "days": 91,
       "url": "/config/config-yaml-reference/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/config-yaml-reference.md"
     },
@@ -100,8 +100,8 @@
       "category": "migrate",
       "emoji": "🔄",
       "title": "換新電腦?把整個 Hermes 一起搬過去",
-      "hint": "最後實測 90 天前",
-      "days": 90,
+      "hint": "最後實測 91 天前",
+      "days": 91,
       "url": "/migrate/move-to-new-machine/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/migrate/move-to-new-machine.md"
     },
@@ -110,8 +110,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "看到 HTTP 429 錯誤?那是供應商在限你的速度,不是 Hermes 壞了",
-      "hint": "最後實測 90 天前",
-      "days": 90,
+      "hint": "最後實測 91 天前",
+      "days": 91,
       "url": "/troubleshoot/http-429-rate-limit/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/http-429-rate-limit.md"
     },
@@ -120,8 +120,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "開課與團隊導入：學員電腦要準備什麼",
-      "hint": "最後實測 89 天前",
-      "days": 89,
+      "hint": "最後實測 90 天前",
+      "days": 90,
       "url": "/install/classroom-and-team/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/classroom-and-team.md"
     },
@@ -130,8 +130,8 @@
       "category": "install",
       "emoji": "🖥️",
       "title": "Hermes Agent 建議配備：我的電腦跑得動嗎？",
-      "hint": "最後實測 89 天前",
-      "days": 89,
+      "hint": "最後實測 90 天前",
+      "days": 90,
       "url": "/install/system-requirements/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/system-requirements.md"
     },
@@ -140,8 +140,8 @@
       "category": "config",
       "emoji": "⚙️",
       "title": "hermes insights：搞清楚 token 花在哪，但它不會告訴你花了多少錢",
-      "hint": "最後實測 88 天前",
-      "days": 88,
+      "hint": "最後實測 89 天前",
+      "days": 89,
       "url": "/config/insights-token-usage/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/insights-token-usage.md"
     },
@@ -150,8 +150,8 @@
       "category": "migrate",
       "emoji": "🔄",
       "title": "第一次從 OpenClaw 搬家到 Hermes Agent:一步一步帶你做",
-      "hint": "最後實測 88 天前",
-      "days": 88,
+      "hint": "最後實測 89 天前",
+      "days": 89,
       "url": "/migrate/migrate-from-openclaw/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/migrate/migrate-from-openclaw.md"
     },
@@ -160,8 +160,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "排程沒跑？先查 gateway、jobs.json 和 output，不要只看 Desktop 畫面",
-      "hint": "最後實測 88 天前",
-      "days": 88,
+      "hint": "最後實測 89 天前",
+      "days": 89,
       "url": "/troubleshoot/cron-job-did-not-run/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/cron-job-did-not-run.md"
     },
@@ -170,8 +170,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "hermes doctor 到底檢查什麼：16 個區塊逐項解讀",
-      "hint": "最後實測 88 天前",
-      "days": 88,
+      "hint": "最後實測 89 天前",
+      "days": 89,
       "url": "/troubleshoot/hermes-doctor/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/hermes-doctor.md"
     },
@@ -180,8 +180,8 @@
       "category": "troubleshoot",
       "emoji": "🚑",
       "title": "Hermes 越用越慢：看到 Preflight compression 時該怎麼辦",
-      "hint": "最後實測 88 天前",
-      "days": 88,
+      "hint": "最後實測 89 天前",
+      "days": 89,
       "url": "/troubleshoot/long-session-preflight-compression/",
       "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/long-session-preflight-compression.md"
     }
