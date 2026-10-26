@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - 'mcp'
   - 'integrations'
-status: 'published'
+status: "outdated"
 ---
 
 先講一下這篇在做什麼。

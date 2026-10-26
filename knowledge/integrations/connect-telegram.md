@@ -11,7 +11,7 @@ upstream_refs:
 tags:
   - "telegram"
   - "integrations"
-status: "published"
+status: "outdated"
 ---
 
 先講這篇能幫你做到什麼。

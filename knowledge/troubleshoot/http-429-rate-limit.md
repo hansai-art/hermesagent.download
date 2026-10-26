@@ -14,7 +14,7 @@ tags:
   - "rate-limit"
   - "api"
   - "troubleshoot"
-status: "published"
+status: "outdated"
 ---
 
 你可能會在畫面上看到這些錯誤字:

@@ -11,7 +11,7 @@ upstream_refs:
 tags:
   - "config"
   - "reference"
-status: "published"
+status: "outdated"
 ---
 
 先說一件事:`config.yaml` 就是 Hermes 的「設定檔」。它是一個純文字檔,裡面記著你的各種偏好,例如要用哪個 AI 模型、要不要開某個功能。幾乎每篇教學都會叫你「去改 `config.yaml`」:設模型、開記憶審核、加工具。

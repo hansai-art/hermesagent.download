@@ -11,7 +11,7 @@ upstream_refs:
 tags:
   - "backup"
   - "migrate"
-status: "published"
+status: "outdated"
 ---
 
 換了新電腦,最麻煩的就是那些一點一滴累積出來的東西:agent 記住的關於你的事、它自己學會的技能、你慢慢調好的設定、還有過去所有的對話。這些要是全部從頭來,很痛。
