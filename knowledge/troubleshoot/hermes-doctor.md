@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "troubleshoot"
   - "diagnostics"
-status: "published"
+status: "outdated"
 ---
 
 裝好了，`hermes` 指令也有反應，但某個功能就是不動。這種時候最浪費時間的做法，是去搜尋錯誤訊息然後照網路上的解法亂試。

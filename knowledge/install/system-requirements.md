@@ -18,7 +18,7 @@ tags:
   - "requirements"
   - "hardware"
   - "ollama"
-status: "published"
+status: "outdated"
 ---
 
 先看你要哪一種用法，建議配備差三倍。

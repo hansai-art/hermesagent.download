@@ -16,7 +16,7 @@ tags:
   - "runtime"
   - "plan"
   - "broken-pipe"
-status: "published"
+status: "outdated"
 ---
 
 你貼了一大段需求，下一行只打 `plan`，結果 Hermes 跑到一半噴：

@@ -12,7 +12,7 @@ upstream_refs:
 tags:
   - "openclaw"
   - "migrate"
-status: "published"
+status: "outdated"
 ---
 
 換工具的時候,最讓人頭痛的通常不是「要學一個新畫面」,而是**舊工具裡累積的東西搬不過來**。

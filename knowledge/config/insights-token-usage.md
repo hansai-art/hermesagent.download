@@ -13,7 +13,7 @@ tags:
   - "config"
   - "cost"
   - "usage"
-status: "published"
+status: "outdated"
 ---
 
 供應商帳單來了，數字比你以為的高。問題是你不知道錢燒在哪：是某個模型太貴，是某支工具一直重複讀檔，還是某天晚上失控跑了一輪長任務。

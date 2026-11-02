@@ -14,7 +14,7 @@ tags:
   - "gateway"
   - "troubleshoot"
   - "macos"
-status: "published"
+status: "outdated"
 ---
 
 你排了一個每週固定跑的 Hermes 任務，到了時間卻沒有收到任何訊息。第一個直覺通常是：「cron 壞了」。

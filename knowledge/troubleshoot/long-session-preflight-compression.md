@@ -14,7 +14,7 @@ tags:
   - "compression"
   - "context"
   - "troubleshoot"
-status: "published"
+status: "outdated"
 ---
 
 你一開始用 Hermes 很快，後來同一個 session 做越久越慢。到最後，每次只是請它做一件小事，也像卡住一樣等很久。

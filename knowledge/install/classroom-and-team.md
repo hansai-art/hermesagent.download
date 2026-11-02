@@ -17,7 +17,7 @@ tags:
   - "classroom"
   - "onboarding"
   - "requirements"
-status: "published"
+status: "outdated"
 ---
 
 這頁是給**辦課程、帶團隊導入**的人看的。如果你是要確認自己那台電腦，請看[最低配置一覽](/install/system-requirements/)。

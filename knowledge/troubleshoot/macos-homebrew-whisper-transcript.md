@@ -16,7 +16,7 @@ tags:
   - "macos"
   - "whisper"
   - "ffmpeg"
-status: "published"
+status: "outdated"
 ---
 
 你把語音訊息丟給 Hermes，畫面看起來有處理，最後卻回：沒有轉出文字。典型錯誤長這樣：
