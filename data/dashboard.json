@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-02T06:29:29.598Z",
+  "generatedAt": "2026-11-03T07:01:24.356Z",
   "content": {
     "total": 393,
     "byStatus": {
-      "published": 350,
-      "outdated": 43,
+      "published": 341,
+      "outdated": 52,
       "archived": 2
     },
     "byCategory": [
@@ -122,8 +122,8 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 39,
-    "lastCommitAt": "2026-11-01T06:28:20Z",
+    "recentCommits30d": 40,
+    "lastCommitAt": "2026-11-02T07:16:35Z",
     "top": [
       {
         "login": "hansai-art",
@@ -137,6 +137,6 @@
   "upstream": {
     "lastReleaseTag": "v0.22.5",
     "checkedAt": "2026-10-23T07:25:00.113Z",
-    "daysSinceCheck": 9
+    "daysSinceCheck": 10
   }
 }

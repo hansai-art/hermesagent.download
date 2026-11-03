@@ -1,12 +1,28 @@
 {
-  "generatedAt": "2026-11-02T06:29:29.710Z",
+  "generatedAt": "2026-11-03T07:01:24.481Z",
   "counts": {
-    "gaps": 7,
-    "verify": 9,
+    "gaps": 8,
+    "verify": 0,
     "cite": 0,
     "drafts": 0
   },
   "gaps": [
+    {
+      "type": "gap",
+      "category": "install",
+      "emoji": "🖥️",
+      "title": "安裝部署:目前只有 0 篇",
+      "hint": "macOS、Windows、Linux、WSL2、Docker、Serverless 的安裝與部署指南",
+      "url": "/install/"
+    },
+    {
+      "type": "gap",
+      "category": "config",
+      "emoji": "⚙️",
+      "title": "模型與 API 設定:目前只有 0 篇",
+      "hint": "OpenRouter、Anthropic、Gemini、Ollama 與本地模型的設定教學",
+      "url": "/config/"
+    },
     {
       "type": "gap",
       "category": "integrations",
@@ -25,17 +41,17 @@
     },
     {
       "type": "gap",
-      "category": "config",
-      "emoji": "⚙️",
-      "title": "模型與 API 設定:目前只有 1 篇",
-      "hint": "OpenRouter、Anthropic、Gemini、Ollama 與本地模型的設定教學",
-      "url": "/config/"
+      "category": "troubleshoot",
+      "emoji": "🚑",
+      "title": "疑難排解:目前只有 0 篇",
+      "hint": "依症狀分類的問題排除，對應上游 GitHub issues",
+      "url": "/troubleshoot/"
     },
     {
       "type": "gap",
       "category": "migrate",
       "emoji": "🔄",
-      "title": "遷移指南:目前只有 1 篇",
+      "title": "遷移指南:目前只有 0 篇",
       "hint": "從 OpenClaw 等其他工具搬到 Hermes Agent",
       "url": "/migrate/"
     },
@@ -54,108 +70,9 @@
       "title": "關於:目前只有 1 篇",
       "hint": "免責聲明、貢獻指南、網站緣起",
       "url": "/about/"
-    },
-    {
-      "type": "gap",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "安裝部署:目前只有 2 篇",
-      "hint": "macOS、Windows、Linux、WSL2、Docker、Serverless 的安裝與部署指南",
-      "url": "/install/"
     }
   ],
-  "verify": [
-    {
-      "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "開課與團隊導入：學員電腦要準備什麼",
-      "hint": "最後實測 97 天前",
-      "days": 97,
-      "url": "/install/classroom-and-team/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/classroom-and-team.md"
-    },
-    {
-      "type": "verify",
-      "category": "install",
-      "emoji": "🖥️",
-      "title": "Hermes Agent 建議配備：我的電腦跑得動嗎？",
-      "hint": "最後實測 97 天前",
-      "days": 97,
-      "url": "/install/system-requirements/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/install/system-requirements.md"
-    },
-    {
-      "type": "verify",
-      "category": "config",
-      "emoji": "⚙️",
-      "title": "hermes insights：搞清楚 token 花在哪，但它不會告訴你花了多少錢",
-      "hint": "最後實測 96 天前",
-      "days": 96,
-      "url": "/config/insights-token-usage/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/config/insights-token-usage.md"
-    },
-    {
-      "type": "verify",
-      "category": "migrate",
-      "emoji": "🔄",
-      "title": "第一次從 OpenClaw 搬家到 Hermes Agent:一步一步帶你做",
-      "hint": "最後實測 96 天前",
-      "days": 96,
-      "url": "/migrate/migrate-from-openclaw/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/migrate/migrate-from-openclaw.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "排程沒跑？先查 gateway、jobs.json 和 output，不要只看 Desktop 畫面",
-      "hint": "最後實測 96 天前",
-      "days": 96,
-      "url": "/troubleshoot/cron-job-did-not-run/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/cron-job-did-not-run.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "hermes doctor 到底檢查什麼：16 個區塊逐項解讀",
-      "hint": "最後實測 96 天前",
-      "days": 96,
-      "url": "/troubleshoot/hermes-doctor/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/hermes-doctor.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "Hermes 越用越慢：看到 Preflight compression 時該怎麼辦",
-      "hint": "最後實測 96 天前",
-      "days": 96,
-      "url": "/troubleshoot/long-session-preflight-compression/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/long-session-preflight-compression.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "macOS 語音轉文字沒有產出 transcript：Homebrew whisper 找不到 ffmpeg 的解法",
-      "hint": "最後實測 96 天前",
-      "days": 96,
-      "url": "/troubleshoot/macos-homebrew-whisper-transcript/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/macos-homebrew-whisper-transcript.md"
-    },
-    {
-      "type": "verify",
-      "category": "troubleshoot",
-      "emoji": "🚑",
-      "title": "輸入 plan 後 Broken pipe：不是 plan 壞了，是長需求加 skill 把首包拖到逾時",
-      "hint": "最後實測 96 天前",
-      "days": 96,
-      "url": "/troubleshoot/plan-broken-pipe/",
-      "editUrl": "https://github.com/hansai-art/hermesagent.download/edit/main/knowledge/troubleshoot/plan-broken-pipe.md"
-    }
-  ],
+  "verify": [],
   "cite": [],
   "drafts": []
 }
