@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T07:27:19.984Z",
+  "generatedAt": "2026-11-13T06:58:51.859Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2359,7 +2359,7 @@
   ],
   "activity": {
     "recentCommits30d": 41,
-    "lastCommitAt": "2026-11-11T06:49:42Z"
+    "lastCommitAt": "2026-11-12T07:27:20Z"
   },
   "stars": 0,
   "forks": 0,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 28212,
+        "contributions": 28553,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 5698,
+        "contributions": 5728,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2416,7 +2416,7 @@
         "login": "unsupportedpastels",
         "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
         "url": "https://github.com/unsupportedpastels",
-        "contributions": 1114,
+        "contributions": 1143,
         "name": "Mark S.",
         "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
         "blog": null,
@@ -2435,6 +2435,17 @@
         "location": "In front of a terminal"
       },
       {
+        "login": "c2h5oh",
+        "avatar": "https://avatars.githubusercontent.com/u/446070?v=4",
+        "url": "https://github.com/c2h5oh",
+        "contributions": 692,
+        "name": "Maciej Lisiewski",
+        "bio": null,
+        "blog": null,
+        "company": "Modna Inc.",
+        "location": "Toronto, Canada"
+      },
+      {
         "login": "benbarclay",
         "avatar": "https://avatars.githubusercontent.com/u/413810?v=4",
         "url": "https://github.com/benbarclay",
@@ -2449,7 +2460,7 @@
         "login": "liuhao1024",
         "avatar": "https://avatars.githubusercontent.com/u/11816344?v=4",
         "url": "https://github.com/liuhao1024",
-        "contributions": 607,
+        "contributions": 612,
         "name": "liuhao1024",
         "bio": null,
         "blog": null,
@@ -2460,23 +2471,12 @@
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 517,
+        "contributions": 524,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
         "company": null,
         "location": "Michigan"
-      },
-      {
-        "login": "c2h5oh",
-        "avatar": "https://avatars.githubusercontent.com/u/446070?v=4",
-        "url": "https://github.com/c2h5oh",
-        "contributions": 513,
-        "name": "Maciej Lisiewski",
-        "bio": null,
-        "blog": null,
-        "company": "Modna Inc.",
-        "location": "Toronto, Canada"
       },
       {
         "login": "austinpickett",
@@ -2504,7 +2504,7 @@
         "login": "fangliquanflq",
         "avatar": "https://avatars.githubusercontent.com/u/280272527?v=4",
         "url": "https://github.com/fangliquanflq",
-        "contributions": 363,
+        "contributions": 366,
         "name": null,
         "bio": null,
         "blog": null,
@@ -2515,7 +2515,7 @@
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
-        "contributions": 327,
+        "contributions": 328,
         "name": "Dias",
         "bio": "私は時々物を壊すのが好きで、時々物を建てるのが好きだ。",
         "blog": null,
@@ -2537,7 +2537,7 @@
         "login": "KoNit-K",
         "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
         "url": "https://github.com/KoNit-K",
-        "contributions": 308,
+        "contributions": 312,
         "name": "KoNit.",
         "bio": "Life changes because of your actions and movement.",
         "blog": null,
@@ -2559,7 +2559,7 @@
         "login": "jonpol01",
         "avatar": "https://avatars.githubusercontent.com/u/10163076?v=4",
         "url": "https://github.com/jonpol01",
-        "contributions": 268,
+        "contributions": 272,
         "name": "John Paul Soliva",
         "bio": "・Robotics Engineer\r\n・Electronic Architecture Designer\r\n・R&D technical strategy development",
         "blog": "https://jp.linkedin.com/in/john-paul-soliva-7b260095",
@@ -2581,7 +2581,7 @@
         "login": "dokterdok",
         "avatar": "https://avatars.githubusercontent.com/u/5354424?v=4",
         "url": "https://github.com/dokterdok",
-        "contributions": 237,
+        "contributions": 238,
         "name": "David Dudok de Wit",
         "bio": "Smart Staff Scheduling @BioSked, Product @AlixHQ (TripMode.ch), ex-Growth+Product Lead @ProtonMail, Continuity Activation Tool author",
         "blog": "https://biosked.com",
@@ -2592,12 +2592,23 @@
         "login": "Adolanium",
         "avatar": "https://avatars.githubusercontent.com/u/94890352?v=4",
         "url": "https://github.com/Adolanium",
-        "contributions": 206,
+        "contributions": 213,
         "name": null,
         "bio": "Here be Dragons.",
         "blog": null,
         "company": null,
         "location": null
+      },
+      {
+        "login": "BearHuddleston",
+        "avatar": "https://avatars.githubusercontent.com/u/196404565?v=4",
+        "url": "https://github.com/BearHuddleston",
+        "contributions": 201,
+        "name": "Bear Huddleston",
+        "bio": "Software Engineer, Product @nousresearch",
+        "blog": null,
+        "company": "@nousresearch",
+        "location": "United States"
       },
       {
         "login": "0xbyt4",
@@ -2620,17 +2631,6 @@
         "blog": null,
         "company": null,
         "location": null
-      },
-      {
-        "login": "BearHuddleston",
-        "avatar": "https://avatars.githubusercontent.com/u/196404565?v=4",
-        "url": "https://github.com/BearHuddleston",
-        "contributions": 180,
-        "name": "Bear Huddleston",
-        "bio": "Software Engineer, Product @nousresearch",
-        "blog": null,
-        "company": "@nousresearch",
-        "location": "United States"
       },
       {
         "login": "afourniernv",
@@ -2691,7 +2691,7 @@
         "login": "kokhlo",
         "avatar": "https://avatars.githubusercontent.com/u/47825603?v=4",
         "url": "https://github.com/kokhlo",
-        "contributions": 129,
+        "contributions": 130,
         "name": "Konstantin Khlopkov",
         "bio": "33 y.o. fullstack tech lead. \r\n\r\nRepo is under construction. Stay tuned :)",
         "blog": null,
@@ -2746,7 +2746,7 @@
         "login": "SHL0MS",
         "avatar": "https://avatars.githubusercontent.com/u/131039422?v=4",
         "url": "https://github.com/SHL0MS",
-        "contributions": 96,
+        "contributions": 98,
         "name": "SHL0MS",
         "bio": null,
         "blog": null,
@@ -2765,6 +2765,17 @@
         "location": null
       },
       {
+        "login": "TakeshiTGAL",
+        "avatar": "https://avatars.githubusercontent.com/u/86576615?v=4",
+        "url": "https://github.com/TakeshiTGAL",
+        "contributions": 89,
+        "name": null,
+        "bio": "Builder of vet402. Runs @gensyn_japan. ETHOnline 2026 prize winner.",
+        "blog": "https://vet402.com",
+        "company": null,
+        "location": null
+      },
+      {
         "login": "Tranquil-Flow",
         "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
         "url": "https://github.com/Tranquil-Flow",
@@ -2773,17 +2784,6 @@
         "bio": "Blockchain Engineer",
         "blog": null,
         "company": "@selfxyz",
-        "location": null
-      },
-      {
-        "login": "TakeshiTGAL",
-        "avatar": "https://avatars.githubusercontent.com/u/86576615?v=4",
-        "url": "https://github.com/TakeshiTGAL",
-        "contributions": 87,
-        "name": null,
-        "bio": "Japanese community manager or ambassador for OceanProtocol & Solana & TheGraph & BitCountry & LTONetwork & Litentry & Acala",
-        "blog": null,
-        "company": null,
         "location": null
       },
       {
