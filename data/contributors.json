@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T08:10:41.467Z",
+  "generatedAt": "2026-11-18T07:44:27.324Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2359,11 +2359,11 @@
   ],
   "activity": {
     "recentCommits30d": 42,
-    "lastCommitAt": "2026-11-16T09:17:05Z"
+    "lastCommitAt": "2026-11-17T10:26:21Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 50,
+  "openIssues": 52,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 29371,
+        "contributions": 29494,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 5761,
+        "contributions": 5766,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2416,7 +2416,7 @@
         "login": "c2h5oh",
         "avatar": "https://avatars.githubusercontent.com/u/446070?v=4",
         "url": "https://github.com/c2h5oh",
-        "contributions": 1779,
+        "contributions": 1796,
         "name": "Maciej Lisiewski",
         "bio": null,
         "blog": null,
@@ -2427,7 +2427,7 @@
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
-        "contributions": 1309,
+        "contributions": 1312,
         "name": "Siddharth Balyan",
         "bio": "i like to build things.\r\nsometimes they break.\r\nother times they break other things.",
         "blog": "https://sidb.in",
@@ -2438,11 +2438,11 @@
         "login": "unsupportedpastels",
         "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
         "url": "https://github.com/unsupportedpastels",
-        "contributions": 1179,
+        "contributions": 1182,
         "name": "Mark S.",
         "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
         "blog": null,
-        "company": null,
+        "company": "@NousResearch",
         "location": "NC, US"
       },
       {
@@ -2468,10 +2468,21 @@
         "location": null
       },
       {
+        "login": "yoniebans",
+        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
+        "url": "https://github.com/yoniebans",
+        "contributions": 649,
+        "name": "jonny",
+        "bio": null,
+        "blog": null,
+        "company": null,
+        "location": null
+      },
+      {
         "login": "jquesnelle",
         "avatar": "https://avatars.githubusercontent.com/u/687076?v=4",
         "url": "https://github.com/jquesnelle",
-        "contributions": 524,
+        "contributions": 525,
         "name": "Jeffrey Quesnelle",
         "bio": "Co-Founder/CTO, Nous Research",
         "blog": "http://jeffq.com",
@@ -2482,7 +2493,7 @@
         "login": "austinpickett",
         "avatar": "https://avatars.githubusercontent.com/u/260188?v=4",
         "url": "https://github.com/austinpickett",
-        "contributions": 487,
+        "contributions": 498,
         "name": "Austin Pickett",
         "bio": null,
         "blog": "https://www.austinkpickett.com",
@@ -2512,17 +2523,6 @@
         "location": null
       },
       {
-        "login": "yoniebans",
-        "avatar": "https://avatars.githubusercontent.com/u/5584832?v=4",
-        "url": "https://github.com/yoniebans",
-        "contributions": 354,
-        "name": "jonny",
-        "bio": null,
-        "blog": null,
-        "company": null,
-        "location": null
-      },
-      {
         "login": "JoaoMarcos44",
         "avatar": "https://avatars.githubusercontent.com/u/87440198?v=4",
         "url": "https://github.com/JoaoMarcos44",
@@ -2534,6 +2534,17 @@
         "location": "Brazil-Fortaleza"
       },
       {
+        "login": "KoNit-K",
+        "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
+        "url": "https://github.com/KoNit-K",
+        "contributions": 316,
+        "name": "KoNit.",
+        "bio": "Life changes because of your actions and movement.",
+        "blog": null,
+        "company": null,
+        "location": "Remote"
+      },
+      {
         "login": "xxxigm",
         "avatar": "https://avatars.githubusercontent.com/u/54813621?v=4",
         "url": "https://github.com/xxxigm",
@@ -2543,17 +2554,6 @@
         "blog": null,
         "company": "@NousResearch",
         "location": null
-      },
-      {
-        "login": "KoNit-K",
-        "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
-        "url": "https://github.com/KoNit-K",
-        "contributions": 315,
-        "name": "KoNit.",
-        "bio": "Life changes because of your actions and movement.",
-        "blog": null,
-        "company": null,
-        "location": "Remote"
       },
       {
         "login": "jonpol01",
@@ -2581,12 +2581,23 @@
         "login": "Adolanium",
         "avatar": "https://avatars.githubusercontent.com/u/94890352?v=4",
         "url": "https://github.com/Adolanium",
-        "contributions": 251,
+        "contributions": 252,
         "name": null,
         "bio": "Here be Dragons.",
         "blog": null,
         "company": null,
         "location": null
+      },
+      {
+        "login": "BearHuddleston",
+        "avatar": "https://avatars.githubusercontent.com/u/196404565?v=4",
+        "url": "https://github.com/BearHuddleston",
+        "contributions": 238,
+        "name": "Bear Huddleston",
+        "bio": "Software Engineer, Product @nousresearch",
+        "blog": null,
+        "company": "@nousresearch",
+        "location": "United States"
       },
       {
         "login": "dokterdok",
@@ -2609,17 +2620,6 @@
         "blog": null,
         "company": null,
         "location": null
-      },
-      {
-        "login": "BearHuddleston",
-        "avatar": "https://avatars.githubusercontent.com/u/196404565?v=4",
-        "url": "https://github.com/BearHuddleston",
-        "contributions": 223,
-        "name": "Bear Huddleston",
-        "bio": "Software Engineer, Product @nousresearch",
-        "blog": null,
-        "company": "@nousresearch",
-        "location": "United States"
       },
       {
         "login": "0xbyt4",
@@ -2647,12 +2647,23 @@
         "login": "afourniernv",
         "avatar": "https://avatars.githubusercontent.com/u/254985780?v=4",
         "url": "https://github.com/afourniernv",
-        "contributions": 171,
+        "contributions": 179,
         "name": "Alex Fournier",
         "bio": "Agentic AI @ NVIDIA",
         "blog": null,
         "company": "NVIDIA",
         "location": null
+      },
+      {
+        "login": "kvnloo",
+        "avatar": "https://avatars.githubusercontent.com/u/7121943?v=4",
+        "url": "https://github.com/kvnloo",
+        "contributions": 157,
+        "name": "Kevin Rajan",
+        "bio": "cultivating human flourishing",
+        "blog": null,
+        "company": "@loo-ai",
+        "location": "Chicago, IL"
       },
       {
         "login": "briandevans",
@@ -2669,23 +2680,12 @@
         "login": "itpartypattaya",
         "avatar": "https://avatars.githubusercontent.com/u/260779083?v=4",
         "url": "https://github.com/itpartypattaya",
-        "contributions": 145,
+        "contributions": 148,
         "name": "Anton V",
         "bio": null,
         "blog": "https://itparty.club",
         "company": null,
         "location": "Pattaya"
-      },
-      {
-        "login": "kvnloo",
-        "avatar": "https://avatars.githubusercontent.com/u/7121943?v=4",
-        "url": "https://github.com/kvnloo",
-        "contributions": 144,
-        "name": "Kevin Rajan",
-        "bio": "cultivating human flourishing",
-        "blog": null,
-        "company": "@loo-ai",
-        "location": "Chicago, IL"
       },
       {
         "login": "dskwe",
@@ -2765,6 +2765,17 @@
         "location": null
       },
       {
+        "login": "Tranquil-Flow",
+        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
+        "url": "https://github.com/Tranquil-Flow",
+        "contributions": 90,
+        "name": null,
+        "bio": "Blockchain Engineer",
+        "blog": null,
+        "company": "@selfxyz",
+        "location": null
+      },
+      {
         "login": "webtecnica",
         "avatar": "https://avatars.githubusercontent.com/u/75556242?v=4",
         "url": "https://github.com/webtecnica",
@@ -2776,21 +2787,10 @@
         "location": null
       },
       {
-        "login": "Tranquil-Flow",
-        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
-        "url": "https://github.com/Tranquil-Flow",
-        "contributions": 87,
-        "name": null,
-        "bio": "Blockchain Engineer",
-        "blog": null,
-        "company": "@selfxyz",
-        "location": null
-      },
-      {
         "login": "TakeshiTGAL",
         "avatar": "https://avatars.githubusercontent.com/u/86576615?v=4",
         "url": "https://github.com/TakeshiTGAL",
-        "contributions": 86,
+        "contributions": 88,
         "name": null,
         "bio": "Builder of vet402. Runs @gensyn_japan. ETHOnline 2026 prize winner.",
         "blog": "https://vet402.com",
