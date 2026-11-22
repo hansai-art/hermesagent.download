@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T07:27:28.072Z",
+  "generatedAt": "2026-11-22T07:09:13.583Z",
   "repo": "hansai-art/hermesagent.download",
   "total": 1,
   "contributors": [
@@ -2358,12 +2358,12 @@
     }
   ],
   "activity": {
-    "recentCommits30d": 44,
-    "lastCommitAt": "2026-11-20T09:52:01Z"
+    "recentCommits30d": 45,
+    "lastCommitAt": "2026-11-21T09:27:22Z"
   },
   "stars": 0,
   "forks": 0,
-  "openIssues": 56,
+  "openIssues": 57,
   "upstream": {
     "repo": "NousResearch/hermes-agent",
     "total": 40,
@@ -2372,7 +2372,7 @@
         "login": "teknium1",
         "avatar": "https://avatars.githubusercontent.com/u/127238744?v=4",
         "url": "https://github.com/teknium1",
-        "contributions": 29791,
+        "contributions": 29804,
         "name": "Teknium",
         "bio": "Maximize Human Potential",
         "blog": null,
@@ -2383,7 +2383,7 @@
         "login": "kshitijk4poor",
         "avatar": "https://avatars.githubusercontent.com/u/82637225?v=4",
         "url": "https://github.com/kshitijk4poor",
-        "contributions": 5832,
+        "contributions": 5882,
         "name": "kshitij",
         "bio": "agents @NousResearch | gsoc'24 @honeynet",
         "blog": "https://www.kshitij.md",
@@ -2424,6 +2424,17 @@
         "location": "Toronto, Canada"
       },
       {
+        "login": "unsupportedpastels",
+        "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
+        "url": "https://github.com/unsupportedpastels",
+        "contributions": 1361,
+        "name": "Mark S.",
+        "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
+        "blog": null,
+        "company": "@NousResearch",
+        "location": "NC, US"
+      },
+      {
         "login": "alt-glitch",
         "avatar": "https://avatars.githubusercontent.com/u/52913345?v=4",
         "url": "https://github.com/alt-glitch",
@@ -2433,17 +2444,6 @@
         "blog": "https://sidb.in",
         "company": "@NousResearch",
         "location": "In front of a terminal"
-      },
-      {
-        "login": "unsupportedpastels",
-        "avatar": "https://avatars.githubusercontent.com/u/274530371?v=4",
-        "url": "https://github.com/unsupportedpastels",
-        "contributions": 1196,
-        "name": "Mark S.",
-        "bio": "Security Engineer | AI, infrastructure & vulnerability management | CISSP",
-        "blog": null,
-        "company": "@NousResearch",
-        "location": "NC, US"
       },
       {
         "login": "benbarclay",
@@ -2504,12 +2504,23 @@
         "login": "helix4u",
         "avatar": "https://avatars.githubusercontent.com/u/4317663?v=4",
         "url": "https://github.com/helix4u",
-        "contributions": 419,
+        "contributions": 420,
         "name": "Gille",
         "bio": "Feel free to fix my mostly \"vibe coded\" code. I'm not a formally developer. I just tinker. \r\nBtw, I don't DM on Discord. Someone looks like me DMing you? Report",
         "blog": "http://promptmeharder.com/",
         "company": "NousResearch",
         "location": "Utah"
+      },
+      {
+        "login": "BearHuddleston",
+        "avatar": "https://avatars.githubusercontent.com/u/196404565?v=4",
+        "url": "https://github.com/BearHuddleston",
+        "contributions": 374,
+        "name": "Bear Huddleston",
+        "bio": "Software Engineer, Product @nousresearch",
+        "blog": null,
+        "company": "@nousresearch",
+        "location": "United States"
       },
       {
         "login": "fangliquanflq",
@@ -2521,17 +2532,6 @@
         "blog": null,
         "company": null,
         "location": null
-      },
-      {
-        "login": "BearHuddleston",
-        "avatar": "https://avatars.githubusercontent.com/u/196404565?v=4",
-        "url": "https://github.com/BearHuddleston",
-        "contributions": 350,
-        "name": "Bear Huddleston",
-        "bio": "Software Engineer, Product @nousresearch",
-        "blog": null,
-        "company": "@nousresearch",
-        "location": "United States"
       },
       {
         "login": "JoaoMarcos44",
@@ -2559,7 +2559,7 @@
         "login": "KoNit-K",
         "avatar": "https://avatars.githubusercontent.com/u/124019182?v=4",
         "url": "https://github.com/KoNit-K",
-        "contributions": 316,
+        "contributions": 317,
         "name": "KoNit.",
         "bio": "Life changes because of your actions and movement.",
         "blog": null,
@@ -2776,17 +2776,6 @@
         "location": null
       },
       {
-        "login": "Tranquil-Flow",
-        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
-        "url": "https://github.com/Tranquil-Flow",
-        "contributions": 90,
-        "name": null,
-        "bio": "Blockchain Engineer",
-        "blog": null,
-        "company": "@selfxyz",
-        "location": null
-      },
-      {
         "login": "TakeshiTGAL",
         "avatar": "https://avatars.githubusercontent.com/u/86576615?v=4",
         "url": "https://github.com/TakeshiTGAL",
@@ -2795,6 +2784,17 @@
         "bio": "Builder of vet402. Runs @gensyn_japan. ETHOnline 2026 prize winner.",
         "blog": "https://vet402.com",
         "company": null,
+        "location": null
+      },
+      {
+        "login": "Tranquil-Flow",
+        "avatar": "https://avatars.githubusercontent.com/u/66773372?v=4",
+        "url": "https://github.com/Tranquil-Flow",
+        "contributions": 90,
+        "name": null,
+        "bio": "Blockchain Engineer",
+        "blog": null,
+        "company": "@selfxyz",
         "location": null
       },
       {
