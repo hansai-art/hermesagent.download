@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T08:54:18.635Z",
+  "generatedAt": "2026-11-26T08:39:39.646Z",
   "content": {
     "total": 393,
     "byStatus": {
@@ -122,8 +122,8 @@
     "total": 1,
     "stars": 0,
     "forks": 0,
-    "recentCommits30d": 46,
-    "lastCommitAt": "2026-11-24T12:13:15Z",
+    "recentCommits30d": 47,
+    "lastCommitAt": "2026-11-25T11:01:22Z",
     "top": [
       {
         "login": "hansai-art",
@@ -135,8 +135,8 @@
     ]
   },
   "upstream": {
-    "lastReleaseTag": "v0.23.4",
-    "checkedAt": "2026-11-24T12:13:15.451Z",
+    "lastReleaseTag": "canary.20261125T064800Z-v0.23.4",
+    "checkedAt": "2026-11-25T11:01:22.932Z",
     "daysSinceCheck": 0
   }
 }
